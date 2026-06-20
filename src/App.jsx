@@ -248,7 +248,7 @@ const DATA = [
     enlace: "https://caritas.no/kurs/",
     actualizado: "Jun 2026",
     estado: "Activo",
-    tipo: "Caritas",
+    tipo: "Caritas Norge",
     nota: "Combinan språktrening (estructurado) + språkkafé (informal). Horario variable, revisar web.",
   },
 
@@ -762,7 +762,7 @@ const DATA = [
   {
     id: 40,
     nombre: "Caritas Norsk Språkkafé",
-    direccion: "Storgata 38 (entrada Hausmannsgate), 0182 Oslo",
+    direccion: "Storgata 38, 0182 Oslo",
     barrio: "Sentrum / Grønland",
     dia: "Semanal (ver web)",
     hora: "17:00–18:30",
@@ -775,7 +775,7 @@ const DATA = [
     enlace: "https://caritas.no/en/courses-and-activities/",
     actualizado: "Jun 2026",
     estado: "Activo",
-    tipo: "Caritas",
+    tipo: "Caritas Norge",
     nota: "Sin inscripción, presentarse directamente. También ofrecen Språktrening más estructurado el mismo edificio. Centro abierto lun–jue 10–16. Tram: parada Storgata.",
   },
   {
@@ -840,8 +840,8 @@ const DATA = [
 const TIPOS_COLOR = {
   "Deichman": { bg: "#1a4a7a", light: "#dbeafe", text: "#1e3a5f" },
   "Røde Kors": { bg: "#c0392b", light: "#fee2e2", text: "#7f1d1d" },
-  "Caritas Norge": { bg: "#B5121B", light: "#FDECEC", text: "#7A0C12" },
   "Universidad": { bg: "#5b21b6", light: "#ede9fe", text: "#4c1d95" },
+  "Caritas Norge": { bg: "#0284c7", light: "#e0f2fe", text: "#0369a1" },
   "ONG": { bg: "#065f46", light: "#d1fae5", text: "#064e3b" },
   "Iglesia": { bg: "#92400e", light: "#fef3c7", text: "#78350f" },
   "Frivilligsentral": { bg: "#0e7490", light: "#cffafe", text: "#0c4a6e" },
@@ -857,8 +857,6 @@ const ESTADOS = {
   "Confirmar": { color: "#6b7280", bg: "#f3f4f6", icon: "❓" },
 };
 
-const DIAS_ORDEN = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo", "Variable", "Quincenal / variable", "Lunes–Jueves", "Martes + Miércoles", "Ver deichman.no", "Ver Facebook", "Ver inscripción", "Ver web"];
-
 export default function App() {
   const [search, setSearch] = useState("");
   const [filterDia, setFilterDia] = useState("Todos");
@@ -866,7 +864,7 @@ export default function App() {
   const [filterEstado, setFilterEstado] = useState("Todos");
   const [filterGratis, setFilterGratis] = useState("Todos");
   const [selected, setSelected] = useState(null);
-  const [view, setView] = useState("tarjetas"); // tarjetas | tabla | calendario
+  const [view, setView] = useState("tarjetas");
 
   const dias = ["Todos", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
   const tipos = ["Todos", ...Object.keys(TIPOS_COLOR)];
@@ -909,15 +907,14 @@ export default function App() {
           <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.5rem" }}>
             <span style={{ fontSize: "2rem" }}>🇳🇴</span>
             <div>
-              <h1 style={{ margin: 0, fontSize: "clamp(1.4rem, 3vw, 2rem)", fontWeight: 1000, letterSpacing: "-0.04em" }}>
-                Språkkaffe Oslo — Directorio 2026
+              <h1 style={{ margin: 0, fontSize: "clamp(1.4rem, 3vw, 2rem)", fontWeight: 800, letterSpacing: "-0.02em" }}>
+                Språkkafé Oslo — Directorio 2026
               </h1>
-              <p style={{ margin: "0.50rem 0 0", opacity: 0.8, fontSize: "0.9rem" }}>
+              <p style={{ margin: "0.25rem 0 0", opacity: 0.8, fontSize: "0.9rem" }}>
                 Guía completa de grupos de conversación noruega · Actualizado junio 2026
               </p>
             </div>
           </div>
-
 
           {/* Stats bar */}
           <div style={{ display: "flex", gap: "1rem", marginTop: "1.25rem", flexWrap: "wrap" }}>
@@ -934,11 +931,10 @@ export default function App() {
             ))}
           </div>
         </div>
-      </div >
+      </div>
 
-      {/* LEYENDA COLORES */}
-      < div style={{ background: "white", borderBottom: "1px solid #e2e8f0", padding: "0.75rem 1.5rem", overflowX: "auto" }
-      }>
+      {/* LEYENDA COLORES (ORGANIZADORES) */}
+      <div style={{ background: "white", borderBottom: "1px solid #e2e8f0", padding: "0.75rem 1.5rem", overflowX: "auto" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", gap: "0.5rem", flexWrap: "wrap", alignItems: "center" }}>
           <span style={{ fontSize: "0.75rem", color: "#64748b", fontWeight: 600, marginRight: 4 }}>ORGANIZADOR:</span>
           {Object.entries(TIPOS_COLOR).map(([tipo, col]) => (
@@ -948,10 +944,10 @@ export default function App() {
             </span>
           ))}
         </div>
-      </div >
+      </div>
 
       {/* FILTROS Y BÚSQUEDA */}
-      < div style={{ background: "white", borderBottom: "1px solid #e2e8f0", padding: "0.75rem 1.5rem" }}>
+      <div style={{ background: "white", borderBottom: "1px solid #e2e8f0", padding: "0.75rem 1.5rem" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap", alignItems: "center" }}>
             <input
@@ -963,6 +959,10 @@ export default function App() {
             <select value={filterDia} onChange={e => setFilterDia(e.target.value)}
               style={{ padding: "0.5rem 0.7rem", border: "1.5px solid #cbd5e1", borderRadius: 8, fontSize: "0.85rem", backgroundColor: "white" }}>
               {dias.map(d => <option key={d}>{d}</option>)}
+            </select>
+            <select value={filterTipo} onChange={e => setFilterTipo(e.target.value)}
+              style={{ padding: "0.5rem 0.7rem", border: "1.5px solid #cbd5e1", borderRadius: 8, fontSize: "0.85rem", backgroundColor: "white" }}>
+              {tipos.map(t => <option key={t}>{t}</option>)}
             </select>
             <select value={filterEstado} onChange={e => setFilterEstado(e.target.value)}
               style={{ padding: "0.5rem 0.7rem", border: "1.5px solid #cbd5e1", borderRadius: 8, fontSize: "0.85rem", backgroundColor: "white" }}>
@@ -985,179 +985,190 @@ export default function App() {
             {filtered.length} resultado{filtered.length !== 1 ? "s" : ""} · {filtered.filter(d => d.estado === "Activo").length} activos
           </div>
         </div>
-      </div >
+      </div>
 
       {/* CONTENIDO */}
-      < div style={{ maxWidth: 1100, margin: "0 auto", padding: "1.25rem 1rem" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "1.25rem 1rem" }}>
 
         {/* === VISTA TARJETAS === */}
-        {
-          view === "tarjetas" && (
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "1rem" }}>
-              {filtered.map(item => {
-                const tc = TIPOS_COLOR[item.tipo] || TIPOS_COLOR["ONG"];
-                const es = ESTADOS[item.estado];
-                return (
-                  <div key={item.id} onClick={() => setSelected(selected?.id === item.id ? null : item)}
-                    style={{ background: "white", borderRadius: 12, overflow: "hidden", boxShadow: "0 1px 4px rgba(0,0,0,0.08)", border: "1.5px solid", borderColor: selected?.id === item.id ? tc.bg : "#e2e8f0", cursor: "pointer", transition: "all 0.18s" }}>
-                    {/* Color stripe */}
-                    <div style={{ height: 5, backgroundColor: tc.bg }} />
-                    <div style={{ padding: "1rem" }}>
-                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 8 }}>
-                        <h3 style={{ margin: 0, fontSize: "0.9rem", fontWeight: 700, color: "#1e293b", lineHeight: 1.3, flex: 1 }}>
-                          {item.nombre}
-                        </h3>
-                        <span style={{ fontSize: "0.7rem", padding: "0.2rem 0.5rem", borderRadius: 20, backgroundColor: es.bg, color: es.color, fontWeight: 700, whiteSpace: "nowrap", flexShrink: 0 }}>
-                          {es.icon} {item.estado}
-                        </span>
-                      </div>
-
-                      <div style={{ display: "flex", gap: 6, marginTop: "0.5rem", flexWrap: "wrap" }}>
-                        <span style={{ fontSize: "0.7rem", padding: "0.15rem 0.5rem", borderRadius: 20, backgroundColor: tc.light, color: tc.text, fontWeight: 600 }}>{item.tipo}</span>
-                        {item.gratis && <span style={{ fontSize: "0.7rem", padding: "0.15rem 0.5rem", borderRadius: 20, backgroundColor: "#dcfce7", color: "#166534", fontWeight: 600 }}>🆓 Gratis</span>}
-                        {!item.inscripcion && <span style={{ fontSize: "0.7rem", padding: "0.15rem 0.5rem", borderRadius: 20, backgroundColor: "#f0fdf4", color: "#15803d", fontWeight: 600 }}>Drop-in</span>}
-                        {item.inscripcion && <span style={{ fontSize: "0.7rem", padding: "0.15rem 0.5rem", borderRadius: 20, backgroundColor: "#fef9c3", color: "#854d0e", fontWeight: 600 }}>📝 Inscripción</span>}
-                      </div>
-
-                      <div style={{ marginTop: "0.75rem", display: "flex", flexDirection: "column", gap: "0.3rem" }}>
-                        <div style={{ fontSize: "0.8rem", color: "#374151" }}>
-                          <span style={{ fontWeight: 700, color: "#1a4a7a" }}>📅</span> {item.dia} · {item.hora}
-                        </div>
-                        <div style={{ fontSize: "0.78rem", color: "#64748b" }}>
-                          <span style={{ fontWeight: 700 }}>📍</span> {item.barrio}
-                        </div>
-                        <div style={{ fontSize: "0.75rem", color: "#94a3b8" }}>{item.direccion}</div>
-                        <div style={{ fontSize: "0.75rem", color: "#64748b" }}>
-                          <span style={{ fontWeight: 600 }}>Nivel:</span> {item.nivel}
-                        </div>
-                      </div>
-
-                      {selected?.id === item.id && (
-                        <div style={{ marginTop: "0.75rem", paddingTop: "0.75rem", borderTop: "1px solid #f1f5f9" }}>
-                          <div style={{ fontSize: "0.78rem", color: "#374151", marginBottom: 6 }}>
-                            <strong>Organizador:</strong> {item.organizador}
-                          </div>
-                          <div style={{ fontSize: "0.78rem", color: "#374151", marginBottom: 6 }}>
-                            <strong>Contacto:</strong> {item.contacto}
-                          </div>
-                          <div style={{ fontSize: "0.78rem", color: "#374151", marginBottom: 6 }}>
-                            <strong>Idiomas:</strong> {item.idiomas.join(", ")}
-                          </div>
-                          {item.nota && (
-                            <div style={{ fontSize: "0.75rem", color: "#64748b", backgroundColor: "#f8fafc", padding: "0.5rem", borderRadius: 6, marginBottom: 6 }}>
-                              💡 {item.nota}
-                            </div>
-                          )}
-                          <a href={item.enlace} target="_blank" rel="noreferrer"
-                            style={{ display: "inline-block", marginTop: 4, fontSize: "0.78rem", color: "#1a4a7a", fontWeight: 600, textDecoration: "none" }}>
-                            🔗 Ir al sitio oficial →
-                          </a>
-                          <div style={{ fontSize: "0.7rem", color: "#94a3b8", marginTop: 4 }}>Actualizado: {item.actualizado}</div>
-                        </div>
-                      )}
+        {view === "tarjetas" && (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "1rem" }}>
+            {filtered.map(item => {
+              const tc = TIPOS_COLOR[item.tipo] || TIPOS_COLOR["ONG"];
+              const es = ESTADOS[item.estado];
+              return (
+                <div key={item.id} onClick={() => setSelected(selected?.id === item.id ? null : item)}
+                  style={{ background: "white", borderRadius: 12, overflow: "hidden", boxShadow: "0 1px 4px rgba(0,0,0,0.08)", border: "1.5px solid", borderColor: selected?.id === item.id ? tc.bg : "#e2e8f0", cursor: "pointer", transition: "all 0.18s" }}>
+                  <div style={{ height: 5, backgroundColor: tc.bg }} />
+                  <div style={{ padding: "1rem" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 8 }}>
+                      <h3 style={{ margin: 0, fontSize: "0.9rem", fontWeight: 700, color: "#1e293b", lineHeight: 1.3, flex: 1 }}>
+                        {item.nombre}
+                      </h3>
+                      <span style={{ fontSize: "0.7rem", padding: "0.2rem 0.5rem", borderRadius: 20, backgroundColor: es.bg, color: es.color, fontWeight: 700, whiteSpace: "nowrap", flexShrink: 0 }}>
+                        {es.icon} {item.estado}
+                      </span>
                     </div>
+
+                    <div style={{ display: "flex", gap: 6, marginTop: "0.5rem", flexWrap: "wrap" }}>
+                      <span style={{ fontSize: "0.7rem", padding: "0.15rem 0.5rem", borderRadius: 20, backgroundColor: tc.light, color: tc.text, fontWeight: 600 }}>{item.tipo}</span>
+                      {item.gratis && <span style={{ fontSize: "0.7rem", padding: "0.15rem 0.5rem", borderRadius: 20, backgroundColor: "#dcfce7", color: "#166534", fontWeight: 600 }}>🆓 Gratis</span>}
+                      {!item.inscripcion && <span style={{ fontSize: "0.7rem", padding: "0.15rem 0.5rem", borderRadius: 20, backgroundColor: "#f0fdf4", color: "#15803d", fontWeight: 600 }}>Drop-in</span>}
+                      {item.inscripcion && <span style={{ fontSize: "0.7rem", padding: "0.15rem 0.5rem", borderRadius: 20, backgroundColor: "#fef9c3", color: "#854d0e", fontWeight: 600 }}>📝 Inscripción</span>}
+                    </div>
+
+                    <div style={{ marginTop: "0.75rem", display: "flex", flexDirection: "column", gap: "0.3rem" }}>
+                      <div style={{ fontSize: "0.8rem", color: "#374151" }}>
+                        <span style={{ fontWeight: 700, color: "#1a4a7a" }}>📅</span> {item.dia} · {item.hora}
+                      </div>
+                      <div style={{ fontSize: "0.78rem", color: "#64748b" }}>
+                        <span style={{ fontWeight: 700 }}>📍</span> {item.barrio}
+                      </div>
+
+                      {/* DIRECCIÓN CLICABLE CON ENLACE A GOOGLE MAPS */}
+                      <a
+                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.nombre + " " + item.direccion)}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={(e) => e.stopPropagation()} // Evita que al pulsar el link se colapse la tarjeta
+                        style={{ fontSize: "0.75rem", color: "#0284c7", textDecoration: "underline", fontWeight: 500, cursor: "pointer" }}
+                        title="Abrir en Google Maps"
+                      >
+                        🗺️ {item.direccion}
+                      </a>
+
+                      <div style={{ fontSize: "0.75rem", color: "#64748b" }}>
+                        <span style={{ fontWeight: 600 }}>Nivel:</span> {item.nivel}
+                      </div>
+                    </div>
+
+                    {selected?.id === item.id && (
+                      <div style={{ marginTop: "0.75rem", paddingTop: "0.75rem", borderTop: "1px solid #f1f5f9" }}>
+                        <div style={{ fontSize: "0.78rem", color: "#374151", marginBottom: 6 }}>
+                          <strong>Organizador:</strong> {item.organizador}
+                        </div>
+                        <div style={{ fontSize: "0.78rem", color: "#374151", marginBottom: 6 }}>
+                          <strong>Contacto:</strong> {item.contacto}
+                        </div>
+                        <div style={{ fontSize: "0.78rem", color: "#374151", marginBottom: 6 }}>
+                          <strong>Idiomas:</strong> {item.idiomas.join(", ")}
+                        </div>
+                        {item.nota && (
+                          <div style={{ fontSize: "0.75rem", color: "#64748b", backgroundColor: "#f8fafc", padding: "0.5rem", borderRadius: 6, marginBottom: 6 }}>
+                            💡 {item.nota}
+                          </div>
+                        )}
+                        <a href={item.enlace} target="_blank" rel="noreferrer"
+                          style={{ display: "inline-block", marginTop: 4, fontSize: "0.78rem", color: "#1a4a7a", fontWeight: 600, textDecoration: "none" }}>
+                          🔗 Ir al sitio oficial →
+                        </a>
+                        <div style={{ fontSize: "0.7rem", color: "#94a3b8", marginTop: 4 }}>Actualizado: {item.actualizado}</div>
+                      </div>
+                    )}
                   </div>
-                );
-              })}
-              {filtered.length === 0 && (
-                <div style={{ gridColumn: "1/-1", textAlign: "center", padding: "3rem", color: "#94a3b8" }}>
-                  <div style={{ fontSize: "3rem" }}>🔍</div>
-                  <p>No se encontraron resultados con estos filtros.</p>
                 </div>
-              )}
-            </div>
-          )
-        }
+              );
+            })}
+            {filtered.length === 0 && (
+              <div style={{ gridColumn: "1/-1", textAlign: "center", padding: "3rem", color: "#94a3b8" }}>
+                <div style={{ fontSize: "3rem" }}>🔍</div>
+                <p>No se encontraron resultados con estos filtros.</p>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* === VISTA TABLA === */}
-        {
-          view === "tabla" && (
-            <div style={{ background: "white", borderRadius: 12, overflow: "hidden", boxShadow: "0 1px 4px rgba(0,0,0,0.08)" }}>
-              <div style={{ overflowX: "auto" }}>
-                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.8rem" }}>
-                  <thead>
-                    <tr style={{ backgroundColor: "#1a4a7a", color: "white" }}>
-                      {["Nombre", "Barrio", "Día", "Hora", "Tipo", "Nivel", "Gratis", "Inscripción", "Estado"].map(h => (
-                        <th key={h} style={{ padding: "0.6rem 0.75rem", textAlign: "left", fontWeight: 700, whiteSpace: "nowrap" }}>{h}</th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {filtered.map((item, i) => {
+        {view === "tabla" && (
+          <div style={{ background: "white", borderRadius: 12, overflow: "hidden", boxShadow: "0 1px 4px rgba(0,0,0,0.08)" }}>
+            <div style={{ overflowX: "auto" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.8rem" }}>
+                <thead>
+                  <tr style={{ backgroundColor: "#1a4a7a", color: "white" }}>
+                    {["Nombre", "Barrio", "Día", "Hora", "Tipo", "Nivel", "Gratis", "Inscripción", "Estado"].map(h => (
+                      <th key={h} style={{ padding: "0.6rem 0.75rem", textAlign: "left", fontWeight: 700, whiteSpace: "nowrap" }}>{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {filtered.map((item, i) => {
+                    const tc = TIPOS_COLOR[item.tipo] || TIPOS_COLOR["ONG"];
+                    const es = ESTADOS[item.estado];
+                    return (
+                      <tr key={item.id} style={{ backgroundColor: i % 2 === 0 ? "white" : "#f8fafc", borderBottom: "1px solid #f1f5f9" }}>
+                        <td style={{ padding: "0.6rem 0.75rem", fontWeight: 600, color: "#1e293b", maxWidth: 250 }}>
+                          <div>{item.nombre}</div>
+                          <div style={{ fontSize: "0.7rem", color: "#94a3b8", marginTop: 2 }}>{item.organizador}</div>
+                          {/* Dirección directa en tabla también */}
+                          <div style={{ marginTop: 4 }}>
+                            <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.nombre + " " + item.direccion)}`} target="_blank" rel="noreferrer" style={{ fontSize: "0.68rem", color: "#0284c7", textDecoration: "underline" }}>
+                              🗺️ Ver mapa
+                            </a>
+                          </div>
+                        </td>
+                        <td style={{ padding: "0.6rem 0.75rem", color: "#475569" }}>{item.barrio}</td>
+                        <td style={{ padding: "0.6rem 0.75rem", color: "#475569", whiteSpace: "nowrap" }}>{item.dia}</td>
+                        <td style={{ padding: "0.6rem 0.75rem", color: "#475569", whiteSpace: "nowrap" }}>{item.hora}</td>
+                        <td style={{ padding: "0.6rem 0.75rem" }}>
+                          <span style={{ fontSize: "0.7rem", padding: "0.2rem 0.5rem", borderRadius: 20, backgroundColor: tc.light, color: tc.text, fontWeight: 600 }}>{item.tipo}</span>
+                        </td>
+                        <td style={{ padding: "0.6rem 0.75rem", color: "#475569" }}>{item.nivel}</td>
+                        <td style={{ padding: "0.6rem 0.75rem", textAlign: "center" }}>{item.gratis ? "🆓" : "💰"}</td>
+                        <td style={{ padding: "0.6rem 0.75rem", textAlign: "center" }}>{item.inscripcion ? "📝" : "🚶"}</td>
+                        <td style={{ padding: "0.6rem 0.75rem" }}>
+                          <span style={{ fontSize: "0.7rem", padding: "0.2rem 0.5rem", borderRadius: 20, backgroundColor: es.bg, color: es.color, fontWeight: 700 }}>
+                            {es.icon} {item.estado}
+                          </span>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {/* === VISTA CALENDARIO === */}
+        {view === "calendario" && (
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            {dias.slice(1).map(dia => {
+              const items = byDay[dia] || [];
+              if (items.length === 0) return null;
+              return (
+                <div key={dia} style={{ background: "white", borderRadius: 12, overflow: "hidden", boxShadow: "0 1px 4px rgba(0,0,0,0.08)" }}>
+                  <div style={{ backgroundColor: "#1a4a7a", color: "white", padding: "0.6rem 1rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 800 }}>📅 {dia}</h3>
+                    <span style={{ fontSize: "0.8rem", opacity: 0.8 }}>{items.length} actividad{items.length !== 1 ? "es" : ""}</span>
+                  </div>
+                  <div style={{ padding: "0.75rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                    {items.map(item => {
                       const tc = TIPOS_COLOR[item.tipo] || TIPOS_COLOR["ONG"];
                       const es = ESTADOS[item.estado];
                       return (
-                        <tr key={item.id} style={{ backgroundColor: i % 2 === 0 ? "white" : "#f8fafc", borderBottom: "1px solid #f1f5f9" }}>
-                          <td style={{ padding: "0.6rem 0.75rem", fontWeight: 600, color: "#1e293b", maxWidth: 250 }}>
-                            <div>{item.nombre}</div>
-                            <div style={{ fontSize: "0.7rem", color: "#94a3b8", marginTop: 2 }}>{item.organizador}</div>
-                          </td>
-                          <td style={{ padding: "0.6rem 0.75rem", color: "#475569" }}>{item.barrio}</td>
-                          <td style={{ padding: "0.6rem 0.75rem", color: "#475569", whiteSpace: "nowrap" }}>{item.dia}</td>
-                          <td style={{ padding: "0.6rem 0.75rem", color: "#475569", whiteSpace: "nowrap" }}>{item.hora}</td>
-                          <td style={{ padding: "0.6rem 0.75rem" }}>
-                            <span style={{ fontSize: "0.7rem", padding: "0.2rem 0.5rem", borderRadius: 20, backgroundColor: tc.light, color: tc.text, fontWeight: 600 }}>{item.tipo}</span>
-                          </td>
-                          <td style={{ padding: "0.6rem 0.75rem", color: "#475569" }}>{item.nivel}</td>
-                          <td style={{ padding: "0.6rem 0.75rem", textAlign: "center" }}>{item.gratis ? "🆓" : "💰"}</td>
-                          <td style={{ padding: "0.6rem 0.75rem", textAlign: "center" }}>{item.inscripcion ? "📝" : "🚶"}</td>
-                          <td style={{ padding: "0.6rem 0.75rem" }}>
-                            <span style={{ fontSize: "0.7rem", padding: "0.2rem 0.5rem", borderRadius: 20, backgroundColor: es.bg, color: es.color, fontWeight: 700 }}>
-                              {es.icon} {item.estado}
-                            </span>
-                          </td>
-                        </tr>
+                        <div key={item.id} style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", padding: "0.6rem", borderRadius: 8, backgroundColor: "#f8fafc", border: "1px solid #f1f5f9" }}>
+                          <div style={{ minWidth: 70, fontSize: "0.75rem", fontWeight: 700, color: "#1a4a7a", paddingTop: 2 }}>{item.hora}</div>
+                          <div style={{ flex: 1 }}>
+                            <div style={{ fontWeight: 600, fontSize: "0.85rem", color: "#1e293b" }}>{item.nombre}</div>
+                            <div style={{ fontSize: "0.75rem", color: "#64748b" }}>{item.barrio} · {item.nivel}</div>
+                          </div>
+                          <div style={{ display: "flex", flexDirection: "column", gap: 4, alignItems: "flex-end" }}>
+                            <span style={{ fontSize: "0.65rem", padding: "0.15rem 0.45rem", borderRadius: 20, backgroundColor: tc.light, color: tc.text, fontWeight: 600 }}>{item.tipo}</span>
+                            <span style={{ fontSize: "0.65rem", padding: "0.15rem 0.45rem", borderRadius: 20, backgroundColor: es.bg, color: es.color, fontWeight: 700 }}>{es.icon} {item.estado}</span>
+                          </div>
+                        </div>
                       );
                     })}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )
-        }
-
-        {/* === VISTA CALENDARIO === */}
-        {
-          view === "calendario" && (
-            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-              {dias.slice(1).map(dia => {
-                const items = byDay[dia] || [];
-                if (items.length === 0) return null;
-                return (
-                  <div key={dia} style={{ background: "white", borderRadius: 12, overflow: "hidden", boxShadow: "0 1px 4px rgba(0,0,0,0.08)" }}>
-                    <div style={{ backgroundColor: "#1a4a7a", color: "white", padding: "0.6rem 1rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                      <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 800 }}>📅 {dia}</h3>
-                      <span style={{ fontSize: "0.8rem", opacity: 0.8 }}>{items.length} actividad{items.length !== 1 ? "es" : ""}</span>
-                    </div>
-                    <div style={{ padding: "0.75rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                      {items.map(item => {
-                        const tc = TIPOS_COLOR[item.tipo] || TIPOS_COLOR["ONG"];
-                        const es = ESTADOS[item.estado];
-                        return (
-                          <div key={item.id} style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", padding: "0.6rem", borderRadius: 8, backgroundColor: "#f8fafc", border: "1px solid #f1f5f9" }}>
-                            <div style={{ minWidth: 70, fontSize: "0.75rem", fontWeight: 700, color: "#1a4a7a", paddingTop: 2 }}>{item.hora}</div>
-                            <div style={{ flex: 1 }}>
-                              <div style={{ fontWeight: 600, fontSize: "0.85rem", color: "#1e293b" }}>{item.nombre}</div>
-                              <div style={{ fontSize: "0.75rem", color: "#64748b" }}>{item.barrio} · {item.nivel}</div>
-                            </div>
-                            <div style={{ display: "flex", flexDirection: "column", gap: 4, alignItems: "flex-end" }}>
-                              <span style={{ fontSize: "0.65rem", padding: "0.15rem 0.45rem", borderRadius: 20, backgroundColor: tc.light, color: tc.text, fontWeight: 600 }}>{item.tipo}</span>
-                              <span style={{ fontSize: "0.65rem", padding: "0.15rem 0.45rem", borderRadius: 20, backgroundColor: es.bg, color: es.color, fontWeight: 700 }}>{es.icon} {item.estado}</span>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
                   </div>
-                );
-              })}
-            </div>
-          )
-        }
-      </div >
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
 
       {/* FOOTER */}
-      < div style={{ background: "#1e293b", color: "#94a3b8", padding: "1.5rem", marginTop: "2rem", fontSize: "0.8rem" }}>
+      <div style={{ background: "#1e293b", color: "#94a3b8", padding: "1.5rem", marginTop: "2rem", fontSize: "0.8rem" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem", marginBottom: "1rem" }}>
             <div>
@@ -1188,7 +1199,7 @@ export default function App() {
             <span>🇳🇴 Directorio elaborado con fuentes oficiales verificadas · Uso público libre</span>
           </div>
         </div>
-      </div >
-    </div >
+      </div>
+    </div>
   );
 }
