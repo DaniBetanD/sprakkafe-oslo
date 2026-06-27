@@ -1,0 +1,110 @@
+[
+    {
+        "id": "rodekors",
+        "name": "Røde Kors Oslo",
+        "tipo": "ONG",
+        "website": "https://www.rodekors.no/lokalforeninger/oslo/",
+        "email": "norsktrening.oslo@redcross.no",
+        "phone": "+47 911 98 339",
+        "logo": "🔴",
+        "verified": true,
+        "description": "Røde Kors ofrece norsktrening gratuito en múltiples ubicaciones de Oslo. Grupos de conversación y práctica estructurada para todos los niveles.",
+        "lastChecked": "2026-06-27"
+    },
+    {
+        "id": "deichman",
+        "name": "Deichman Bibliotek",
+        "tipo": "Biblioteca",
+        "website": "https://deichman.no/",
+        "email": "post@deichman.no",
+        "phone": "+47 23 43 29 00",
+        "logo": "📚",
+        "verified": true,
+        "description": "Las bibliotecas Deichman organizan språkkafé en varios distritos de Oslo. Ambiente relajado y sin estructura escolar.",
+        "lastChecked": "2026-06-27"
+    },
+    {
+        "id": "caritas",
+        "name": "Caritas Norge",
+        "tipo": "ONG",
+        "website": "https://caritas.no/",
+        "email": "info@caritas.no",
+        "phone": "+47 23 33 43 61",
+        "logo": "🤝",
+        "verified": true,
+        "description": "Caritas ofrece språktrening estructurado y språkkafé informal en el centro de Oslo. Combinan aprendizaje formal con conversación.",
+        "lastChecked": "2026-06-27"
+    },
+    {
+        "id": "norskstart",
+        "name": "Norsk Start Oslo",
+        "tipo": "Universidad",
+        "website": "https://www.norskstart.no/",
+        "email": "norskstartoslo@gmail.com",
+        "phone": null,
+        "logo": "🎓",
+        "verified": true,
+        "description": "Organización estudiantil de la Universidad de Oslo que ofrece språkkafé gratuito para inmigrantes. Cuadernillos semanales A1-B2.",
+        "lastChecked": "2026-06-27"
+    },
+    {
+        "id": "haugerud",
+        "name": "Haugerud Frivillighetssentral",
+        "tipo": "Voluntariado",
+        "website": "https://www.bnorsk.no/",
+        "email": "post@haugerud.frivillig.no",
+        "phone": null,
+        "logo": "🏠",
+        "verified": true,
+        "description": "Centro de voluntariado en Haugerud que organiza språkkafé semanal en un ambiente acogedor.",
+        "lastChecked": "2026-06-27"
+    },
+    {
+        "id": "pauluskirke",
+        "name": "Paulus Kirke",
+        "tipo": "Iglesia",
+        "website": "https://pauluskirke.no/",
+        "email": "post@pauluskirke.no",
+        "phone": null,
+        "logo": "⛪",
+        "verified": true,
+        "description": "La iglesia Paulus en Grünerløkka ofrece språkkafé cada jueves en un ambiente acogedor y comunitario.",
+        "lastChecked": "2026-06-27"
+    },
+    {
+        "id": "ethnos",
+        "name": "Ethnos",
+        "tipo": "ONG",
+        "website": "https://www.ethnos.no/",
+        "email": "post@ethnos.no",
+        "phone": null,
+        "logo": "🌍",
+        "verified": true,
+        "description": "Ethnos ofrece cursos estructurados de noruego gratuitos en varios niveles, de lunes a jueves.",
+        "lastChecked": "2026-06-27"
+    },
+    {
+        "id": "alfaskolen",
+        "name": "Alfaskolen",
+        "tipo": "Escuela",
+        "website": "https://www.alfaskolen.no/",
+        "email": "post@alfaskolen.no",
+        "phone": null,
+        "logo": "✏️",
+        "verified": false,
+        "description": "Escuela de noruego que organiza språkkafé de forma regular. Actualmente en pausa hasta otoño 2026.",
+        "lastChecked": "2026-06-27"
+    },
+    {
+        "id": "sagene",
+        "name": "Sagene Frivilligsentral",
+        "tipo": "Voluntariado",
+        "website": "https://sagene.frivilligsentral.no/",
+        "email": "post@sagene.frivillig.no",
+        "phone": null,
+        "logo": "🏘️",
+        "verified": true,
+        "description": "Centro de voluntariado en Sagene que organiza språkkafé los domingos en un ambiente familiar.",
+        "lastChecked": "2026-06-27"
+    }
+]
