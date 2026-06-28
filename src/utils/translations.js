@@ -12,6 +12,5 @@ export const LEVELS = {
   A1: "A1 — Principiante",
   A2: "A2 — Básico",
   B1: "B1 — Intermedio",
-  B2: "B2 — Intermedio alto",
-  C1: "C1 — Avanzado"
+  B2: "B2 — Intermedio alto"
 };

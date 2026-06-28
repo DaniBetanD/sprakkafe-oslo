@@ -1,9 +1,11 @@
 import { Calendar, MapPin, Award } from "lucide-react";
 import { DAYS, LEVELS } from "../utils/translations";
+import { useState } from "react";
 
 export default function ActivityCard({ activity, organization, onClick, isSelected }) {
+    const [imgError, setImgError] = useState(false);
 
-    const logoSrc = organization?.logoImg
+    const logoSrc = organization?.logoImg && !imgError
         ? new URL(`../assets/logos/${organization.logoImg}`, import.meta.url).href
         : null;
 
@@ -23,9 +25,10 @@ export default function ActivityCard({ activity, organization, onClick, isSelect
                             src={logoSrc}
                             alt={organization.name}
                             className="w-full h-full object-contain p-1"
+                            onError={() => setImgError(true)}
                         />
                     ) : (
-                        <span className="text-xl">{organization?.logo}</span>
+                        <span className="text-xl">{organization?.logo || '📚'}</span>
                     )}
                 </div>
                 <div className="flex-1 min-w-0">

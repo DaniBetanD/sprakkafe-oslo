@@ -53,3 +53,41 @@ body {
 .fade-in-up {
   animation: fadeInUp 0.5s ease-out;
 }
+
+/* Animación para el panel móvil */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Mejora del scroll en móvil */
+@media (max-width: 768px) {
+  .mobile-panel {
+    max-height: 85vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
