@@ -1,9 +1,10 @@
 [
     {
         "id": "rodekors",
+        "logoImg": "rodekors.svg",
         "name": "Røde Kors Oslo",
         "tipo": "ONG",
-        "website": "https://www.rodekors.no/lokalforeninger/oslo/",
+        "website": "https://www.rodekors.no/lokalforeninger/oslo/aktiviteter/flyktninger-innvandrere/norsktrening/",
         "email": "norsktrening.oslo@redcross.no",
         "phone": "+47 911 98 339",
         "logo": "🔴",
@@ -13,6 +14,7 @@
     },
     {
         "id": "deichman",
+        "logoImg": "deichman.svg",
         "name": "Deichman Bibliotek",
         "tipo": "Biblioteca",
         "website": "https://deichman.no/",
@@ -25,6 +27,7 @@
     },
     {
         "id": "caritas",
+        "logoImg": "caritas.png",
         "name": "Caritas Norge",
         "tipo": "ONG",
         "website": "https://caritas.no/",
@@ -37,6 +40,7 @@
     },
     {
         "id": "norskstart",
+        "logoImg": "norskstart.png",
         "name": "Norsk Start Oslo",
         "tipo": "Universidad",
         "website": "https://www.norskstart.no/",
@@ -49,6 +53,7 @@
     },
     {
         "id": "haugerud",
+        "logoImg": "haugerud.png",
         "name": "Haugerud Frivillighetssentral",
         "tipo": "Voluntariado",
         "website": "https://www.bnorsk.no/",
@@ -61,6 +66,7 @@
     },
     {
         "id": "pauluskirke",
+        "logoImg": "pauluskirke.png",
         "name": "Paulus Kirke",
         "tipo": "Iglesia",
         "website": "https://pauluskirke.no/",
@@ -73,6 +79,7 @@
     },
     {
         "id": "ethnos",
+        "logoImg": "ethnos.svg",
         "name": "Ethnos",
         "tipo": "ONG",
         "website": "https://www.ethnos.no/",
@@ -85,6 +92,7 @@
     },
     {
         "id": "alfaskolen",
+        "logoImg": "alfaskolen.png",
         "name": "Alfaskolen",
         "tipo": "Escuela",
         "website": "https://www.alfaskolen.no/",
@@ -97,6 +105,7 @@
     },
     {
         "id": "sagene",
+        "logoImg": "sagene.png",
         "name": "Sagene Frivilligsentral",
         "tipo": "Voluntariado",
         "website": "https://sagene.frivilligsentral.no/",
@@ -105,6 +114,19 @@
         "logo": "🏘️",
         "verified": true,
         "description": "Centro de voluntariado en Sagene que organiza språkkafé los domingos en un ambiente familiar.",
+        "lastChecked": "2026-06-27"
+    },
+    {
+        "id": "toyen-frivilligsentral",
+        "logoImg": "frivilligsentral.svg",
+        "name": "Tøyen Frivilligsentral",
+        "tipo": "Voluntariado",
+        "website": "https://frivillig.no/tyen-frivilligsentral",
+        "email": "vendula.aatland@bgo.oslo.kommune.no",
+        "phone": null,
+        "logo": "🏘️",
+        "verified": true,
+        "description": "Centro de voluntariado en Tøyen que organiza språkkafé los lunes en colaboración con Deichman Tøyen. También ofrecen New Amigos, un juego de mesa para practicar noruego en varios idiomas incluyendo español.",
         "lastChecked": "2026-06-27"
     }
 ]

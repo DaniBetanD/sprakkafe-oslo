@@ -41,7 +41,17 @@ export default function OrganizationPage() {
                 {/* Info organización */}
                 <section className="bg-white rounded-3xl border border-gray-200 p-6 md:p-8 shadow-sm space-y-4">
                     <div className="flex items-center gap-3">
-                        <span className="text-4xl">{organization.logo}</span>
+                        <div className="w-14 h-14 rounded-xl border border-gray-100 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0">
+                            {organization.logoImg ? (
+                                <img
+                                    src={new URL(`../assets/logos/${organization.logoImg}`, import.meta.url).href}
+                                    alt={organization.name}
+                                    className="w-full h-full object-contain p-1"
+                                />
+                            ) : (
+                                <span className="text-2xl">{organization.logo}</span>
+                            )}
+                        </div>
                         <div>
                             <h1 className="text-2xl font-bold text-gray-900">{organization.name}</h1>
                             <span className="text-sm text-gray-500">{organization.tipo}</span>

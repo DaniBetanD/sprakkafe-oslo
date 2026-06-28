@@ -1,394 +1,213 @@
 Språkkafé Oslo — Estado del Proyecto
 
-Proyecto: Directorio de Språkkafé en Oslo para personas hispanohablantes
-Stack actual: React + Vite + Tailwind + Vercel
-Estado: MVP funcional en fase de diseño y arquitectura
 Última actualización: Junio 2026
 
-1. Objetivo del proyecto
+Stack: React + Vite + Tailwind + React Router + Vercel
 
-Crear un directorio ligero, intuitivo y móvil primero para encontrar actividades de intercambio lingüístico en Oslo.
+Estado general: 🟢 MVP funcional con arquitectura profesional
 
-Inspiración UX:
 
-Diseño minimalista tipo directorios públicos
-Navegación simple
-Buscador principal
-Filtros rápidos
-Información actualizada automáticamente
+Objetivo
 
-Usuarios principales:
+Directorio ligero, móvil primero, para encontrar actividades de intercambio lingüístico en Oslo dirigido a hispanohablantes.
 
-Personas hispanohablantes viviendo en Oslo
-Nuevos residentes
-Personas aprendiendo noruego
-Organizaciones que ofrecen actividades gratuitas
-2. Infraestructura actual
-Completado ✅
-Entorno de desarrollo
+
+Infraestructura
+
+
  Proyecto creado con Vite + React
  Código gestionado con GitHub
- Deploy funcionando en Vercel
- Desarrollo local con:
-npm run dev
-Tecnologías instaladas
-Frontend
-React
-React Router
-Tailwind CSS
-Lucide React
-Headless UI
+ Deploy funcionando en Vercel (sprakkafe-oslo.vercel.app)
+ Desarrollo local con npm run dev
+ Tailwind CSS configurado correctamente
+ React Router configurado con 3 rutas
 
-Dependencias principales:
 
-react
-react-dom
-react-router-dom
-tailwindcss
-lucide-react
-@headlessui/react
-3. Arquitectura actual
 
-Estructura:
+Arquitectura actual
 
-src
-│
-├── components
-│   │
+src/
+├── components/
 │   ├── Header.jsx
 │   ├── SearchBar.jsx
 │   ├── ActivityCard.jsx
 │   └── Filters.jsx
-│
-├── pages
-│   │
-│   └── Home.jsx
-│
-├── data
-│   │
-│   └── activities.json
-│
+├── pages/
+│   ├── Home.jsx
+│   ├── ActivityPage.jsx
+│   └── OrganizationPage.jsx
+├── data/
+│   ├── activities.json
+│   └── organizations.json
+├── utils/
+│   └── translations.js
 ├── App.jsx
 ├── main.jsx
 └── index.css
-4. Funcionalidades implementadas
-Home principal ✅
 
-Actualmente existe:
 
-Header
-Hero principal
-Buscador
-Listado de actividades
-Contador de resultados
-Buscador ✅
-
-Permite buscar por:
-
-Nombre actividad
-Organización
-Barrio
-Nivel
-
-Ejemplo:
-
-buscar:
-røde
-
-resultado:
-Språkkafé Røde Kors
-Sistema de tarjetas ✅
-
-Cada actividad aparece como una tarjeta.
-
-Incluye:
-
-Nombre
-Organización
-Ubicación
-Información básica
-Sistema de filtros ✅
-
-Implementado:
-
-Barrio
-
-Ejemplo:
-
-Grünerløkka
-Tøyen
-Majorstuen
-Día
-
-Ejemplo:
-
-Monday
-Tuesday
-Wednesday
-Nivel
-
-Ejemplo:
-
-A1
-A2
-B1
-Organización
-
-Ejemplo:
-
-Røde Kors
-Deichman
-Limpiar filtros ✅
-
-Añadido botón:
-
-Limpiar filtros
-
-que devuelve todos los resultados.
-
-5. Problemas solucionados
-Estructura duplicada del proyecto
-
-Problema:
-
-Existían dos proyectos:
-
-sprakkafe-oslo
-     |
-     └── sprakkafe
-
-Solucionado:
-
-Mantener:
-
-sprakkafe-oslo
-
-como proyecto principal.
-
-Tailwind
-
-Configurado correctamente.
-
-Errores Vite
-
-Solucionados:
-
-imports incorrectos
-estructura duplicada
-configuración Tailwind
-componentes faltantes
-6. Estado actual del diseño UX
-
-Actualmente:
-
-Nivel:
-
-🟡 Funcional
-
-Pendiente:
-
-refinamiento visual
-más parecido al diseño objetivo
-mejor experiencia móvil
-7. Próxima fase inmediata
-Fase 1 — Modelo de datos profesional
-
-Estado:
-
-⏳ Pendiente
-
-Objetivo:
-
-Separar organizaciones de actividades.
-
-Actualmente:
-
-activities.json
-
-{
-"name":"Språkkafé",
-"organization":"Røde Kors"
-}
-
-Problema:
-
-La organización está repetida.
-
-Nueva estructura:
+Modelo de datos
 
 organizations.json
 
-Røde Kors
-Deichman
-Kirkens Bymisjon
+
+ Separado de activities (arquitectura escalable)
+ 9 organizaciones reales de Oslo
+ Campos: id, name, tipo, website, email, phone, logo, verified, description, lastChecked
+ Verificar y completar URLs de websites
+ Añadir coordenadas GPS para mapas futuros
 
 
 activities.json
 
-Actividad
-      |
-      └── organizationId
 
-Beneficios:
+ Enlazadas a organizaciones via organizationId
+ 8 actividades reales
+ Campos: id, organizationId, name, district, day, time, level, address, description
+ Añadir actividades de las organizaciones que faltan (alfaskolen, caritas completo)
+ Verificar horarios y direcciones con fuentes oficiales
 
-Escala a cientos de actividades
-Una organización puede tener múltiples eventos
-Actualizaciones automáticas más fáciles
-Mejor SEO
-8. Fase 2 — Páginas individuales
 
-Pendiente:
 
-Crear:
+Componentes
 
-/activity/:id
+App.jsx
 
-Ejemplo:
 
-sprakkafe-oslo.com/activity/rode-kors-tuesday
+ Routing configurado: /, /activity/:id, /organization/:id
 
-Contenido:
 
-descripción
-horario
-dirección
-mapa
-contacto
-organización
+Home.jsx
 
-Crear:
 
-/organization/:id
+ Buscador funcional (por nombre, organización, barrio, nivel)
+ Filtros por barrio, día, nivel y organización
+ Contador de resultados
+ Grid de tarjetas responsive
+ Bug corregido: filtro organización usa organizationId correctamente
+ getOrganization() centralizado y pasado como prop a las cards
 
-Ejemplo:
 
-sprakkafe-oslo.com/organization/rodekors
-9. Fase 3 — Base de datos real
+ActivityCard.jsx
 
-Actualmente:
 
-JSON local
+ Recibe organization como prop (sin reimportar JSON)
+ Días mostrados en español via DAYS
+ Niveles mostrados con descripción via LEVELS
+ Links a /activity/:id y /organization/:id
 
-Migrar a:
 
-Opciones:
+ActivityPage.jsx
 
-Supabase
-Firebase
-PostgreSQL
 
-Recomendado:
+ Vista completa: nombre, organización, día, horario, barrio, nivel, descripción
+ Grid de datos clave responsive
+ Sección de información de la organización
+ Links a web oficial y página de organización
+ Vista de error si la actividad no existe
+ Navbar con "Volver al directorio"
+ Días y niveles en español
+ Mostrar address en la ficha de datos (campo existe en JSON pero no se renderiza)
+ Integrar mapa (Google Maps embed o similar)
 
-Supabase
 
-Motivos:
+OrganizationPage.jsx
 
-gratis inicialmente
-PostgreSQL real
-API automática
-autenticación
-10. Fase 4 — Sistema de actualización automática
 
-Objetivo original:
+ Muestra info completa de la organización (logo, nombre, tipo, descripción)
+ Botones de web, email y teléfono (condicionales si existen)
+ Lista de actividades de esa organización con link a cada una
+ Días y niveles en español
+ Vista de error si la organización no existe
+ Import de Link corregido
+ Mostrar badge "verificado" / "en pausa"
 
-Cada mes revisar información.
 
-Arquitectura:
+Filters.jsx
 
-Web oficial organización
 
-        ↓
+ Filtros por barrio, día, nivel y organización
+ Botón "Limpiar filtros"
+ Estilos uniformes en los 4 selects
+ Días mostrados en español en el desplegable
+ Niveles mostrados con descripción en el desplegable
 
-Scraper
 
-        ↓
+utils/translations.js
 
-Comparador
 
-        ↓
+ DAYS — traducciones de días inglés → español
+ LEVELS — descripciones de niveles A1-C1
+ Importado en: ActivityCard, ActivityPage, OrganizationPage, Filters
 
-Base datos
 
-        ↓
 
-Actualización directorio
+Bugs corregidos
 
-Herramientas posibles:
 
-GitHub Actions
-Cron jobs
-Supabase Edge Functions
+ ActivityCard reimportaba organizations.json duplicando lógica de Home
+ Filtro de organización comparaba activity.organization (inexistente) en lugar de activity.organizationId
+ OrganizationPage usaba Link sin importarlo
+ translations.js guardado como .json en lugar de .js
+ Select de Organización en Filters sin clases CSS
 
-Proceso:
 
-Cada mes:
 
-Visitar webs guardadas
-Extraer:
-horarios
-dirección
-cambios
-Comparar con datos actuales
-Marcar cambios
-Actualizar
-11. Fase 5 — Administración
-
-Pendiente:
-
-Panel privado:
-
-/admin
-
-Funciones:
-
-añadir organización
-editar actividad
-aprobar cambios
-marcar verificado
-12. Fase 6 — Monetización futura (opcional)
-
-Posibilidades:
-
-destacados
-anuncios de organizaciones
-membresías
-eventos patrocinados
-CHECKLIST GENERAL
-MVP actual
- React funcionando
- Vercel deploy
- Home
- Buscador
- Cards
- Filtros
- Diseño responsive inicial
 Próximos pasos
- Migrar actividades → entidades reales
- Crear organizations.json
- Añadir organizationId
- Crear página detalle actividad
- Crear página organización
- Mejorar diseño móvil
- Añadir mapas
- Migrar JSON → base de datos
- Crear scraper mensual
- Crear panel admin
- Sistema de verificación
-Visión final
 
-El proyecto debe evolucionar hacia:
+Fase 2 — Mejoras de detalle (inmediato)
 
-Directorio
-      ↓
-Base de datos
-      ↓
-Motor de búsqueda
-      ↓
-Actualización automática
-      ↓
-Plataforma mantenida
 
-Estado actual:
-🟢 MVP funcional
-🟡 Arquitectura en transición
-🚀 Próximo hito: entidades reales y estructura escalable
+ Mostrar address en ActivityPage
+ Badge "En pausa" para alfaskolen en las cards y páginas
+ Mejorar diseño móvil general
+ Mejorar diseño visual de Home (hero, tipografía, espaciado)
+ Añadir página 404 global
+
+
+Fase 3 — Mapas
+
+
+ Embed de Google Maps en ActivityPage usando address
+ Añadir coordenadas GPS al JSON
+ Vista de mapa general en Home (opcional)
+
+
+Fase 4 — Base de datos real
+
+
+ Migrar activities.json + organizations.json → Supabase
+ Configurar API automática con Supabase
+ Actualizar componentes para fetch en lugar de import JSON
+
+
+Fase 5 — Actualización automática
+
+
+ Scraper mensual de webs oficiales
+ Comparador de cambios
+ GitHub Actions o Supabase Edge Functions como cron
+ Sistema de marcado de cambios pendientes de revisión
+
+
+Fase 6 — Panel de administración
+
+
+ Ruta privada /admin
+ Añadir / editar organizaciones y actividades
+ Aprobar cambios del scraper
+ Marcar actividades como verificadas o en pausa
+
+
+Fase 7 — Monetización (opcional)
+
+
+ Actividades destacadas
+ Anuncios de organizaciones
+ Membresías o eventos patrocinados
+
+
+
+Estado por módulo
+
+MóduloEstadoInfraestructura✅ CompletoModelo de datos✅ CompletoHome + Buscador + Filtros✅ CompletoActivityCard✅ CompletoActivityPage🟡 Falta address + mapaOrganizationPage🟡 Falta badge pausaTraducciones centralizadas✅ CompletoDiseño móvil🟡 MejorableBase de datos real⏳ PendienteActualización automática⏳ PendientePanel admin⏳ Pendiente

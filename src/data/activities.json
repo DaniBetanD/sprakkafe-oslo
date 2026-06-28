@@ -86,5 +86,27 @@
         "level": "A1",
         "address": "Haugerud Senter, Oslo",
         "description": "Språkkafé semanal en el este de Oslo. Grupos pequeños y atención personalizada."
+    },
+    {
+        "id": "9",
+        "organizationId": "toyen-frivilligsentral",
+        "name": "Språkkafé Tøyen Frivilligsentral",
+        "district": "Tøyen",
+        "day": "Monday",
+        "time": "16:45",
+        "level": "A2",
+        "address": "Deichman Tøyen, Hagegata 30",
+        "description": "Språkkafé en grupos pequeños con voluntarios. Requiere inscripción — el formulario abre cada miércoles a las 12:00. Solo para residentes del barrio Gamle Oslo."
+    },
+    {
+        "id": "10",
+        "organizationId": "toyen-frivilligsentral",
+        "name": "New Amigos Language Café",
+        "district": "Tøyen",
+        "day": "Monday",
+        "time": "17:00",
+        "level": "A1",
+        "address": "Deichman Tøyen, Hagegata 30",
+        "description": "Juego de mesa para practicar noruego. Disponible en versión español-noruego. Apto para todos los niveles."
     }
 ]
