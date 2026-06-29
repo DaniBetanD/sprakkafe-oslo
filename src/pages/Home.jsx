@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { X, ArrowRight, Globe, MapPin, Calendar, Award, Coffee, Users, Sparkles } from "lucide-react";
+import { X, ArrowRight, Globe, MapPin, Calendar, Award } from "lucide-react";
 import activities from "../data/activities.json";
 import organizations from "../data/organizations.json";
 import ActivityCard from "../components/ActivityCard";
 import SearchBar from "../components/SearchBar";
 import Header from "../components/Header";
 import Filters from "../components/Filters";
-import Footer from "../components/Footer"; // Comenta esta línea si da error
+import Footer from "../components/Footer";
+import MobileDetailPanel from "../components/MobileDetailPanel";
 import { DAYS, LEVELS } from "../utils/translations";
 
 export default function Home() {
@@ -44,16 +45,12 @@ export default function Home() {
 
     const selectedOrg = selected ? getOrganization(selected.organizationId) : null;
 
-    const totalActivities = activities.length;
-    const totalOrganizations = new Set(activities.map(a => a.organizationId)).size;
-    const totalDistricts = new Set(activities.map(a => a.district)).size;
-
     return (
         <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col">
             <Header />
 
             <main className="flex-grow">
-                {/* Hero Section simplificado para pruebas */}
+                {/* Hero */}
                 <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-16 pb-24">
                     <div className="max-w-5xl mx-auto px-6">
                         <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center">
@@ -94,10 +91,11 @@ export default function Home() {
                         </div>
                     ) : (
                         <div className="flex gap-6">
-                            <div className={`grid gap-4 transition-all duration-300 ${selected
-                                ? "hidden md:grid md:grid-cols-1 md:w-[45%] md:shrink-0"
-                                : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full"
-                                }`}>
+                            <div className={`grid gap-4 transition-all duration-300 ${
+                                selected
+                                    ? "grid-cols-1 md:grid-cols-1 md:w-[45%] md:shrink-0"
+                                    : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full"
+                            }`}>
                                 {results.map(activity => (
                                     <ActivityCard
                                         key={activity.id}
@@ -111,8 +109,9 @@ export default function Home() {
                                 ))}
                             </div>
 
+                            {/* Panel desktop */}
                             {selected && (
-                                <div className="flex-1 bg-white rounded-2xl border border-gray-200 shadow-lg p-6 h-fit sticky top-6 space-y-5">
+                                <div className="hidden md:flex flex-1 bg-white rounded-2xl border border-gray-200 shadow-lg p-6 h-fit sticky top-6 space-y-5 flex-col">
                                     <div className="flex items-start justify-between gap-3">
                                         <div className="flex items-center gap-3">
                                             <div className="w-12 h-12 rounded-xl border border-gray-100 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0">
@@ -167,7 +166,7 @@ export default function Home() {
                                             Ver organización
                                         </Link>
                                         {selectedOrg?.website && (
-                                            <a
+                                          <a  
                                                 href={selectedOrg.website}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
@@ -184,7 +183,13 @@ export default function Home() {
                 </section>
             </main>
 
-            {/* Footer - Comenta esta línea si da error */}
+            {/* Panel móvil */}
+            <MobileDetailPanel
+                selected={selected}
+                selectedOrg={selectedOrg}
+                onClose={() => setSelected(null)}
+            />
+
             <Footer />
         </div>
     );
