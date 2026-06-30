@@ -92,10 +92,10 @@ export default function Home() {
                     ) : (
                         <div className="flex gap-6">
                             <div className={`grid gap-4 transition-all duration-300 ${
-                                selected
-                                    ? "grid-cols-1 md:grid-cols-1 md:w-[45%] md:shrink-0"
-                                    : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full"
-                            }`}>
+    selected
+        ? "grid-cols-1 md:w-[45%] md:shrink-0"
+        : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full"
+}`}>
                                 {results.map(activity => (
                                     <ActivityCard
                                         key={activity.id}
