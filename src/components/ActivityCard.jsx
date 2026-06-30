@@ -50,12 +50,6 @@ export default function ActivityCard({ activity, organization, onClick, isSelect
                     <span>{LEVELS[activity.level]}</span>
                 </div>
             </div>
-
-            {isSelected && (
-                <div className="mt-3 pt-3 border-t border-gray-100 text-xs text-blue-600 font-medium">
-                    Ver detalles →
-                </div>
-            )}
         </div>
     );
 }
