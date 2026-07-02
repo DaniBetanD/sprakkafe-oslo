@@ -53,9 +53,9 @@ export default function Home() {
                 {/* Hero */}
                 <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-16 pb-24">
                     <div className="max-w-5xl mx-auto px-6">
-                        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center">
-                            Encuentra tu <span className="text-yellow-300">Språkkafé</span>
-                        </h1>
+                        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center text-white">
+    Encuentra tu <span className="text-yellow-300">Språkkafé</span>
+</h1>
                         <p className="text-lg text-blue-100 text-center max-w-2xl mx-auto">
                             Practica noruego y conecta con personas en Oslo.
                         </p>
