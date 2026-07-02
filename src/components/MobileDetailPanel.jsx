@@ -55,10 +55,22 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
 
                     {/* Datos */}
                     <div className="space-y-2 text-sm">
-                        <div className="flex items-center gap-2 text-gray-600 bg-gray-50 rounded-lg p-2.5">
-                            <MapPin size={14} className="text-blue-500 shrink-0" />
-                            <span>{selected.district} — {selected.address}</span>
-                        </div>
+                        <div className="flex items-start gap-2 text-gray-600 bg-gray-50 rounded-lg p-2.5">
+    <MapPin size={14} className="text-blue-500 shrink-0 mt-0.5" />
+    <div>
+        <span>{selected.district}{selected.address ? ` — ${selected.address}` : ""}</span>
+        {selected.address && (
+            <a
+                href={`https://maps.google.com/?q=${encodeURIComponent(selected.address + ', Oslo')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block mt-1 text-sm text-blue-600 hover:text-blue-700 font-medium"
+            >
+                Ver en mapa →
+            </a>
+        )}
+    </div>
+</div>
                         <div className="flex items-center gap-2 text-gray-600 bg-gray-50 rounded-lg p-2.5">
                             <Calendar size={14} className="text-blue-500 shrink-0" />
                             <span>{DAYS[selected.day]} · {selected.time}</span>
@@ -94,12 +106,12 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
                             Ver organización
                         </Link>
                         {selectedOrg?.website && (
-                            <a>
+                            <a
                                 href={selectedOrg.website}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center justify-center gap-2 text-gray-500 text-sm px-4 py-2 rounded-xl hover:text-gray-700 transition"
-                            
+                            >
                                 <Globe size={14} /> Sitio web oficial
                             </a>
                         )}

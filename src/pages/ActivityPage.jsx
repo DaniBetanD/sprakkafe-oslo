@@ -113,13 +113,21 @@ export default function ActivityPage() {
                         </div>
 
                         {activity.address && (
-                            <div className="flex items-start gap-3 bg-gray-50 p-4 rounded-2xl border border-gray-100 sm:col-span-2">
-                                <MapPin className="text-blue-600 shrink-0 mt-0.5" size={20} />
-                                <div>
-                                    <h3 className="font-semibold text-gray-700">Dirección</h3>
-                                    <p className="text-gray-600">{activity.address}</p>
-                                </div>
-                            </div>
+                           <div className="flex items-start gap-3 bg-gray-50 p-4 rounded-2xl border border-gray-100 sm:col-span-2">
+    <MapPin className="text-blue-600 shrink-0 mt-0.5" size={20} />
+    <div className="flex-1">
+        <h3 className="font-semibold text-gray-700">Dirección</h3>
+        <p className="text-gray-600">{activity.address}</p>
+        <a
+            href={`https://maps.google.com/?q=${encodeURIComponent(activity.address + ', Oslo')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 mt-2 text-sm text-blue-600 hover:text-blue-700 font-medium"
+        >
+            <MapPin size={14} /> Ver en mapa →
+        </a>
+    </div>
+</div>
                         )}
                     </div>
 

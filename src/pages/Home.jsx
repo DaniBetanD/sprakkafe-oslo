@@ -138,10 +138,22 @@ export default function Home() {
         <hr />
 
         <div className="space-y-3 text-sm">
-            <div className="flex items-center gap-3 text-gray-600">
-                <MapPin size={16} className="text-blue-500" />
-                <span>{selected.district}{selected.address ? ` — ${selected.address}` : ""}</span>
-            </div>
+        <div className="flex items-start gap-3 text-gray-600">
+    <MapPin size={16} className="text-blue-500 shrink-0 mt-0.5" />
+    <div>
+        <span>{selected.district}{selected.address ? ` — ${selected.address}` : ""}</span>
+        {selected.address && (
+            <a
+                href={`https://maps.google.com/?q=${encodeURIComponent(selected.address + ', Oslo')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block mt-1 text-sm text-blue-600 hover:text-blue-700 font-medium"
+            >
+                Ver en mapa →
+            </a>
+        )}
+    </div>
+</div>
             <div className="flex items-center gap-3 text-gray-600">
                 <Calendar size={16} className="text-blue-500" />
                 <span>{DAYS[selected.day]} · {selected.time}</span>
