@@ -54,32 +54,40 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
                     <hr className="border-gray-100" />
 
                     {/* Datos */}
-                    <div className="space-y-2 text-sm">
-                        <div className="flex items-start gap-2 text-gray-600 bg-gray-50 rounded-lg p-2.5">
-    <MapPin size={14} className="text-blue-500 shrink-0 mt-0.5" />
-    <div>
-        <span>{selected.district}{selected.address ? ` — ${selected.address}` : ""}</span>
-        {selected.address && (
-            <a
-                href={`https://maps.google.com/?q=${encodeURIComponent(selected.address + ', Oslo')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block mt-1 text-sm text-blue-600 hover:text-blue-700 font-medium"
-            >
-                Ver en mapa →
-            </a>
-        )}
+            <div className="space-y-2 text-sm">
+    <div className="flex items-center gap-2 text-gray-600 bg-gray-50 rounded-lg p-2.5">
+        <Calendar size={14} className="text-blue-500 shrink-0" />
+        <span>{DAYS[selected.day]}</span>
+    </div>
+    <div className="flex items-center gap-2 text-gray-600 bg-gray-50 rounded-lg p-2.5">
+        <Calendar size={14} className="text-blue-500 shrink-0" />
+        <span>{selected.time}</span>
+    </div>
+    <div className="flex items-center gap-2 text-gray-600 bg-gray-50 rounded-lg p-2.5">
+        <Award size={14} className="text-blue-500 shrink-0" />
+        <span>{LEVELS[selected.level]}</span>
+    </div>
+    <div className="flex items-center gap-2 text-gray-600 bg-gray-50 rounded-lg p-2.5">
+        <MapPin size={14} className="text-blue-500 shrink-0" />
+        <span>{selected.district}</span>
+    </div>
+    <div className="flex items-start gap-2 text-gray-600 bg-gray-50 rounded-lg p-2.5">
+        <MapPin size={14} className="text-blue-500 shrink-0 mt-0.5" />
+        <div>
+            <span>{selected.address}</span>
+            {selected.address && (
+                <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selected.address + ', Oslo')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block mt-1 text-sm text-blue-600 hover:text-blue-700 font-medium"
+                >
+                    Ver en mapa →
+                </a>
+            )}
+        </div>
     </div>
 </div>
-                        <div className="flex items-center gap-2 text-gray-600 bg-gray-50 rounded-lg p-2.5">
-                            <Calendar size={14} className="text-blue-500 shrink-0" />
-                            <span>{DAYS[selected.day]} · {selected.time}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-gray-600 bg-gray-50 rounded-lg p-2.5">
-                            <Award size={14} className="text-blue-500 shrink-0" />
-                            <span>{LEVELS[selected.level]}</span>
-                        </div>
-                    </div>
 
                     {selected.description && (
                         <p className="text-sm text-gray-600 leading-relaxed">

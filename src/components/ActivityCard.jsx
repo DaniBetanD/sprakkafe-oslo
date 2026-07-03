@@ -36,20 +36,30 @@ export default function ActivityCard({ activity, organization, onClick, isSelect
                 </div>
             </div>
 
-            <div className="space-y-2 text-sm">
-                <div className="flex items-center gap-2 text-gray-600">
-                    <MapPin size={14} className="text-blue-500 shrink-0" />
-                    <span className="truncate">{activity.district}</span>
-                </div>
-                <div className="flex items-center gap-2 text-gray-600">
-                    <Calendar size={14} className="text-blue-500 shrink-0" />
-                    <span>{DAYS[activity.day]} · {activity.time}</span>
-                </div>
-                <div className="flex items-center gap-2 text-gray-600">
-                    <Award size={14} className="text-blue-500 shrink-0" />
-                    <span>{LEVELS[activity.level]}</span>
-                </div>
-            </div>
+          <div className="space-y-2 text-sm">
+    <div className="flex items-center gap-2 text-gray-600">
+        <Calendar size={14} className="text-blue-500 shrink-0" />
+        <span>{DAYS[activity.day]}</span>
+    </div>
+    <div className="flex items-center gap-2 text-gray-600">
+        <Calendar size={14} className="text-blue-500 shrink-0" />
+        <span>{activity.time}</span>
+    </div>
+    <div className="flex items-center gap-2 text-gray-600">
+        <Award size={14} className="text-blue-500 shrink-0" />
+        <span>{LEVELS[activity.level]}</span>
+    </div>
+    <div className="flex items-center gap-2 text-gray-600">
+        <MapPin size={14} className="text-blue-500 shrink-0" />
+        <span className="truncate">{activity.district}</span>
+    </div>
+    {activity.address && (
+        <div className="flex items-center gap-2 text-gray-600">
+            <MapPin size={14} className="text-blue-500 shrink-0" />
+            <span className="truncate">{activity.address}</span>
+        </div>
+    )}
+</div>
         </div>
     );
 }
