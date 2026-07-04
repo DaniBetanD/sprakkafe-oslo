@@ -10,6 +10,7 @@ import Filters from "../components/Filters";
 import Footer from "../components/Footer";
 import MobileDetailPanel from "../components/MobileDetailPanel";
 import { DAYS, LEVELS } from "../utils/translations";
+import {MapPinned, Users, Landmark} from "lucide-react";
 
 // Mapeo centralizado de colores para los niveles
 const LEVEL_COLORS = {
@@ -68,16 +69,23 @@ export default function Home() {
                             Practica noruego en un entorno real, conoce gente y descubre la cultura de Oslo.
                         </p>
                         <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm">
-                            <span className="rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
-                                📍 En toda Oslo
-                            </span>
-                            <span className="rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
-                                🤝 Comunidad
-                            </span>
-                            <span className="rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
-                                🇳🇴 Cultura local
-                            </span>
-                        </div>
+
+    <span className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
+        <MapPinned size={16}/>
+        En toda Oslo
+    </span>
+
+    <span className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
+        <Users size={16}/>
+        Comunidad
+    </span>
+
+    <span className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
+        <Landmark size={16}/>
+        Cultura local
+    </span>
+
+</div>
                     </div>
                 </section>
 
@@ -96,8 +104,10 @@ export default function Home() {
                 </section>
 
                 {/* Resultados */}
-                <section className="max-w-5xl mx-auto px-6 py-10">
-                    <div className="flex justify-between mb-6">
+<section
+    id="actividades"
+    className="max-w-5xl mx-auto px-6 py-10"
+>                    <div className="flex justify-between mb-6">
                         <h2 className="font-bold text-2xl text-gray-900">Actividades disponibles</h2>
                         <span className="bg-blue-50 text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full">
                             {results.length} resultados
@@ -190,26 +200,26 @@ export default function Home() {
                                     </div>
 
                                     {/* Botones de acción */}
-                                    <div className="flex flex-col gap-2 pt-5">
-                                        <Link
-                                            to={`/activity/${selected.id}`}
-                                            className="flex items-center justify-center gap-2 bg-blue-600 text-white text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-blue-700 transition"
-                                        >
-                                            Ver página completa <ArrowRight size={15} />
-                                        </Link>
-                                        <Link
-                                            to={`/organization/${selectedOrg?.id}`}
-                                            className="flex items-center justify-center gap-2 bg-gray-100 text-gray-700 text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-gray-200 transition"
-                                        >
-                                            Ver organización
-                                        </Link>
+                                <div className="flex flex-col gap-3 pt-8">                                        
+                                    <Link
+    to={`/activity/${selected.id}`}
+    className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+>
+    Ver detalles del evento
+    <ArrowRight size={16} />
+</Link>
+                                       <Link
+    to={`/organization/${selectedOrg?.id}`}
+    className="flex items-center justify-center rounded-xl border border-gray-200 px-4 py-3 text-sm font-medium text-gray-700 transition hover:border-gray-300 hover:bg-gray-50"
+>
+    Ver organización
+</Link>
                                         {selectedOrg?.website && (
                                             <a
                                                 href={selectedOrg.website}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="flex items-center justify-center gap-2 text-gray-500 text-sm px-4 py-2 rounded-xl hover:text-gray-700 transition"
-                                            >
+className="flex items-center justify-center gap-2 py-2 text-sm font-medium text-blue-600 transition hover:text-blue-700"                                            >
                                                 <Globe size={14} /> Sitio web oficial
                                             </a>
                                         )}
