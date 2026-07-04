@@ -71,18 +71,19 @@ export default function Home() {
                 </section>
 
                 {/* Búsqueda */}
-                <section className="max-w-5xl mx-auto px-6 -mt-8 relative z-10">
-                    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6">
-                        <SearchBar onSearch={setQuery} />
-                        <div className="mt-4">
-                            <Filters
-                                filters={filters}
-                                setFilters={setFilters}
-                                activities={activities}
-                            />
-                        </div>
-                    </div>
-                </section>
+<section className="max-w-5xl mx-auto px-6 -mt-8 relative z-10">
+    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6">
+        <SearchBar onSearch={setQuery} />
+        {/* CORREGIDO: Añadido pb-2 (o incluso pb-4) aquí para dar espacio abajo */}
+        <div className="mt-4 pb-4"> 
+            <Filters
+                filters={filters}
+                setFilters={setFilters}
+                activities={activities}
+            />
+        </div>
+    </div>
+</section>
 
                 {/* Resultados */}
                 <section className="max-w-5xl mx-auto px-6 py-10">
@@ -99,11 +100,13 @@ export default function Home() {
                         </div>
                     ) : (
                         <div className="flex gap-6">
-                            <div className={`grid gap-4 transition-all duration-300 ${
-                                selected
-                                    ? "grid-cols-1 md:w-[45%] md:shrink-0"
-                                    : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full"
-                            }`}>
+                           <div
+  className={`grid gap-4 transition-all duration-300 ${
+    selected
+      ? "grid-cols-1 w-full md:w-[45%] md:shrink-0"
+      : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full"
+  }`}
+>
                                 {results.map(activity => (
                                     <ActivityCard
                                         key={activity.id}
@@ -142,8 +145,7 @@ export default function Home() {
                                             <X size={18} />
                                         </button>
                                     </div>
-
-                                    <hr className="border-gray-100" />
+                                      <hr className="border-gray-100" />           
 
                                     {/* BLOQUE INTEGRADO Y CORREGIDO (Descripción, Día/Hora/Nivel y Ubicación unificada) */}
                                     <div className="space-y-3">
@@ -173,8 +175,9 @@ export default function Home() {
                                                 className="flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition group"
                                             >
                                                 <MapPin size={15} className="text-blue-400 shrink-0 group-hover:text-blue-600" />
-                                                <span className="truncate">{selected.address}</span>
-                                            </a>
+<span className="truncate">
+    {selected.location} — {selected.address}
+</span>                                            </a>
                                         )}
                                     </div>
 

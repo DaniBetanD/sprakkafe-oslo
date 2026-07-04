@@ -38,9 +38,9 @@ export default function ActivityCard({ activity, organization, onClick, isSelect
                     )}
                 </div>
                 <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-gray-900 leading-tight truncate">
-                        {activity?.name}
-                    </h3>
+                    <h3 className="font-semibold text-gray-900 leading-tight line-clamp-2">
+    {activity?.name}
+</h3>
                     <p className="text-sm font-medium text-gray-600 truncate">{organization?.name}</p>
                 </div>
             </div>

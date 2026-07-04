@@ -1,17 +1,26 @@
 import { Link } from "react-router-dom";
-import { X, ArrowRight, Globe, MapPin, Calendar, Award } from "lucide-react";
+import { X, ArrowRight, Globe, MapPin, Calendar } from "lucide-react";
 import { DAYS, LEVELS } from "../utils/translations";
+
+const LEVEL_COLORS = {
+    "A1": "bg-green-100 text-green-700",
+    "A2": "bg-blue-100 text-blue-700",
+    "B1": "bg-purple-100 text-purple-700",
+    "B2": "bg-orange-100 text-orange-700",
+};
 
 export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
     if (!selected) return null;
 
+    // CORREGIDO: Interpolación de variables con $ en lugar de 0, y uso de la URL de búsquedas tradicional
+    const mapsUrl = selected.address
+        ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selected.address + ', Oslo')}`
+        : null;
+
     return (
         <div className="md:hidden">
             {/* Overlay */}
-            <div
-                className="fixed inset-0 bg-black/50 z-40"
-                onClick={onClose}
-            />
+            <div className="fixed inset-0 bg-black/50 z-40" onClick={onClose} />
 
             {/* Panel desde abajo */}
             <div
@@ -40,59 +49,61 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
                             </div>
                             <div>
                                 <h3 className="font-bold text-gray-900 text-base">{selected.name}</h3>
-                                <p className="text-sm text-gray-500">{selectedOrg?.name}</p>
+                                <p className="text-sm font-medium text-gray-600">{selectedOrg?.name}</p>
                             </div>
                         </div>
-                        <button
-                            onClick={onClose}
-                            className="text-gray-400 hover:text-gray-600 p-1"
-                        >
+                        <button onClick={onClose} className="text-gray-400 hover:text-gray-600 p-1">
                             <X size={20} />
                         </button>
                     </div>
 
                     <hr className="border-gray-100" />
 
-                    {/* Datos */}
-            <div className="space-y-2 text-sm">
-    <div className="flex items-center gap-2 text-gray-600 bg-gray-50 rounded-lg p-2.5">
-        <Calendar size={14} className="text-blue-500 shrink-0" />
-        <span>{DAYS[selected.day]}</span>
-    </div>
-    <div className="flex items-center gap-2 text-gray-600 bg-gray-50 rounded-lg p-2.5">
-        <Calendar size={14} className="text-blue-500 shrink-0" />
-        <span>{selected.time}</span>
-    </div>
-    <div className="flex items-center gap-2 text-gray-600 bg-gray-50 rounded-lg p-2.5">
-        <Award size={14} className="text-blue-500 shrink-0" />
-        <span>{LEVELS[selected.level]}</span>
-    </div>
-    <div className="flex items-center gap-2 text-gray-600 bg-gray-50 rounded-lg p-2.5">
-        <MapPin size={14} className="text-blue-500 shrink-0" />
-        <span>{selected.district}</span>
-    </div>
-    <div className="flex items-start gap-2 text-gray-600 bg-gray-50 rounded-lg p-2.5">
-        <MapPin size={14} className="text-blue-500 shrink-0 mt-0.5" />
-        <div>
-            <span>{selected.address}</span>
-            {selected.address && (
-                <a
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selected.address + ', Oslo')}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block mt-1 text-sm text-blue-600 hover:text-blue-700 font-medium"
-                >
-                    Ver en mapa →
-                </a>
-            )}
-        </div>
-    </div>
-</div>
-
+                    {/* Descripción */}
                     {selected.description && (
                         <p className="text-sm text-gray-600 leading-relaxed">
                             {selected.description}
                         </p>
+                    )}
+
+                    {/* Día + hora y badge nivel */}
+                    <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-2 text-sm text-gray-600">
+                            <Calendar size={14} className="text-blue-500 shrink-0" />
+                            <span>{DAYS[selected.day]}, {selected.time}</span>
+                        </div>
+                        <span className={`text-xs font-semibold px-2.5 py-1 rounded-full shrink-0 ${LEVEL_COLORS[selected.level] || "bg-gray-100 text-gray-600"}`}>
+                            {LEVELS[selected.level] || selected.level}
+                        </span>
+                    </div>
+
+                    {/* Ubicación unificada */}
+                    {/* CORREGIDO: Se agregó la etiqueta de apertura <a ... */}
+                    {mapsUrl && (
+                        <a
+                            href={mapsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition group"
+                        >
+                            <MapPin size={14} className="text-blue-400 shrink-0 group-hover:text-blue-600" />
+                            <span className="truncate">{selected.address}</span>
+                        </a>
+                    )}
+
+                    {/* Sobre la organización */}
+                    {selectedOrg?.description && (
+                        <>
+                            <hr className="border-gray-100" />
+                            <div>
+                                <h4 className="text-xs font-semibold text-gray-800 uppercase tracking-wide mb-1">
+                                    🏛️ Sobre la organización
+                                </h4>
+                                <p className="text-sm text-gray-600 leading-relaxed">
+                                    {selectedOrg.description}
+                                </p>
+                            </div>
+                        </>
                     )}
 
                     <hr className="border-gray-100" />
@@ -113,6 +124,7 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
                         >
                             Ver organización
                         </Link>
+                        {/* CORREGIDO: Se agregó la etiqueta de apertura <a ... */}
                         {selectedOrg?.website && (
                             <a
                                 href={selectedOrg.website}
