@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { X, ArrowRight, Globe, MapPin, Calendar, Award } from "lucide-react";
+import { X, ArrowRight, Globe, MapPin, Calendar } from "lucide-react";
 import activities from "../data/activities.json";
 import organizations from "../data/organizations.json";
 import ActivityCard from "../components/ActivityCard";
@@ -37,7 +37,7 @@ export default function Home() {
         const org = getOrganization(activity.organizationId);
         const text = (
             activity.name +
-            org?.name +
+            (org?.name || "") +
             activity.district +
             activity.level
         ).toLowerCase();
@@ -59,31 +59,41 @@ export default function Home() {
 
             <main className="flex-grow">
                 {/* Hero */}
-                <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-16 pb-24">
+                <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-14 pb-20">
                     <div className="max-w-5xl mx-auto px-6">
                         <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center text-white">
-                            Encuentra tu <span className="text-yellow-300">Språkkafé</span>
+                            Encuentra tu <span className="text-yellow-200">Språkkafé</span>
                         </h1>
-                        <p className="text-lg text-blue-100 text-center max-w-2xl mx-auto">
-                            Practica noruego y conecta con personas en Oslo.
+                        <p className="mt-5 text-lg text-blue-100 text-center max-w-3xl mx-auto leading-relaxed">
+                            Practica noruego en un entorno real, conoce gente y descubre la cultura de Oslo.
                         </p>
+                        <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm">
+                            <span className="rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
+                                📍 En toda Oslo
+                            </span>
+                            <span className="rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
+                                🤝 Comunidad
+                            </span>
+                            <span className="rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
+                                🇳🇴 Cultura local
+                            </span>
+                        </div>
                     </div>
                 </section>
 
                 {/* Búsqueda */}
-<section className="max-w-5xl mx-auto px-6 -mt-8 relative z-10">
-    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6">
-        <SearchBar onSearch={setQuery} />
-        {/* CORREGIDO: Añadido pb-2 (o incluso pb-4) aquí para dar espacio abajo */}
-        <div className="mt-4 pb-4"> 
-            <Filters
-                filters={filters}
-                setFilters={setFilters}
-                activities={activities}
-            />
-        </div>
-    </div>
-</section>
+                <section className="max-w-5xl mx-auto px-6 -mt-8 relative z-10">
+                    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6">
+                        <SearchBar onSearch={setQuery} />
+                        <div className="mt-4 pb-4"> 
+                            <Filters
+                                filters={filters}
+                                setFilters={setFilters}
+                                activities={activities}
+                            />
+                        </div>
+                    </div>
+                </section>
 
                 {/* Resultados */}
                 <section className="max-w-5xl mx-auto px-6 py-10">
@@ -100,13 +110,11 @@ export default function Home() {
                         </div>
                     ) : (
                         <div className="flex gap-6">
-                           <div
-  className={`grid gap-4 transition-all duration-300 ${
-    selected
-      ? "grid-cols-1 w-full md:w-[45%] md:shrink-0"
-      : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full"
-  }`}
->
+                            <div className={`grid gap-4 transition-all duration-300 ${
+                                selected
+                                    ? "grid-cols-1 w-full md:w-[45%] md:shrink-0"
+                                    : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full"
+                            }`}>
                                 {results.map(activity => (
                                     <ActivityCard
                                         key={activity.id}
@@ -129,7 +137,7 @@ export default function Home() {
                                                 {selectedOrg?.logoImg ? (
                                                     <img
                                                         src={new URL(`../assets/logos/${selectedOrg.logoImg}`, import.meta.url).href}
-                                                        alt={selectedOrg.name}
+                                                        alt={selectedOrg?.name || "Logo"}
                                                         className="w-full h-full object-contain p-1"
                                                     />
                                                 ) : (
@@ -146,16 +154,15 @@ export default function Home() {
                                         </button>
                                     </div>
 
-                                    {/* BLOQUE INTEGRADO Y CORREGIDO (Descripción, Día/Hora/Nivel y Ubicación unificada) */}
+                                    {/* Contenido (Descripción, Día/Hora/Nivel y Ubicación) */}
                                     <div className="space-y-5">
                                         {selected.description && (
-                                           <div className="rounded-xl bg-blue-50/40 p-4">
-    <p className="text-sm font-medium text-gray-700 leading-relaxed">
-        {selected.description}
-    </p>
-</div>
+                                            <div className="rounded-xl bg-blue-50/40 p-4">
+                                                <p className="text-sm font-medium text-gray-700 leading-relaxed">
+                                                    {selected.description}
+                                                </p>
+                                            </div>
                                         )}
-
 
                                         <div className="flex items-center justify-between gap-2">
                                             <div className="flex items-center gap-2 text-sm text-gray-600">
@@ -175,14 +182,12 @@ export default function Home() {
                                                 className="flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition group"
                                             >
                                                 <MapPin size={15} className="text-blue-400 shrink-0 group-hover:text-blue-600" />
-                                            <span className="truncate">
-                                                {selected.district} — {selected.address}
-                                            </span>                                            
+                                                <span className="truncate">
+                                                    {selected.district} — {selected.address}
+                                                </span>                                            
                                             </a>
                                         )}
                                     </div>
-
-                                   
 
                                     {/* Botones de acción */}
                                     <div className="flex flex-col gap-2 pt-5">
