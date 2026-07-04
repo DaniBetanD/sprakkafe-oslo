@@ -11,6 +11,14 @@ import Footer from "../components/Footer";
 import MobileDetailPanel from "../components/MobileDetailPanel";
 import { DAYS, LEVELS } from "../utils/translations";
 
+// Mapeo centralizado de colores para los niveles
+const LEVEL_COLORS = {
+    "A1": "bg-green-100 text-green-700",
+    "A2": "bg-blue-100 text-blue-700",
+    "B1": "bg-purple-100 text-purple-700",
+    "B2": "bg-orange-100 text-orange-700",
+};
+
 export default function Home() {
     const [query, setQuery] = useState("");
     const [filters, setFilters] = useState({
@@ -54,8 +62,8 @@ export default function Home() {
                 <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-16 pb-24">
                     <div className="max-w-5xl mx-auto px-6">
                         <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center text-white">
-    Encuentra tu <span className="text-yellow-300">Språkkafé</span>
-</h1>
+                            Encuentra tu <span className="text-yellow-300">Språkkafé</span>
+                        </h1>
                         <p className="text-lg text-blue-100 text-center max-w-2xl mx-auto">
                             Practica noruego y conecta con personas en Oslo.
                         </p>
@@ -92,10 +100,10 @@ export default function Home() {
                     ) : (
                         <div className="flex gap-6">
                             <div className={`grid gap-4 transition-all duration-300 ${
-    selected
-        ? "grid-cols-1 md:w-[45%] md:shrink-0"
-        : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full"
-}`}>
+                                selected
+                                    ? "grid-cols-1 md:w-[45%] md:shrink-0"
+                                    : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full"
+                            }`}>
                                 {results.map(activity => (
                                     <ActivityCard
                                         key={activity.id}
@@ -111,114 +119,107 @@ export default function Home() {
 
                             {/* Panel desktop */}
                             {selected && (
-    <div className="hidden md:flex flex-col flex-1 bg-white rounded-2xl border border-gray-200 shadow-lg p-6 h-fit sticky top-6 gap-4">
-        <div className="flex items-start justify-between gap-3">
-            <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl border border-gray-100 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0">
-                    {selectedOrg?.logoImg ? (
-                        <img
-                            src={new URL(`../assets/logos/${selectedOrg.logoImg}`, import.meta.url).href}
-                            alt={selectedOrg.name}
-                            className="w-full h-full object-contain p-1"
-                        />
-                    ) : (
-                        <span className="text-xl">{selectedOrg?.logo}</span>
-                    )}
-                </div>
-                <div>
-                    <h3 className="font-bold text-gray-900">{selected.name}</h3>
-                    <p className="text-sm text-gray-500">{selectedOrg?.name}</p>
-                </div>
-            </div>
-            <button onClick={() => setSelected(null)}>
-                <X size={18} />
-            </button>
-        </div>
+                                <div className="hidden md:flex flex-col flex-1 bg-white rounded-2xl border border-gray-200 shadow-lg p-6 h-fit sticky top-6 gap-4">
+                                    <div className="flex items-start justify-between gap-3">
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-12 h-12 rounded-xl border border-gray-100 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0">
+                                                {selectedOrg?.logoImg ? (
+                                                    <img
+                                                        src={new URL(`../assets/logos/${selectedOrg.logoImg}`, import.meta.url).href}
+                                                        alt={selectedOrg.name}
+                                                        className="w-full h-full object-contain p-1"
+                                                    />
+                                                ) : (
+                                                    <span className="text-xl">{selectedOrg?.logo}</span>
+                                                )}
+                                            </div>
+                                            <div>
+                                                <h3 className="font-bold text-gray-900">{selected.name}</h3>
+                                                <p className="text-sm text-gray-500">{selectedOrg?.name}</p>
+                                            </div>
+                                        </div>
+                                        <button onClick={() => setSelected(null)} className="text-gray-400 hover:text-gray-600 transition">
+                                            <X size={18} />
+                                        </button>
+                                    </div>
 
-        <hr />
+                                    <hr className="border-gray-100" />
 
-  <div className="space-y-3 text-sm">
-    <div className="flex items-center gap-3 text-gray-600">
-        <Calendar size={16} className="text-blue-500" />
-        <span>{DAYS[selected.day]}</span>
-    </div>
-    <div className="flex items-center gap-3 text-gray-600">
-        <Calendar size={16} className="text-blue-500" />
-        <span>{selected.time}</span>
-    </div>
-    <div className="flex items-center gap-3 text-gray-600">
-        <Award size={16} className="text-blue-500" />
-        <span>{LEVELS[selected.level]}</span>
-    </div>
-    <div className="flex items-center gap-3 text-gray-600">
-        <MapPin size={16} className="text-blue-500" />
-        <span>{selected.district}</span>
-    </div>
-    <div className="flex items-start gap-3 text-gray-600">
-        <MapPin size={16} className="text-blue-500 shrink-0 mt-0.5" />
-        <div>
-            <span>{selected.address}</span>
-            {selected.address && (
-                <a
-                    href={`https://maps.google.com/?q=${encodeURIComponent(selected.address + ', Oslo')}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block mt-1 text-sm text-blue-600 hover:text-blue-700 font-medium"
-                >
-                    Ver en mapa →
-                </a>
-            )}
-        </div>
-    </div>
-</div>
+                                    {/* BLOQUE INTEGRADO Y CORREGIDO (Descripción, Día/Hora/Nivel y Ubicación unificada) */}
+                                    <div className="space-y-3">
+                                        {selected.description && (
+                                            <p className="text-sm text-gray-600 leading-relaxed">
+                                                {selected.description}
+                                            </p>
+                                        )}
 
-        {selected.description && (
-            <>
-                <hr />
-                <p className="text-sm text-gray-600 leading-relaxed">
-                    {selected.description}
-                </p>
-            </>
-        )}
+                                        <hr className="border-gray-100" />
 
-        {selectedOrg?.description && (
-            <>
-                <hr />
-                <div>
-                    <h4 className="text-xs font-semibold text-gray-500 uppercase mb-1">Sobre la organización</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                        {selectedOrg.description}
-                    </p>
-                </div>
-            </>
-        )}
+                                        <div className="flex items-center justify-between gap-2">
+                                            <div className="flex items-center gap-2 text-sm text-gray-600">
+                                                <Calendar size={15} className="text-blue-500 shrink-0" />
+                                                <span>{DAYS[selected.day]}, {selected.time}</span>
+                                            </div>
+                                            <span className={`text-xs font-semibold px-2.5 py-1 rounded-full shrink-0 ${LEVEL_COLORS[selected.level] || "bg-gray-100 text-gray-600"}`}>
+                                                {LEVELS[selected.level] || selected.level}
+                                            </span>
+                                        </div>
 
-        <div className="flex flex-col gap-2 pt-1">
-            <Link
-                to={`/activity/${selected.id}`}
-                className="flex items-center justify-center gap-2 bg-blue-600 text-white text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-blue-700 transition"
-            >
-                Ver página completa <ArrowRight size={15} />
-            </Link>
-            <Link
-                to={`/organization/${selectedOrg?.id}`}
-                className="flex items-center justify-center gap-2 bg-gray-100 text-gray-700 text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-gray-200 transition"
-            >
-                Ver organización
-            </Link>
-            {selectedOrg?.website && (
-                <a
-                    href={selectedOrg.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 text-gray-500 text-sm px-4 py-2 rounded-xl hover:text-gray-700 transition"
-                    >
-                    <Globe size={14} /> Sitio web oficial
-                </a>
-            )}
-        </div>
-    </div>
-)}
+                                        {selected.address && (
+                                            <a
+                                                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selected.address + ', Oslo')}`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition group"
+                                            >
+                                                <MapPin size={15} className="text-blue-400 shrink-0 group-hover:text-blue-600" />
+                                                <span className="truncate">{selected.address}</span>
+                                            </a>
+                                        )}
+                                    </div>
+
+                                    {/* Sobre la organización */}
+                                    {selectedOrg?.description && (
+                                        <>
+                                            <hr className="border-gray-100" />
+                                            <div>
+                                                <h4 className="text-xs font-semibold text-gray-800 uppercase tracking-wide mb-1 flex items-center gap-1">
+                                                    🏛️ Sobre la organización
+                                                </h4>
+                                                <p className="text-sm text-gray-600 leading-relaxed">
+                                                    {selectedOrg.description}
+                                                </p>
+                                            </div>
+                                        </>
+                                    )}
+
+                                    {/* Botones de acción */}
+                                    <div className="flex flex-col gap-2 pt-1">
+                                        <Link
+                                            to={`/activity/${selected.id}`}
+                                            className="flex items-center justify-center gap-2 bg-blue-600 text-white text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-blue-700 transition"
+                                        >
+                                            Ver página completa <ArrowRight size={15} />
+                                        </Link>
+                                        <Link
+                                            to={`/organization/${selectedOrg?.id}`}
+                                            className="flex items-center justify-center gap-2 bg-gray-100 text-gray-700 text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-gray-200 transition"
+                                        >
+                                            Ver organización
+                                        </Link>
+                                        {selectedOrg?.website && (
+                                            <a
+                                                href={selectedOrg.website}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center justify-center gap-2 text-gray-500 text-sm px-4 py-2 rounded-xl hover:text-gray-700 transition"
+                                            >
+                                                <Globe size={14} /> Sitio web oficial
+                                            </a>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     )}
                 </section>
