@@ -23,14 +23,17 @@ export default function ActivityCard({ activity, organization, onClick, isSelect
         <div
             onClick={onClick}
             className={`
-                bg-white rounded-xl border p-5 cursor-pointer
-                hover:shadow-lg hover:border-blue-200 transition-all duration-300
-                ${isSelected ? 'ring-2 ring-blue-500 shadow-lg border-blue-200' : 'border-gray-200'}
+                bg-white rounded-xl border p-6 cursor-pointer
+                hover:-translate-y-1 hover:shadow-lg hover:border-blue-200
+                transition-all duration-300
+                ${isSelected
+                    ? "ring-2 ring-blue-500 shadow-lg border-blue-200"
+                    : "border-gray-200"}
             `}
         >
             {/* Header: logo + nombre + org */}
             <div className="flex items-start gap-3 mb-3">
-                <div className="w-10 h-10 rounded-xl border border-gray-100 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0">
+                <div className="w-12 h-12 rounded-xl border border-gray-100 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0">
                     {logoSrc ? (
                         <img src={logoSrc} alt={organization?.name} className="w-full h-full object-contain p-1" />
                     ) : (
@@ -38,16 +41,15 @@ export default function ActivityCard({ activity, organization, onClick, isSelect
                     )}
                 </div>
                 <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-gray-900 leading-tight line-clamp-2">
-    {activity?.name}
-</h3>
-                    <p className="text-sm font-medium text-gray-600 truncate">{organization?.name}</p>
+                    <h3 className="font-semibold text-gray-900 leading-snug line-clamp-2">    {activity?.name}
+                    </h3>
+                    <p className="text-sm text-gray-500 truncate">{organization?.name}</p>
                 </div>
             </div>
 
             {/* Descripción */}
             {activity?.description && (
-                <p className="text-sm text-gray-500 leading-relaxed mb-3 line-clamp-2">
+                <p className="text-sm text-gray-500 leading-6 mb-4 line-clamp-2">
                     {activity.description}
                 </p>
             )}

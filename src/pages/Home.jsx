@@ -175,27 +175,14 @@ export default function Home() {
                                                 className="flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition group"
                                             >
                                                 <MapPin size={15} className="text-blue-400 shrink-0 group-hover:text-blue-600" />
-<span className="truncate">
-    {selected.location} — {selected.address}
-</span>                                            </a>
+                                            <span className="truncate">
+                                                {selected.district} — {selected.address}
+                                            </span>                                            
+                                            </a>
                                         )}
                                     </div>
 
-                                    {/* Sobre la organización */}
-                                    {selectedOrg?.description && (
-                                        <>
-                                            <div>
-                                                <h4 className="text-sm font-medium text-gray-600 mb-2">
-                                                    Sobre la organización
-                                                </h4>
-                                               <div className="rounded-xl bg-blue-50/40 p-4">
-    <p className="text-sm font-medium text-gray-700 leading-relaxed">
-        {selected.description}
-    </p>
-</div>
-                                            </div>
-                                        </>
-                                    )}
+                                   
 
                                     {/* Botones de acción */}
                                     <div className="flex flex-col gap-2 pt-5">

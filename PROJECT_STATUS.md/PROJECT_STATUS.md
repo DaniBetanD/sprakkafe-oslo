@@ -1,59 +1,174 @@
-Actualización del Project Status (4 julio 2026)
-Estado general
+Språkkafé Oslo — Project Status
 
-🟢 MVP funcional, estable y listo para refinamiento UX/UI
+Última actualización: 4 julio 2026
+Estado general: 🟢 MVP funcional, estable y en fase de refinamiento UX/UI
 
-Home.jsx
+Fase actual
+Fase 1 — MVP
+
+Estado: ✅ Completada
+
+Objetivo cumplido:
+
+Buscar actividades.
+Filtrar actividades.
+Consultar organizaciones.
+Navegación completa.
+Responsive.
+Deploy estable.
+
+El producto ya es usable.
+
+Fase 2 — UX/UI Refinement
+
+Estado: 🟡 En progreso
+
+Objetivo:
+
+Reducir el tiempo que tarda un usuario en encontrar una actividad y aumentar la calidad percibida del producto.
+
+Auditoría UX
+UX-001 — Arquitectura de información
+
+Estado: ✅ Completada
+
+Home
+✅ Descripción priorizada bajo el encabezado.
+✅ Metadatos compactados.
+✅ Día y hora unificados.
+✅ Nivel convertido en badge.
+✅ Dirección unificada.
+✅ Panel lateral simplificado.
+✅ Espaciado optimizado.
+✅ Eliminación de información redundante.
+UX-002 — ActivityCard
+
+Estado: ✅ Completada
+
+Mejoras
+✅ Mejor jerarquía entre actividad y organización.
+✅ Interlineado optimizado.
+✅ Espaciado inferior refinado.
+✅ Hover con elevación.
+✅ Tipografía más equilibrada.
+✅ Microinteracciones consistentes.
+UX-003 — Hero
+
+Estado: ⏳ Pendiente
+
+Objetivos
+ Revisar el mensaje principal.
+ Optimizar la propuesta de valor.
+ Revisar altura del hero.
+ Mejorar el subtítulo.
+ Revisar CTA.
+UX-004 — Header
+
+Estado: ⏳ Pendiente
+
+Objetivos
+ Revisar navegación.
+ Evaluar botón "Únete".
+ Mejorar estados activos.
+ Consistencia responsive.
+UX-005 — Buscador y filtros
+
+Estado: ⏳ Pendiente
+
+Objetivos
+ Mejorar placeholder.
+ Feedback visual.
+ Estados vacíos.
+ Accesibilidad.
+ Consistencia de selects.
+UX-006 — ActivityPage
+
+Estado: ⏳ Pendiente
+
+Revisión completa de la ficha de actividad.
+
+UX-007 — OrganizationPage
+
+Estado: ⏳ Pendiente
+
+Revisión completa del perfil institucional.
+
+UX-008 — Footer
+
+Estado: ⏳ Pendiente
+
+Optimización visual y arquitectura.
+
+Estado técnico
+Home
 Hero
-✅ Hero responsive con gradiente azul
-✅ Buscador flotante sobre el hero
-✅ Espaciado inferior corregido en filtros (pb-4)
-Buscador y filtros
-✅ Búsqueda por texto
-✅ 4 filtros funcionando
-✅ Botón limpiar filtros
+✅ Responsive.
+✅ Gradiente corporativo.
+⏳ Pendiente optimización del mensaje.
+Búsqueda
+✅ Buscador.
+✅ Cuatro filtros.
+✅ Limpieza de filtros.
 Grid
-✅ Responsive
-✅ Desktop: 2-3 columnas
-✅ Móvil: 1 columna
-✅ Cuando existe selección el grid reduce al 45% únicamente en desktop
-✅ Corregido el ancho completo en móvil (w-full)
-Panel lateral desktop
-✅ Logo real
-✅ Descripción de la actividad
-✅ Día y hora unificados
-✅ Nivel mediante badge de color
-✅ Dirección clicable hacia Google Maps
-✅ Información de la organización
-✅ Tres acciones principales
-🟡 Pendiente el refinamiento visual (espaciado, bloques y eliminación de divisores)
+✅ Responsive.
+✅ Desktop adaptable.
+✅ Mobile optimizado.
+Panel lateral
+✅ Arquitectura finalizada.
+✅ Google Maps.
+✅ Badge dinámico.
+✅ Jerarquía visual revisada.
 MobileDetailPanel
-✅ Bottom Sheet funcionando
-✅ Overlay
-✅ Mismo contenido que desktop
-✅ Cierre automático al navegar
-Mejoras UX completadas
-Re-arquitectura de información
-✅ Descripción situada inmediatamente bajo el encabezado
-✅ Metadatos compactados
-✅ Día + hora unificados
-✅ Nivel convertido en badge visual
-✅ Dirección integrada como enlace
-✅ Grid corregido para móvil
-Pendiente (UX/UI Senior)
-Punto 2 — Jerarquía visual
+✅ Bottom Sheet.
+✅ Overlay.
+✅ Navegación integrada.
+Calidad técnica
+✅ Componentes desacoplados.
+✅ Traducciones centralizadas.
+✅ Logos reales.
+✅ Datos normalizados.
+✅ Routing estable.
+✅ Deploy automático.
+Próximas fases
+Fase 3 — Calidad del producto
+ Accesibilidad (WCAG).
+ SEO.
+ Open Graph.
+ Performance.
+ Estados de carga.
+ Página 404.
+Fase 4 — Datos reales
+ Supabase.
+ API.
+ Panel Admin.
+ Autenticación.
+Fase 5 — Automatización
+ Scraper.
+ Cron Jobs.
+ Validación automática.
+Fase 6 — Escalabilidad
+ Multiidioma.
+ Otras ciudades.
+ Eventos temporales.
+ Mapas interactivos.
+Mi recomendación como responsable de producto
 
-Todavía pendiente:
+Hay una decisión estratégica que creo que merece la pena tomar ahora.
 
- Eliminar todos los <hr>
- Usar espacio en blanco como separador
- Destacar la descripción mediante un contenedor suave
- Reducir el peso visual de "Sobre la organización"
- Dar mayor separación antes del bloque de botones
-Próxima fase
-UX/UI Senior
- Ritmo visual
- Espaciado vertical
- Jerarquía tipográfica
- Microinteracciones
- Consistencia entre Desktop y Mobile
+Dejar de pensar en "pantallas" y empezar a pensar en "viajes del usuario".
+
+Si una persona entra hoy en Språkkafé Oslo, su recorrido ideal es:
+
+Llega a la Home.
+Entiende en menos de 5 segundos qué ofrece la web.
+Encuentra una actividad en menos de 20 segundos.
+Decide si le interesa.
+Abre la ficha de la actividad.
+Consulta la organización si necesita más contexto.
+Sale con una acción clara: asistir, contactar o visitar la web oficial.
+
+Ese es el flujo principal del producto. Todas las mejoras de UX deberían evaluarse según una pregunta muy simple:
+
+¿Ayuda este cambio a que el usuario complete ese recorrido con menos esfuerzo?
+
+Si la respuesta es sí, merece prioridad. Si no, puede esperar.
