@@ -76,7 +76,6 @@ export default function ActivityPage() {
                         </div>
                     </div>
 
-                    <hr className="border-gray-100" />
 
                     {/* Fichas de datos */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm md:text-base">
@@ -186,7 +185,7 @@ export default function ActivityPage() {
 
                 {/* Otras actividades de la misma org */}
                 {otherActivities.length > 0 && (
-                    <section className="space-y-3">
+                    <section className="space-y-5">
                         <h2 className="text-lg font-bold text-gray-900">
                             Más actividades de {organization?.name}
                         </h2>

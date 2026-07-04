@@ -145,17 +145,17 @@ export default function Home() {
                                             <X size={18} />
                                         </button>
                                     </div>
-                                      <hr className="border-gray-100" />           
 
                                     {/* BLOQUE INTEGRADO Y CORREGIDO (Descripción, Día/Hora/Nivel y Ubicación unificada) */}
-                                    <div className="space-y-3">
+                                    <div className="space-y-5">
                                         {selected.description && (
-                                            <p className="text-sm text-gray-600 leading-relaxed">
-                                                {selected.description}
-                                            </p>
+                                           <div className="rounded-xl bg-blue-50/40 p-4">
+    <p className="text-sm font-medium text-gray-700 leading-relaxed">
+        {selected.description}
+    </p>
+</div>
                                         )}
 
-                                        <hr className="border-gray-100" />
 
                                         <div className="flex items-center justify-between gap-2">
                                             <div className="flex items-center gap-2 text-sm text-gray-600">
@@ -184,20 +184,21 @@ export default function Home() {
                                     {/* Sobre la organización */}
                                     {selectedOrg?.description && (
                                         <>
-                                            <hr className="border-gray-100" />
                                             <div>
-                                                <h4 className="text-xs font-semibold text-gray-800 uppercase tracking-wide mb-1 flex items-center gap-1">
-                                                    🏛️ Sobre la organización
+                                                <h4 className="text-sm font-medium text-gray-600 mb-2">
+                                                    Sobre la organización
                                                 </h4>
-                                                <p className="text-sm text-gray-600 leading-relaxed">
-                                                    {selectedOrg.description}
-                                                </p>
+                                               <div className="rounded-xl bg-blue-50/40 p-4">
+    <p className="text-sm font-medium text-gray-700 leading-relaxed">
+        {selected.description}
+    </p>
+</div>
                                             </div>
                                         </>
                                     )}
 
                                     {/* Botones de acción */}
-                                    <div className="flex flex-col gap-2 pt-1">
+                                    <div className="flex flex-col gap-2 pt-5">
                                         <Link
                                             to={`/activity/${selected.id}`}
                                             className="flex items-center justify-center gap-2 bg-blue-600 text-white text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-blue-700 transition"

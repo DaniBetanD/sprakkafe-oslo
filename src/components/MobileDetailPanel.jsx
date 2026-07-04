@@ -57,13 +57,14 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
                         </button>
                     </div>
 
-                    <hr className="border-gray-100" />
 
                     {/* Descripción */}
                     {selected.description && (
-                        <p className="text-sm text-gray-600 leading-relaxed">
-                            {selected.description}
-                        </p>
+                        <div className="rounded-xl bg-blue-50/40 p-4">
+    <p className="text-sm font-medium text-gray-700 leading-relaxed">
+        {selected.description}
+    </p>
+</div>
                     )}
 
                     {/* Día + hora y badge nivel */}
@@ -94,19 +95,19 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
                     {/* Sobre la organización */}
                     {selectedOrg?.description && (
                         <>
-                            <hr className="border-gray-100" />
                             <div>
-                                <h4 className="text-xs font-semibold text-gray-800 uppercase tracking-wide mb-1">
-                                    🏛️ Sobre la organización
-                                </h4>
-                                <p className="text-sm text-gray-600 leading-relaxed">
-                                    {selectedOrg.description}
-                                </p>
+                               <h4 className="text-sm font-medium text-gray-600">
+    Sobre la organización
+</h4>
+                               <div className="rounded-xl bg-blue-50/40 p-4">
+    <p className="text-sm font-medium text-gray-700 leading-relaxed">
+        {selected.description}
+    </p>
+</div>
                             </div>
                         </>
                     )}
 
-                    <hr className="border-gray-100" />
 
                     {/* Acciones */}
                     <div className="flex flex-col gap-2 pb-2">
