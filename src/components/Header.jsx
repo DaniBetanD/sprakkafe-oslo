@@ -94,13 +94,9 @@ export default function Header() {
                                 Actividades
                             </button>
                             
-                            <a
-                                href="#proyecto"
-                                onClick={handleProyectoClick}
-                                className="text-gray-600 hover:text-blue-600 transition font-medium"
-                            >
-                                Sobre el proyecto
-                            </a>
+                           <a href="#proyecto" className="text-gray-600 hover:text-blue-600 transition font-medium">
+    Sobre el proyecto
+</a>
                             
                             <button 
                                 onClick={handleCommunityClick}

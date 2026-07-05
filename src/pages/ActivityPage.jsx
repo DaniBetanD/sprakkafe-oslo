@@ -43,14 +43,20 @@ export default function ActivityPage() {
         <div className="min-h-screen bg-gray-50 pb-12">
 
             {/* Nav */}
-            <div className="bg-white border-b border-gray-100 sticky top-0 z-10">
-                <div className="max-w-3xl mx-auto px-6 h-16 flex items-center">
-                    <Link to="/" className="flex items-center gap-2 text-gray-600 hover:text-gray-900 font-medium transition">
-                        <ArrowLeft size={18} />
-                        <span>Volver al directorio</span>
-                    </Link>
-                </div>
+            <div className="bg-white/70 backdrop-blur-xl border-b border-gray-100 sticky top-0 z-10">
+    <div className="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-2 text-gray-600 hover:text-gray-900 font-medium transition">
+            <ArrowLeft size={18} />
+            <span>Volver</span>
+        </Link>
+        <Link to="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm transition-transform group-hover:scale-105">
+                S
             </div>
+            <span className="font-bold text-gray-900">Språkkafé<span className="text-blue-600">.</span></span>
+        </Link>
+    </div>
+</div>
 
             <main className="max-w-3xl mx-auto px-6 mt-6 space-y-6">
 

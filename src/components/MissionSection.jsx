@@ -19,13 +19,19 @@ function CommunityCTA() {
         <div className="mt-24 bg-blue-600 text-white rounded-2xl p-8 text-center">
             <h3 className="text-2xl font-bold">¿Listo para empezar?</h3>
             <p className="mt-2 text-blue-100">Encuentra tu próximo grupo de conversación hoy mismo.</p>
+            <a
+                href="#actividades"
+                className="mt-6 inline-flex items-center gap-2 bg-white text-blue-600 font-semibold px-6 py-3 rounded-xl hover:bg-blue-50 transition"
+            >
+                Ver actividades →
+            </a>
         </div>
     );
 }
 
 export default function AboutSection() {
     return (
-        <section className="py-16 bg-gray-50/50">
+<section id="proyecto" className="py-16 bg-gray-50/50">
             {/* Contenedor Principal */}
             <div className="max-w-5xl mx-auto px-6">
                 

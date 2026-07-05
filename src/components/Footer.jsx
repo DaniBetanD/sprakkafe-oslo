@@ -102,38 +102,14 @@ export default function Footer() {
                             <div>
                                 <h3 className="font-semibold text-gray-900 mb-4">Enlaces</h3>
                                 <ul className="space-y-2 text-sm">
-                                    <li>
-                                        <button 
-                                            onClick={handleAboutClick}
-                                            className="text-gray-500 hover:text-blue-600 transition cursor-pointer"
-                                        >
-                                            Sobre el proyecto
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button 
-                                            onClick={handleHowItWorksClick}
-                                            className="text-gray-500 hover:text-blue-600 transition cursor-pointer"
-                                        >
-                                            Cómo funciona
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button 
-                                            onClick={handleOrganizationsClick}
-                                            className="text-gray-500 hover:text-blue-600 transition cursor-pointer"
-                                        >
-                                            Organizaciones
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <a 
-                                            href="mailto:info@sprakkafe.no"
-                                            className="text-gray-500 hover:text-blue-600 transition"
-                                        >
-                                            Contacto
-                                        </a>
-                                    </li>
+                                    <li><a href="/#proyecto" className="text-gray-500 hover:text-blue-600 transition">Sobre el proyecto</a></li>
+
+                                    <li><a href="/#proyecto" className="text-gray-500 hover:text-blue-600 transition">Cómo funciona</a></li>
+
+                                    <li><a href="/#actividades" className="text-gray-500 hover:text-blue-600 transition">Organizaciones</a></li>
+
+                                    <li><a href="mailto:hola@sprakkafe.no" className="text-gray-500 hover:text-blue-600 transition">Contacto</a></li>
+
                                 </ul>
                             </div>
 
