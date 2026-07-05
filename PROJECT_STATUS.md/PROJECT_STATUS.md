@@ -1,258 +1,150 @@
-Project Status
-
-Última actualización: 4 julio 2026
-
+Actualización del Project Status (5 julio 2026)
 Estado general
 
-🟢 MVP funcional, estable y entrando en fase de refinamiento UX/UI profesional.
+🟢 MVP funcional y estable.
 
-El proyecto ha pasado de ser un directorio funcional a convertirse en un producto con una identidad clara centrada en la integración de personas en Noruega a través del idioma y la comunidad.
+🟢 Fase de refinamiento UX/UI iniciada.
 
-Infraestructura
-✅ React + Vite
-✅ Tailwind CSS
-✅ React Router
-✅ Deploy automático en Vercel
-✅ GitHub conectado
-✅ Desarrollo local estable
-Home.jsx
-Hero
-
-✅ Gradiente refinado
-
-✅ Altura optimizada
-
-✅ Mensaje orientado a la misión
-
-Practica noruego en un entorno real, conoce gente y descubre la cultura de Oslo.
-
-✅ Chips informativos
-
-En toda Oslo
-Comunidad
-Cultura local
-
-🟡 Pendiente
-
-Sustituir emojis por iconografía de Lucide
-Preparar versión reutilizable para futuras ciudades
-Buscador
-
-✅ Tarjeta flotante
-
-✅ Espaciado corregido
-
-✅ Responsive
-
-Filtros
-
-✅ Barrio
-
-✅ Día
-
-✅ Nivel
-
-✅ Organización
-
-✅ Limpiar filtros
-
-Grid de actividades
-
-✅ Responsive
-
-✅ Desktop 2–3 columnas
-
-✅ Mobile 1 columna
-
-✅ Selección reduce el grid al 45%
-
-✅ Hover mejorado
-
-✅ Tarjetas con mejor ritmo visual
-
+Sprint UX-001 — Re-arquitectura de información
+ActivityPage
+✅ Descripción movida inmediatamente bajo el encabezado.
+✅ Día + hora unificados.
+✅ Nivel convertido en badge visual.
+✅ Dirección integrada en un único bloque clicable.
+✅ Información reorganizada para reducir el tiempo de escaneo.
+Sprint UX-002 — Jerarquía visual
+Home
+✅ Eliminados elementos redundantes del panel lateral.
+✅ Mejor tratamiento visual de la descripción.
+✅ Ritmo visual más limpio.
+✅ Mayor separación entre bloques.
+✅ Eliminado el bloque "Sobre la organización" del panel lateral.
 ActivityCard
-Re-arquitectura UX
+✅ Mejor espaciado.
+✅ Hover más natural.
+✅ Jerarquía tipográfica refinada.
+✅ Nivel mediante badge de color.
+✅ Dirección simplificada.
+Sprint UX-003 — Hero de la Home
+Hero
+✅ Nuevo mensaje principal centrado en la integración.
+Practica noruego en un entorno real,
+conoce gente y descubre la cultura de Oslo.
+✅ Chips informativos añadidos.
+📍 En toda Oslo
 
-✅ Nombre más legible
+🤝 Comunidad
 
-✅ Organización como información secundaria
-
-✅ Descripción priorizada
-
-✅ Día y hora unificados
-
-✅ Nivel convertido en badge
-
-✅ Dirección enlazada a Google Maps
-
-✅ Hover refinado
-
-Panel lateral Desktop
-Jerarquía visual
-
-✅ Descripción destacada
-
-✅ Día + hora integrados
-
-✅ Badge de nivel
-
-✅ Dirección unificada
-
-✅ Eliminado el bloque redundante "Sobre la organización"
-
-✅ Más espacio entre contenido y acciones
-
-CTAs
-
-✅ Acción principal
-
-Ver detalles del evento
-
-✅ Acción secundaria
-
-Ver organización
-
-✅ Acción terciaria
-
-Sitio web oficial ↗
-
-Jerarquía claramente diferenciada.
-
-Mobile Detail Panel
-
-✅ Sincronizado con Desktop
-
-🟡 Pendiente aplicar exactamente la misma jerarquía visual que el panel desktop.
-
+🇳🇴 Cultura local
+✅ Hero más compacto.
+✅ Mejor equilibrio vertical.
+Sprint UX-004 — Navegación
 Header
-Navegación
-
-En proceso de rediseño.
-
-Nueva arquitectura:
-
+✅ Simplificación del menú.
+✅ Enfoque en tres acciones principales.
 Actividades
+
 Sobre el proyecto
+
 Únete a la comunidad
+✅ Preparado para crecer a nivel nacional (Noruega).
+Sprint UX-005 — Narrativa del proyecto
+Nueva sección
 
-🟡 Pendiente
+Sentirse parte de Noruega
 
-Backdrop Blur
-Navegación mediante anchors
-CTA Comunidad
+Incluye:
+
+✅ Filosofía del proyecto.
+✅ Tarjetas de misión.
+✅ Nuestra misión.
+✅ Cómo funciona.
+✅ CTA comunitario.
+Sprint UX-006 — Footer Premium
 Footer
-
-✅ Funcional
-
-🟡 Pendiente revisión visual cuando exista la nueva sección "Sobre el proyecto".
-
-Nueva visión del producto
-Misión
-
-Ayudar a las personas a integrarse en Noruega mediante el idioma, la comunidad y el acceso sencillo a actividades gratuitas.
-
-El proyecto deja de ser únicamente un directorio.
-
-Comienza a construirse como una plataforma comunitaria.
-
-Roadmap UX
-Sprint UX-001
-
-✅ Re-arquitectura de información
-
-Completado.
-
-Sprint UX-002
-
-✅ Jerarquía visual del panel
-
-Completado.
-
-Sprint UX-003
-
-✅ Hero
-
-Completado.
-
-Sprint UX-004
-
-🟡 Header
-
-En progreso.
+✅ Banner CTA.
+✅ Identidad reforzada.
+✅ Mensaje de comunidad.
+✅ Proyecto comunitario.
+✅ Transparencia sobre las fuentes.
+✅ Preparado para captación de comunidad.
 
 Pendiente:
 
-navegación definitiva
-efecto cristal
-CTA Comunidad
-Sprint UX-005
+⏳ Landing de newsletter.
+⏳ Formulario de inscripción.
+Sprint UX-007 — ActivityPage 2.0
+Estado
 
-✅ Conversión y CTAs
+🟡 En desarrollo.
 
-Completado.
+Completado:
 
-Sprint UX-006
+✅ Definida la nueva arquitectura de la página.
+✅ Reorganización del Hero.
+✅ Nueva jerarquía de lectura.
 
-⬜ Sobre el proyecto
+Pendiente:
 
-Nueva sección institucional que incluirá:
+⏳ Hero definitivo.
+⏳ Caja "¿Es tu primera vez?".
+⏳ Mapa integrado.
+⏳ Consejos para asistir.
+⏳ Actividades similares mejoradas.
+Estado general del diseño
+Home
 
-Qué es un Språkkafé
-Nuestra misión
-Cómo funciona el directorio
-Quién mantiene el proyecto
-CTA Comunidad
-Sprint UX-007
+🟢 Muy avanzada (~95%).
 
-⬜ Comunidad
+ActivityPage
 
-Primera versión del ecosistema.
+🟡 En evolución (~70%).
 
-Objetivos:
+OrganizationPage
 
-Newsletter mensual
-Historias de usuarios
-Recursos para aprender noruego
-Novedades de organizaciones
-Roadmap técnico
-Próximo
+🟡 Funcional, pendiente de rediseño.
 
-⬜ Página 404
+Comunidad
 
-⬜ Optimización SEO
+⚪ Pendiente.
 
-⬜ Accesibilidad WCAG
+Newsletter
 
-⬜ Mejorar Mobile Detail Panel
+⚪ Pendiente.
 
-⬜ Mapas
+Administración
 
-Medio plazo
+⚪ Pendiente.
 
-⬜ Supabase
+Supabase
 
-⬜ Panel Admin
+⚪ Pendiente.
 
-⬜ Automatización de actualización de actividades
+Horizonte del proyecto
+Fase actual
 
-Largo plazo
+Construir la mejor experiencia posible para una persona que quiere asistir a su primer Språkkafé.
 
-⬜ Multi-ciudad
+Una vez terminada esta fase, entraremos en la siguiente.
 
-Arquitectura prevista:
-
-sprakkafe.no
-
-/oslo
-
-/bergen
-
-/trondheim
-
-/stavanger
-
-Marca principal:
-
-Språkkafé
-
-Ciudad como contexto, no como marca.
+Próximos grandes hitos
+Fase 1 — UX Premium (actual)
+Finalizar ActivityPage.
+Rediseñar OrganizationPage.
+Mejorar consistencia visual.
+Accesibilidad (WCAG AA).
+Fase 2 — Comunidad
+Página "Únete a la comunidad".
+Newsletter mensual.
+Recursos para aprender noruego.
+Historias de usuarios.
+Fase 3 — Datos
+Migración a Supabase.
+Panel de administración.
+Actualización automática de actividades.
+Fase 4 — Escalado
+Bergen.
+Trondheim.
+Stavanger.
+Tromsø.
+Resto de Noruega.

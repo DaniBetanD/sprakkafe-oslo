@@ -1,8 +1,15 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, MapPin, Calendar, Award, Globe, ExternalLink, Mail, Phone } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, Globe, ExternalLink, Mail, Phone } from "lucide-react";
 import activities from "../data/activities.json";
 import organizations from "../data/organizations.json";
 import { DAYS, LEVELS } from "../utils/translations";
+
+const LEVEL_COLORS = {
+    "A1": "bg-green-100 text-green-700",
+    "A2": "bg-blue-100 text-blue-700",
+    "B1": "bg-purple-100 text-purple-700",
+    "B2": "bg-orange-100 text-orange-700",
+};
 
 export default function ActivityPage() {
     const { id } = useParams();
@@ -26,6 +33,11 @@ export default function ActivityPage() {
         a => a.organizationId === activity.organizationId && a.id !== activity.id
     );
 
+    // CORREGIDO: Se eliminó el '0' residual antes del template literal
+    const mapsUrl = activity.address
+        ? `https://maps.google.com/?q=${encodeURIComponent(activity.address + ', Oslo')}`
+        : null;
+
     return (
         <div className="min-h-screen bg-gray-50 pb-12">
 
@@ -41,11 +53,12 @@ export default function ActivityPage() {
 
             <main className="max-w-3xl mx-auto px-6 mt-6 space-y-6">
 
-                {/* Bloque actividad */}
-                <section className="bg-white rounded-3xl border border-gray-200 p-6 md:p-8 shadow-sm space-y-6">
+                {/* Bloque principal */}
+                <section className="bg-white rounded-3xl border border-gray-200 p-6 md:p-8 shadow-sm space-y-5">
 
-                    <div className="flex items-start gap-4">
-                        <div className="w-16 h-16 rounded-xl border border-gray-100 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0">
+                    {/* 1. CONFIANZA — quién lo organiza */}
+                    <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 rounded-xl border border-gray-100 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0">
                             {organization?.logoImg ? (
                                 <img
                                     src={new URL(`../assets/logos/${organization.logoImg}`, import.meta.url).href}
@@ -53,90 +66,93 @@ export default function ActivityPage() {
                                     className="w-full h-full object-contain p-1"
                                 />
                             ) : (
-                                <span className="text-3xl">{organization?.logo}</span>
+                                <span className="text-2xl">{organization?.logo}</span>
                             )}
                         </div>
-                        <div className="flex-1 space-y-1">
-                            <span className={`inline-flex items-center gap-1 text-xs font-semibold px-3 py-1 rounded-full ${
-                                organization?.verified
-                                    ? "bg-green-100 text-green-800"
-                                    : "bg-yellow-100 text-yellow-800"
-                            }`}>
-                                <Award size={12} /> {organization?.verified ? "Verificado oficial" : "En pausa"}
-                            </span>
-                            <h1 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
-                                {activity.name}
-                            </h1>
-                            <p className="text-gray-500">
-                                Organizado por{" "}
-                                <Link to={`/organization/${organization?.id}`} className="text-blue-600 hover:underline font-medium">
-                                    {organization?.name}
-                                </Link>
-                            </p>
+                        <div>
+                            <Link
+                                to={`/organization/${organization?.id}`}
+                                className="font-semibold text-gray-900 hover:text-blue-600 transition"
+                            >
+                                {organization?.name}
+                            </Link>
+                            <div className="flex items-center gap-2 mt-0.5">
+                                {organization?.verified ? (
+                                    <span className="text-xs font-medium text-green-700 bg-green-100 px-2 py-0.5 rounded-full">
+                                        ✓ Verificado
+                                    </span>
+                                ) : (
+                                    <span className="text-xs font-medium text-yellow-700 bg-yellow-100 px-2 py-0.5 rounded-full">
+                                        En pausa
+                                    </span>
+                                )}
+                                {organization?.tipo && (
+                                    <span className="text-xs text-gray-400">{organization.tipo}</span>
+                                )}
+                            </div>
                         </div>
                     </div>
 
+                    <hr className="border-gray-100" />
 
-                    {/* Fichas de datos */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm md:text-base">
-                        <div className="flex items-start gap-3 bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                            <Calendar className="text-blue-600 shrink-0 mt-0.5" size={20} />
-                            <div>
-                                <h3 className="font-semibold text-gray-700">Día</h3>
-                                <p className="text-gray-600">{DAYS[activity.day]}</p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-start gap-3 bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                            <Calendar className="text-blue-600 shrink-0 mt-0.5" size={20} />
-                            <div>
-                                <h3 className="font-semibold text-gray-700">Horario</h3>
-                                <p className="text-gray-600">{activity.time}</p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-start gap-3 bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                            <MapPin className="text-blue-600 shrink-0 mt-0.5" size={20} />
-                            <div>
-                                <h3 className="font-semibold text-gray-700">Barrio</h3>
-                                <p className="text-gray-600">{activity.district}</p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-start gap-3 bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                            <Award className="text-blue-600 shrink-0 mt-0.5" size={20} />
-                            <div>
-                                <h3 className="font-semibold text-gray-700">Nivel</h3>
-                                <p className="text-gray-600">{LEVELS[activity.level]}</p>
-                            </div>
-                        </div>
-
-                        {activity.address && (
-                           <div className="flex items-start gap-3 bg-gray-50 p-4 rounded-2xl border border-gray-100 sm:col-span-2">
-    <MapPin className="text-blue-600 shrink-0 mt-0.5" size={20} />
-    <div className="flex-1">
-        <h3 className="font-semibold text-gray-700">Dirección</h3>
-        <p className="text-gray-600">{activity.address}</p>
-        <a
-            href={`https://maps.google.com/?q=${encodeURIComponent(activity.address + ', Oslo')}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 mt-2 text-sm text-blue-600 hover:text-blue-700 font-medium"
-        >
-            <MapPin size={14} /> Ver en mapa →
-        </a>
-    </div>
-</div>
-                        )}
+                    {/* 2. INTERÉS — qué actividad es */}
+                    <div>
+                        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
+                            {activity.name}
+                        </h1>
                     </div>
 
+                    {/* 3. MOTIVACIÓN — por qué ir */}
                     {activity.description && (
-                        <div className="space-y-2 pt-2">
-                            <h2 className="text-lg font-semibold text-gray-900">Sobre este Språkkafé</h2>
-                            <p className="text-gray-600 leading-relaxed whitespace-pre-line">
-                                {activity.description}
-                            </p>
+                        <p className="text-gray-600 leading-relaxed text-base">
+                            {activity.description}
+                        </p>
+                    )}
+
+                    <hr className="border-gray-100" />
+
+                    {/* 4. DECISIÓN — cuándo, dónde y nivel */}
+                    <div className="flex flex-wrap gap-3">
+                        <div className="inline-flex items-center gap-2 bg-gray-50 border border-gray-100 px-4 py-2 rounded-xl text-sm text-gray-700">
+                            <Calendar size={15} className="text-blue-500" />
+                            {DAYS[activity.day]} · {activity.time}
                         </div>
+
+                        {mapsUrl ? (
+                            /* CORREGIDO: Se restauró la etiqueta de apertura <a */
+                            <a
+                                href={mapsUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 bg-gray-50 border border-gray-100 px-4 py-2 rounded-xl text-sm text-gray-700 hover:text-blue-600 hover:border-blue-200 transition"
+                            >
+                                <MapPin size={15} className="text-blue-500" />
+                                {activity.district}
+                            </a>
+                        ) : (
+                            <div className="inline-flex items-center gap-2 bg-gray-50 border border-gray-100 px-4 py-2 rounded-xl text-sm text-gray-700">
+                                <MapPin size={15} className="text-blue-500" />
+                                {activity.district}
+                            </div>
+                        )}
+
+                        <span className={`inline-flex items-center px-4 py-2 rounded-xl text-sm font-semibold ${LEVEL_COLORS[activity.level] || "bg-gray-100 text-gray-600"}`}>
+                            {LEVELS[activity.level]}
+                        </span>
+                    </div>
+
+                    {/* Dirección completa */}
+                    {mapsUrl && (
+                        /* CORREGIDO: Se restauró la etiqueta de apertura <a */
+                        <a
+                            href={mapsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition group"
+                        >
+                            <MapPin size={14} className="text-blue-400 group-hover:text-blue-600 shrink-0" />
+                            <span>{activity.address} · Ver en mapa →</span>
+                        </a>
                     )}
                 </section>
 
@@ -149,6 +165,7 @@ export default function ActivityPage() {
 
                     <div className="flex flex-wrap gap-3 pt-2">
                         {organization?.website && (
+                            /* CORREGIDO: Se restauró la etiqueta de apertura <a */
                             <a
                                 href={organization.website}
                                 target="_blank"
@@ -159,6 +176,7 @@ export default function ActivityPage() {
                             </a>
                         )}
                         {organization?.email && (
+                            /* CORREGIDO: Se restauró la etiqueta de apertura <a */
                             <a
                                 href={`mailto:${organization.email}`}
                                 className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition"
@@ -167,6 +185,7 @@ export default function ActivityPage() {
                             </a>
                         )}
                         {organization?.phone && (
+                            /* CORREGIDO: Se restauró la etiqueta de apertura <a */
                             <a
                                 href={`tel:${organization.phone}`}
                                 className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition"
@@ -183,9 +202,9 @@ export default function ActivityPage() {
                     </div>
                 </section>
 
-                {/* Otras actividades de la misma org */}
+                {/* Otras actividades */}
                 {otherActivities.length > 0 && (
-                    <section className="space-y-5">
+                    <section className="space-y-3">
                         <h2 className="text-lg font-bold text-gray-900">
                             Más actividades de {organization?.name}
                         </h2>
@@ -196,7 +215,7 @@ export default function ActivityPage() {
                                 className="block bg-white rounded-2xl border border-gray-200 p-4 hover:shadow-md transition"
                             >
                                 <h3 className="font-semibold text-gray-900">{a.name}</h3>
-                                <p className="text-sm text-gray-500">
+                                <p className="text-sm text-gray-500 mt-1">
                                     {DAYS[a.day]} · {a.time} · {a.district} · {LEVELS[a.level]}
                                 </p>
                             </Link>
