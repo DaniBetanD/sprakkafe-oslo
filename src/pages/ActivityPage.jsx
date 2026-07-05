@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Calendar, Globe, ExternalLink, Mail, Phone } from "lucide-react";
 import activities from "../data/activities.json";
 import organizations from "../data/organizations.json";
+import FirstTimeCard from "../components/FirstTimeCard";
 import { DAYS, LEVELS } from "../utils/translations";
 
 const LEVEL_COLORS = {
@@ -33,7 +34,6 @@ export default function ActivityPage() {
         a => a.organizationId === activity.organizationId && a.id !== activity.id
     );
 
-    // CORREGIDO: Se eliminó el '0' residual antes del template literal
     const mapsUrl = activity.address
         ? `https://maps.google.com/?q=${encodeURIComponent(activity.address + ', Oslo')}`
         : null;
@@ -53,7 +53,7 @@ export default function ActivityPage() {
 
             <main className="max-w-3xl mx-auto px-6 mt-6 space-y-6">
 
-                {/* Bloque principal */}
+                {/* Activity Details Block */}
                 <section className="bg-white rounded-3xl border border-gray-200 p-6 md:p-8 shadow-sm space-y-5">
 
                     {/* 1. CONFIANZA — quién lo organiza */}
@@ -119,7 +119,6 @@ export default function ActivityPage() {
                         </div>
 
                         {mapsUrl ? (
-                            /* CORREGIDO: Se restauró la etiqueta de apertura <a */
                             <a
                                 href={mapsUrl}
                                 target="_blank"
@@ -143,7 +142,6 @@ export default function ActivityPage() {
 
                     {/* Dirección completa */}
                     {mapsUrl && (
-                        /* CORREGIDO: Se restauró la etiqueta de apertura <a */
                         <a
                             href={mapsUrl}
                             target="_blank"
@@ -156,7 +154,10 @@ export default function ActivityPage() {
                     )}
                 </section>
 
-                {/* Bloque organización */}
+                {/* First Time Card - Emotional reassurance */}
+                <FirstTimeCard />
+
+                {/* Organization Block */}
                 <section className="bg-white rounded-3xl border border-gray-200 p-6 shadow-sm space-y-4">
                     <h2 className="text-lg font-bold text-gray-900">Sobre la entidad organizadora</h2>
                     <p className="text-sm md:text-base text-gray-600 leading-relaxed">
@@ -165,7 +166,6 @@ export default function ActivityPage() {
 
                     <div className="flex flex-wrap gap-3 pt-2">
                         {organization?.website && (
-                            /* CORREGIDO: Se restauró la etiqueta de apertura <a */
                             <a
                                 href={organization.website}
                                 target="_blank"
@@ -176,7 +176,6 @@ export default function ActivityPage() {
                             </a>
                         )}
                         {organization?.email && (
-                            /* CORREGIDO: Se restauró la etiqueta de apertura <a */
                             <a
                                 href={`mailto:${organization.email}`}
                                 className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition"
@@ -185,7 +184,6 @@ export default function ActivityPage() {
                             </a>
                         )}
                         {organization?.phone && (
-                            /* CORREGIDO: Se restauró la etiqueta de apertura <a */
                             <a
                                 href={`tel:${organization.phone}`}
                                 className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition"
