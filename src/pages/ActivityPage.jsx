@@ -3,6 +3,7 @@ import { ArrowLeft, MapPin, Calendar, Globe, ExternalLink, Mail, Phone } from "l
 import activities from "../data/activities.json";
 import organizations from "../data/organizations.json";
 import FirstTimeCard from "../components/FirstTimeCard";
+import WhatActivityForMe from "../components/WhatActivityForMe";
 import { DAYS, LEVELS } from "../utils/translations";
 
 const LEVEL_COLORS = {
@@ -156,6 +157,9 @@ export default function ActivityPage() {
 
                 {/* First Time Card - Emotional reassurance */}
                 <FirstTimeCard />
+
+                {/* What Activity For Me - Help choose */}
+                <WhatActivityForMe />
 
                 {/* Organization Block */}
                 <section className="bg-white rounded-3xl border border-gray-200 p-6 shadow-sm space-y-4">
