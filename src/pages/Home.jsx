@@ -11,6 +11,7 @@ import Footer from "../components/Footer";
 import MobileDetailPanel from "../components/MobileDetailPanel";
 import { DAYS, LEVELS } from "../utils/translations";
 import {MapPinned, Users, Landmark} from "lucide-react";
+import MissionSection from "../components/MissionSection";
 
 // Mapeo centralizado de colores para los niveles
 const LEVEL_COLORS = {
@@ -219,7 +220,7 @@ export default function Home() {
                                                 href={selectedOrg.website}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-className="flex items-center justify-center gap-2 py-2 text-sm font-medium text-blue-600 transition hover:text-blue-700"                                            >
+className="flex items-center justify-center gap-2 py-2 text-sm font-medium text-blue-600 transition hover:text-blue-700">
                                                 <Globe size={14} /> Sitio web oficial
                                             </a>
                                         )}
@@ -237,7 +238,8 @@ className="flex items-center justify-center gap-2 py-2 text-sm font-medium text-
                 selectedOrg={selectedOrg}
                 onClose={() => setSelected(null)}
             />
-
+            <MissionSection />
+            
             <Footer />
         </div>
     );
