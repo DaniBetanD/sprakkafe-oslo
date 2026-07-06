@@ -1,150 +1,231 @@
-Actualización del Project Status (5 julio 2026)
-Estado general
+Språkkafé Oslo — Estado del Proyecto
 
-🟢 MVP funcional y estable.
+Última actualización: 4 julio 2026
+Stack: React + Vite + Tailwind + React Router + Vercel
+Estado general: 🟢 MVP funcional, entrando en fase de refinamiento UX/UI profesional
 
-🟢 Fase de refinamiento UX/UI iniciada.
 
-Sprint UX-001 — Re-arquitectura de información
-ActivityPage
-✅ Descripción movida inmediatamente bajo el encabezado.
-✅ Día + hora unificados.
-✅ Nivel convertido en badge visual.
-✅ Dirección integrada en un único bloque clicable.
-✅ Información reorganizada para reducir el tiempo de escaneo.
-Sprint UX-002 — Jerarquía visual
-Home
-✅ Eliminados elementos redundantes del panel lateral.
-✅ Mejor tratamiento visual de la descripción.
-✅ Ritmo visual más limpio.
-✅ Mayor separación entre bloques.
-✅ Eliminado el bloque "Sobre la organización" del panel lateral.
-ActivityCard
-✅ Mejor espaciado.
-✅ Hover más natural.
-✅ Jerarquía tipográfica refinada.
-✅ Nivel mediante badge de color.
-✅ Dirección simplificada.
-Sprint UX-003 — Hero de la Home
-Hero
-✅ Nuevo mensaje principal centrado en la integración.
-Practica noruego en un entorno real,
-conoce gente y descubre la cultura de Oslo.
-✅ Chips informativos añadidos.
-📍 En toda Oslo
+Visión del producto
 
-🤝 Comunidad
+Ayudamos a las personas a sentirse parte de Noruega a través del idioma, la comunidad y la cultura.
 
-🇳🇴 Cultura local
-✅ Hero más compacto.
-✅ Mejor equilibrio vertical.
-Sprint UX-004 — Navegación
-Header
-✅ Simplificación del menú.
-✅ Enfoque en tres acciones principales.
-Actividades
+El proyecto ha evolucionado de ser un directorio a convertirse en una plataforma comunitaria centrada en la integración de personas en Noruega.
 
-Sobre el proyecto
 
-Únete a la comunidad
-✅ Preparado para crecer a nivel nacional (Noruega).
-Sprint UX-005 — Narrativa del proyecto
-Nueva sección
+Principios del proyecto
 
-Sentirse parte de Noruega
 
-Incluye:
+🤝 Comunidad — Las personas aprenden mejor juntas
+🌍 Pertenencia — Ayudar a sentirse parte de la sociedad noruega
+💙 Accesibilidad — Información gratuita, clara y fácil de encontrar
+🛡️ Confianza — Actividades verificadas, espacios seguros
+🌱 Aprendizaje continuo — Acompañar más allá de una actividad
 
-✅ Filosofía del proyecto.
-✅ Tarjetas de misión.
-✅ Nuestra misión.
-✅ Cómo funciona.
-✅ CTA comunitario.
-Sprint UX-006 — Footer Premium
-Footer
-✅ Banner CTA.
-✅ Identidad reforzada.
-✅ Mensaje de comunidad.
-✅ Proyecto comunitario.
-✅ Transparencia sobre las fuentes.
-✅ Preparado para captación de comunidad.
 
-Pendiente:
 
-⏳ Landing de newsletter.
-⏳ Formulario de inscripción.
-Sprint UX-007 — ActivityPage 2.0
-Estado
+Infraestructura
 
-🟡 En desarrollo.
 
-Completado:
+ React + Vite
+ Tailwind CSS
+ React Router
+ Deploy automático en Vercel (sprakkafe-oslo.vercel.app)
+ GitHub conectado
+ Desarrollo local estable (npm run dev)
+ vercel.json con rewrites para SPA
+ .nvmrc con Node 22
+ engines en package.json
+ .vscode/settings.json con formatOnSave: false en GitHub
+ Vite build sin warnings bloqueantes
 
-✅ Definida la nueva arquitectura de la página.
-✅ Reorganización del Hero.
-✅ Nueva jerarquía de lectura.
 
-Pendiente:
 
-⏳ Hero definitivo.
-⏳ Caja "¿Es tu primera vez?".
-⏳ Mapa integrado.
-⏳ Consejos para asistir.
-⏳ Actividades similares mejoradas.
-Estado general del diseño
-Home
+Arquitectura actual
 
-🟢 Muy avanzada (~95%).
+src/
+├── components/
+│   ├── Header.jsx
+│   ├── SearchBar.jsx
+│   ├── ActivityCard.jsx
+│   ├── Filters.jsx
+│   ├── Footer.jsx
+│   ├── MobileDetailPanel.jsx
+│   ├── MissionSection.jsx
+│   └── ScrollToTop.jsx
+├── pages/
+│   ├── Home.jsx
+│   ├── ActivityPage.jsx
+│   └── OrganizationPage.jsx
+├── data/
+│   ├── activities.json
+│   └── organizations.json
+├── assets/
+│   └── logos/ (10 logos reales: png/svg)
+├── utils/
+│   └── translations.js
+├── App.jsx
+├── main.jsx
+├── index.css
+└── app.css
 
-ActivityPage
 
-🟡 En evolución (~70%).
+Modelo de datos
 
-OrganizationPage
+organizations.json — 10 organizaciones
 
-🟡 Funcional, pendiente de rediseño.
+Røde Kors, Deichman, Caritas, Norsk Start, Haugerud, Paulus Kirke, Ethnos, Alfaskolen (en pausa), Sagene, Tøyen Frivilligsentral.
 
-Comunidad
+Campos: id, name, tipo, website, email, phone, logo, logoImg, verified, description, lastChecked.
 
-⚪ Pendiente.
+activities.json — 10 actividades
 
-Newsletter
+Campos: id, organizationId, name, district, day, time, level, address, description.
 
-⚪ Pendiente.
 
-Administración
+Sprints completados
 
-⚪ Pendiente.
+✅ Sprint MVP-010 — Navegación
 
-Supabase
 
-⚪ Pendiente.
+ ScrollToTop en cada cambio de ruta
+ Header funcional con anchors (#actividades, #proyecto)
+ Footer con links reales (no href="#")
+ Navegación consistente en todas las páginas
+ Back consistente — siempre <Link to="/">, nunca history.back()
+ Logo en ActivityPage y OrganizationPage enlaza a Home
+ Nav minimalista en páginas de detalle (Volver + Logo)
+ Auditoría completa de navegación realizada
+ CTA "Únete a la comunidad" — pendiente (ver Sprint MVP-014)
 
-Horizonte del proyecto
-Fase actual
 
-Construir la mejor experiencia posible para una persona que quiere asistir a su primer Språkkafé.
+✅ Sprint UX-001 — Re-arquitectura de información
 
-Una vez terminada esta fase, entraremos en la siguiente.
 
-Próximos grandes hitos
-Fase 1 — UX Premium (actual)
-Finalizar ActivityPage.
-Rediseñar OrganizationPage.
-Mejorar consistencia visual.
-Accesibilidad (WCAG AA).
-Fase 2 — Comunidad
-Página "Únete a la comunidad".
-Newsletter mensual.
-Recursos para aprender noruego.
-Historias de usuarios.
-Fase 3 — Datos
-Migración a Supabase.
-Panel de administración.
-Actualización automática de actividades.
-Fase 4 — Escalado
-Bergen.
-Trondheim.
-Stavanger.
-Tromsø.
-Resto de Noruega.
+ Descripción priorizada en tarjetas
+ Día y hora unificados en una línea
+ Nivel convertido en badge con color
+ Dirección enlazada a Google Maps
+ Orden: Descripción → Día/Hora + Nivel → Dirección
+
+
+✅ Sprint UX-002 — Jerarquía visual del panel
+
+
+ Panel desktop sincronizado con nueva jerarquía
+ Descripción destacada con fondo sutil
+ Badge de nivel en el panel
+ Dirección unificada con link a mapa
+ MobileDetailPanel — pendiente sincronizar exactamente con desktop
+
+
+✅ Sprint UX-003 — Hero
+
+
+ Gradiente refinado
+ Subtítulo orientado a la misión
+ Chips informativos (En toda Oslo, Comunidad, Cultura local)
+
+
+✅ Sprint UX-004 — Header
+
+
+ Efecto cristal (bg-white/70 backdrop-blur-xl)
+ Navegación definitiva (Actividades, Sobre el proyecto, Únete)
+ CTA "Únete a la comunidad" visible
+ Menú móvil funcional con cierre al navegar
+
+
+✅ Sprint UX-005 — Conversión y CTAs
+
+
+ CTA "Ver detalles del evento" como acción principal
+ Jerarquía de acciones: principal → secundaria → terciaria
+ ActivityPage rediseñada con orden psicológico: Confianza → Interés → Motivación → Decisión
+
+
+✅ Sprint UX-006 — MissionSection
+
+
+ Sección "Sentirse parte de Noruega"
+ 3 tarjetas de misión (Practica, Descubre, Conecta)
+ Bloque "Nuestra misión" con texto institucional
+ Sección "¿Cómo funciona?" con 3 pasos
+ CTA final "¿Listo para empezar?" enlazado a #actividades
+ id="proyecto" para anchor del header
+
+
+
+Sprints pendientes
+
+🔄 Sprint MVP-011 — Sistema de diseño
+
+
+ Revisar consistencia de colores en todos los componentes
+ Revisar tipografía y espaciados
+ Estandarizar bordes, sombras y radios
+ Revisar estados hover/focus/active
+
+
+⬜ Sprint MVP-012 — Revisión de contenido
+
+
+ Copys y mensajes
+ CTAs
+ Textos institucionales
+
+
+⬜ Sprint MVP-013 — Preparación para producción
+
+
+ SEO (meta tags, og:image, sitemap)
+ Performance (lazy loading, imágenes optimizadas)
+ Accesibilidad WCAG
+
+
+⬜ Sprint MVP-014 — Comunidad / Newsletter
+
+
+ Google Form para captura de emails
+ Modal "Únete a la comunidad" con honeypot + timestamp
+ Checkbox de consentimiento GDPR
+ Texto legal inline
+ Página /privacidad
+ Link a privacidad en footer
+
+
+
+Roadmap técnico
+
+Próximo
+
+
+ Página 404 global
+ MobileDetailPanel sincronizado con desktop
+ Optimización SEO
+ Accesibilidad WCAG
+
+
+Medio plazo
+
+
+ Supabase (migración de JSON a base de datos real)
+ Panel Admin
+ Automatización de actualización de actividades
+
+
+Largo plazo
+
+
+ Multi-ciudad (sprakkafe.no/oslo, /bergen, /trondheim)
+
+
+
+Lecciones aprendidas
+
+
+Hacer commit después de cada cambio estable
+formatOnSave: false evita que Prettier rompa JSX
+Pegar archivos completos reduce errores de copy-paste parcial
+Verificar siempre en modo incógnito antes de reportar bugs visuales
+El error de Vercel era app.css con mayúscula incorrecta en el import
+Node.js 24.x en Vercel causaba fallos — solucionado con Node 22
