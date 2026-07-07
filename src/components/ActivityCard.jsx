@@ -1,4 +1,5 @@
-import { MapPin, Calendar } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Calendar, MapPin } from "lucide-react";
 import { DAYS, LEVELS } from "../utils/translations";
 
 const LEVEL_COLORS = {
@@ -8,81 +9,65 @@ const LEVEL_COLORS = {
     "B2": "bg-orange-100 text-orange-700",
 };
 
-export default function ActivityCard({ activity, organization, onClick, isSelected }) {
-
-    const logoSrc = organization?.logoImg
-        ? new URL(`../assets/logos/${organization.logoImg}`, import.meta.url).href
-        : null;
-
-    // CORREGIDO: Sintaxis de template string ($ en vez de 0) y URL de búsqueda oficial de Google Maps
-    const mapsUrl = activity?.address
-        ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(activity.address + ', Oslo')}`
-        : null;
-
+export default function ActivityCard({ activity, organization, onClick, searchContext }) {
     return (
-        <div
-            onClick={onClick}
-            className={`
-                bg-white rounded-xl border p-6 cursor-pointer
-                hover:-translate-y-1 hover:shadow-lg hover:border-blue-200
-                transition-all duration-300
-                ${isSelected
-                    ? "ring-2 ring-blue-500 shadow-lg border-blue-200"
-                    : "border-gray-200"}
-            `}
-        >
-            {/* Header: logo + nombre + org */}
-            <div className="flex items-start gap-3 mb-3">
-                <div className="w-12 h-12 rounded-xl border border-gray-100 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0">
-                    {logoSrc ? (
-                        <img src={logoSrc} alt={organization?.name} className="w-full h-full object-contain p-1" />
-                    ) : (
-                        <span className="text-xl">{organization?.logo}</span>
-                    )}
-                </div>
-                <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-gray-900 leading-snug line-clamp-2">    {activity?.name}
-                    </h3>
-                    <p className="text-sm text-gray-500 truncate">{organization?.name}</p>
-                </div>
-            </div>
-
-            {/* Descripción */}
-            {activity?.description && (
-                <p className="text-sm text-gray-500 leading-6 mb-4 line-clamp-2">
-                    {activity.description}
-                </p>
-            )}
-
-            {/* Día + hora y badge de nivel */}
-            <div className="flex items-center justify-between gap-2 mb-2">
-                <div className="flex items-center gap-1.5 text-sm text-gray-600">
-                    <Calendar size={14} className="text-blue-500 shrink-0" />
-                    <span>
-                        {activity?.day && DAYS[activity.day] ? DAYS[activity.day] : ""}{activity?.time ? `, ${activity.time}` : ""}
+        <article className="bg-white rounded-3xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between h-full">
+            <div className="space-y-4">
+                {/* Cabecera Tarjeta */}
+                <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-lg border border-gray-100 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0">
+                        {organization?.logoImg ? (
+                            <img
+                                src={new URL(`../assets/logos/${organization.logoImg}`, import.meta.url).href}
+                                alt={organization.name}
+                                className="w-full h-full object-contain p-0.5"
+                            />
+                        ) : (
+                            <span className="text-xl">{organization?.logo || "🏢"}</span>
+                        )}
+                    </div>
+                    <span className="text-xs font-semibold text-gray-500 truncate max-w-[180px]">
+                        {organization?.name}
                     </span>
                 </div>
-                {activity?.level && (
-                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full shrink-0 ${LEVEL_COLORS[activity.level] || "bg-gray-100 text-gray-600"}`}>
-                        {LEVELS[activity.level] || activity.level}
-                    </span>
-                )}
-            </div>
 
-            {/* Ubicación con link a mapa */}
-            {/* CORREGIDO: Se añadió la etiqueta de apertura <a ... */}
-            {mapsUrl && (
-                <a
-                    href={mapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-blue-600 transition group mt-1"
+                {/* Título Enlazable con Estado Contextual */}
+                <Link 
+                    to={`/activity/${activity.id}`} 
+                    state={{ fromSearch: searchContext }}
+                    className="block group min-h-[44px]"
                 >
-                    <MapPin size={14} className="text-blue-400 shrink-0 group-hover:text-blue-600" />
-                    <span className="truncate">{activity?.address}</span>
-                </a>
-            )}
-        </div>
+                    <h3 className="font-bold text-gray-900 text-lg leading-snug group-hover:text-blue-600 transition">
+                        {activity.name}
+                    </h3>
+                </Link>
+
+                {/* Meta Info */}
+                <div className="space-y-2 text-sm text-gray-500">
+                    <div className="flex items-center gap-2">
+                        <Calendar size={14} className="text-blue-500 shrink-0" />
+                        <span>{DAYS[activity.day]} · {activity.time}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <MapPin size={14} className="text-blue-500 shrink-0" />
+                        <span className="truncate">{activity.district}</span>
+                    </div>
+                </div>
+            </div>
+
+            {/* Fila Inferior con Nivel y Acceso Rápido Móvil */}
+            <div className="mt-5 pt-4 border-t border-gray-50 flex items-center justify-between">
+                <span className={`inline-flex px-2.5 py-1 rounded-lg text-xs font-bold ${LEVEL_COLORS[activity.level] || "bg-gray-100 text-gray-600"}`}>
+                    {LEVELS[activity.level]}
+                </span>
+                
+                <button
+                    onClick={onClick}
+                    className="text-xs font-bold text-blue-600 hover:text-blue-700 md:hidden min-h-[44px] px-2 flex items-center"
+                >
+                    Vista rápida
+                </button>
+            </div>
+        </article>
     );
 }

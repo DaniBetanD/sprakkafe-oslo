@@ -1,7 +1,6 @@
-export default function CommunityCTA() {
+export default function CommunityCTA({ onClick }) {
     return (
         <div className="mt-20 rounded-3xl bg-blue-600 px-8 py-12 text-center text-white">
-
             <h2 className="text-3xl font-bold">
                 Únete a la comunidad
             </h2>
@@ -13,6 +12,7 @@ export default function CommunityCTA() {
             </p>
 
             <button
+                onClick={onClick}
                 className="
                     mt-8
                     rounded-xl
@@ -27,7 +27,6 @@ export default function CommunityCTA() {
             >
                 Quiero formar parte
             </button>
-
         </div>
     );
 }

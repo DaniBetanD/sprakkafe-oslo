@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
 import { ArrowLeft, MapPin, Calendar, Globe, ExternalLink, Mail, Phone } from "lucide-react";
 import activities from "../data/activities.json";
 import organizations from "../data/organizations.json";
@@ -15,24 +15,33 @@ const LEVEL_COLORS = {
 
 export default function ActivityPage() {
     const { id } = useParams();
-    const activity = activities.find(a => a.id === id);
-    const organization = activity ? organizations.find(org => org.id === activity.organizationId) : null;
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const activity = activities.find(a => String(a.id) === String(id));
+    const organization = activity ? organizations.find(org => String(org.id) === String(activity.organizationId)) : null;
+
+    // Recuperamos los filtros del buscador para volver atrás sin perder el contexto
+    const previousSearch = location.state?.fromSearch ? `/?${location.state.fromSearch}` : "/";
 
     if (!activity) {
         return (
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-center space-y-4">
                     <h2 className="text-2xl font-bold text-gray-900">Actividad no encontrada</h2>
-                    <Link to="/" className="inline-flex items-center gap-2 text-blue-600 hover:underline">
+                    <button 
+                        onClick={() => navigate("/")} 
+                        className="inline-flex items-center gap-2 text-blue-600 hover:underline font-medium min-h-[44px]"
+                    >
                         <ArrowLeft size={16} /> Volver al inicio
-                    </Link>
+                    </button>
                 </div>
             </div>
         );
     }
 
     const otherActivities = activities.filter(
-        a => a.organizationId === activity.organizationId && a.id !== activity.id
+        a => String(a.organizationId) === String(activity.organizationId) && String(a.id) !== String(activity.id)
     );
 
     const mapsUrl = activity.address
@@ -41,29 +50,22 @@ export default function ActivityPage() {
 
     return (
         <div className="min-h-screen bg-gray-50 pb-12">
-
-            {/* Nav */}
+            {/* Nav Cabecera Limpia */}
             <div className="bg-white/70 backdrop-blur-xl border-b border-gray-100 sticky top-0 z-10">
-    <div className="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 text-gray-600 hover:text-gray-900 font-medium transition">
-            <ArrowLeft size={18} />
-            <span>Volver</span>
-        </Link>
-        <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm transition-transform group-hover:scale-105">
-                S
+                <div className="max-w-3xl mx-auto px-6 h-16 flex items-center">
+                    <button 
+                        onClick={() => navigate(previousSearch)}
+                        className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-blue-600 transition group min-h-[44px] px-2 rounded-xl active:scale-95"
+                    >
+                        <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-0.5" />
+                        <span>Actividades</span>
+                    </button>
+                </div>
             </div>
-            <span className="font-bold text-gray-900">Språkkafé<span className="text-blue-600">.</span></span>
-        </Link>
-    </div>
-</div>
 
             <main className="max-w-3xl mx-auto px-6 mt-6 space-y-6">
-
-                {/* Activity Details Block */}
+                {/* Block Detalle Actividad */}
                 <section className="bg-white rounded-3xl border border-gray-200 p-6 md:p-8 shadow-sm space-y-5">
-
-                    {/* 1. CONFIANZA — quién lo organiza */}
                     <div className="flex items-center gap-3">
                         <div className="w-12 h-12 rounded-xl border border-gray-100 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0">
                             {organization?.logoImg ? (
@@ -73,13 +75,13 @@ export default function ActivityPage() {
                                     className="w-full h-full object-contain p-1"
                                 />
                             ) : (
-                                <span className="text-2xl">{organization?.logo}</span>
+                                <span className="text-2xl">{organization?.logo || "🏢"}</span>
                             )}
                         </div>
                         <div>
                             <Link
                                 to={`/organization/${organization?.id}`}
-                                className="font-semibold text-gray-900 hover:text-blue-600 transition"
+                                className="font-semibold text-gray-900 hover:text-blue-600 transition min-h-[44px] flex items-center"
                             >
                                 {organization?.name}
                             </Link>
@@ -102,14 +104,12 @@ export default function ActivityPage() {
 
                     <hr className="border-gray-100" />
 
-                    {/* 2. INTERÉS — qué actividad es */}
                     <div>
                         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
                             {activity.name}
                         </h1>
                     </div>
 
-                    {/* 3. MOTIVACIÓN — por qué ir */}
                     {activity.description && (
                         <p className="text-gray-600 leading-relaxed text-base">
                             {activity.description}
@@ -118,7 +118,6 @@ export default function ActivityPage() {
 
                     <hr className="border-gray-100" />
 
-                    {/* 4. DECISIÓN — cuándo, dónde y nivel */}
                     <div className="flex flex-wrap gap-3">
                         <div className="inline-flex items-center gap-2 bg-gray-50 border border-gray-100 px-4 py-2 rounded-xl text-sm text-gray-700">
                             <Calendar size={15} className="text-blue-500" />
@@ -130,7 +129,7 @@ export default function ActivityPage() {
                                 href={mapsUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 bg-gray-50 border border-gray-100 px-4 py-2 rounded-xl text-sm text-gray-700 hover:text-blue-600 hover:border-blue-200 transition"
+                                className="inline-flex items-center gap-2 bg-gray-50 border border-gray-100 px-4 py-2 rounded-xl text-sm text-gray-700 hover:text-blue-600 hover:border-blue-200 transition min-h-[44px]"
                             >
                                 <MapPin size={15} className="text-blue-500" />
                                 {activity.district}
@@ -147,13 +146,12 @@ export default function ActivityPage() {
                         </span>
                     </div>
 
-                    {/* Dirección completa */}
                     {mapsUrl && (
                         <a
                             href={mapsUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition group"
+                            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition group min-h-[44px]"
                         >
                             <MapPin size={14} className="text-blue-400 group-hover:text-blue-600 shrink-0" />
                             <span>{activity.address} · Ver en mapa →</span>
@@ -161,13 +159,10 @@ export default function ActivityPage() {
                     )}
                 </section>
 
-                {/* First Time Card - Emotional reassurance */}
                 <FirstTimeCard />
-
-                {/* What Activity For Me - Help choose */}
                 <WhatActivityForMe />
 
-                {/* Organization Block */}
+                {/* Sobre la entidad */}
                 <section className="bg-white rounded-3xl border border-gray-200 p-6 shadow-sm space-y-4">
                     <h2 className="text-lg font-bold text-gray-900">Sobre la entidad organizadora</h2>
                     <p className="text-sm md:text-base text-gray-600 leading-relaxed">
@@ -180,7 +175,7 @@ export default function ActivityPage() {
                                 href={organization.website}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-sm bg-blue-50 text-blue-700 px-4 py-2 rounded-xl font-medium hover:bg-blue-100 transition"
+                                className="inline-flex items-center gap-2 text-sm bg-blue-50 text-blue-700 px-4 py-2 rounded-xl font-medium hover:bg-blue-100 transition min-h-[44px]"
                             >
                                 <Globe size={16} /> Sitio Web Oficial <ExternalLink size={14} />
                             </a>
@@ -188,7 +183,7 @@ export default function ActivityPage() {
                         {organization?.email && (
                             <a
                                 href={`mailto:${organization.email}`}
-                                className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition"
+                                className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition min-h-[44px]"
                             >
                                 <Mail size={16} /> Contacto
                             </a>
@@ -196,14 +191,14 @@ export default function ActivityPage() {
                         {organization?.phone && (
                             <a
                                 href={`tel:${organization.phone}`}
-                                className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition"
+                                className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition min-h-[44px]"
                             >
                                 <Phone size={16} /> {organization.phone}
                             </a>
                         )}
                         <Link
                             to={`/organization/${organization?.id}`}
-                            className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition"
+                            className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition min-h-[44px]"
                         >
                             Ver perfil completo
                         </Link>
@@ -220,6 +215,7 @@ export default function ActivityPage() {
                             <Link
                                 key={a.id}
                                 to={`/activity/${a.id}`}
+                                state={{ fromSearch: location.state?.fromSearch }}
                                 className="block bg-white rounded-2xl border border-gray-200 p-4 hover:shadow-md transition"
                             >
                                 <h3 className="font-semibold text-gray-900">{a.name}</h3>

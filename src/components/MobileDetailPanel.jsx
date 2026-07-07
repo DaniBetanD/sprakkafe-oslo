@@ -12,28 +12,29 @@ const LEVEL_COLORS = {
 export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
     if (!selected) return null;
 
-    // CORREGIDO: Interpolación de variables con $ en lugar de 0, y uso de la URL de búsquedas tradicional
+    // Corrección del template string ($ en lugar de 1) y uso de la API oficial de búsqueda de mapas
     const mapsUrl = selected.address
-        ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selected.address + ', Oslo')}`
+        ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selected.address + ", Oslo")}`
         : null;
 
     return (
         <div className="md:hidden">
-            {/* Overlay */}
+            {/* Backdrop de fondo */}
             <div className="fixed inset-0 bg-black/50 z-40" onClick={onClose} />
 
-            {/* Panel desde abajo */}
+            {/* Panel deslizable desde abajo */}
             <div
                 className="fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-3xl shadow-2xl"
                 style={{ maxHeight: '85vh', overflowY: 'auto' }}
             >
-                {/* Handle */}
+                {/* Handle visual para móvil */}
                 <div className="flex justify-center pt-3 pb-1">
                     <div className="w-10 h-1 bg-gray-300 rounded-full" />
                 </div>
 
                 <div className="p-5 space-y-4">
-                    {/* Header */}
+
+                    {/* Header — logo + nombre + org */}
                     <div className="flex items-start justify-between gap-3">
                         <div className="flex items-center gap-3">
                             <div className="w-10 h-10 rounded-xl border border-gray-100 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0">
@@ -48,38 +49,38 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
                                 )}
                             </div>
                             <div>
-                                <h3 className="font-bold text-gray-900 text-base">{selected.name}</h3>
-                                <p className="text-sm font-medium text-gray-600">{selectedOrg?.name}</p>
+                                <h3 className="font-bold text-gray-900 text-base leading-tight">{selected.name}</h3>
+                                <p className="text-sm font-medium text-gray-500">{selectedOrg?.name}</p>
                             </div>
                         </div>
-                        <button onClick={onClose} className="text-gray-400 hover:text-gray-600 p-1">
+                        <button onClick={onClose} className="text-gray-400 hover:text-gray-600 p-1 shrink-0">
                             <X size={20} />
                         </button>
                     </div>
 
+                    <hr className="border-gray-100" />
 
-                    {/* Descripción */}
+                    {/* Descripción de la actividad */}
                     {selected.description && (
                         <div className="rounded-xl bg-blue-50/40 p-4">
-    <p className="text-sm font-medium text-gray-700 leading-relaxed">
-        {selected.description}
-    </p>
-</div>
+                            <p className="text-sm text-gray-700 leading-relaxed">
+                                {selected.description}
+                            </p>
+                        </div>
                     )}
 
                     {/* Día + hora y badge nivel */}
                     <div className="flex items-center justify-between gap-2">
                         <div className="flex items-center gap-2 text-sm text-gray-600">
                             <Calendar size={14} className="text-blue-500 shrink-0" />
-                            <span>{DAYS[selected.day]}, {selected.time}</span>
+                            <span>{DAYS[selected.day] || selected.day}, {selected.time}</span>
                         </div>
                         <span className={`text-xs font-semibold px-2.5 py-1 rounded-full shrink-0 ${LEVEL_COLORS[selected.level] || "bg-gray-100 text-gray-600"}`}>
                             {LEVELS[selected.level] || selected.level}
                         </span>
                     </div>
 
-                    {/* Ubicación unificada */}
-                    {/* CORREGIDO: Se agregó la etiqueta de apertura <a ... */}
+                    {/* Dirección con link a mapa (Corregido tag <a>) */}
                     {mapsUrl && (
                         <a
                             href={mapsUrl}
@@ -92,32 +93,18 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
                         </a>
                     )}
 
-                    {/* Sobre la organización */}
-                    {selectedOrg?.description && (
-                        <>
-                            <div>
-                               <h4 className="text-sm font-medium text-gray-600">
-    Sobre la organización
-</h4>
-                               <div className="rounded-xl bg-blue-50/40 p-4">
-    <p className="text-sm font-medium text-gray-700 leading-relaxed">
-        {selected.description}
-    </p>
-</div>
-                            </div>
-                        </>
-                    )}
-
+                    <hr className="border-gray-100" />
 
                     {/* Acciones */}
                     <div className="flex flex-col gap-2 pb-2">
                         <Link
                             to={`/activity/${selected.id}`}
                             onClick={onClose}
-                            className="flex items-center justify-center gap-2 bg-blue-600 text-white text-sm font-medium px-4 py-3 rounded-xl hover:bg-blue-700 transition"
+                            className="flex items-center justify-center gap-2 bg-blue-600 text-white text-sm font-semibold px-4 py-3 rounded-xl hover:bg-blue-700 transition"
                         >
                             Ver página completa <ArrowRight size={15} />
                         </Link>
+                        
                         <Link
                             to={`/organization/${selectedOrg?.id}`}
                             onClick={onClose}
@@ -125,7 +112,8 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
                         >
                             Ver organización
                         </Link>
-                        {/* CORREGIDO: Se agregó la etiqueta de apertura <a ... */}
+                        
+                        {/* Sitio Web Oficial (Corregido tag <a>) */}
                         {selectedOrg?.website && (
                             <a
                                 href={selectedOrg.website}

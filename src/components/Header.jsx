@@ -1,124 +1,128 @@
-import { useLocation, useNavigate, Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 import { scrollToId } from "../utils/scrollTo";
 
 export default function Header() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [showModal, setShowModal] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
 
-    const closeMenu = () => setIsMenuOpen(false);
-
-    function handleNavClick(e, id) {
+    const handleNavigation = (e, targetId) => {
         e.preventDefault();
-        closeMenu();
+        setIsOpen(false);
+
         if (location.pathname !== "/") {
-            navigate("/");
+            navigate("/", { state: { scrollTo: targetId } });
+        } else {
+            scrollToId(targetId);
         }
-        scrollToId(id);
-    }
+    };
+
+    const triggerJoin = () => {
+        setIsOpen(false);
+        window.dispatchEvent(new CustomEvent("open-subscription-modal"));
+    };
 
     return (
-        <>
-            <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-sm">
-                <div className="max-w-5xl mx-auto px-6 py-4">
-                    <div className="flex items-center justify-between">
+        <header className="bg-white/80 backdrop-blur-xl border-b border-gray-100 sticky top-0 z-50 w-full">
+            <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+                
+                {/* F1.6 — LOGO REDISEÑADO DE IDENTIDAD VISUAL EN DOS LÍNEAS */}
+                <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition min-h-[44px] select-none">
+                    <span className="text-2xl">🇳🇴</span>
+                    <div className="flex flex-col">
+                        <span className="font-bold text-gray-900 leading-tight text-base tracking-tight">Språkkafé</span>
+                        <span className="text-[10px] font-bold text-gray-400 tracking-widest uppercase leading-none">Oslo</span>
+                    </div>
+                </Link>
 
-                        {/* Logo */}
-                        <Link to="/" className="flex items-center gap-2 group">
-                            <div className="w-9 h-9 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-lg transition-transform group-hover:scale-110">
-                                S
-                            </div>
-                            <span className="font-bold text-xl text-gray-900">
-                                Språkkafé<span className="text-blue-600">.</span>
-                            </span>
-                        </Link>
+                {/* MENÚ DESKTOP */}
+                <nav className="hidden md:flex items-center gap-2">
+                    <a
+                        href="#actividades"
+                        onClick={(e) => handleNavigation(e, "actividades")}
+                        className="text-sm font-medium text-gray-600 hover:text-blue-600 px-4 h-11 flex items-center rounded-xl transition"
+                    >
+                        Actividades
+                    </a>
+                    <a
+                        href="#proyecto"
+                        onClick={(e) => handleNavigation(e, "proyecto")}
+                        className="text-sm font-medium text-gray-600 hover:text-blue-600 px-4 h-11 flex items-center rounded-xl transition"
+                    >
+                        Sobre el proyecto
+                    </a>
+                    <button
+                        onClick={triggerJoin}
+                        className="ml-2 text-sm font-semibold bg-blue-600 text-white px-5 h-11 flex items-center rounded-xl transition-all duration-150 hover:bg-blue-700 active:scale-95 active:bg-blue-800"
+                    >
+                        Únete
+                    </button>
+                </nav>
 
-                        {/* Desktop Nav */}
-                        <nav className="hidden md:flex items-center gap-8 text-sm">
-                            <a
-                                href="#actividades"
-                                onClick={(e) => handleNavClick(e, "actividades")}
-                                className="text-gray-600 hover:text-blue-600 transition font-medium"
-                            >
-                                Actividades
-                            </a>
-                            
-                            <a
-                                href="#proyecto"
-                                onClick={(e) => handleNavClick(e, "proyecto")}
-                                className="text-gray-600 hover:text-blue-600 transition font-medium"
-                            >
-                                Sobre el proyecto
-                            </a>
-                            
-                            <button
-                                onClick={() => setShowModal(true)}
-                                className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-white font-medium hover:bg-blue-700 transition shadow-sm hover:shadow-md"
-                            >
-                                Únete a la comunidad
-                            </button>
-                        </nav>
+                {/* BOTÓN HAMBURGUESA (MÓVIL) - 44x44px */}
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="md:hidden h-11 w-11 flex items-center justify-center text-gray-600 hover:text-gray-900 bg-gray-50 active:bg-gray-100 rounded-xl transition"
+                    aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+                >
+                    {isOpen ? <X size={22} /> : <Menu size={22} />}
+                </button>
+            </div>
 
-                        {/* Mobile button */}
-                        <button
-                            className="md:hidden text-gray-600 hover:text-gray-900 transition"
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        >
-                            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                        </button>
+            {/* MENÚ DESPLEGABLE MÓVIL (ESTILO NOTION) */}
+            {isOpen && (
+                <div className="md:hidden bg-white border-b border-gray-100 px-6 py-5 space-y-4 animate-in fade-in slide-in-from-top-5 duration-200">
+                    
+                    {/* Bloque Superior: Identificador */}
+                    <div className="px-4 py-1 text-sm font-semibold text-gray-400 tracking-wider uppercase select-none">
+                        🇳🇴 Språkkafé
                     </div>
 
-                    {/* Mobile Nav */}
-                    {isMenuOpen && (
-                        <nav className="md:hidden mt-4 pt-4 border-t border-gray-100 flex flex-col gap-2">
-                            <a
-                                href="#actividades"
-                                onClick={(e) => handleNavClick(e, "actividades")}
-                                className="py-2 px-3 rounded-lg text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition font-medium"
-                            >
-                                Actividades
-                            </a>
-                            
-                            <a
-                                href="#proyecto"
-                                onClick={(e) => handleNavClick(e, "proyecto")}
-                                className="py-2 px-3 rounded-lg text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition font-medium"
-                            >
-                                Sobre el proyecto
-                            </a>
-                            
-                            <button
-                                onClick={() => { setShowModal(true); closeMenu(); }}
-                                className="mt-2 inline-flex items-center justify-center rounded-xl bg-blue-600 px-4 py-2.5 text-white font-medium hover:bg-blue-700 transition"
-                            >
-                                Únete a la comunidad
-                            </button>
-                        </nav>
-                    )}
-                </div>
-            </header>
+                    <hr className="border-gray-100 mx-2" />
 
-            {/* Modal */}
-            {showModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-                    <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full text-center space-y-4">
-                        <div className="text-4xl">🎉</div>
-                        <h3 className="text-2xl font-bold text-gray-900">¡Próximamente!</h3>
-                        <p className="text-gray-600 leading-relaxed">
-                            Estamos preparando un espacio para compartir novedades, historias y actividades. Muy pronto podrás unirte.
-                        </p>
-                        <button
-                            onClick={() => setShowModal(false)}
-                            className="mt-2 w-full rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700 transition"
+                    {/* Bloque Central: Navegación Táctil Viva */}
+                    <nav className="space-y-1">
+                        <a
+                            href="#actividades"
+                            onClick={(e) => handleNavigation(e, "actividades")}
+                            className="w-full h-12 flex items-center gap-3 text-base font-medium text-gray-700 rounded-xl px-4 transition-all duration-100 active:scale-[0.98] active:bg-gray-50 active:text-blue-600"
                         >
-                            Entendido
+                            <span className="text-lg">🏠</span> Actividades
+                        </a>
+                        
+                        <button
+                            onClick={triggerJoin}
+                            className="w-full h-12 flex items-center gap-3 text-base font-medium text-gray-700 rounded-xl px-4 text-left transition-all duration-100 active:scale-[0.98] active:bg-gray-50 active:text-blue-600"
+                        >
+                            <span className="text-lg">❤️</span> Comunidad
                         </button>
+                        
+                        <a
+                            href="#proyecto"
+                            onClick={(e) => handleNavigation(e, "proyecto")}
+                            className="w-full h-12 flex items-center gap-3 text-base font-medium text-gray-700 rounded-xl px-4 transition-all duration-100 active:scale-[0.98] active:bg-gray-50 active:text-blue-600"
+                        >
+                            <span className="text-lg">ℹ️</span> Sobre el proyecto
+                        </a>
+
+                        <button
+                            onClick={triggerJoin}
+                            className="w-full h-12 flex items-center gap-3 text-base font-medium text-gray-700 rounded-xl px-4 text-left transition-all duration-100 active:scale-[0.98] active:bg-gray-50 active:text-blue-600"
+                        >
+                            <span className="text-lg">📩</span> Contacto
+                        </button>
+                    </nav>
+
+                    <hr className="border-gray-100 mx-2" />
+
+                    {/* Bloque Inferior: Ubicación */}
+                    <div className="px-4 py-1 text-xs font-bold text-gray-400 uppercase tracking-widest select-none">
+                        Oslo
                     </div>
                 </div>
             )}
-        </>
+        </header>
     );
 }
