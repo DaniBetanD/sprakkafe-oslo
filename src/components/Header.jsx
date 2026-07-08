@@ -38,11 +38,11 @@ export default function Header() {
 
                         <nav className="hidden md:flex items-center gap-8 text-sm">
                             <a href="#actividades" onClick={(e) => handleNavClick(e, "actividades")}
-                                className="text-gray-600 hover:text-blue-600 transition font-medium">
+                                className="text-gray-600 hover:text-blue-600 transition-all duration-150 active:scale-95">
                                 Actividades
                             </a>
                             <a href="#proyecto" onClick={(e) => handleNavClick(e, "proyecto")}
-                                className="text-gray-600 hover:text-blue-600 transition font-medium">
+                                className="text-gray-600 hover:text-blue-600 transition-all duration-150 active:scale-95">
                                 Sobre el proyecto
                             </a>
                             <button onClick={() => setShowModal(true)}
@@ -51,19 +51,22 @@ export default function Header() {
                             </button>
                         </nav>
 
-                        <div className="md:hidden flex items-center gap-2">
+                        <div className="md:hidden flex flex-col gap-2 border-t border-gray-100">
                             
-                            <button className="text-gray-600 hover:text-gray-900 transition p-1"
-                                onClick={() => setIsMenuOpen(!isMenuOpen)}>
+<button
+    className="text-gray-600 hover:text-gray-900 transition-all duration-150 p-1 active:scale-95"                                onClick={() => setIsMenuOpen(!isMenuOpen)}>
                                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                             </button>
                         </div>
                     </div>
 
-                    {isMenuOpen && (
+                    
 <nav
     className={`
         md:hidden
+        flex
+        flex-col
+        gap-2
         overflow-hidden
         transition-all
         duration-300
@@ -77,7 +80,7 @@ export default function Header() {
     <Link
         to="/"
         onClick={closeMenu}
-        className="py-2 px-3 rounded-lg text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition font-medium"
+        className="py-2 px-3 rounded-lg text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-all duration-150 active:scale-95"
     >
         🏠 Inicio
     </Link>
@@ -85,7 +88,7 @@ export default function Header() {
     <a
         href="#actividades"
         onClick={(e) => handleNavClick(e, "actividades")}
-        className="py-2 px-3 rounded-lg text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition font-medium"
+        className="py-2 px-3 rounded-lg text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-all duration-150 active:scale-95"
     >
         📍 Actividades
     </a>
@@ -93,7 +96,7 @@ export default function Header() {
     <a
         href="#proyecto"
         onClick={(e) => handleNavClick(e, "proyecto")}
-        className="py-2 px-3 rounded-lg text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition font-medium"
+        className="py-2 px-3 rounded-lg text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-all duration-150 active:scale-95"
     >
         💙 Sobre el proyecto
     </a>
@@ -101,7 +104,7 @@ export default function Header() {
     <a
         href="#contacto"
         onClick={(e) => handleNavClick(e, "contacto")}
-        className="py-2 px-3 rounded-lg text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition font-medium"
+        className="py-2 px-3 rounded-lg text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-all duration-150 active:scale-95"
     >
         ✉️ Contacto
     </a>
@@ -119,7 +122,7 @@ export default function Header() {
     </button>
 
 </nav>
-                    )}
+                    
                 </div>
             </header>
 

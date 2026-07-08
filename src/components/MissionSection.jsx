@@ -78,9 +78,9 @@ export default function AboutSection() {
 
                 {/* Sección: Nuestra misión */}
                 <div className="mx-auto mt-24 max-w-4xl">
-                    <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                        Nuestra misión
-                    </h3>
+                    <h3 className="text-3xl font-bold text-gray-900 text-center mb-6">
+    Nuestra misión
+</h3>
                     <div className="rounded-2xl bg-white border border-gray-100 p-8 shadow-sm">
                         <p className="text-lg font-medium leading-8 text-gray-800">
                             Ayudamos a las personas a sentirse parte de Noruega
