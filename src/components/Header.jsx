@@ -61,8 +61,19 @@ export default function Header() {
                     </div>
 
                     {isMenuOpen && (
-                       <nav className="md:hidden mt-4 pt-4 border-t border-gray-100 flex flex-col gap-2">
-
+<nav
+    className={`
+        md:hidden
+        overflow-hidden
+        transition-all
+        duration-300
+        ${
+            isMenuOpen
+            ? "max-h-96 opacity-100 mt-4 pt-4"
+            : "max-h-0 opacity-0"
+        }
+    `}
+>
     <Link
         to="/"
         onClick={closeMenu}
