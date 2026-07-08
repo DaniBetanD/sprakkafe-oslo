@@ -1,7 +1,6 @@
-import { useEffect, useMemo } from "react";
-import { useSearchParams } from "react-router-dom";
-
-// Datos y Componentes
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { X, ArrowRight, Globe, MapPin, Calendar } from "lucide-react";
 import activities from "../data/activities.json";
 import organizations from "../data/organizations.json";
 import ActivityCard from "../components/ActivityCard";
@@ -10,95 +9,51 @@ import Header from "../components/Header";
 import Filters from "../components/Filters";
 import Footer from "../components/Footer";
 import MobileDetailPanel from "../components/MobileDetailPanel";
-import AboutSection from "../components/AboutSection"; 
-import CommunityCTA from "../components/CommunityCTA"; 
+import { DAYS, LEVELS } from "../utils/translations";
+import {MapPinned, Users, Landmark} from "lucide-react";
+import MissionSection from "../components/MissionSection";
+
+// Mapeo centralizado de colores para los niveles
+const LEVEL_COLORS = {
+    "A1": "bg-green-100 text-green-700",
+    "A2": "bg-blue-100 text-blue-700",
+    "B1": "bg-purple-100 text-purple-700",
+    "B2": "bg-orange-100 text-orange-700",
+};
 
 export default function Home() {
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [query, setQuery] = useState("");
+    const [filters, setFilters] = useState({
+        district: "",
+        day: "",
+        level: "",
+        organization: ""
+    });
+    const [selected, setSelected] = useState(null);
 
-    // Sincronización de estados locales con los Search Parameters de la URL
-    const query = searchParams.get("search") || "";
-    const filters = useMemo(() => ({
-        district: searchParams.get("district") || "",
-        day: searchParams.get("day") || "",
-        level: searchParams.get("level") || "",
-        organization: searchParams.get("organization") || ""
-    }), [searchParams]);
+    function getOrganization(id) {
+        return organizations.find(org => org.id === id);
+    }
 
-    const selectedId = searchParams.get("selected") || null;
+    const results = activities.filter(activity => {
+        const org = getOrganization(activity.organizationId);
+        const text = (
+            activity.name +
+            (org?.name || "") +
+            activity.district +
+            activity.level
+        ).toLowerCase();
 
-    // Manejadores de cambios que actualizan directamente la URL
-    const setQuery = (newQuery) => {
-        const nextParams = new URLSearchParams(searchParams);
-        if (newQuery) {
-            nextParams.set("search", newQuery);
-        } else {
-            nextParams.delete("search");
-        }
-        setSearchParams(nextParams);
-    };
+        const matchesSearch = text.includes(query.toLowerCase());
+        const matchesDistrict = !filters.district || activity.district === filters.district;
+        const matchesDay = !filters.day || activity.day === filters.day;
+        const matchesLevel = !filters.level || activity.level === filters.level;
+        const matchesOrg = !filters.organization || activity.organizationId === filters.organization;
 
-    const setFilters = (updater) => {
-        const nextFilters = typeof updater === "function" ? updater(filters) : updater;
-        const nextParams = new URLSearchParams(searchParams);
-        
-        Object.entries(nextFilters).forEach(([key, value]) => {
-            if (value) {
-                nextParams.set(key, value);
-            } else {
-                nextParams.delete(key);
-            }
-        });
-        setSearchParams(nextParams);
-    };
+        return matchesSearch && matchesDistrict && matchesDay && matchesLevel && matchesOrg;
+    });
 
-    const setSelected = (activity) => {
-        const nextParams = new URLSearchParams(searchParams);
-        if (activity?.id) {
-            nextParams.set("selected", activity.id);
-        } else {
-            nextParams.delete("selected");
-        }
-        setSearchParams(nextParams);
-    };
-
-    // Mapeo optimizado de organizaciones
-    const organizationsMap = useMemo(() => {
-        return organizations.reduce((acc, org) => {
-            acc[String(org.id)] = org;
-            return acc;
-        }, {});
-    }, []);
-
-    // Filtrado robusto y optimizado paso a paso
-    const filteredResults = useMemo(() => {
-        const lowerQuery = query.toLowerCase().trim();
-        return activities.filter(activity => {
-            const org = organizationsMap[String(activity.organizationId)];
-            
-            const matchesQuery = !lowerQuery || 
-                activity.name.toLowerCase().includes(lowerQuery) ||
-                (org?.name && org.name.toLowerCase().includes(lowerQuery)) ||
-                activity.district.toLowerCase().includes(lowerQuery);
-
-            return matchesQuery &&
-                (!filters.district || activity.district === filters.district) &&
-                (!filters.day || activity.day === filters.day) &&
-                (!filters.level || activity.level === filters.level) &&
-                (!filters.organization || String(activity.organizationId) === String(filters.organization));
-        });
-    }, [query, filters, organizationsMap]);
-
-    // Encontrar la actividad seleccionada para el panel móvil
-    const selectedActivity = useMemo(() => {
-        return activities.find(a => String(a.id) === String(selectedId)) || null;
-    }, [selectedId]);
-
-    const selectedOrg = selectedActivity ? organizationsMap[String(selectedActivity.organizationId)] : null;
-
-    const triggerJoinModal = () => {
-        window.dispatchEvent(new CustomEvent("open-subscription-modal"));
-    };
+    const selectedOrg = selected ? getOrganization(selected.organizationId) : null;
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col">
@@ -106,76 +61,184 @@ export default function Home() {
 
             <main className="flex-grow">
                 {/* Hero */}
-                <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-12 pb-20">
-                    <div className="max-w-5xl mx-auto px-6 text-center space-y-4">
-                        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-                            Practica tu noruego en Oslo
+                <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-14 pb-20">
+                    <div className="max-w-5xl mx-auto px-6">
+                        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center text-white">
+                            Encuentra tu <span className="text-yellow-200">Språkkafé</span>
                         </h1>
-                        <p className="text-blue-100 max-w-2xl mx-auto text-lg font-medium">
-                            Encuentra cafés de idiomas (språkkafé) y actividades gratuitas organizadas por municipios y ONGs.
+                        <p className="mt-5 text-lg text-blue-100 text-center max-w-3xl mx-auto leading-relaxed">
+                            Practica noruego en un entorno real, conoce gente y descubre la cultura de Oslo.
                         </p>
+                        <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm">
+
+    <span className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
+        <MapPinned size={16}/>
+        En toda Oslo
+    </span>
+
+    <span className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
+        <Users size={16}/>
+        Comunidad
+    </span>
+
+    <span className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
+        <Landmark size={16}/>
+        Cultura local
+    </span>
+
+</div>
                     </div>
                 </section>
 
-                {/* Búsqueda y Filtros */}
-                <section className="max-w-5xl mx-auto px-6 -mt-8 relative z-10 w-full">
+                {/* Búsqueda */}
+                <section className="max-w-5xl mx-auto px-6 -mt-8 relative z-10">
                     <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6">
-                        <SearchBar value={query} onSearch={setQuery} />
+                        <SearchBar onSearch={setQuery} />
                         <div className="mt-4 pb-4"> 
-                            <Filters filters={filters} setFilters={setFilters} activities={activities} />
+                            <Filters
+                                filters={filters}
+                                setFilters={setFilters}
+                                activities={activities}
+                            />
                         </div>
                     </div>
                 </section>
 
-                {/* Sección de Resultados */}
-                <section id="actividades" className="max-w-5xl mx-auto px-6 py-10 w-full">
-                    <div className="flex items-center justify-between mb-6">
-                        <h2 className="text-xl font-bold text-gray-900">
-                            Actividades disponibles ({filteredResults.length})
-                        </h2>
+                {/* Resultados */}
+<section
+    id="actividades"
+    className="max-w-5xl mx-auto px-6 py-10"
+>                    <div className="flex justify-between mb-6">
+                        <h2 className="font-bold text-2xl text-gray-900">Actividades disponibles</h2>
+                        <span className="bg-blue-50 text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full">
+                            {results.length} resultados
+                        </span>
                     </div>
 
-                    {filteredResults.length > 0 ? (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {filteredResults.map((activity) => (
-                                <ActivityCard
-                                    key={activity.id}
-                                    activity={activity}
-                                    organization={organizationsMap[String(activity.organizationId)]}
-                                    onClick={() => setSelected(activity)}
-                                    searchContext={searchParams.toString()}
-                                />
-                            ))}
+                    {results.length === 0 ? (
+                        <div className="text-center py-16">
+                            <p className="text-gray-500">No hay resultados</p>
                         </div>
                     ) : (
-                        <div className="text-center py-16 bg-gray-50 rounded-2xl border border-dashed border-gray-200">
-                            <span className="text-3xl">🔍</span>
-                            <h3 className="mt-2 font-semibold text-gray-900">No hay resultados</h3>
-                            <p className="text-sm text-gray-500 mt-1">
-                                Intenta cambiando los términos de búsqueda o limpiando los filtros.
-                            </p>
+                        <div className="flex gap-6">
+                            <div className={`grid gap-4 transition-all duration-300 ${
+                                selected
+                                    ? "grid-cols-1 w-full md:w-[45%] md:shrink-0"
+                                    : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full"
+                            }`}>
+                                {results.map(activity => (
+                                    <ActivityCard
+                                        key={activity.id}
+                                        activity={activity}
+                                        organization={getOrganization(activity.organizationId)}
+                                        onClick={() => setSelected(
+                                            selected?.id === activity.id ? null : activity
+                                        )}
+                                        isSelected={selected?.id === activity.id}
+                                    />
+                                ))}
+                            </div>
+
+                            {/* Panel desktop */}
+                            {selected && (
+                                <div className="hidden md:flex flex-col flex-1 bg-white rounded-2xl border border-gray-200 shadow-lg p-6 h-fit sticky top-6 gap-4">
+                                    <div className="flex items-start justify-between gap-3">
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-12 h-12 rounded-xl border border-gray-100 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0">
+                                                {selectedOrg?.logoImg ? (
+                                                    <img
+                                                        src={new URL(`../assets/logos/${selectedOrg.logoImg}`, import.meta.url).href}
+                                                        alt={selectedOrg?.name || "Logo"}
+                                                        className="w-full h-full object-contain p-1"
+                                                    />
+                                                ) : (
+                                                    <span className="text-xl">{selectedOrg?.logo}</span>
+                                                )}
+                                            </div>
+                                            <div>
+                                                <h3 className="font-bold text-gray-900">{selected.name}</h3>
+                                                <p className="text-sm text-gray-500">{selectedOrg?.name}</p>
+                                            </div>
+                                        </div>
+                                        <button onClick={() => setSelected(null)} className="text-gray-400 hover:text-gray-600 transition">
+                                            <X size={18} />
+                                        </button>
+                                    </div>
+
+                                    {/* Contenido (Descripción, Día/Hora/Nivel y Ubicación) */}
+                                    <div className="space-y-5">
+                                        {selected.description && (
+                                            <div className="rounded-xl bg-blue-50/40 p-4">
+                                                <p className="text-sm font-medium text-gray-700 leading-relaxed">
+                                                    {selected.description}
+                                                </p>
+                                            </div>
+                                        )}
+
+                                        <div className="flex items-center justify-between gap-2">
+                                            <div className="flex items-center gap-2 text-sm text-gray-600">
+                                                <Calendar size={15} className="text-blue-500 shrink-0" />
+                                                <span>{DAYS[selected.day]}, {selected.time}</span>
+                                            </div>
+                                            <span className={`text-xs font-semibold px-2.5 py-1 rounded-full shrink-0 ${LEVEL_COLORS[selected.level] || "bg-gray-100 text-gray-600"}`}>
+                                                {LEVELS[selected.level] || selected.level}
+                                            </span>
+                                        </div>
+
+                                        {selected.address && (
+                                            <a
+                                                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selected.address + ', Oslo')}`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition group"
+                                            >
+                                                <MapPin size={15} className="text-blue-400 shrink-0 group-hover:text-blue-600" />
+                                                <span className="truncate">
+                                                    {selected.district} — {selected.address}
+                                                </span>                                            
+                                            </a>
+                                        )}
+                                    </div>
+
+                                    {/* Botones de acción */}
+                                <div className="flex flex-col gap-3 pt-8">                                        
+                                    <Link
+    to={`/activity/${selected.id}`}
+    className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+>
+    Ver detalles del evento
+    <ArrowRight size={16} />
+</Link>
+                                       <Link
+    to={`/organization/${selectedOrg?.id}`}
+    className="flex items-center justify-center rounded-xl border border-gray-200 px-4 py-3 text-sm font-medium text-gray-700 transition hover:border-gray-300 hover:bg-gray-50"
+>
+    Ver organización
+</Link>
+                                        {selectedOrg?.website && (
+                                            <a
+                                                href={selectedOrg.website}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+className="flex items-center justify-center gap-2 py-2 text-sm font-medium text-blue-600 transition hover:text-blue-700">
+                                                <Globe size={14} /> Sitio web oficial
+                                            </a>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     )}
                 </section>
-
-                {/* Sección "Sobre el proyecto" */}
-                <section id="proyecto" className="py-16 md:py-24 bg-gray-50/50 border-t border-b border-gray-100">
-                    <div className="max-w-5xl mx-auto px-6">
-                        <AboutSection />
-                    </div>
-                </section>
-
-                {/* CTA Final */}
-                <div className="max-w-5xl mx-auto px-6 py-12 w-full">
-                    <CommunityCTA onClick={triggerJoinModal} />
-                </div>
             </main>
 
+            {/* Panel móvil */}
             <MobileDetailPanel
-                selected={selectedActivity}
+                selected={selected}
                 selectedOrg={selectedOrg}
                 onClose={() => setSelected(null)}
             />
+            <MissionSection />
             
             <Footer />
         </div>

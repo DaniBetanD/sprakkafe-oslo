@@ -19,7 +19,8 @@ export default function Footer() {
     };
 
     return (
-        <footer className="bg-white border-t border-gray-100">
+        <footer id="contacto"
+        className="bg-white border-t border-gray-100">
             <div className="max-w-5xl mx-auto px-6 py-16">
 
                 {/* F1.1 — CTA PRINCIPAL: Con microinteracción táctil y clases de consistencia visual */}
@@ -32,7 +33,7 @@ export default function Footer() {
                     </p>
                     <button
                         onClick={triggerJoinModal}
-                        className="mt-8 rounded-xl bg-white px-6 py-3 h-11 inline-flex items-center font-semibold text-blue-700 shadow-sm transition-all duration-150 hover:bg-blue-50 active:scale-95"
+                        className="mt-8 rounded-xl bg-white px-6 py-3 h-11 inline-flex items-center font-semibold text-blue-700 shadow-sm transition-all duration-200 hover:scale-[1.02] active:scale-95"
                     >
                         Únete a la comunidad
                     </button>
@@ -68,17 +69,20 @@ export default function Footer() {
                                 </a>
                             </li>
                             <li>
-                                <a href="#actividades" onClick={(e) => handleNavClick(e, "actividades")}
-                                   className="text-gray-600 hover:text-blue-600 transition min-h-[44px] flex items-center">
+                                <a 
+                                href="#como-funciona"
+onClick={(e) => handleNavClick(e, "como-funciona")}                                   className="text-gray-600 hover:text-blue-600 transition min-h-[44px] flex items-center">
                                     Cómo funciona
                                 </a>
                             </li>
                             <li>
-                                <a href="mailto:hola@sprakkafe.no"
-                                   className="text-gray-600 hover:text-blue-600 transition min-h-[44px] flex items-center">
-                                    Contacto
-                                </a>
-                            </li>
+    <button
+        onClick={triggerJoinModal}
+        className="text-gray-600 hover:text-blue-600 transition min-h-[44px] flex items-center text-left"
+    >
+        Contacto
+    </button>
+</li>
                         </ul>
                     </div>
 
@@ -102,23 +106,7 @@ export default function Footer() {
                     </div>
 
                     {/* Columna: Recursos */}
-                    <div>
-                        <h4 className="font-bold text-gray-900 text-sm tracking-wider uppercase mb-4">Recursos</h4>
-                        <ul className="space-y-3 text-sm">
-                            <li>
-                                <a href="#actividades" onClick={(e) => handleNavClick(e, "actividades")}
-                                   className="text-gray-600 hover:text-blue-600 transition min-h-[44px] flex items-center">
-                                    Organizaciones
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
-                                   className="text-gray-600 hover:text-blue-600 transition min-h-[44px] flex items-center">
-                                    GitHub
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                    
                 </div>
 
                 {/* Copyright e Información Inferior */}

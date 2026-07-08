@@ -31,35 +31,16 @@ relative
 
 
                 <input
-
-                    id="search"
-                    name="search"
-
-                    value={query}
-
-                    onChange={(e) => setQuery(e.target.value)}
-
-                    placeholder="
-Busca un språkkafé, barrio o nivel...
-"
-
-
-                    className="
-w-full
-rounded-2xl
-border
-bg-white
-px-6
-py-5
-text-lg
-shadow-sm
-
-focus:outline-none
-focus:ring-2
-focus:ring-blue-300
-"
-
-                />
+    id="search"
+    name="search"
+    type="search"
+    autoComplete="off"
+    aria-label="Buscar actividades"
+    value={query}
+    onChange={(e) => setQuery(e.target.value)}
+    placeholder="Busca un Språkkafé, barrio o nivel..."
+    className="..."
+/>
 
 
             </div>
