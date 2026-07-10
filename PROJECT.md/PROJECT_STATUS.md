@@ -1,150 +1,411 @@
-Actualización del Project Status (5 julio 2026)
-Estado general
+# 01_PROJECT_STATUS.md
 
-🟢 MVP funcional y estable.
+> **Proyecto:** Språkkafé Oslo
+> **Versión:** 2.0
+> **Última actualización:** Julio 2026
+> **Estado:** Documento vivo
 
-🟢 Fase de refinamiento UX/UI iniciada.
+---
 
-Sprint UX-001 — Re-arquitectura de información
-ActivityPage
-✅ Descripción movida inmediatamente bajo el encabezado.
-✅ Día + hora unificados.
-✅ Nivel convertido en badge visual.
-✅ Dirección integrada en un único bloque clicable.
-✅ Información reorganizada para reducir el tiempo de escaneo.
-Sprint UX-002 — Jerarquía visual
-Home
-✅ Eliminados elementos redundantes del panel lateral.
-✅ Mejor tratamiento visual de la descripción.
-✅ Ritmo visual más limpio.
-✅ Mayor separación entre bloques.
-✅ Eliminado el bloque "Sobre la organización" del panel lateral.
-ActivityCard
-✅ Mejor espaciado.
-✅ Hover más natural.
-✅ Jerarquía tipográfica refinada.
-✅ Nivel mediante badge de color.
-✅ Dirección simplificada.
-Sprint UX-003 — Hero de la Home
-Hero
-✅ Nuevo mensaje principal centrado en la integración.
-Practica noruego en un entorno real,
-conoce gente y descubre la cultura de Oslo.
-✅ Chips informativos añadidos.
-📍 En toda Oslo
+# Estado General del Proyecto
 
-🤝 Comunidad
+## Estado actual
 
-🇳🇴 Cultura local
-✅ Hero más compacto.
-✅ Mejor equilibrio vertical.
-Sprint UX-004 — Navegación
-Header
-✅ Simplificación del menú.
-✅ Enfoque en tres acciones principales.
-Actividades
+🟢 **MVP funcional y estable**
 
-Sobre el proyecto
+La aplicación se encuentra desplegada en producción y dispone de una arquitectura suficientemente sólida para continuar evolucionando.
 
-Únete a la comunidad
-✅ Preparado para crecer a nivel nacional (Noruega).
-Sprint UX-005 — Narrativa del proyecto
-Nueva sección
+El objetivo actual ya no es construir funcionalidades básicas, sino mejorar la experiencia de usuario, optimizar la navegación y preparar el proyecto para crecer.
 
-Sentirse parte de Noruega
+---
+
+# Objetivo del MVP
+
+El propósito del MVP es validar una idea muy concreta:
+
+> **Ayudar a una persona recién llegada a Noruega a encontrar fácilmente su primer Språkkafé.**
+
+Todo el desarrollo actual gira alrededor de ese objetivo.
+
+No se están desarrollando funcionalidades complejas hasta asegurar una experiencia excelente para el usuario.
+
+---
+
+# Estado por áreas
+
+| Área              | Estado                |
+| ----------------- | --------------------- |
+| Home              | 🟢 Muy avanzada (95%) |
+| Navegación        | 🟢 Estable            |
+| Buscador          | 🟢 Funcional          |
+| Filtros           | 🟢 Funcionales        |
+| Activity Cards    | 🟢 Funcionales        |
+| Activity Page     | 🟡 En evolución       |
+| Organization Page | 🟡 Funcional          |
+| Footer            | 🟢 Rediseñado         |
+| Sistema de Scroll | 🟢 Estable            |
+| Responsive        | 🟢 En mejora continua |
+| Comunidad         | ⚪ Pendiente           |
+| Newsletter        | ⚪ Pendiente           |
+| Administración    | ⚪ Pendiente           |
+| Base de datos     | ⚪ Pendiente           |
+
+---
+
+# Sprints completados
+
+---
+
+## MVP-001 — Arquitectura inicial
+
+### Objetivo
+
+Construir la primera versión funcional.
+
+### Estado
+
+✅ Completado
 
 Incluye:
 
-✅ Filosofía del proyecto.
-✅ Tarjetas de misión.
-✅ Nuestra misión.
-✅ Cómo funciona.
-✅ CTA comunitario.
-Sprint UX-006 — Footer Premium
+* React + Vite
+* Tailwind CSS
+* React Router
+* Datos en JSON
+* Primer despliegue en Vercel
+
+---
+
+## MVP-002 — Directorio de actividades
+
+### Estado
+
+✅ Completado
+
+Incluye:
+
+* Listado de actividades
+* Tarjetas reutilizables
+* Organización mediante JSON
+* Páginas individuales
+
+---
+
+## UX-001 — Reorganización de Activity Page
+
+### Estado
+
+✅ Completado
+
+Mejoras:
+
+* Descripción situada inmediatamente bajo el título
+* Día y horario unificados
+* Nivel convertido en badge visual
+* Dirección integrada en un único bloque
+* Menor tiempo de escaneo
+
+---
+
+## UX-002 — Jerarquía visual
+
+### Estado
+
+✅ Completado
+
+Mejoras:
+
+* Reducción del ruido visual
+* Mayor separación entre bloques
+* Eliminación de contenido redundante
+* Tipografía reorganizada
+* Mejor equilibrio visual
+
+---
+
+## UX-003 — Hero principal
+
+### Estado
+
+✅ Completado
+
+Nuevo mensaje:
+
+> Practica noruego en un entorno real, conoce gente y descubre la cultura de Oslo.
+
+Añadidos:
+
+* Chips informativos
+* Diseño más compacto
+* Mejor equilibrio vertical
+
+---
+
+## UX-004 — Navegación
+
+### Estado
+
+✅ Completado
+
+Header simplificado.
+
+Menú reducido a las acciones más importantes.
+
+* Actividades
+* Sobre el proyecto
+* Únete
+
+Además:
+
+* Scroll mejorado
+* Navegación entre páginas
+* Header preparado para crecer
+
+---
+
+## UX-005 — Storytelling del proyecto
+
+### Estado
+
+✅ Completado
+
+Nueva sección:
+
+**Sentirse parte de Noruega**
+
+Incluye:
+
+* Filosofía del proyecto
+* Tarjetas de misión
+* Nuestra misión
+* Cómo funciona
+* CTA comunitario
+
+---
+
+## UX-006 — Footer
+
+### Estado
+
+✅ Completado
+
+Nuevo footer con:
+
+* Identidad del proyecto
+* Navegación simplificada
+* Información del proyecto
+* Diseño responsive
+
+---
+
+## UX-007 — Mobile First
+
+### Estado
+
+🟢 Muy avanzado
+
+Mejoras realizadas:
+
+* Header optimizado
+* Menú móvil
+* Carruseles reutilizables
+* Mejor experiencia táctil
+* Botones con microinteracciones
+* Scroll optimizado
+* Correcciones de navegación
+
+---
+
+# Arquitectura actual
+
+El proyecto utiliza una arquitectura basada en componentes reutilizables.
+
+Actualmente dispone de:
+
+* Header
+* Footer
+* Hero
+* SearchBar
+* Filters
+* ActivityCard
+* MissionSection
+* MobileCarousel
+* ScrollToTop
+* MobileDetailPanel
+
+Esta estructura permite seguir creciendo sin necesidad de grandes refactorizaciones.
+
+---
+
+# Estado del diseño
+
+## Diseño general
+
+🟢 Consistente
+
+El proyecto ya dispone de una identidad visual definida.
+
+Se mantiene:
+
+* mismo lenguaje visual
+* mismos radios
+* mismas sombras
+* misma tipografía
+* mismos colores
+
+---
+
+## Responsive
+
+Estado:
+
+🟢 Muy bueno
+
+Se prioriza siempre el desarrollo Mobile First.
+
+Cada cambio se valida antes en 390px que en escritorio.
+
+---
+
+# Calidad técnica
+
+Actualmente el proyecto cumple con:
+
+✅ Build estable
+
+✅ Deploy automático en Vercel
+
+✅ Arquitectura modular
+
+✅ Componentes reutilizables
+
+✅ Scroll personalizado
+
+✅ Navegación SPA
+
+✅ Datos centralizados
+
+---
+
+# Próximo Sprint
+
+## Home 2.0
+
+### Objetivo
+
+Reducir el scroll y facilitar el descubrimiento de actividades.
+
+Se implementará una nueva arquitectura basada en bloques.
+
+---
+
+### Orden previsto
+
+Hero
+
+↓
+
+Cómo funciona
+
+↓
+
+Categorías
+
+↓
+
+Språkkafé hoy
+
+↓
+
+Todas las actividades
+
+↓
+
+Nuestra misión
+
+↓
+
 Footer
-✅ Banner CTA.
-✅ Identidad reforzada.
-✅ Mensaje de comunidad.
-✅ Proyecto comunitario.
-✅ Transparencia sobre las fuentes.
-✅ Preparado para captación de comunidad.
 
-Pendiente:
+---
 
-⏳ Landing de newsletter.
-⏳ Formulario de inscripción.
-Sprint UX-007 — ActivityPage 2.0
-Estado
+## Categorías iniciales
 
-🟡 En desarrollo.
+Se comenzará con cuatro categorías:
 
-Completado:
+* 📅 Språkkafé hoy
+* 👨‍👩‍👧 Familias
+* 💻 Digital
+* 📚 Todas las actividades
 
-✅ Definida la nueva arquitectura de la página.
-✅ Reorganización del Hero.
-✅ Nueva jerarquía de lectura.
+Estas categorías podrán ampliarse en futuras versiones según el comportamiento de los usuarios.
 
-Pendiente:
+---
 
-⏳ Hero definitivo.
-⏳ Caja "¿Es tu primera vez?".
-⏳ Mapa integrado.
-⏳ Consejos para asistir.
-⏳ Actividades similares mejoradas.
-Estado general del diseño
-Home
+# Próximos hitos
 
-🟢 Muy avanzada (~95%).
+## Corto plazo
 
-ActivityPage
+* Finalizar Home 2.0
+* Mejorar Activity Page
+* Rediseñar Organization Page
+* Optimizar experiencia móvil
+* Mejorar accesibilidad
 
-🟡 En evolución (~70%).
+---
 
-OrganizationPage
+## Medio plazo
 
-🟡 Funcional, pendiente de rediseño.
+* Comunidad
+* Newsletter
+* Recursos para aprender noruego
+* Historias de usuarios
+* Sistema de favoritos
 
-Comunidad
+---
 
-⚪ Pendiente.
+## Largo plazo
 
-Newsletter
+* Supabase
+* Panel de administración
+* Actualización automática de actividades
+* Multiidioma
+* Multi-ciudad
 
-⚪ Pendiente.
+---
 
-Administración
+# Objetivo de la siguiente fase
 
-⚪ Pendiente.
+Cuando el MVP esté completamente validado comenzará una nueva etapa.
 
-Supabase
+El foco dejará de ser únicamente mostrar actividades y pasará a construir una comunidad alrededor del aprendizaje del noruego.
 
-⚪ Pendiente.
+---
 
-Horizonte del proyecto
-Fase actual
+# Indicadores de éxito
 
-Construir la mejor experiencia posible para una persona que quiere asistir a su primer Språkkafé.
+Actualmente el éxito del proyecto no se mide por el número de funcionalidades.
 
-Una vez terminada esta fase, entraremos en la siguiente.
+Se medirá por:
 
-Próximos grandes hitos
-Fase 1 — UX Premium (actual)
-Finalizar ActivityPage.
-Rediseñar OrganizationPage.
-Mejorar consistencia visual.
-Accesibilidad (WCAG AA).
-Fase 2 — Comunidad
-Página "Únete a la comunidad".
-Newsletter mensual.
-Recursos para aprender noruego.
-Historias de usuarios.
-Fase 3 — Datos
-Migración a Supabase.
-Panel de administración.
-Actualización automática de actividades.
-Fase 4 — Escalado
-Bergen.
-Trondheim.
-Stavanger.
-Tromsø.
-Resto de Noruega.
+* Facilidad para encontrar una actividad.
+* Tiempo necesario para decidir asistir.
+* Experiencia en dispositivos móviles.
+* Claridad de la información.
+* Confianza transmitida por la plataforma.
+
+---
+
+# Estado global
+
+**Proyecto:** 🟢 Saludable
+
+**Arquitectura:** 🟢 Escalable
+
+**Código:** 🟢 Estable
+
+**Diseño:** 🟢 Consistente
+
+**Experiencia móvil:** 🟢 Prioridad absoluta
+
+**Fase actual:** Construcción del mejor MVP posible antes de incorporar funcionalidades avanzadas y escalar el proyecto a nivel nacional.

@@ -1,4 +1,4 @@
-export default function MobileCarousel({ children }) {
+export default function HorizontalCarousel({ children }) {
     return (
         <>
             {/* Móvil */}

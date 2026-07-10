@@ -1,141 +1,322 @@
-# Project Vision
+# 00_PROJECT_VISION.md
 
-## Nuestra misión
-
-Ayudar a las personas a sentirse parte de Noruega.
-
-Creemos que aprender un idioma no consiste únicamente en estudiar gramática o memorizar vocabulario.
-
-Aprender un idioma significa sentirse cómodo hablando con otras personas.
-
-Significa comprender la cultura.
-
-Entender la sociedad.
-
-Conocer gente.
-
-Crear amistades.
-
-Construir una vida.
-
-Nuestro objetivo es reducir la distancia entre llegar a Noruega y sentirse parte de ella.
+> **Project:** Språkkafé Oslo
+> **Version:** 2.0
+> **Status:** Living Document
+> **Last Updated:** July 2026
 
 ---
 
-## Nuestra visión
+# Språkkafé Oslo — Project Vision
 
-Queremos convertirnos en el directorio de referencia de actividades de conversación en Noruega.
+## Why this project exists
 
-Un lugar donde cualquier persona pueda descubrir fácilmente dónde practicar noruego.
+Moving to a new country is much more than learning a new language.
 
-Hoy empezamos en Oslo.
+It means understanding a new culture, creating friendships, discovering how society works and, eventually, feeling that you belong.
 
-Mañana estaremos presentes en todas las ciudades del país.
+For thousands of Spanish-speaking newcomers in Norway, the biggest challenge is not finding information—it is knowing where to begin.
 
----
+Språkkafé Oslo exists to make that first step simple.
 
-## Qué problema resolvemos
+We collect free Norwegian language activities in one place so that anyone can find a welcoming environment to practise the language, meet new people and become part of the local community.
 
-Actualmente la información está dispersa.
-
-Cada biblioteca publica sus actividades.
-
-Cada organización tiene su propia web.
-
-Cada grupo utiliza un canal diferente.
-
-El resultado es que muchas personas nunca llegan a descubrir todas las oportunidades gratuitas que existen.
-
-Nosotros reunimos toda esa información en un único lugar.
+We believe that every conversation is an opportunity to build confidence, create connections and feel a little more at home.
 
 ---
 
-## Nuestra filosofía
+# Our Mission
 
-No queremos construir una red social.
+**We help people feel part of Norway through language, community and culture.**
 
-No queremos competir con las organizaciones.
+Learning Norwegian is not the final goal.
 
-Queremos conectar personas con organizaciones.
+Feeling part of Norwegian society is.
 
-Somos un puente.
-
----
-
-## Nuestros principios
-
-### La comunidad primero
-
-Cada decisión debe facilitar que las personas conozcan gente.
-
-### Menos ruido
-
-La información debe ser clara y sencilla.
-
-Eliminar siempre aquello que no aporte valor.
-
-### Accesibilidad
-
-La web debe ser fácil de utilizar incluso para personas que todavía están aprendiendo español, inglés o noruego.
-
-### Confianza
-
-Toda la información debe proceder de organizaciones oficiales o verificadas.
-
-### Gratitud
-
-Este proyecto existe gracias al trabajo de cientos de voluntarios y organizaciones que cada semana crean espacios seguros para conversar.
-
-Nuestro trabajo consiste en hacer que esas iniciativas sean más visibles.
+Every activity published on this platform should contribute to that mission.
 
 ---
 
-## Qué NO somos
+# Our Vision
 
-No somos una academia.
+To become the most trusted community platform for discovering free Norwegian language activities across Norway.
 
-No impartimos clases.
+Starting in Oslo.
 
-No organizamos los eventos.
+Growing city by city.
 
-No sustituimos a las organizaciones.
-
-Les damos visibilidad.
+Always keeping simplicity, accessibility and trust at the centre.
 
 ---
 
-## Cómo tomamos decisiones
+# What we are building
 
-Cuando aparezca una duda durante el desarrollo, hacemos siempre la misma pregunta:
+Språkkafé Oslo is **not** just an events directory.
 
-¿Esto ayuda a que una persona se sienta parte de Noruega?
+It is a bridge between newcomers and Norwegian society.
 
-Si la respuesta es sí...
+Every activity is an opportunity to:
 
-Vamos por el buen camino.
+* practise Norwegian
+* meet local people
+* understand Norwegian culture
+* build confidence
+* reduce isolation
+* create long-term friendships
 
-Si la respuesta es no...
-
-No pertenece al proyecto.
+The platform should feel welcoming, optimistic and easy to understand for someone who has just arrived in Norway.
 
 ---
 
-## El futuro
+# Our Purpose
 
-Este proyecto comienza siendo un directorio.
+We want every user to be able to answer these questions within a few seconds:
 
-Pero la visión es mucho mayor.
+* Where can I practise Norwegian today?
+* Is there something close to me?
+* Will I feel welcome?
+* Can I attend even if my Norwegian is not perfect?
+* How do I get started?
 
-Queremos construir la comunidad más grande de personas que aprenden noruego.
+If the platform answers these questions quickly, we are succeeding.
 
-Queremos facilitar conexiones.
+---
 
-Compartir experiencias.
+# The First Conversation Principle
 
-Dar visibilidad a las organizaciones.
+Everything we build should help one person achieve one simple objective:
 
-Inspirar a quienes acaban de llegar.
+> **Attend their first Språkkafé.**
 
-Porque aprender un idioma puede cambiar una vida.
+That first visit often changes everything.
 
-Y una conversación puede ser el comienzo de todo.
+Confidence grows.
+
+The language improves.
+
+New friendships begin.
+
+Integration becomes easier.
+
+Every design decision should support this journey.
+
+---
+
+# Our Core Principles
+
+## 🤝 Community
+
+People learn better together.
+
+Language grows through conversations, not only through textbooks.
+
+Our platform should encourage human connections.
+
+---
+
+## 🌍 Belonging
+
+The ultimate goal is not language proficiency.
+
+The goal is belonging.
+
+Every feature should help users feel that Norway can become home.
+
+---
+
+## 💙 Accessibility
+
+Information should always be:
+
+* free
+* simple
+* understandable
+* mobile friendly
+* available to everyone
+
+Complexity creates barriers.
+
+Simplicity creates opportunities.
+
+---
+
+## 🛡 Trust
+
+Users should know that every activity has been verified.
+
+We prioritise reliable information over large amounts of information.
+
+Quality always comes before quantity.
+
+---
+
+## 🌱 Continuous Learning
+
+Learning Norwegian does not end after attending one activity.
+
+The platform should support people throughout their integration journey.
+
+Future features will include:
+
+* community
+* newsletters
+* learning resources
+* volunteering opportunities
+* success stories
+
+---
+
+# Design Philosophy
+
+We follow one simple principle:
+
+> **Reduce effort. Increase confidence.**
+
+Every screen should make the next decision easier.
+
+We avoid unnecessary complexity.
+
+We remove distractions.
+
+We present information in a way that can be understood in seconds.
+
+---
+
+# User First
+
+Every discussion inside the project should begin with one question:
+
+> **Does this make the user's first experience easier?**
+
+If the answer is no, we rethink the solution.
+
+---
+
+# Mobile First
+
+Most users will discover Språkkafé Oslo on their mobile phone.
+
+Because of this:
+
+* Mobile is designed first.
+* Desktop adapts afterwards.
+* Every feature must work comfortably on a 390px viewport before being considered complete.
+
+---
+
+# Simplicity Before Features
+
+Adding more features does not necessarily improve the experience.
+
+We prefer:
+
+* fewer buttons
+* fewer clicks
+* fewer decisions
+* clearer information
+
+instead of
+
+* complex interfaces
+* hidden options
+* overloaded screens
+
+Every new feature must solve a real user problem.
+
+---
+
+# Trust Before Growth
+
+Growing fast is not our first objective.
+
+Helping people successfully is.
+
+A smaller platform with reliable information is better than a larger platform full of outdated activities.
+
+---
+
+# Community Before Technology
+
+Technology is only a tool.
+
+The community is the product.
+
+Our success will not be measured by:
+
+* number of pages
+* number of components
+* amount of code
+
+Instead, it will be measured by:
+
+* people attending activities
+* friendships created
+* confidence gained
+* successful integration stories
+
+---
+
+# Long-Term Vision
+
+The first version focuses on Oslo.
+
+The long-term vision is to support newcomers across Norway.
+
+Potential future cities include:
+
+* Bergen
+* Trondheim
+* Stavanger
+* Tromsø
+* Kristiansand
+* Drammen
+* Bodø
+
+The architecture should always allow new cities to be added without redesigning the platform.
+
+---
+
+# Decision Framework
+
+Whenever we are unsure about a feature, we ask these questions:
+
+1. Does it make the first visit easier?
+2. Does it reduce cognitive effort?
+3. Does it improve trust?
+4. Does it work well on mobile?
+5. Will users understand it without explanation?
+6. Does it help people feel part of Norway?
+
+If most answers are **yes**, we continue.
+
+If not, we redesign.
+
+---
+
+# Project Motto
+
+> **Helping people feel part of Norway, one conversation at a time.**
+
+---
+
+# Project DNA
+
+Språkkafé Oslo is built around one belief:
+
+People do not remember websites.
+
+People remember how a place made them feel.
+
+Our responsibility is not simply to show activities.
+
+Our responsibility is to help someone feel welcome before they even attend their first one.
+
+Every line of code.
+
+Every design decision.
+
+Every piece of content.
+
+Every sprint.
+
+Should contribute to that purpose.

@@ -1,6 +1,6 @@
 import { Users, Globe2, MessageCircle } from "lucide-react";
 import { scrollToId } from "../utils/scrollTo";
-import MobileCarousel from "./MobileCarousel";
+import HorizontalCarousel from "./HorizontalCarousel";
 
 // Componente auxiliar local para las tarjetas de misión
 function MissionCard({ icon, title, description }) {
@@ -53,7 +53,7 @@ export default function AboutSection() {
                 {/* Grid de Tarjetas de Misión */}
                 {/* CORREGIDO: Se eliminó el "</div>" que cerraba la rejilla antes de tiempo */}
               <div className="mt-20">
-    <MobileCarousel>
+    <HorizontalCarousel>
 
         <MissionCard
             icon={<Users size={24} />}
@@ -73,7 +73,7 @@ export default function AboutSection() {
             description="Conocer gente, compartir experiencias y crear nuevas amistades forma parte del aprendizaje tanto como el propio idioma."
         />
 
-    </MobileCarousel>
+    </HorizontalCarousel>
 </div>
 
                 {/* Sección: Nuestra misión */}
@@ -103,7 +103,7 @@ export default function AboutSection() {
     </h3>
 
                       <div className="mt-12">
-    <MobileCarousel>
+    <HorizontalCarousel>
 
         {/* Paso 1 */}
         <div className="text-center bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
@@ -153,7 +153,7 @@ export default function AboutSection() {
             </p>
         </div>
 
-    </MobileCarousel>
+    </HorizontalCarousel>
 </div>
                 </div>
 
