@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { CalendarDays, Heart, House, Info, Languages, Menu, X } from "lucide-react";
 import { scrollToId } from "../utils/scrollTo";
 
 export default function Header() {
@@ -59,42 +59,65 @@ export default function Header() {
 
     return (
         <>
-            <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-gray-100 shadow-sm">
-                 <div className="max-w-5xl mx-auto px-5 h-16 flex items-center justify-between">
-                        <Link to="/" onClick={(e) => handleNavClick(e, "hero")} className="flex items-center gap-2.5 group">
-                           <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-lg transition-transform duration-200 group-hover:scale-105 shrink-0">
-                                S
+            <header className="sticky top-0 z-50 border-b border-gray-200/80 bg-white/95 backdrop-blur-xl">
+                 <div className="max-w-5xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between gap-3">
+                        <Link
+                            to="/"
+                            onClick={(e) => handleNavClick(e, "hero")}
+                            className="flex items-center gap-2.5 rounded-lg p-1 -ml-1 hover:bg-gray-100 transition-colors duration-150 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                            aria-label="Språkkafé Oslo, ir al inicio"
+                        >
+                           <div className="w-10 h-10 rounded-lg border border-gray-200 bg-white shadow-sm flex items-center justify-center text-blue-600 transition-transform duration-150 group-hover:-translate-y-0.5 shrink-0" aria-hidden="true">
+                                <Languages size={21} strokeWidth={1.8} />
                             </div>
                             <div className="leading-tight">
-                                <div className="font-bold text-gray-900 text-base leading-none">Språkkafé</div>
-                                <div className="text-xs text-gray-400 font-medium leading-none mt-0.5">Oslo</div>
+                                <div className="font-semibold text-gray-900 text-[15px] leading-none tracking-tight">Språkkafé</div>
+                                <div className="text-xs text-gray-500 font-medium leading-none mt-1">Oslo</div>
                             </div>
                         </Link>
 
                         {/* Desktop Navigation */}
-                        <nav aria-label="Navegación principal" className="hidden md:flex items-center gap-8 text-sm font-semibold">
+                        <nav aria-label="Navegación principal" className="hidden md:flex items-center gap-1 text-sm font-medium">
                             <a href="#actividades" onClick={(e) => handleNavClick(e, "actividades")}
-                                className="text-gray-600 hover:text-blue-600 transition-all duration-150 active:scale-95">
+                                className="min-h-[44px] inline-flex items-center rounded-lg px-3 text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
                                 Actividades
                             </a>
 
-                            <button onClick={() => setShowModal(true)}
-                                className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-white font-medium hover:bg-blue-700 transition shadow-sm cursor-pointer">
+                            <a href="#proyecto" onClick={(e) => handleNavClick(e, "proyecto")}
+                                className="min-h-[44px] inline-flex items-center rounded-lg px-3 text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+                                Sobre el proyecto
+                            </a>
+
+                            <button type="button" onClick={() => setShowModal(true)}
+                                className="ml-2 min-h-[44px] inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 text-white font-medium hover:bg-blue-700 active:scale-[0.98] transition shadow-sm cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+                                <Heart size={16} aria-hidden="true" />
                                 Únete a la comunidad
                             </button>
                         </nav>
 
-                        {/* Mobile Burger Trigger */}
-                        <div className="md:hidden flex items-center">
+                        {/* Mobile actions */}
+                        <div className="md:hidden flex items-center gap-1.5">
                            <button
-    ref={menuButtonRef}
-    className="w-11 h-11 flex items-center justify-center rounded-xl text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-all duration-200 active:scale-95 cursor-pointer"
-    onClick={() => setIsMenuOpen(!isMenuOpen)}
-    aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
-    aria-expanded={isMenuOpen}
-    aria-controls="mobile-navigation"
->
-                                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                                type="button"
+                                onClick={() => {
+                                    closeMenu();
+                                    setShowModal(true);
+                                }}
+                                className="min-h-[44px] inline-flex items-center gap-1.5 rounded-lg px-3 text-sm font-medium text-blue-700 hover:bg-blue-50 active:scale-[0.98] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                           >
+                                <Heart size={16} aria-hidden="true" />
+                                Únete
+                           </button>
+                           <button
+                                ref={menuButtonRef}
+                                type="button"
+                                className="w-11 h-11 flex items-center justify-center rounded-lg text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-all duration-150 active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                                aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+                                aria-expanded={isMenuOpen}
+                                aria-controls="mobile-navigation"
+                            >
+                                {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
                             </button>
                         </div>
                     </div>
@@ -104,47 +127,34 @@ export default function Header() {
                         id="mobile-navigation"
                         aria-label="Navegación móvil"
                         aria-hidden={!isMenuOpen}
-                        className={`
-                            md:hidden
-                            flex
-                            flex-col
-                            gap-2
-                            overflow-hidden
-                            transition-all
-                            duration-300
-                            ${isMenuOpen ? "max-h-96 opacity-100 mt-4 pt-4 border-t border-gray-100" : "max-h-0 opacity-0"}
-                        `}
+                        className={`md:hidden max-w-5xl mx-auto px-3 overflow-hidden transition-all duration-200 ${isMenuOpen ? "max-h-80 opacity-100 pb-3" : "max-h-0 opacity-0"}`}
                     >
-                        <a
-                            href="#hero"
-                            onClick={(e) => handleNavClick(e, "hero")}
-                            tabIndex={isMenuOpen ? 0 : -1}
-                            className="px-4 py-4 rounded-lg text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-all duration-150 font-medium"
-                        >
-                            🏠 Inicio
-                        </a>
-
-                        <a
-                            href="#actividades"
-                            onClick={(e) => handleNavClick(e, "actividades")}
-                            tabIndex={isMenuOpen ? 0 : -1}
-                            className="px-4 py-4 rounded-lg text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-all duration-150 font-medium"
-                        >
-                            📍 Actividades
-                        </a>
-
-                       <div className="border-t border-gray-100 mt-3 pt-5" />
-
-                        <button
-                            tabIndex={isMenuOpen ? 0 : -1}
-                            onClick={() => {
-                                closeMenu();
-                                setShowModal(true);
-                            }}
-                          className="w-full rounded-xl bg-blue-600 py-4 text-white font-semibold hover:bg-blue-700 transition-all duration-200 active:scale-[0.98] cursor-pointer"
-                        >
-                            ❤️ Únete a la comunidad
-                        </button>
+                        <div className="border-t border-gray-200 pt-2">
+                            {[
+                                { id: "hero", label: "Inicio", description: "Volver al comienzo", icon: House },
+                                { id: "actividades", label: "Actividades", description: "Encontrar un Språkkafé", icon: CalendarDays },
+                                { id: "proyecto", label: "Sobre el proyecto", description: "Conocer nuestra misión", icon: Info },
+                            ].map((item) => {
+                                const Icon = item.icon;
+                                return (
+                                    <a
+                                        key={item.id}
+                                        href={`#${item.id}`}
+                                        onClick={(event) => handleNavClick(event, item.id)}
+                                        tabIndex={isMenuOpen ? 0 : -1}
+                                        className="flex min-h-[56px] items-center gap-3 rounded-lg px-3 text-gray-700 hover:bg-gray-100 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                                    >
+                                        <span className="w-8 h-8 rounded-lg border border-gray-200 bg-white flex items-center justify-center text-gray-500 shadow-sm" aria-hidden="true">
+                                            <Icon size={17} />
+                                        </span>
+                                        <span className="text-left">
+                                            <span className="block text-sm font-medium text-gray-900">{item.label}</span>
+                                            <span className="block text-xs text-gray-500 mt-0.5">{item.description}</span>
+                                        </span>
+                                    </a>
+                                );
+                            })}
+                        </div>
                     </nav>
 
             </header>

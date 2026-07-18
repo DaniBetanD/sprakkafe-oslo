@@ -450,6 +450,16 @@ El usuario controla el movimiento.
 
 # Header
 
+Identidad aprobada:
+
+Inspirado en Notion, sin copiarlo literalmente.
+
+Debe sentirse editorial, ordenado y cercano; nunca como una barra corporativa o una landing comercial genérica.
+
+La marca utiliza una ficha cuadrada con iconografía lineal de idioma, el nombre Språkkafé y la ubicación Oslo en dos líneas.
+
+La navegación usa enlaces discretos con fondos suaves al interactuar. El CTA comunitario se integra en el conjunto y no debe dominar visualmente todo el Header.
+
 Siempre visible.
 
 Sticky.
@@ -474,7 +484,9 @@ Sobre el proyecto
 
 En móvil:
 
-menú hamburguesa
+El CTA «Únete» permanece visible.
+
+El menú hamburguesa despliega Inicio, Actividades y Sobre el proyecto con etiquetas claras y una breve descripción.
 
 ---
 
