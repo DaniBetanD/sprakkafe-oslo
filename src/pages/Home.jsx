@@ -13,6 +13,7 @@ import Filters from "../components/Filters";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MobileDetailPanel from "../components/MobileDetailPanel";
+import FirstVisitConfidence from "../components/FirstVisitConfidence";
 import { DAYS, LEVELS } from "../utils/translations";
 import { scrollToId } from "../utils/scrollTo";
 
@@ -369,6 +370,11 @@ export default function Home() {
               <Filters filters={filters} setFilters={setFilters} activities={activities} />
             </div>
           </div>
+        </section>
+
+        {/* Confianza para la primera visita */}
+        <section className="max-w-5xl mx-auto px-4 md:px-6 w-full" aria-labelledby="first-visit-title">
+          <FirstVisitConfidence />
         </section>
 
         {/* Categorías */}
