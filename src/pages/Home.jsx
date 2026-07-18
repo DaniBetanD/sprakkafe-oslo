@@ -66,7 +66,7 @@ function HorizontalCarousel({ children }) {
       {showLeft && (
         <button
           type="button"
-          aria-label="Ver actividades anteriores"
+          aria-label="Ver elementos anteriores"
           onClick={() => scrollBy(-260)}
           className="absolute -left-3 top-1/2 -translate-y-1/2 z-20 bg-white text-gray-800 p-2 rounded-full shadow-lg border border-gray-100 transition min-h-[44px] min-w-[44px] flex items-center justify-center"
         >
@@ -76,7 +76,7 @@ function HorizontalCarousel({ children }) {
       {showRight && (
         <button
           type="button"
-          aria-label="Ver actividades siguientes"
+          aria-label="Ver elementos siguientes"
           onClick={() => scrollBy(260)}
           className="absolute -right-3 top-1/2 -translate-y-1/2 z-20 bg-white text-gray-800 p-2 rounded-full shadow-lg border border-gray-100 transition min-h-[44px] min-w-[44px] flex items-center justify-center"
         >
@@ -147,7 +147,7 @@ function CategorySection({ activeCategory, onSelectCategory, todayCount, familyC
               </span>
             )}
           </h3>
-          <p className="mt-1 text-[11px] leading-relaxed text-gray-500">{category.description}</p>
+          <p className="mt-1 text-sm leading-relaxed text-gray-500">{category.description}</p>
         </div>
       </button>
     );
@@ -157,7 +157,7 @@ function CategorySection({ activeCategory, onSelectCategory, todayCount, familyC
     <div className="py-2">
       <div className="mb-4">
         <h2 className="text-xl md:text-2xl font-bold text-gray-900">Explora por intereses</h2>
-        <p className="mt-1 text-gray-500 text-xs md:text-sm">Selecciona una categoría para filtrar las actividades.</p>
+        <p className="mt-1 text-sm text-gray-500">Selecciona una categoría para filtrar las actividades.</p>
       </div>
       {/* Móvil: carrusel */}
       <div className="block sm:hidden mt-4">
@@ -199,7 +199,7 @@ function RecommendedActivities({ activities, getOrganization, setSelected, selec
     <div className="py-2">
       <div className="mb-4">
         <h2 className="text-xl md:text-2xl font-bold text-gray-900">Actividades recomendadas</h2>
-        <p className="text-gray-500 mt-1 text-xs md:text-sm">Las más próximas esta semana.</p>
+        <p className="mt-1 text-sm text-gray-500">Las más próximas esta semana.</p>
       </div>
       <HorizontalCarousel>
         {featured.map((activity) => (
@@ -314,6 +314,7 @@ export default function Home() {
   const familyCount = activities.filter(isFamilyActivity).length;
   const showCategories = todayCount > 0 || familyCount > 0;
   const showRecommendations = activities.length >= 4;
+  const showDiscoveryTools = activities.length >= 4;
 
   const results = activities.filter((activity) => {
     const org = getOrganization(activity.organizationId);
@@ -349,7 +350,7 @@ export default function Home() {
       <main className="flex-grow space-y-10 md:space-y-16 pb-12">
 
         {/* Hero */}
-        <section id="hero" className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-12 pb-20">
+        <section id="hero" className={`bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-12 ${showDiscoveryTools ? "pb-20" : "pb-12"}`}>
           <div className="max-w-5xl mx-auto px-6 text-center">
             <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
               Encuentra tu{" "}
@@ -363,14 +364,16 @@ export default function Home() {
         </section>
 
         {/* Buscador flotante */}
-        <section className="max-w-5xl mx-auto px-4 md:px-6 -mt-12 relative z-10 w-full">
-          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-5">
-            <SearchBar onSearch={setQuery} />
-            <div className="mt-3">
-              <Filters filters={filters} setFilters={setFilters} activities={activities} />
+        {showDiscoveryTools && (
+          <section className="max-w-5xl mx-auto px-4 md:px-6 -mt-12 relative z-10 w-full">
+            <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-5">
+              <SearchBar onSearch={setQuery} />
+              <div className="mt-3">
+                <Filters filters={filters} setFilters={setFilters} activities={activities} />
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Confianza para la primera visita */}
         <section className="max-w-5xl mx-auto px-4 md:px-6 w-full" aria-labelledby="first-visit-title">
@@ -439,20 +442,29 @@ export default function Home() {
             </div>
           ) : (
             <div className="w-full">
-              {/* Móvil: carrusel */}
+              {/* Móvil: tarjeta única o carrusel cuando existen varias */}
               <div className="block md:hidden w-full">
-                <HorizontalCarousel>
-                  {results.map((activity) => (
-                    <div key={activity.id} className="min-w-[280px] sm:min-w-[320px] max-w-[85vw] snap-center p-1">
-                      <ActivityCard
-                        activity={activity}
-                        organization={getOrganization(activity.organizationId)}
-                        onClick={() => setSelected(selected?.id === activity.id ? null : activity)}
-                        isSelected={selected?.id === activity.id}
-                      />
-                    </div>
-                  ))}
-                </HorizontalCarousel>
+                {results.length === 1 ? (
+                  <ActivityCard
+                    activity={results[0]}
+                    organization={getOrganization(results[0].organizationId)}
+                    onClick={() => setSelected(selected?.id === results[0].id ? null : results[0])}
+                    isSelected={selected?.id === results[0].id}
+                  />
+                ) : (
+                  <HorizontalCarousel>
+                    {results.map((activity) => (
+                      <div key={activity.id} className="min-w-[280px] sm:min-w-[320px] max-w-[85vw] snap-center p-1">
+                        <ActivityCard
+                          activity={activity}
+                          organization={getOrganization(activity.organizationId)}
+                          onClick={() => setSelected(selected?.id === activity.id ? null : activity)}
+                          isSelected={selected?.id === activity.id}
+                        />
+                      </div>
+                    ))}
+                  </HorizontalCarousel>
+                )}
               </div>
 
               {/* Desktop: grid + panel lateral */}

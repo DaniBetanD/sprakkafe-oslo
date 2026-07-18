@@ -593,6 +593,10 @@ Jerarquía adaptativa aprobada:
 - Antes del listado se muestra un único bloque compacto de confianza para la primera visita.
 - Este bloque responde únicamente a tres inseguridades universales: venir solo, escuchar primero y no hablar perfecto.
 - No incluye requisitos concretos de una actividad, botones ni llamadas a la acción que compitan con el listado.
+- El buscador y los filtros aparecen cuando existen al menos cuatro actividades; con menos contenido, el listado directo tiene prioridad.
+- La búsqueda filtra al escribir y mantiene un campo táctil de al menos 48 px.
+- Una única actividad se muestra a ancho completo en móvil, sin carrusel ni controles de desplazamiento.
+- Las descripciones de carruseles y categorías utilizan un mínimo de 14 px en móvil, salvo badges puramente auxiliares.
 - Las categorías solo se muestran cuando existe contenido real para alguna categoría específica.
 - Nunca se muestran categorías vacías o controles deshabilitados únicamente para completar una cuadrícula.
 - Las actividades recomendadas solo aparecen cuando hay al menos cuatro actividades y aportan descubrimiento real.
