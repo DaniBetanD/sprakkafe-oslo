@@ -400,6 +400,16 @@ export default function Home() {
             </span>
           </div>
 
+          {activities.length <= 1 && (
+            <div className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm leading-relaxed text-amber-900">
+              <p className="font-semibold">Programación especial de verano</p>
+              <p className="mt-1">
+                Muchas organizaciones hacen una pausa durante julio y retomarán sus actividades en agosto.
+                Por ahora tenemos una actividad confirmada y actualizamos la información cada semana.
+              </p>
+            </div>
+          )}
+
           {results.length === 0 ? (
             <div className="text-center py-12 bg-white border border-dashed border-gray-200 rounded-2xl p-6">
               <p className="text-sm text-gray-500">No hay actividades que coincidan.</p>
