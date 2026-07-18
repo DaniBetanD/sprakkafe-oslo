@@ -396,7 +396,7 @@ export default function Home() {
               {activeCategory === "today" ? "Språkkafé para hoy" : "Todos los Språkkafé"}
             </h2>
             <span className="bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1 rounded-full border border-blue-100">
-              {results.length} actividades
+              {results.length} {results.length === 1 ? "actividad" : "actividades"}
             </span>
           </div>
 

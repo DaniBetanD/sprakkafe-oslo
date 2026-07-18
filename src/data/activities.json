@@ -2,111 +2,12 @@
     {
         "id": "1",
         "organizationId": "rodekors",
-        "name": "Språkkafé Røde Kors",
-        "district": "Grünerløkka",
-        "day": "Tuesday",
-        "time": "18:00",
-        "level": "A2",
-        "address": "Hausmanns gate 7, Oslo",
-        "description": "Conversación libre en noruego con voluntarios de Røde Kors. Abierto a todos los niveles A2 en adelante."
-    },
-    {
-        "id": "2",
-        "organizationId": "deichman",
-        "name": "Norsk samtalekveld",
-        "district": "Tøyen",
-        "day": "Monday",
-        "time": "17:00",
-        "level": "A1",
-        "address": "Deichman Tøyen, Hagegata 30",
-        "description": "Tarde de conversación en noruego para principiantes. Ambiente relajado en la biblioteca de Tøyen."
-    },
-    {
-        "id": "3",
-        "organizationId": "caritas",
-        "name": "Språktrening Caritas",
+        "name": "Norsktrening Røde Kors — verano",
         "district": "Sentrum",
         "day": "Wednesday",
-        "time": "17:30",
+        "time": "11:00",
         "level": "A1",
-        "address": "Akersveien 16, Oslo",
-        "description": "Caritas combina práctica estructurada con conversación libre. Ideal para recién llegados."
-    },
-    {
-        "id": "4",
-        "organizationId": "norskstart",
-        "name": "Språkkafé Norsk Start",
-        "district": "Blindern",
-        "day": "Thursday",
-        "time": "16:00",
-        "level": "A2",
-        "address": "Universitetet i Oslo, Blindern",
-        "description": "Organizado por estudiantes universitarios. Incluye cuadernillos semanales de práctica A1-B2."
-    },
-    {
-        "id": "5",
-        "organizationId": "pauluskirke",
-        "name": "Språkkafé Paulus",
-        "district": "Grünerløkka",
-        "day": "Thursday",
-        "time": "18:00",
-        "level": "A1",
-        "address": "Olaf Ryes plass 2, Oslo",
-        "description": "Språkkafé semanal en un ambiente comunitario y acogedor en el corazón de Grünerløkka."
-    },
-    {
-        "id": "6",
-        "organizationId": "ethnos",
-        "name": "Norsk kurs Ethnos",
-        "district": "Sentrum",
-        "day": "Monday",
-        "time": "18:00",
-        "level": "A1",
-        "address": "Møllergata 12, Oslo",
-        "description": "Cursos estructurados gratuitos de lunes a jueves. Varios niveles disponibles."
-    },
-    {
-        "id": "7",
-        "organizationId": "sagene",
-        "name": "Språkkafé Sagene",
-        "district": "Sagene",
-        "day": "Sunday",
-        "time": "13:00",
-        "level": "A2",
-        "address": "Sagene Frivilligsentral, Thorvald Meyers gate",
-        "description": "Encuentro dominical en ambiente familiar. Perfecto para practicar en un entorno sin presión."
-    },
-    {
-        "id": "8",
-        "organizationId": "haugerud",
-        "name": "Språkkafé Haugerud",
-        "district": "Haugerud",
-        "day": "Friday",
-        "time": "17:00",
-        "level": "A1",
-        "address": "Haugerud Senter, Oslo",
-        "description": "Språkkafé semanal en el este de Oslo. Grupos pequeños y atención personalizada."
-    },
-    {
-        "id": "9",
-        "organizationId": "toyen-frivilligsentral",
-        "name": "Språkkafé Tøyen Frivilligsentral",
-        "district": "Tøyen",
-        "day": "Monday",
-        "time": "16:45",
-        "level": "A2",
-        "address": "Deichman Tøyen, Hagegata 30",
-        "description": "Språkkafé en grupos pequeños con voluntarios. Requiere inscripción — el formulario abre cada miércoles a las 12:00. Solo para residentes del barrio Gamle Oslo."
-    },
-    {
-        "id": "10",
-        "organizationId": "toyen-frivilligsentral",
-        "name": "New Amigos Language Café",
-        "district": "Tøyen",
-        "day": "Monday",
-        "time": "17:00",
-        "level": "A1",
-        "address": "Deichman Tøyen, Hagegata 30",
-        "description": "Juego de mesa para practicar noruego. Disponible en versión español-noruego. Apto para todos los niveles."
+        "address": "Hausmanns gate 23, Oslo",
+        "description": "Norsktrening presencial de verano para practicar noruego oral. Disponible los miércoles de 11:00 a 13:00 hasta el 3 de agosto; conviene llegar al menos 15 minutos antes. La programación ordinaria regresa el 10 de agosto."
     }
 ]
