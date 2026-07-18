@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { scrollToId } from "../utils/scrollTo";
@@ -6,10 +6,44 @@ import { scrollToId } from "../utils/scrollTo";
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const modalCloseRef = useRef(null);
+    const menuButtonRef = useRef(null);
+    const previousFocusRef = useRef(null);
     const location = useLocation();
     const navigate = useNavigate();
 
     const closeMenu = () => setIsMenuOpen(false);
+
+    useEffect(() => {
+        if (!isMenuOpen) return undefined;
+
+        const handleKeyDown = (event) => {
+            if (event.key === "Escape") {
+                setIsMenuOpen(false);
+                menuButtonRef.current?.focus();
+            }
+        };
+
+        document.addEventListener("keydown", handleKeyDown);
+        return () => document.removeEventListener("keydown", handleKeyDown);
+    }, [isMenuOpen]);
+
+    useEffect(() => {
+        if (!showModal) return undefined;
+
+        previousFocusRef.current = document.activeElement;
+        modalCloseRef.current?.focus();
+
+        const handleKeyDown = (event) => {
+            if (event.key === "Escape") setShowModal(false);
+        };
+
+        document.addEventListener("keydown", handleKeyDown);
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown);
+            previousFocusRef.current?.focus();
+        };
+    }, [showModal]);
 
     function handleNavClick(e, id) {
         e.preventDefault();
@@ -38,7 +72,7 @@ export default function Header() {
                         </Link>
 
                         {/* Desktop Navigation */}
-                        <nav className="hidden md:flex items-center gap-8 text-sm font-semibold">
+                        <nav aria-label="Navegación principal" className="hidden md:flex items-center gap-8 text-sm font-semibold">
                             <a href="#actividades" onClick={(e) => handleNavClick(e, "actividades")}
                                 className="text-gray-600 hover:text-blue-600 transition-all duration-150 active:scale-95">
                                 Actividades
@@ -53,9 +87,12 @@ export default function Header() {
                         {/* Mobile Burger Trigger */}
                         <div className="md:hidden flex items-center">
                            <button
+    ref={menuButtonRef}
     className="w-11 h-11 flex items-center justify-center rounded-xl text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-all duration-200 active:scale-95 cursor-pointer"
     onClick={() => setIsMenuOpen(!isMenuOpen)}
-    aria-label="Menu"
+    aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+    aria-expanded={isMenuOpen}
+    aria-controls="mobile-navigation"
 >
                                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                             </button>
@@ -64,6 +101,9 @@ export default function Header() {
 
                     {/* Mobile Navigation Panel (Optimized for 390px) */}
                     <nav
+                        id="mobile-navigation"
+                        aria-label="Navegación móvil"
+                        aria-hidden={!isMenuOpen}
                         className={`
                             md:hidden
                             flex
@@ -78,6 +118,7 @@ export default function Header() {
                         <a
                             href="#hero"
                             onClick={(e) => handleNavClick(e, "hero")}
+                            tabIndex={isMenuOpen ? 0 : -1}
                             className="px-4 py-4 rounded-lg text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-all duration-150 font-medium"
                         >
                             🏠 Inicio
@@ -86,6 +127,7 @@ export default function Header() {
                         <a
                             href="#actividades"
                             onClick={(e) => handleNavClick(e, "actividades")}
+                            tabIndex={isMenuOpen ? 0 : -1}
                             className="px-4 py-4 rounded-lg text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-all duration-150 font-medium"
                         >
                             📍 Actividades
@@ -94,6 +136,7 @@ export default function Header() {
                        <div className="border-t border-gray-100 mt-3 pt-5" />
 
                         <button
+                            tabIndex={isMenuOpen ? 0 : -1}
                             onClick={() => {
                                 closeMenu();
                                 setShowModal(true);
@@ -108,14 +151,26 @@ export default function Header() {
 
             {/* Modal Global "Muy pronto" */}
             {showModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-                    <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full text-center space-y-4 animate-fade-in">
-                        <div className="text-4xl">🎉 🎉 🎉</div>
-                        <h3 className="text-2xl font-bold text-gray-900">¡Muy pronto!</h3>
-                        <p className="text-gray-600 text-sm leading-relaxed">
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" role="presentation">
+                    <div
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="community-modal-title"
+                        aria-describedby="community-modal-description"
+                        className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full text-center space-y-4 animate-fade-in"
+                        onKeyDown={(event) => {
+                            if (event.key === "Tab") {
+                                event.preventDefault();
+                                modalCloseRef.current?.focus();
+                            }
+                        }}
+                    >
+                        <div className="text-4xl" aria-hidden="true">🎉 🎉 🎉</div>
+                        <h3 id="community-modal-title" className="text-2xl font-bold text-gray-900">¡Muy pronto!</h3>
+                        <p id="community-modal-description" className="text-gray-600 text-sm leading-relaxed">
                             Estamos preparando la comunidad de Språkkafé Oslo. Muy pronto podrás recibir novedades, descubrir nuevas actividades y formar parte de este proyecto.
                         </p>
-                        <button onClick={() => setShowModal(false)}
+                        <button ref={modalCloseRef} onClick={() => setShowModal(false)}
                             className="mt-2 w-full rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700 transition cursor-pointer">
                             Entendido
                         </button>

@@ -70,19 +70,19 @@ export default function OrganizationPage() {
                     <div className="flex flex-wrap gap-3 pt-2">
                         {organization.website && (
                             <a href={organization.website} target="_blank" rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-sm bg-blue-50 text-blue-700 px-4 py-2 rounded-xl font-medium hover:bg-blue-100 transition">
+                                className="inline-flex items-center gap-2 text-sm bg-blue-50 text-blue-700 px-4 py-2 rounded-xl font-medium hover:bg-blue-100 transition min-h-[44px]">
                                 <Globe size={16} /> Sitio web
                             </a>
                         )}
                         {organization.email && (
                             <a href={`mailto:${organization.email}`}
-                                className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition">
+                                className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition min-h-[44px]">
                                 <Mail size={16} /> {organization.email}
                             </a>
                         )}
                         {organization.phone && (
                             <a href={`tel:${organization.phone}`}
-                                className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition">
+                                className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition min-h-[44px]">
                                 <Phone size={16} /> {organization.phone}
                             </a>
                         )}

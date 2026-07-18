@@ -44,9 +44,10 @@ export default function Filters({ filters, setFilters, activities }) {
                 {/* Filtro: Barrio */}
                 <select
                     name="district"
+                    aria-label="Filtrar por barrio"
                     value={filters.district}
                     onChange={e => update("district", e.target.value)}
-                    className="rounded-xl border bg-white px-4 py-3 text-sm text-gray-700 shadow-sm focus:border-blue-500 focus:outline-none"
+                    className="rounded-xl border bg-white px-4 py-3 text-sm text-gray-700 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                     <option value="">Barrio</option>
                     {districts.map(d => (
@@ -57,9 +58,10 @@ export default function Filters({ filters, setFilters, activities }) {
                 {/* Filtro: Día */}
                 <select
                     name="day"
+                    aria-label="Filtrar por día"
                     value={filters.day}
                     onChange={e => update("day", e.target.value)}
-                    className="rounded-xl border bg-white px-4 py-3 text-sm text-gray-700 shadow-sm focus:border-blue-500 focus:outline-none"
+                    className="rounded-xl border bg-white px-4 py-3 text-sm text-gray-700 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                     <option value="">Día</option>
                     {days.map(d => (
@@ -72,9 +74,10 @@ export default function Filters({ filters, setFilters, activities }) {
                 {/* Filtro: Nivel */}
                 <select
                     name="level"
+                    aria-label="Filtrar por nivel"
                     value={filters.level}
                     onChange={e => update("level", e.target.value)}
-                    className="rounded-xl border bg-white px-4 py-3 text-sm text-gray-700 shadow-sm focus:border-blue-500 focus:outline-none"
+                    className="rounded-xl border bg-white px-4 py-3 text-sm text-gray-700 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                     <option value="">Nivel</option>
                     {levels.map(l => (
@@ -87,9 +90,10 @@ export default function Filters({ filters, setFilters, activities }) {
                 {/* Filtro: Organización */}
                 <select
                     name="organization"
+                    aria-label="Filtrar por organización"
                     value={filters.organization}
                     onChange={e => update("organization", e.target.value)}
-                    className="rounded-xl border bg-white px-4 py-3 text-sm text-gray-700 shadow-sm focus:border-blue-500 focus:outline-none"
+                    className="rounded-xl border bg-white px-4 py-3 text-sm text-gray-700 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                     <option value="">Organización</option>
                     {organizationsData.filter(Boolean).map(o => (
@@ -103,6 +107,7 @@ export default function Filters({ filters, setFilters, activities }) {
             {/* 3. El botón solo se renderiza si el usuario realmente ha filtrado algo */}
             {hasActiveFilters && (
                 <button
+                    type="button"
                     onClick={handleClearFilters}
                     className="mt-2 rounded-xl bg-gray-100 hover:bg-gray-200 px-5 py-2.5 text-gray-700 text-sm font-medium transition duration-200"
                 >

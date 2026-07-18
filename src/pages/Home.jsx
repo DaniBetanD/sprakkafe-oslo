@@ -60,6 +60,7 @@ function HorizontalCarousel({ children }) {
       {showLeft && (
         <button
           type="button"
+          aria-label="Ver actividades anteriores"
           onClick={() => scrollBy(-260)}
           className="absolute -left-3 top-1/2 -translate-y-1/2 z-20 bg-white text-gray-800 p-2 rounded-full shadow-lg border border-gray-100 transition min-h-[44px] min-w-[44px] flex items-center justify-center"
         >
@@ -69,6 +70,7 @@ function HorizontalCarousel({ children }) {
       {showRight && (
         <button
           type="button"
+          aria-label="Ver actividades siguientes"
           onClick={() => scrollBy(260)}
           className="absolute -right-3 top-1/2 -translate-y-1/2 z-20 bg-white text-gray-800 p-2 rounded-full shadow-lg border border-gray-100 transition min-h-[44px] min-w-[44px] flex items-center justify-center"
         >
@@ -127,6 +129,7 @@ function CategorySection({ activeCategory, onSelectCategory, todayCount }) {
         key={category.id}
         type="button"
         disabled={category.disabled}
+        aria-pressed={isSelected}
         onClick={() => !category.disabled && onSelectCategory(category.id)}
         className={`w-full rounded-2xl border p-5 text-left shadow-sm transition-all duration-200 min-h-[130px] flex flex-col justify-between
           ${category.disabled ? "opacity-50 cursor-not-allowed bg-gray-50 border-gray-100" : "bg-white hover:shadow-md cursor-pointer active:scale-[0.98]"}
@@ -476,7 +479,12 @@ export default function Home() {
                           <p className="text-sm text-gray-500">{selectedOrg?.name}</p>
                         </div>
                       </div>
-                      <button type="button" onClick={() => setSelected(null)} className="text-gray-400 hover:text-gray-600 transition p-1">
+                      <button
+                        type="button"
+                        onClick={() => setSelected(null)}
+                        aria-label="Cerrar detalles de la actividad"
+                        className="text-gray-400 hover:text-gray-600 transition min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl"
+                      >
                         <X size={18} />
                       </button>
                     </div>

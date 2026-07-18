@@ -62,7 +62,9 @@ export default function ActivityCard({ activity, organization, onClick, searchCo
                 </span>
                 
                 <button
+                    type="button"
                     onClick={onClick}
+                    aria-label={`Vista rápida de ${activity.name}`}
                     className="text-xs font-bold text-blue-600 hover:text-blue-700 md:hidden min-h-[44px] px-2 flex items-center"
                 >
                     Vista rápida

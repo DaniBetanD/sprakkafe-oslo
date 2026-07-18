@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { X, ArrowRight, Globe, MapPin, Calendar } from "lucide-react";
 import { DAYS, LEVELS } from "../utils/translations";
@@ -10,6 +11,36 @@ const LEVEL_COLORS = {
 };
 
 export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
+    const closeButtonRef = useRef(null);
+    const panelRef = useRef(null);
+
+    useEffect(() => {
+        if (!selected) return undefined;
+
+        closeButtonRef.current?.focus();
+        const handleKeyDown = (event) => {
+            if (event.key === "Escape") onClose();
+            if (event.key !== "Tab") return;
+
+            const focusableElements = panelRef.current?.querySelectorAll(
+                'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'
+            );
+            if (!focusableElements?.length) return;
+
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+            if (event.shiftKey && document.activeElement === firstElement) {
+                event.preventDefault();
+                lastElement.focus();
+            } else if (!event.shiftKey && document.activeElement === lastElement) {
+                event.preventDefault();
+                firstElement.focus();
+            }
+        };
+        document.addEventListener("keydown", handleKeyDown);
+        return () => document.removeEventListener("keydown", handleKeyDown);
+    }, [selected, onClose]);
+
     if (!selected) return null;
 
     // Corrección del template string ($ en lugar de 1) y uso de la API oficial de búsqueda de mapas
@@ -20,10 +51,14 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
     return (
         <div className="md:hidden">
             {/* Backdrop de fondo */}
-            <div className="fixed inset-0 bg-black/50 z-40" onClick={onClose} />
+            <div className="fixed inset-0 bg-black/50 z-40" onClick={onClose} aria-hidden="true" />
 
             {/* Panel deslizable desde abajo */}
             <div
+                ref={panelRef}
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="mobile-detail-title"
                 className="fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-3xl shadow-2xl"
                 style={{ maxHeight: '85vh', overflowY: 'auto' }}
             >
@@ -49,11 +84,17 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
                                 )}
                             </div>
                             <div>
-                                <h3 className="font-bold text-gray-900 text-base leading-tight">{selected.name}</h3>
+                                <h3 id="mobile-detail-title" className="font-bold text-gray-900 text-base leading-tight">{selected.name}</h3>
                                 <p className="text-sm font-medium text-gray-500">{selectedOrg?.name}</p>
                             </div>
                         </div>
-                        <button onClick={onClose} className="text-gray-400 hover:text-gray-600 p-1 shrink-0">
+                        <button
+                            ref={closeButtonRef}
+                            type="button"
+                            onClick={onClose}
+                            aria-label="Cerrar detalles de la actividad"
+                            className="text-gray-400 hover:text-gray-600 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl shrink-0"
+                        >
                             <X size={20} />
                         </button>
                     </div>
