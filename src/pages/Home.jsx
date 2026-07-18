@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import {
   X, ArrowRight, Globe, MapPin, Calendar,
   ChevronLeft, ChevronRight,
-  CalendarDays, Coffee, Sparkles, Users, MessageCircle
+  CalendarDays, Coffee, Users, MessageCircle
 } from "lucide-react";
 
 import activities from "../data/activities.json";
@@ -25,6 +25,11 @@ const LEVEL_COLORS = {
   "B1": "bg-purple-100 text-purple-700",
   "B2": "bg-orange-100 text-orange-700",
 };
+
+function isFamilyActivity(activity) {
+  const searchableText = `${activity.name} ${activity.description || ""}`.toLowerCase();
+  return searchableText.includes("famil") || searchableText.includes("niño") || searchableText.includes("barn");
+}
 
 // ─── Carrusel horizontal ─────────────────────────────────────────────────────
 function HorizontalCarousel({ children }) {
@@ -89,7 +94,7 @@ function HorizontalCarousel({ children }) {
 }
 
 // ─── Categorías ──────────────────────────────────────────────────────────────
-function CategorySection({ activeCategory, onSelectCategory, todayCount }) {
+function CategorySection({ activeCategory, onSelectCategory, todayCount, familyCount }) {
   const categories = [
     {
       id: "today",
@@ -97,6 +102,7 @@ function CategorySection({ activeCategory, onSelectCategory, todayCount }) {
       title: "Para hoy",
       description: "Actividades que se celebran hoy mismo.",
       color: "bg-blue-50 text-blue-600 border-blue-200",
+      available: todayCount > 0,
     },
     {
       id: "families",
@@ -104,6 +110,7 @@ function CategorySection({ activeCategory, onSelectCategory, todayCount }) {
       title: "Familias",
       description: "Ambientes adaptados para niños y padres.",
       color: "bg-emerald-50 text-emerald-600 border-emerald-200",
+      available: familyCount > 0,
     },
     {
       id: "all",
@@ -111,16 +118,9 @@ function CategorySection({ activeCategory, onSelectCategory, todayCount }) {
       title: "Todos",
       description: "Listado completo de actividades en Oslo.",
       color: "bg-orange-50 text-orange-600 border-orange-200",
+      available: true,
     },
-    {
-      id: "upcoming",
-      icon: <Sparkles size={22} />,
-      title: "Próximamente",
-      description: "Nuevas comunidades en camino.",
-      color: "bg-purple-50 text-purple-600 border-purple-200",
-      disabled: true,
-    },
-  ];
+  ].filter((category) => category.available);
 
   const renderCard = (category) => {
     const isSelected = activeCategory === category.id;
@@ -128,11 +128,10 @@ function CategorySection({ activeCategory, onSelectCategory, todayCount }) {
       <button
         key={category.id}
         type="button"
-        disabled={category.disabled}
         aria-pressed={isSelected}
-        onClick={() => !category.disabled && onSelectCategory(category.id)}
+        onClick={() => onSelectCategory(category.id)}
         className={`w-full rounded-2xl border p-5 text-left shadow-sm transition-all duration-200 min-h-[130px] flex flex-col justify-between
-          ${category.disabled ? "opacity-50 cursor-not-allowed bg-gray-50 border-gray-100" : "bg-white hover:shadow-md cursor-pointer active:scale-[0.98]"}
+          bg-white hover:shadow-md cursor-pointer active:scale-[0.98]
           ${isSelected ? "ring-2 ring-blue-600 border-transparent" : "border-gray-100"}`}
       >
         <div>
@@ -170,7 +169,7 @@ function CategorySection({ activeCategory, onSelectCategory, todayCount }) {
         </HorizontalCarousel>
       </div>
       {/* Desktop: grid */}
-      <div className="hidden sm:grid grid-cols-2 md:grid-cols-4 gap-4 mt-5">
+      <div className="hidden sm:grid grid-cols-2 md:grid-cols-3 gap-4 mt-5">
         {categories.map((cat) => renderCard(cat))}
       </div>
     </div>
@@ -311,6 +310,9 @@ export default function Home() {
 
   const todayEnglish = JS_DAY_TO_EN[new Date().getDay()];
   const todayCount = activities.filter((a) => a.day === todayEnglish).length;
+  const familyCount = activities.filter(isFamilyActivity).length;
+  const showCategories = todayCount > 0 || familyCount > 0;
+  const showRecommendations = activities.length >= 4;
 
   const results = activities.filter((activity) => {
     const org = getOrganization(activity.organizationId);
@@ -324,11 +326,7 @@ export default function Home() {
 
     let matchesCategory = true;
     if (activeCategory === "today") matchesCategory = activity.day === todayEnglish;
-    if (activeCategory === "families")
-      matchesCategory =
-        activity.name.toLowerCase().includes("famil") ||
-        activity.description?.toLowerCase().includes("niño") ||
-        activity.description?.toLowerCase().includes("barn");
+    if (activeCategory === "families") matchesCategory = isFamilyActivity(activity);
 
     return matchesSearch && matchesDistrict && matchesDay && matchesLevel && matchesOrg && matchesCategory;
   });
@@ -374,29 +372,38 @@ export default function Home() {
         </section>
 
         {/* Categorías */}
-        <section className="max-w-5xl mx-auto px-4 md:px-6 w-full">
-          <CategorySection
-            activeCategory={activeCategory}
-            onSelectCategory={handleSelectCategory}
-            todayCount={todayCount}
-          />
-        </section>
+        {showCategories && (
+          <section className="max-w-5xl mx-auto px-4 md:px-6 w-full">
+            <CategorySection
+              activeCategory={activeCategory}
+              onSelectCategory={handleSelectCategory}
+              todayCount={todayCount}
+              familyCount={familyCount}
+            />
+          </section>
+        )}
 
         {/* Actividades recomendadas */}
-        <section className="max-w-5xl mx-auto px-4 md:px-6 w-full">
-          <RecommendedActivities
-            activities={activities}
-            getOrganization={getOrganization}
-            setSelected={setSelected}
-            selected={selected}
-          />
-        </section>
+        {showRecommendations && (
+          <section className="max-w-5xl mx-auto px-4 md:px-6 w-full">
+            <RecommendedActivities
+              activities={activities}
+              getOrganization={getOrganization}
+              setSelected={setSelected}
+              selected={selected}
+            />
+          </section>
+        )}
 
         {/* Directorio completo */}
         <section id="actividades" className="max-w-5xl mx-auto px-4 md:px-6 w-full">
           <div className="flex justify-between items-center mb-5">
             <h2 className="font-bold text-xl md:text-2xl text-gray-900">
-              {activeCategory === "today" ? "Språkkafé para hoy" : "Todos los Språkkafé"}
+              {activeCategory === "today"
+                ? "Språkkafé para hoy"
+                : activities.length === 1
+                  ? "Actividad disponible"
+                  : "Todos los Språkkafé"}
             </h2>
             <span className="bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1 rounded-full border border-blue-100">
               {results.length} {results.length === 1 ? "actividad" : "actividades"}

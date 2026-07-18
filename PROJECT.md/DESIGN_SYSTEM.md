@@ -588,6 +588,14 @@ Orden recomendado
 
 6 Footer
 
+Jerarquía adaptativa aprobada:
+
+- Las categorías solo se muestran cuando existe contenido real para alguna categoría específica.
+- Nunca se muestran categorías vacías o controles deshabilitados únicamente para completar una cuadrícula.
+- Las actividades recomendadas solo aparecen cuando hay al menos cuatro actividades y aportan descubrimiento real.
+- Con una sola actividad, se muestra directamente como «Actividad disponible» y nunca se duplica en varios bloques.
+- Los avisos estacionales contextualizan la disponibilidad sin ocultar la actividad confirmada.
+
 ---
 
 # Accesibilidad
