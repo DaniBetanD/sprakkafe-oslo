@@ -494,6 +494,8 @@ El menú hamburguesa despliega Inicio, Actividades y Sobre el proyecto con etiqu
 
 El footer no es un lugar para esconder enlaces.
 
+La marca visual debe reutilizar la misma ficha de idioma y el mismo nombre en dos líneas aprobados para el Header.
+
 Debe transmitir confianza.
 
 Incluye:
@@ -602,6 +604,15 @@ Jerarquía adaptativa aprobada:
 - Las actividades recomendadas solo aparecen cuando hay al menos cuatro actividades y aportan descubrimiento real.
 - Con una sola actividad, se muestra directamente como «Actividad disponible» y nunca se duplica en varios bloques.
 - Los avisos estacionales contextualizan la disponibilidad sin ocultar la actividad confirmada.
+
+Cierre narrativo aprobado:
+
+- «Nuestra misión» funciona como etiqueta editorial y «Sentirse parte de Noruega» como único título principal del bloque.
+- Las tres ideas —confianza, cultura y personas— tienen el mismo peso y utilizan textos breves de al menos 14 px.
+- La declaración de misión se integra como una cita visual sencilla y memorable: «El idioma es el comienzo. Sentirse parte es la meta.»
+- El CTA final utiliza una superficie blanca y un único botón azul; no compite con el contenido ni repite el Hero.
+- Con una sola actividad el CTA dice «Ver la actividad»; con varias utiliza «Ver actividades».
+- El Footer continúa visualmente el cierre y comparte la misma identidad de marca que el Header.
 
 ---
 

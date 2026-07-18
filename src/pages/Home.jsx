@@ -218,80 +218,79 @@ function RecommendedActivities({ activities, getOrganization, setSelected, selec
 }
 
 // ─── Sección misión ───────────────────────────────────────────────────────────
-function MissionSection() {
+function MissionSection({ activityCount }) {
   const cards = [
     {
       icon: <Users size={22} />,
       title: "Practica con confianza",
-      description: "Aprender puede imponer respeto. Practicar en un entorno seguro y relajado ayuda a soltarte hasta que hablar sea algo natural.",
+      description: "Habla a tu ritmo en un ambiente seguro y relajado.",
     },
     {
       icon: <Globe size={22} />,
       title: "Descubre la cultura",
-      description: "Cada conversación es una ventana directa a las costumbres locales, el humor noruego y los modismos de uso diario.",
+      description: "Conoce la vida cotidiana a través de conversaciones reales.",
     },
     {
       icon: <MessageCircle size={22} />,
       title: "Conecta con personas",
-      description: "Supera el aislamiento inicial. Genera una red genuina de personas de múltiples orígenes compartiendo un café caliente.",
+      description: "Comparte, aprende y encuentra personas con quienes sentirte acompañado.",
     },
   ];
 
   return (
-    <div id="proyecto" className="py-2">
-      <div className="mx-auto max-w-3xl text-center mb-8">
-        <h2 className="text-xl md:text-3xl font-bold text-gray-900 tracking-tight">
+    <div id="proyecto" className="py-4 md:py-6">
+      <div className="max-w-2xl mb-6 md:mb-8">
+        <p className="text-sm font-semibold text-blue-600">Nuestra misión</p>
+        <h2 className="mt-2 text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
           Sentirse parte de Noruega
         </h2>
-        <p className="mt-2 text-xs md:text-base leading-relaxed text-gray-500">
-          Dominar un idioma es mucho más que memorizar palabras. Es conversar, reír con otros y
-          comprender la vida cotidiana de verdad.
+        <p className="mt-3 text-base leading-relaxed text-gray-600">
+          Aprender un idioma también es conversar, conocer personas y comprender la vida cotidiana.
+          Queremos que ese primer paso resulte más fácil.
         </p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-3">
-        {cards.map((card, i) => (
+        {cards.map((card) => (
           <div
-            key={i}
-            className="flex flex-col items-center text-center p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition"
+            key={card.title}
+            className="flex items-start gap-4 p-4 bg-white rounded-2xl border border-gray-100 shadow-sm"
           >
-            <div className="p-3 bg-blue-50 text-blue-600 rounded-xl mb-3 border border-blue-100">
+            <div className="shrink-0 p-2.5 bg-blue-50 text-blue-600 rounded-xl border border-blue-100" aria-hidden="true">
               {card.icon}
             </div>
-            <h3 className="font-semibold text-base text-gray-900 mb-2">{card.title}</h3>
-            <p className="text-gray-500 text-xs leading-relaxed">{card.description}</p>
+            <div>
+              <h3 className="font-semibold text-base text-gray-900">{card.title}</h3>
+              <p className="mt-1 text-sm leading-relaxed text-gray-600">{card.description}</p>
+            </div>
           </div>
         ))}
       </div>
 
-    <div id="proyecto" className="py-2"></div>
-      <div className="mx-auto max-w-3xl text-center mb-8">
-        <h2 className="text-xl md:text-3xl font-bold text-gray-900 tracking-tight">
-          Nuestra misión
-        </h2>
-        <div className="rounded-2xl bg-white border border-gray-100 p-5 md:p-6 shadow-sm">
-          <p className="text-sm md:text-base font-semibold leading-relaxed text-gray-800">
-            Ayudamos a las personas a sentirse parte de Noruega a través del idioma, la comunidad y la cultura.
-          </p>
-          <p className="mt-2 text-xs md:text-base leading-relaxed text-gray-500">
-            Reunimos en un solo lugar actividades gratuitas organizadas por bibliotecas, organizaciones y
-            centros comunitarios — Språkkafé, Norsktrening, cafés de conversación, grupos de mujeres y
-            otras iniciativas donde practicar noruego en un entorno seguro y acogedor.
-          </p>
-        </div>
+      <div className="mt-6 md:mt-8 max-w-3xl border-l-2 border-blue-500 pl-4 md:pl-5">
+        <p className="text-base font-semibold leading-relaxed text-gray-900">
+          El idioma es el comienzo. Sentirse parte es la meta.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-600">
+          Reunimos actividades de organizaciones y espacios comunitarios para que encontrar un lugar donde practicar sea sencillo y seguro.
+        </p>
       </div>
 
-      <div className="mt-10 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-2xl p-6 md:p-8 text-center shadow-md">
-        <h3 className="text-xl md:text-2xl font-bold text-white">¿Listo para empezar?</h3>
-        <p className="mt-2 text-blue-100 text-xs md:text-sm max-w-md mx-auto">
-          Encuentra tu próximo grupo de conversación hoy mismo, de forma totalmente gratuita.
-        </p>
+      <div className="mt-8 md:mt-10 rounded-2xl border border-gray-200 bg-white p-5 md:p-6 shadow-sm md:flex md:items-center md:justify-between md:gap-8">
+        <div>
+          <h3 className="text-lg md:text-xl font-bold text-gray-900">¿Te gustaría empezar?</h3>
+          <p className="mt-1 text-sm leading-relaxed text-gray-600">
+            {activityCount === 1
+              ? "Revisa el horario y descubre cómo participar."
+              : "Explora las opciones y encuentra la actividad adecuada para ti."}
+          </p>
+        </div>
         <button
           type="button"
           onClick={() => scrollToId("actividades")}
-          className="mt-4 inline-flex items-center gap-2 bg-white text-blue-600 font-semibold px-5 py-2.5 rounded-xl hover:bg-blue-50 transition min-h-[44px] text-sm"
+          className="mt-4 md:mt-0 inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 text-sm font-medium text-white hover:bg-blue-700 active:scale-[0.98] transition"
         >
-          Ver todos los Språkkafé →
+          {activityCount === 1 ? "Ver la actividad" : "Ver actividades"} <ArrowRight size={16} aria-hidden="true" />
         </button>
       </div>
     </div>
@@ -591,7 +590,7 @@ export default function Home() {
 
         {/* Misión */}
         <section className="max-w-5xl mx-auto px-4 md:px-6 w-full">
-          <MissionSection />
+          <MissionSection activityCount={activities.length} />
         </section>
 
       </main>

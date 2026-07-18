@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
+import { Languages } from "lucide-react";
 import { scrollToId } from "../utils/scrollTo";
 
 export default function Footer() {
@@ -28,8 +29,8 @@ export default function Footer() {
 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">                    {/* Columna Identidad */}
                     <div className="md:col-span-1">
                         <div className="flex items-center gap-3 mb-4">
-                            <div className="w-11 h-11 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white text-lg shadow-sm select-none">
-                                🇳🇴
+                            <div className="w-11 h-11 rounded-lg border border-gray-200 bg-white flex items-center justify-center text-blue-600 shadow-sm select-none" aria-hidden="true">
+                                <Languages size={22} strokeWidth={1.8} />
                             </div>
                             <div>
                                 <h3 className="font-bold text-lg text-gray-900 leading-tight">Språkkafé</h3>
