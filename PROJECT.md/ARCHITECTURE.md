@@ -269,7 +269,11 @@ CategorySection
 
 ↓
 
-TodayActivities
+RecommendedActivities
+
+↓
+
+ActivityCard + DesktopDetailPanel / MobileDetailPanel
 
 ↓
 
@@ -481,7 +485,9 @@ Ejemplo
 
 ActivityCard
 
-MissionCard
+FirstVisitConfidence
+
+MissionSection
 
 OrganizationCard
 

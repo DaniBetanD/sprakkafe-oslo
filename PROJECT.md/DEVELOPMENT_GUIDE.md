@@ -124,7 +124,11 @@ CategorySection
 
 ↓
 
-TodayActivities
+RecommendedActivities
+
+↓
+
+ActivityCard + DesktopDetailPanel / MobileDetailPanel
 
 ↓
 

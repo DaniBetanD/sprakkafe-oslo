@@ -1,303 +1,27 @@
-import { useState, useEffect, useRef } from "react";
-import {
-  X, ArrowRight, Globe, MapPin, Calendar,
-  ChevronLeft, ChevronRight,
-  CalendarDays, Coffee, Users, MessageCircle
-} from "lucide-react";
-
+import { useState } from "react";
 import activities from "../data/activities.json";
 import organizations from "../data/organizations.json";
 import ActivityCard from "../components/ActivityCard";
-import SearchBar from "../components/SearchBar";
+import CategorySection from "../components/CategorySection";
+import DesktopDetailPanel from "../components/DesktopDetailPanel";
 import Filters from "../components/Filters";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import MobileDetailPanel from "../components/MobileDetailPanel";
 import FirstVisitConfidence from "../components/FirstVisitConfidence";
-import { DAYS, LEVELS } from "../utils/translations";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import HorizontalCarousel from "../components/HorizontalCarousel";
+import MissionSection from "../components/MissionSection";
+import MobileDetailPanel from "../components/MobileDetailPanel";
+import RecommendedActivities from "../components/RecommendedActivities";
+import SearchBar from "../components/SearchBar";
 import { scrollToId } from "../utils/scrollTo";
 
-// Detectar día actual en inglés (coincide con activities.json)
 const JS_DAY_TO_EN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
-const LEVEL_COLORS = {
-  "A1": "bg-green-100 text-green-700",
-  "A2": "bg-blue-100 text-blue-700",
-  "B1": "bg-purple-100 text-purple-700",
-  "B2": "bg-orange-100 text-orange-700",
-};
 
 function isFamilyActivity(activity) {
   const searchableText = `${activity.name} ${activity.description || ""}`.toLowerCase();
   return searchableText.includes("famil") || searchableText.includes("niño") || searchableText.includes("barn");
 }
 
-// ─── Carrusel horizontal ─────────────────────────────────────────────────────
-function HorizontalCarousel({ children }) {
-  const containerRef = useRef(null);
-  const [showLeft, setShowLeft] = useState(false);
-  const [showRight, setShowRight] = useState(true);
-
-  const checkScroll = () => {
-    if (!containerRef.current) return;
-    const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
-    setShowLeft(scrollLeft > 10);
-    setShowRight(scrollLeft + clientWidth < scrollWidth - 10);
-  };
-
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    el.addEventListener("scroll", checkScroll);
-    window.addEventListener("resize", checkScroll);
-    checkScroll();
-    return () => {
-      el.removeEventListener("scroll", checkScroll);
-      window.removeEventListener("resize", checkScroll);
-    };
-  }, [children]);
-
-  const scrollBy = (amount) => {
-    containerRef.current?.scrollBy({ left: amount, behavior: "smooth" });
-  };
-
-  return (
-    <div className="relative group w-full">
-      {showLeft && (
-        <button
-          type="button"
-          aria-label="Ver elementos anteriores"
-          onClick={() => scrollBy(-260)}
-          className="absolute -left-3 top-1/2 -translate-y-1/2 z-20 bg-white text-gray-800 p-2 rounded-full shadow-lg border border-gray-100 transition min-h-[44px] min-w-[44px] flex items-center justify-center"
-        >
-          <ChevronLeft size={20} />
-        </button>
-      )}
-      {showRight && (
-        <button
-          type="button"
-          aria-label="Ver elementos siguientes"
-          onClick={() => scrollBy(260)}
-          className="absolute -right-3 top-1/2 -translate-y-1/2 z-20 bg-white text-gray-800 p-2 rounded-full shadow-lg border border-gray-100 transition min-h-[44px] min-w-[44px] flex items-center justify-center"
-        >
-          <ChevronRight size={20} />
-        </button>
-      )}
-      <div
-        ref={containerRef}
-        className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 w-full"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-      >
-        {children}
-      </div>
-    </div>
-  );
-}
-
-// ─── Categorías ──────────────────────────────────────────────────────────────
-function CategorySection({ activeCategory, onSelectCategory, todayCount, familyCount }) {
-  const categories = [
-    {
-      id: "today",
-      icon: <CalendarDays size={22} />,
-      title: "Para hoy",
-      description: "Actividades que se celebran hoy mismo.",
-      color: "bg-blue-50 text-blue-600 border-blue-200",
-      available: todayCount > 0,
-    },
-    {
-      id: "families",
-      icon: <Users size={22} />,
-      title: "Familias",
-      description: "Ambientes adaptados para niños y padres.",
-      color: "bg-emerald-50 text-emerald-600 border-emerald-200",
-      available: familyCount > 0,
-    },
-    {
-      id: "all",
-      icon: <Coffee size={22} />,
-      title: "Todos",
-      description: "Listado completo de actividades en Oslo.",
-      color: "bg-orange-50 text-orange-600 border-orange-200",
-      available: true,
-    },
-  ].filter((category) => category.available);
-
-  const renderCard = (category) => {
-    const isSelected = activeCategory === category.id;
-    return (
-      <button
-        key={category.id}
-        type="button"
-        aria-pressed={isSelected}
-        onClick={() => onSelectCategory(category.id)}
-        className={`w-full rounded-2xl border p-5 text-left shadow-sm transition-all duration-200 min-h-[130px] flex flex-col justify-between
-          bg-white hover:shadow-md cursor-pointer active:scale-[0.98]
-          ${isSelected ? "ring-2 ring-blue-600 border-transparent" : "border-gray-100"}`}
-      >
-        <div>
-          <div className={`w-9 h-9 rounded-xl flex items-center justify-center mb-3 border ${category.color}`}>
-            {category.icon}
-          </div>
-          <h3 className="font-bold text-gray-900 text-sm flex items-center gap-1.5">
-            {category.title}
-            {category.id === "today" && todayCount > 0 && (
-              <span className="bg-blue-600 text-white text-[10px] px-1.5 py-0.5 rounded-full font-semibold">
-                {todayCount}
-              </span>
-            )}
-          </h3>
-          <p className="mt-1 text-sm leading-relaxed text-gray-500">{category.description}</p>
-        </div>
-      </button>
-    );
-  };
-
-  return (
-    <div className="py-2">
-      <div className="mb-4">
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900">Explora por intereses</h2>
-        <p className="mt-1 text-sm text-gray-500">Selecciona una categoría para filtrar las actividades.</p>
-      </div>
-      {/* Móvil: carrusel */}
-      <div className="block sm:hidden mt-4">
-        <HorizontalCarousel>
-          {categories.map((cat) => (
-            <div key={cat.id} className="min-w-[190px] max-w-[210px] snap-center p-1">
-              {renderCard(cat)}
-            </div>
-          ))}
-        </HorizontalCarousel>
-      </div>
-      {/* Desktop: grid */}
-      <div className="hidden sm:grid grid-cols-2 md:grid-cols-3 gap-4 mt-5">
-        {categories.map((cat) => renderCard(cat))}
-      </div>
-    </div>
-  );
-}
-
-// ─── Actividades recomendadas ─────────────────────────────────────────────────
-function RecommendedActivities({ activities, getOrganization, setSelected, selected }) {
-  const todayIndex = new Date().getDay();
-  const tomorrowIndex = (todayIndex + 1) % 7;
-
-  const dayOrder = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
-  const sorted = [...activities].sort((a, b) => {
-    const iA = dayOrder.indexOf(a.day);
-    const iB = dayOrder.indexOf(b.day);
-    const dA = (iA - tomorrowIndex + 7) % 7;
-    const dB = (iB - tomorrowIndex + 7) % 7;
-    if (dA === dB) return a.time.localeCompare(b.time);
-    return dA - dB;
-  });
-
-  const featured = sorted.slice(0, 5);
-
-  return (
-    <div className="py-2">
-      <div className="mb-4">
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900">Actividades recomendadas</h2>
-        <p className="mt-1 text-sm text-gray-500">Las más próximas esta semana.</p>
-      </div>
-      <HorizontalCarousel>
-        {featured.map((activity) => (
-          <div key={activity.id} className="min-w-[280px] sm:min-w-[320px] snap-center p-1">
-            <ActivityCard
-              activity={activity}
-              organization={getOrganization(activity.organizationId)}
-              onClick={() => setSelected(selected?.id === activity.id ? null : activity)}
-              isSelected={selected?.id === activity.id}
-            />
-          </div>
-        ))}
-      </HorizontalCarousel>
-    </div>
-  );
-}
-
-// ─── Sección misión ───────────────────────────────────────────────────────────
-function MissionSection({ activityCount }) {
-  const cards = [
-    {
-      icon: <Users size={22} />,
-      title: "Practica con confianza",
-      description: "Habla a tu ritmo en un ambiente seguro y relajado.",
-    },
-    {
-      icon: <Globe size={22} />,
-      title: "Descubre la cultura",
-      description: "Conoce la vida cotidiana a través de conversaciones reales.",
-    },
-    {
-      icon: <MessageCircle size={22} />,
-      title: "Conecta con personas",
-      description: "Comparte, aprende y encuentra personas con quienes sentirte acompañado.",
-    },
-  ];
-
-  return (
-    <div id="proyecto" className="py-4 md:py-6">
-      <div className="max-w-2xl mb-6 md:mb-8">
-        <p className="text-sm font-semibold text-blue-600">Nuestra misión</p>
-        <h2 className="mt-2 text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
-          Sentirse parte de Noruega
-        </h2>
-        <p className="mt-3 text-base leading-relaxed text-gray-600">
-          Aprender un idioma también es conversar, conocer personas y comprender la vida cotidiana.
-          Queremos que ese primer paso resulte más fácil.
-        </p>
-      </div>
-
-      <div className="grid gap-4 md:grid-cols-3">
-        {cards.map((card) => (
-          <div
-            key={card.title}
-            className="flex items-start gap-4 p-4 bg-white rounded-2xl border border-gray-100 shadow-sm"
-          >
-            <div className="shrink-0 p-2.5 bg-blue-50 text-blue-600 rounded-xl border border-blue-100" aria-hidden="true">
-              {card.icon}
-            </div>
-            <div>
-              <h3 className="font-semibold text-base text-gray-900">{card.title}</h3>
-              <p className="mt-1 text-sm leading-relaxed text-gray-600">{card.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-6 md:mt-8 max-w-3xl border-l-2 border-blue-500 pl-4 md:pl-5">
-        <p className="text-base font-semibold leading-relaxed text-gray-900">
-          El idioma es el comienzo. Sentirse parte es la meta.
-        </p>
-        <p className="mt-2 text-sm leading-relaxed text-gray-600">
-          Reunimos actividades de organizaciones y espacios comunitarios para que encontrar un lugar donde practicar sea sencillo y seguro.
-        </p>
-      </div>
-
-      <div className="mt-8 md:mt-10 rounded-2xl border border-gray-200 bg-white p-5 md:p-6 shadow-sm md:flex md:items-center md:justify-between md:gap-8">
-        <div>
-          <h3 className="text-lg md:text-xl font-bold text-gray-900">¿Te gustaría empezar?</h3>
-          <p className="mt-1 text-sm leading-relaxed text-gray-600">
-            {activityCount === 1
-              ? "Revisa el horario y descubre cómo participar."
-              : "Explora las opciones y encuentra la actividad adecuada para ti."}
-          </p>
-        </div>
-        <button
-          type="button"
-          onClick={() => scrollToId("actividades")}
-          className="mt-4 md:mt-0 inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 text-sm font-medium text-white hover:bg-blue-700 active:scale-[0.98] transition"
-        >
-          {activityCount === 1 ? "Ver la actividad" : "Ver actividades"} <ArrowRight size={16} aria-hidden="true" />
-        </button>
-      </div>
-    </div>
-  );
-}
-
-// ─── Home principal ───────────────────────────────────────────────────────────
 export default function Home() {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
@@ -305,34 +29,33 @@ export default function Home() {
   const [selected, setSelected] = useState(null);
 
   function getOrganization(id) {
-    return organizations.find((org) => org.id === id);
+    return organizations.find((organization) => organization.id === id);
   }
 
   const todayEnglish = JS_DAY_TO_EN[new Date().getDay()];
-  const todayCount = activities.filter((a) => a.day === todayEnglish).length;
+  const todayCount = activities.filter((activity) => activity.day === todayEnglish).length;
   const familyCount = activities.filter(isFamilyActivity).length;
   const showCategories = todayCount > 0 || familyCount > 0;
   const showRecommendations = activities.length >= 4;
   const showDiscoveryTools = activities.length >= 4;
 
   const results = activities.filter((activity) => {
-    const org = getOrganization(activity.organizationId);
-    const text = (activity.name + (org?.name || "") + activity.district + activity.level).toLowerCase();
-
-    const matchesSearch = text.includes(query.toLowerCase());
+    const organization = getOrganization(activity.organizationId);
+    const searchableText = `${activity.name}${organization?.name || ""}${activity.district}${activity.level}`.toLowerCase();
+    const matchesSearch = searchableText.includes(query.toLowerCase());
     const matchesDistrict = !filters.district || activity.district === filters.district;
     const matchesDay = !filters.day || activity.day === filters.day;
     const matchesLevel = !filters.level || activity.level === filters.level;
-    const matchesOrg = !filters.organization || activity.organizationId === filters.organization;
+    const matchesOrganization = !filters.organization || activity.organizationId === filters.organization;
 
     let matchesCategory = true;
     if (activeCategory === "today") matchesCategory = activity.day === todayEnglish;
     if (activeCategory === "families") matchesCategory = isFamilyActivity(activity);
 
-    return matchesSearch && matchesDistrict && matchesDay && matchesLevel && matchesOrg && matchesCategory;
+    return matchesSearch && matchesDistrict && matchesDay && matchesLevel && matchesOrganization && matchesCategory;
   });
 
-  const selectedOrg = selected ? getOrganization(selected.organizationId) : null;
+  const selectedOrganization = selected ? getOrganization(selected.organizationId) : null;
 
   function handleSelectCategory(categoryId) {
     setActiveCategory(categoryId);
@@ -342,14 +65,19 @@ export default function Home() {
     scrollToId("actividades");
   }
 
+  function toggleSelected(activity) {
+    setSelected(selected?.id === activity.id ? null : activity);
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col">
       <Header />
 
       <main className="flex-grow space-y-10 md:space-y-16 pb-12">
-
-        {/* Hero */}
-        <section id="hero" className={`bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-12 ${showDiscoveryTools ? "pb-20" : "pb-12"}`}>
+        <section
+          id="hero"
+          className={`bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-12 ${showDiscoveryTools ? "pb-20" : "pb-12"}`}
+        >
           <div className="max-w-5xl mx-auto px-6 text-center">
             <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
               Encuentra tu{" "}
@@ -362,7 +90,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Buscador flotante */}
         {showDiscoveryTools && (
           <section className="max-w-5xl mx-auto px-4 md:px-6 -mt-12 relative z-10 w-full">
             <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-5">
@@ -374,12 +101,10 @@ export default function Home() {
           </section>
         )}
 
-        {/* Confianza para la primera visita */}
         <section className="max-w-5xl mx-auto px-4 md:px-6 w-full" aria-labelledby="first-visit-title">
           <FirstVisitConfidence />
         </section>
 
-        {/* Categorías */}
         {showCategories && (
           <section className="max-w-5xl mx-auto px-4 md:px-6 w-full">
             <CategorySection
@@ -391,7 +116,6 @@ export default function Home() {
           </section>
         )}
 
-        {/* Actividades recomendadas */}
         {showRecommendations && (
           <section className="max-w-5xl mx-auto px-4 md:px-6 w-full">
             <RecommendedActivities
@@ -403,7 +127,6 @@ export default function Home() {
           </section>
         )}
 
-        {/* Directorio completo */}
         <section id="actividades" className="max-w-5xl mx-auto px-4 md:px-6 w-full">
           <div className="flex justify-between items-center mb-5">
             <h2 className="font-bold text-xl md:text-2xl text-gray-900">
@@ -441,13 +164,12 @@ export default function Home() {
             </div>
           ) : (
             <div className="w-full">
-              {/* Móvil: tarjeta única o carrusel cuando existen varias */}
               <div className="block md:hidden w-full">
                 {results.length === 1 ? (
                   <ActivityCard
                     activity={results[0]}
                     organization={getOrganization(results[0].organizationId)}
-                    onClick={() => setSelected(selected?.id === results[0].id ? null : results[0])}
+                    onClick={() => toggleSelected(results[0])}
                     isSelected={selected?.id === results[0].id}
                   />
                 ) : (
@@ -457,7 +179,7 @@ export default function Home() {
                         <ActivityCard
                           activity={activity}
                           organization={getOrganization(activity.organizationId)}
-                          onClick={() => setSelected(selected?.id === activity.id ? null : activity)}
+                          onClick={() => toggleSelected(activity)}
                           isSelected={selected?.id === activity.id}
                         />
                       </div>
@@ -466,138 +188,37 @@ export default function Home() {
                 )}
               </div>
 
-              {/* Desktop: grid + panel lateral */}
               <div className="hidden md:flex gap-6">
-                <div className={`grid gap-4 transition-all duration-300 ${
-                  selected ? "grid-cols-1 w-[45%] shrink-0" : "grid-cols-2 lg:grid-cols-3 w-full"
-                }`}>
+                <div className={`grid gap-4 transition-all duration-300 ${selected ? "grid-cols-1 w-[45%] shrink-0" : "grid-cols-2 lg:grid-cols-3 w-full"}`}>
                   {results.map((activity) => (
                     <ActivityCard
                       key={activity.id}
                       activity={activity}
                       organization={getOrganization(activity.organizationId)}
-                      onClick={() => setSelected(selected?.id === activity.id ? null : activity)}
+                      onClick={() => toggleSelected(activity)}
                       isSelected={selected?.id === activity.id}
                     />
                   ))}
                 </div>
 
-                {/* Panel lateral desktop */}
-                {selected && (
-                  <div className="hidden md:flex flex-col flex-1 bg-white rounded-2xl border border-gray-200 shadow-lg p-6 h-fit sticky top-20 gap-4">
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-xl border border-gray-100 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0">
-                          {selectedOrg?.logoImg ? (
-                            <img
-                              src={new URL(`../assets/logos/${selectedOrg.logoImg}`, import.meta.url).href}
-                              alt={selectedOrg.name}
-                              className="w-full h-full object-contain p-1"
-                            />
-                          ) : (
-                            <span className="text-xl">{selectedOrg?.logo}</span>
-                          )}
-                        </div>
-                        <div>
-                          <h3 className="font-bold text-gray-900">{selected.name}</h3>
-                          <p className="text-sm text-gray-500">{selectedOrg?.name}</p>
-                        </div>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={() => setSelected(null)}
-                        aria-label="Cerrar detalles de la actividad"
-                        className="text-gray-400 hover:text-gray-600 transition min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl"
-                      >
-                        <X size={18} />
-                      </button>
-                    </div>
-
-                    <hr className="border-gray-100" />
-
-                    <div className="space-y-3">
-                      {selected.description && (
-                        <div className="rounded-xl bg-blue-50/40 p-4">
-                          <p className="text-sm text-gray-700 leading-relaxed">{selected.description}</p>
-                        </div>
-                      )}
-
-                      <div className="flex items-center justify-between gap-2">
-                        <div className="flex items-center gap-2 text-sm text-gray-600">
-                          <Calendar size={15} className="text-blue-500 shrink-0" />
-                          <span>{DAYS[selected.day]}, {selected.time}</span>
-                        </div>
-                        <span className={`text-xs font-semibold px-2.5 py-1 rounded-full shrink-0 ${LEVEL_COLORS[selected.level] || "bg-gray-100 text-gray-600"}`}>
-                          {LEVELS[selected.level]}
-                        </span>
-                      </div>
-
-                      {selected.address && (
-                        <a
-                          href={`https://maps.google.com/?q=${encodeURIComponent(selected.address + ', Oslo')}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition group"
-                        >
-                          <MapPin size={15} className="text-blue-400 shrink-0 group-hover:text-blue-600" />
-                          <span className="truncate">{selected.address}</span>
-                        </a>
-                      )}
-
-                      {selectedOrg?.description && (
-                        <>
-                          <hr className="border-gray-100" />
-                          <div>
-                            <h4 className="text-xs font-semibold text-gray-800 uppercase tracking-wide mb-1">
-                              🏛️ Sobre la organización
-                            </h4>
-                            <p className="text-sm text-gray-600 leading-relaxed">{selectedOrg.description}</p>
-                          </div>
-                        </>
-                      )}
-                    </div>
-
-                    <div className="flex flex-col gap-2 pt-1">
-                      <a
-                        href={`/activity/${selected.id}`}
-                        className="flex items-center justify-center gap-2 bg-blue-600 text-white text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-blue-700 transition min-h-[44px]"
-                      >
-                        Ver página completa <ArrowRight size={15} />
-                      </a>
-                      <a
-                        href={`/organization/${selectedOrg?.id}`}
-                        className="flex items-center justify-center gap-2 bg-gray-100 text-gray-700 text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-gray-200 transition min-h-[44px]"
-                      >
-                        Ver organización
-                      </a>
-                      {selectedOrg?.website && (
-                        <a
-                          href={selectedOrg.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-2 text-gray-500 text-sm px-4 py-2 rounded-xl hover:text-gray-700 transition"
-                        >
-                          <Globe size={14} /> Sitio web oficial
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                )}
+                <DesktopDetailPanel
+                  selected={selected}
+                  organization={selectedOrganization}
+                  onClose={() => setSelected(null)}
+                />
               </div>
             </div>
           )}
         </section>
 
-        {/* Misión */}
         <section className="max-w-5xl mx-auto px-4 md:px-6 w-full">
           <MissionSection activityCount={activities.length} />
         </section>
-
       </main>
 
       <MobileDetailPanel
         selected={selected}
-        selectedOrg={selectedOrg}
+        selectedOrg={selectedOrganization}
         onClose={() => setSelected(null)}
       />
 
