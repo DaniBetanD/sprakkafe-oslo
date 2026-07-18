@@ -202,7 +202,7 @@ Nuevo footer con:
 
 ### Estado
 
-🟢 Muy avanzado
+✅ Completado y validado
 
 Mejoras realizadas:
 
@@ -287,7 +287,7 @@ Actualmente el proyecto cumple con:
 
 ---
 
-# Próximo Sprint
+# Último sprint completado
 
 ## Home 2.0
 
@@ -295,7 +295,7 @@ Actualmente el proyecto cumple con:
 
 Reducir el scroll y facilitar el descubrimiento de actividades.
 
-Se implementará una nueva arquitectura basada en bloques.
+Se implementó una nueva arquitectura basada en bloques, validada en móvil a 390 px y en escritorio.
 
 ---
 
@@ -329,7 +329,7 @@ Footer
 
 ---
 
-## Categorías iniciales
+## Categorías implementadas
 
 Se comenzará con cuatro categorías:
 
