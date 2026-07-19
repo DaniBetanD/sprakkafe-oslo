@@ -2,13 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CalendarDays, Heart, House, Info, Languages, Menu, X } from "lucide-react";
 import { scrollToId } from "../utils/scrollTo";
+import CommunitySignupModal from "./CommunitySignupModal";
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [showModal, setShowModal] = useState(false);
-    const modalCloseRef = useRef(null);
     const menuButtonRef = useRef(null);
-    const previousFocusRef = useRef(null);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -27,23 +26,6 @@ export default function Header() {
         document.addEventListener("keydown", handleKeyDown);
         return () => document.removeEventListener("keydown", handleKeyDown);
     }, [isMenuOpen]);
-
-    useEffect(() => {
-        if (!showModal) return undefined;
-
-        previousFocusRef.current = document.activeElement;
-        modalCloseRef.current?.focus();
-
-        const handleKeyDown = (event) => {
-            if (event.key === "Escape") setShowModal(false);
-        };
-
-        document.addEventListener("keydown", handleKeyDown);
-        return () => {
-            document.removeEventListener("keydown", handleKeyDown);
-            previousFocusRef.current?.focus();
-        };
-    }, [showModal]);
 
     function handleNavClick(e, id) {
         e.preventDefault();
@@ -159,34 +141,7 @@ export default function Header() {
 
             </header>
 
-            {/* Modal Global "Muy pronto" */}
-            {showModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" role="presentation">
-                    <div
-                        role="dialog"
-                        aria-modal="true"
-                        aria-labelledby="community-modal-title"
-                        aria-describedby="community-modal-description"
-                        className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full text-center space-y-4 animate-fade-in"
-                        onKeyDown={(event) => {
-                            if (event.key === "Tab") {
-                                event.preventDefault();
-                                modalCloseRef.current?.focus();
-                            }
-                        }}
-                    >
-                        <div className="text-4xl" aria-hidden="true">🎉 🎉 🎉</div>
-                        <h3 id="community-modal-title" className="text-2xl font-bold text-gray-900">¡Muy pronto!</h3>
-                        <p id="community-modal-description" className="text-gray-600 text-sm leading-relaxed">
-                            Estamos preparando la comunidad de Språkkafé Oslo. Muy pronto podrás recibir novedades, descubrir nuevas actividades y formar parte de este proyecto.
-                        </p>
-                        <button ref={modalCloseRef} onClick={() => setShowModal(false)}
-                            className="mt-2 w-full rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700 transition cursor-pointer">
-                            Entendido
-                        </button>
-                    </div>
-                </div>
-            )}
+            {showModal && <CommunitySignupModal onClose={() => setShowModal(false)} />}
         </>
     );
 }
