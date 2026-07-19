@@ -1,10 +1,34 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Heart, X } from "lucide-react";
 
 export default function CommunitySignupModal({ onClose }) {
     const dialogRef = useRef(null);
     const emailRef = useRef(null);
+    const [status, setStatus] = useState("idle");
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        setStatus("submitting");
+        const formData = new FormData(event.currentTarget);
+
+        try {
+            const response = await fetch("/api/subscribe", {
+                method: "POST",
+                headers: { "content-type": "application/json" },
+                body: JSON.stringify({
+                    email: formData.get("email"),
+                    consent: formData.get("consent") === "on",
+                    website: formData.get("website"),
+                }),
+            });
+
+            if (!response.ok) throw new Error("Subscription request failed");
+            setStatus("success");
+        } catch {
+            setStatus("error");
+        }
+    }
 
     useEffect(() => {
         const appRoot = document.getElementById("root");
@@ -76,14 +100,32 @@ export default function CommunitySignupModal({ onClose }) {
                     </button>
                 </div>
 
-                <h2 id="community-modal-title" className="text-2xl font-bold tracking-tight text-gray-900">
-                    Únete a la comunidad
-                </h2>
-                <p id="community-modal-description" className="mt-2 text-sm leading-relaxed text-gray-600">
-                    Recibe nuevas actividades, cambios de horario y recursos para dar tu primer paso en Oslo.
-                </p>
+                {status === "success" ? (
+                    <div role="status" className="space-y-3">
+                        <h2 id="community-modal-title" className="text-2xl font-bold tracking-tight text-gray-900">
+                            Revisa tu email
+                        </h2>
+                        <p id="community-modal-description" className="text-sm leading-relaxed text-gray-600">
+                            Te hemos enviado un enlace para confirmar que quieres unirte. Tu suscripción solo se activará después de pulsarlo.
+                        </p>
+                        <button
+                            type="button"
+                            onClick={onClose}
+                            className="min-h-12 w-full rounded-xl bg-blue-600 px-6 font-semibold text-white transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+                        >
+                            Entendido
+                        </button>
+                    </div>
+                ) : (
+                    <>
+                        <h2 id="community-modal-title" className="text-2xl font-bold tracking-tight text-gray-900">
+                            Únete a la comunidad
+                        </h2>
+                        <p id="community-modal-description" className="mt-2 text-sm leading-relaxed text-gray-600">
+                            Recibe nuevas actividades, cambios de horario y recursos para dar tu primer paso en Oslo.
+                        </p>
 
-                <form className="mt-6 space-y-5" onSubmit={(event) => event.preventDefault()}>
+                <form className="mt-6 space-y-5" onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="community-email" className="mb-2 block text-sm font-semibold text-gray-900">
                             Tu email
@@ -101,6 +143,11 @@ export default function CommunitySignupModal({ onClose }) {
                         />
                     </div>
 
+                    <div className="absolute -left-[9999px]" aria-hidden="true">
+                        <label htmlFor="community-website">No rellenar este campo</label>
+                        <input id="community-website" name="website" type="text" tabIndex="-1" autoComplete="off" />
+                    </div>
+
                     <label className="flex cursor-pointer items-start gap-3 text-sm leading-relaxed text-gray-600">
                         <input
                             name="consent"
@@ -115,16 +162,21 @@ export default function CommunitySignupModal({ onClose }) {
 
                     <button
                         type="submit"
-                        disabled
+                        disabled={status === "submitting"}
                         aria-describedby="community-form-status"
-                        className="min-h-12 w-full cursor-not-allowed rounded-xl bg-gray-200 px-6 font-semibold text-gray-500"
+                        className="min-h-12 w-full rounded-xl bg-blue-600 px-6 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-wait disabled:bg-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
                     >
-                        Unirme a la comunidad
+                        {status === "submitting" ? "Enviando…" : "Unirme a la comunidad"}
                     </button>
-                    <p id="community-form-status" className="text-center text-xs leading-relaxed text-gray-500">
-                        Estamos terminando la conexión segura del formulario. El registro estará disponible muy pronto.
+                    <p id="community-form-status" role={status === "error" ? "alert" : undefined}
+                        className={`text-center text-xs leading-relaxed ${status === "error" ? "text-red-700" : "text-gray-500"}`}>
+                        {status === "error"
+                            ? "No hemos podido enviar la confirmación. Inténtalo de nuevo en unos minutos."
+                            : "Recibirás un email para confirmar tu suscripción. Sin confirmación no guardaremos tu alta."}
                     </p>
                 </form>
+                    </>
+                )}
             </div>
         </div>,
         document.body,
