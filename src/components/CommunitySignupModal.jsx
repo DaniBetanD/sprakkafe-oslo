@@ -1,42 +1,45 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { Heart, X } from "lucide-react";
 
 export default function CommunitySignupModal({ onClose }) {
     const dialogRef = useRef(null);
-    const emailRef = useRef(null);
-    const [status, setStatus] = useState("idle");
-
-    async function handleSubmit(event) {
-        event.preventDefault();
-        setStatus("submitting");
-        const formData = new FormData(event.currentTarget);
-
-        try {
-            const response = await fetch("/api/subscribe", {
-                method: "POST",
-                headers: { "content-type": "application/json" },
-                body: JSON.stringify({
-                    email: formData.get("email"),
-                    consent: formData.get("consent") === "on",
-                    website: formData.get("website"),
-                }),
-            });
-
-            if (!response.ok) throw new Error("Subscription request failed");
-            setStatus("success");
-        } catch {
-            setStatus("error");
-        }
-    }
+    const recaptchaRef = useRef(null);
 
     useEffect(() => {
         const appRoot = document.getElementById("root");
         const previousOverflow = document.body.style.overflow;
         const previousFocus = document.activeElement;
+
         appRoot.setAttribute("inert", "");
         document.body.style.overflow = "hidden";
-        emailRef.current?.focus();
+        dialogRef.current?.querySelector('input[type="email"]')?.focus();
+
+        const renderRecaptcha = () => {
+            if (!recaptchaRef.current || !window.grecaptcha) return;
+            window.grecaptcha.ready(() => {
+                if (recaptchaRef.current?.childElementCount === 0) {
+                    window.grecaptcha.render(recaptchaRef.current, {
+                        sitekey: "6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD",
+                    });
+                }
+            });
+        };
+
+        let recaptchaScript = document.querySelector('script[data-sprakkafe-recaptcha]');
+        if (window.grecaptcha) {
+            renderRecaptcha();
+        } else if (recaptchaScript) {
+            recaptchaScript.addEventListener("load", renderRecaptcha);
+        } else {
+            recaptchaScript = document.createElement("script");
+            recaptchaScript.src = "https://www.google.com/recaptcha/api.js?render=explicit";
+            recaptchaScript.async = true;
+            recaptchaScript.defer = true;
+            recaptchaScript.dataset.sprakkafeRecaptcha = "true";
+            recaptchaScript.addEventListener("load", renderRecaptcha);
+            document.head.appendChild(recaptchaScript);
+        }
 
         const handleKeyDown = (event) => {
             if (event.key === "Escape") {
@@ -46,7 +49,7 @@ export default function CommunitySignupModal({ onClose }) {
             if (event.key !== "Tab") return;
 
             const elements = dialogRef.current?.querySelectorAll(
-                'input, button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+                'input, button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])',
             );
             if (!elements?.length) return;
             const firstElement = elements[0];
@@ -63,6 +66,7 @@ export default function CommunitySignupModal({ onClose }) {
 
         document.addEventListener("keydown", handleKeyDown);
         return () => {
+            recaptchaScript?.removeEventListener("load", renderRecaptcha);
             appRoot.removeAttribute("inert");
             document.body.style.overflow = previousOverflow;
             document.removeEventListener("keydown", handleKeyDown);
@@ -83,11 +87,15 @@ export default function CommunitySignupModal({ onClose }) {
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="community-modal-title"
-                aria-describedby="community-modal-description community-form-status"
-                className="max-h-[92vh] w-full max-w-md overflow-y-auto rounded-t-3xl bg-white p-6 shadow-2xl sm:rounded-3xl sm:p-8"
+                aria-describedby="community-modal-description"
+                tabIndex="-1"
+                className="max-h-[92vh] w-full max-w-md overflow-y-auto rounded-t-3xl bg-white p-6 shadow-2xl outline-none sm:rounded-3xl sm:p-8"
             >
                 <div className="mb-5 flex items-start justify-between gap-4">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600" aria-hidden="true">
+                    <div
+                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600"
+                        aria-hidden="true"
+                    >
                         <Heart size={21} />
                     </div>
                     <button
@@ -100,83 +108,61 @@ export default function CommunitySignupModal({ onClose }) {
                     </button>
                 </div>
 
-                {status === "success" ? (
-                    <div role="status" className="space-y-3">
-                        <h2 id="community-modal-title" className="text-2xl font-bold tracking-tight text-gray-900">
-                            Revisa tu email
-                        </h2>
-                        <p id="community-modal-description" className="text-sm leading-relaxed text-gray-600">
-                            Te hemos enviado un enlace para confirmar que quieres unirte. Tu suscripción solo se activará después de pulsarlo.
-                        </p>
-                        <button
-                            type="button"
-                            onClick={onClose}
-                            className="min-h-12 w-full rounded-xl bg-blue-600 px-6 font-semibold text-white transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
-                        >
-                            Entendido
-                        </button>
-                    </div>
-                ) : (
-                    <>
-                        <h2 id="community-modal-title" className="text-2xl font-bold tracking-tight text-gray-900">
-                            Únete a la comunidad
-                        </h2>
-                        <p id="community-modal-description" className="mt-2 text-sm leading-relaxed text-gray-600">
-                            Recibe nuevas actividades, cambios de horario y recursos para dar tu primer paso en Oslo.
-                        </p>
+                <h2 id="community-modal-title" className="text-2xl font-bold tracking-tight text-gray-900">
+                    Tu primer paso empieza aquí
+                </h2>
+                <p id="community-modal-description" className="mt-2 text-sm leading-relaxed text-gray-600">
+                    Descubre nuevos lugares donde practicar noruego, conocer personas y sentirte más cerca de Oslo.
+                </p>
 
-                <form className="mt-6 space-y-5" onSubmit={handleSubmit}>
+                <form
+                    className="mt-6 space-y-4"
+                    action="https://assets.mailerlite.com/jsonp/2519322/forms/193542070263088770/subscribe"
+                    method="post"
+                    target="_blank"
+                >
                     <div>
                         <label htmlFor="community-email" className="mb-2 block text-sm font-semibold text-gray-900">
                             Tu email
                         </label>
                         <input
-                            ref={emailRef}
                             id="community-email"
-                            name="email"
                             type="email"
-                            inputMode="email"
+                            name="fields[email]"
                             autoComplete="email"
                             required
-                            placeholder="nombre@ejemplo.com"
-                            className="min-h-12 w-full rounded-xl border border-gray-300 px-4 text-base text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20"
+                            placeholder="tu@email.com"
+                            className="min-h-12 w-full rounded-xl border border-gray-300 px-4 text-base text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
                         />
                     </div>
 
-                    <div className="absolute -left-[9999px]" aria-hidden="true">
-                        <label htmlFor="community-website">No rellenar este campo</label>
-                        <input id="community-website" name="website" type="text" tabIndex="-1" autoComplete="off" />
-                    </div>
+                    <p className="text-xs leading-relaxed text-gray-600">
+                        Solo te escribiremos cuando tengamos actividades, cambios de horario o novedades útiles para ti.
+                    </p>
 
-                    <label className="flex cursor-pointer items-start gap-3 text-sm leading-relaxed text-gray-600">
+                    <label className="flex items-start gap-3 text-xs leading-relaxed text-gray-600">
                         <input
-                            name="consent"
                             type="checkbox"
                             required
-                            className="mt-0.5 h-5 w-5 shrink-0 rounded border-gray-300 accent-blue-600"
+                            className="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-300 text-blue-600 focus:ring-blue-600"
                         />
                         <span>
-                            Quiero recibir por email novedades de Språkkafé Oslo. Podré darme de baja en cualquier momento.
+                            Sí, quiero recibir novedades de la comunidad de Språkkafé. Podré darme de baja cuando quiera.
                         </span>
                     </label>
 
+                    <div ref={recaptchaRef} className="min-h-[78px] max-w-full overflow-hidden" />
+
+                    <input type="hidden" name="ml-submit" value="1" />
+                    <input type="hidden" name="anticsrf" value="true" />
+
                     <button
                         type="submit"
-                        disabled={status === "submitting"}
-                        aria-describedby="community-form-status"
-                        className="min-h-12 w-full rounded-xl bg-blue-600 px-6 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-wait disabled:bg-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+                        className="min-h-12 w-full rounded-xl bg-blue-600 px-4 font-semibold text-white transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
                     >
-                        {status === "submitting" ? "Enviando…" : "Unirme a la comunidad"}
+                        Quiero formar parte
                     </button>
-                    <p id="community-form-status" role={status === "error" ? "alert" : undefined}
-                        className={`text-center text-xs leading-relaxed ${status === "error" ? "text-red-700" : "text-gray-500"}`}>
-                        {status === "error"
-                            ? "No hemos podido enviar la confirmación. Inténtalo de nuevo en unos minutos."
-                            : "Recibirás un email para confirmar tu suscripción. Sin confirmación no guardaremos tu alta."}
-                    </p>
                 </form>
-                    </>
-                )}
             </div>
         </div>,
         document.body,
