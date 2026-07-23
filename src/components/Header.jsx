@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { CalendarDays, Heart, House, Info, Languages, Menu, X } from "lucide-react";
+import { CalendarDays, Heart, House, Info, Menu, X } from "lucide-react";
+import sprakkafeMark from "../assets/sprakkafe-mark.svg";
 import { scrollToId } from "../utils/scrollTo";
 import CommunitySignupModal from "./CommunitySignupModal";
 
@@ -49,9 +50,12 @@ export default function Header() {
                             className="flex items-center gap-2.5 rounded-lg p-1 -ml-1 hover:bg-gray-100 transition-colors duration-150 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
                             aria-label="Språkkafé Oslo, ir al inicio"
                         >
-                           <div className="w-10 h-10 rounded-lg border border-gray-200 bg-white shadow-sm flex items-center justify-center text-blue-600 transition-transform duration-150 group-hover:-translate-y-0.5 shrink-0" aria-hidden="true">
-                                <Languages size={21} strokeWidth={1.8} />
-                            </div>
+                            <img
+                                src={sprakkafeMark}
+                                alt=""
+                                className="h-10 w-10 shrink-0 transition-transform duration-150 group-hover:-translate-y-0.5"
+                                aria-hidden="true"
+                            />
                             <div className="leading-tight">
                                 <div className="font-semibold text-gray-900 text-[15px] leading-none tracking-tight">Språkkafé</div>
                                 <div className="text-xs text-gray-500 font-medium leading-none mt-1">Oslo</div>
