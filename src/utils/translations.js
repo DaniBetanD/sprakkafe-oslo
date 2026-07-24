@@ -9,6 +9,7 @@ export const DAYS = {
 };
 
 export const LEVELS = {
+  all: "Todos los niveles",
   A1: "A1 — Principiante",
   A2: "A2 — Básico",
   B1: "B1 — Intermedio",

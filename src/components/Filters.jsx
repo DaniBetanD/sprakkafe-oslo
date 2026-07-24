@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { getActivityDays } from "../utils/activityPresentation";
 import organizationsData from "../data/organizations.json";
 import { DAYS, LEVELS } from "../utils/translations";
 
@@ -13,7 +14,7 @@ export default function Filters({ filters, setFilters, activities }) {
     }, [activities]);
 
     const days = useMemo(() => {
-        return [...new Set(activities.map(a => a.day).filter(Boolean))];
+        return [...new Set(activities.flatMap(getActivityDays).filter(Boolean))];
     }, [activities]);
 
     // Comprobamos si hay algún filtro activo para mostrar u ocultar el botón de limpiar

@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { Languages } from "lucide-react";
+import sprakkafeMark from "../assets/sprakkafe-mark.svg";
 import { scrollToId } from "../utils/scrollTo";
 
 export default function Footer() {
@@ -15,71 +15,62 @@ export default function Footer() {
         }
     }
 
-  
-
     return (
-        <footer id="contacto"
-        className="bg-white border-t border-gray-100">
-            <div className="max-w-5xl mx-auto px-6 py-16">
-
-                {/* F1.1 — CTA PRINCIPAL: Con microinteracción táctil y clases de consistencia visual */}
-               
-
-                {/* F1.7 — MAPA DE NAVEGACIÓN TOTALMENTE REESTRUCTURADO */}
-<div className="grid grid-cols-1 md:grid-cols-2 gap-12">                    {/* Columna Identidad */}
+        <footer id="contacto" className="bg-white border-t border-gray-200">
+            <div className="max-w-5xl mx-auto px-6 py-10 md:py-12">
+                <div className="grid grid-cols-1 gap-9 md:grid-cols-[1.5fr_1fr_1fr] md:gap-12">
                     <div className="md:col-span-1">
                         <div className="flex items-center gap-3 mb-4">
-                            <div className="w-11 h-11 rounded-lg border border-gray-200 bg-white flex items-center justify-center text-blue-600 shadow-sm select-none" aria-hidden="true">
-                                <Languages size={22} strokeWidth={1.8} />
-                            </div>
+                            <img src={sprakkafeMark} alt="" className="h-11 w-11" aria-hidden="true" />
                             <div>
                                 <h3 className="font-bold text-lg text-gray-900 leading-tight">Språkkafé</h3>
-                                <p className="text-xs font-semibold text-gray-400 tracking-wider uppercase">Oslo</p>
+                                <p className="text-xs font-semibold text-gray-500 tracking-wider uppercase">Oslo</p>
                             </div>
                         </div>
-                        <p className="text-gray-500 text-sm leading-relaxed">
+                        <p className="max-w-sm text-gray-600 text-sm leading-relaxed">
                             Reunimos actividades gratuitas para practicar noruego, conocer gente y conectar con la vida local.
                         </p>
                     </div>
 
-                    {/* Columna: Proyecto */}
                     <div>
-    <h4 className="font-bold text-gray-900 text-sm tracking-wider uppercase mb-4">
-        Proyecto
-    </h4>
+                        <h4 className="font-bold text-gray-900 text-sm tracking-wider uppercase mb-3">
+                            Explorar
+                        </h4>
+                        <ul className="text-sm">
+                            <li>
+                                <a href="#actividades" onClick={(e) => handleNavClick(e, "actividades")} className="text-gray-600 hover:text-blue-600 transition min-h-[44px] flex items-center">
+                                    Actividades
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#proyecto" onClick={(e) => handleNavClick(e, "proyecto")} className="text-gray-600 hover:text-blue-600 transition min-h-[44px] flex items-center">
+                                    Sobre el proyecto
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
 
-    <ul className="space-y-3 text-sm">
-
-        <li>
-            <a
-                href="#proyecto"
-                onClick={(e) => handleNavClick(e, "proyecto")}
-                className="text-gray-600 hover:text-blue-600 transition min-h-[44px] flex items-center"
-            >
-                Sobre el proyecto
-            </a>
-        </li>
-
-    </ul>
-</div>
-
-                    {/* Columna: Comunidad */}
-                   
-
-                    {/* Columna: Recursos */}
-                    
+                    <div>
+                        <h4 className="font-bold text-gray-900 text-sm tracking-wider uppercase mb-3">
+                            Comunidad
+                        </h4>
+                        <a href="#comunidad" onClick={(e) => handleNavClick(e, "comunidad")} className="text-gray-600 hover:text-blue-600 transition min-h-[44px] flex items-center text-sm">
+                            Recibir novedades
+                        </a>
+                        <p className="mt-1 text-xs leading-relaxed text-gray-500">
+                            Actividades y cambios importantes, directamente en tu email.
+                        </p>
+                    </div>
                 </div>
 
-                {/* Copyright e Información Inferior */}
-                <div className="mt-12 pt-8 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+                <div className="mt-9 pt-6 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
                     <p className="text-sm text-gray-500">
-                        Hecho con ❤️ para ayudar a más personas a sentirse parte de Noruega.
+                        Hecho con cariño ❤️ para ayudar a más personas a sentirse parte de Noruega.
                     </p>
                     <p className="text-xs text-gray-400 font-medium">
                         © {new Date().getFullYear()} Språkkafé Oslo
                     </p>
                 </div>
-
             </div>
         </footer>
     );

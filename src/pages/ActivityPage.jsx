@@ -2,11 +2,13 @@ import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
 import { ArrowLeft, MapPin, Calendar, Globe, ExternalLink, Mail, Phone } from "lucide-react";
 import activities from "../data/activities.json";
 import organizations from "../data/organizations.json";
-import FirstTimeCard from "../components/FirstTimeCard";
+import ActivityPracticalInfo from "../components/ActivityPracticalInfo";
 import WhatActivityForMe from "../components/WhatActivityForMe";
 import { DAYS, LEVELS } from "../utils/translations";
+import { getScheduleLabel } from "../utils/activityPresentation";
 
 const LEVEL_COLORS = {
+    "all": "bg-blue-50 text-blue-700",
     "A1": "bg-green-100 text-green-700",
     "A2": "bg-blue-100 text-blue-700",
     "B1": "bg-purple-100 text-purple-700",
@@ -121,7 +123,7 @@ export default function ActivityPage() {
                     <div className="flex flex-wrap gap-3">
                         <div className="inline-flex items-center gap-2 bg-gray-50 border border-gray-100 px-4 py-2 rounded-xl text-sm text-gray-700">
                             <Calendar size={15} className="text-blue-500" />
-                            {DAYS[activity.day]} · {activity.time}
+                            {getScheduleLabel(activity)}
                         </div>
 
                         {mapsUrl ? (
@@ -159,7 +161,10 @@ export default function ActivityPage() {
                     )}
                 </section>
 
-                <FirstTimeCard />
+                <section className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm md:p-8">
+                    <h2 className="mb-4 text-lg font-bold text-gray-900">Antes de asistir</h2>
+                    <ActivityPracticalInfo activity={activity} />
+                </section>
                 <WhatActivityForMe />
 
                 {/* Sobre la entidad */}
@@ -178,6 +183,16 @@ export default function ActivityPage() {
                                 className="inline-flex items-center gap-2 text-sm bg-blue-50 text-blue-700 px-4 py-2 rounded-xl font-medium hover:bg-blue-100 transition min-h-[44px]"
                             >
                                 <Globe size={16} /> Sitio Web Oficial <ExternalLink size={14} />
+                            </a>
+                        )}
+                        {activity.sourceUrl && activity.sourceUrl !== organization?.website && (
+                            <a
+                                href={activity.sourceUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-100"
+                            >
+                                <ExternalLink size={15} /> Ver información de la actividad
                             </a>
                         )}
                         {organization?.email && (

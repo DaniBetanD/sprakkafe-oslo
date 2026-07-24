@@ -1,16 +1,12 @@
-import { useState } from "react";
 import { Search } from "lucide-react";
 
-export default function SearchBar({ onSearch }) {
-    const [query, setQuery] = useState("");
-
+export default function SearchBar({ query, onSearch }) {
     function submit(e) {
         e.preventDefault();
         onSearch(query.trim());
     }
 
     function updateQuery(value) {
-        setQuery(value);
         onSearch(value.trim());
     }
 

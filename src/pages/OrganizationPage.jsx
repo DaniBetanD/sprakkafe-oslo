@@ -1,8 +1,9 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Globe, Mail, Phone } from "lucide-react";
-import { DAYS, LEVELS } from "../utils/translations";
+import { LEVELS } from "../utils/translations";
 import organizations from "../data/organizations.json";
 import activities from "../data/activities.json";
+import { getScheduleLabel } from "../utils/activityPresentation";
 
 export default function OrganizationPage() {
 
@@ -103,7 +104,7 @@ export default function OrganizationPage() {
                                 className="block bg-white rounded-2xl border border-gray-200 p-5 hover:shadow-md transition space-y-1">
                                 <h3 className="font-semibold text-gray-900">{a.name}</h3>
                                 <p className="text-sm text-gray-500">
-                                    {DAYS[a.day]} · {a.time} · {a.district} · {LEVELS[a.level]}
+                                    {getScheduleLabel(a)} · {a.district} · {LEVELS[a.level]}
                                 </p>
                             </Link>
                         ))

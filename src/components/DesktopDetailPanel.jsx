@@ -1,8 +1,11 @@
 import { ArrowRight, Calendar, Globe, MapPin, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import { DAYS, LEVELS } from "../utils/translations";
+import { LEVELS } from "../utils/translations";
+import ActivityPracticalInfo from "./ActivityPracticalInfo";
+import { getScheduleLabel } from "../utils/activityPresentation";
 
 const LEVEL_COLORS = {
+  all: "bg-blue-50 text-blue-700",
   A1: "bg-green-100 text-green-700",
   A2: "bg-blue-100 text-blue-700",
   B1: "bg-purple-100 text-purple-700",
@@ -54,7 +57,7 @@ export default function DesktopDetailPanel({ selected, organization, onClose }) 
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2 text-sm text-gray-600">
             <Calendar size={15} className="text-blue-500 shrink-0" />
-            <span>{DAYS[selected.day]}, {selected.time}</span>
+            <span>{getScheduleLabel(selected)}</span>
           </div>
           <span className={`text-xs font-semibold px-2.5 py-1 rounded-full shrink-0 ${LEVEL_COLORS[selected.level] || "bg-gray-100 text-gray-600"}`}>
             {LEVELS[selected.level]}
@@ -72,6 +75,8 @@ export default function DesktopDetailPanel({ selected, organization, onClose }) 
             <span className="truncate">{selected.address}</span>
           </a>
         )}
+
+        <ActivityPracticalInfo activity={selected} compact />
 
         {organization?.description && (
           <>

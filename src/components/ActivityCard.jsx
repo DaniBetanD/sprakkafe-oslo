@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { Calendar, MapPin } from "lucide-react";
-import { DAYS, LEVELS } from "../utils/translations";
+import { LEVELS } from "../utils/translations";
+import ActivityPracticalInfo from "./ActivityPracticalInfo";
+import { getScheduleLabel } from "../utils/activityPresentation";
 
 const LEVEL_COLORS = {
+    "all": "bg-blue-50 text-blue-700",
     "A1": "bg-green-100 text-green-700",
     "A2": "bg-blue-100 text-blue-700",
     "B1": "bg-purple-100 text-purple-700",
@@ -46,13 +49,15 @@ export default function ActivityCard({ activity, organization, onClick, searchCo
                 <div className="space-y-2 text-sm text-gray-500">
                     <div className="flex items-center gap-2">
                         <Calendar size={14} className="text-blue-500 shrink-0" />
-                        <span>{DAYS[activity.day]} · {activity.time}</span>
+                        <span>{getScheduleLabel(activity)}</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <MapPin size={14} className="text-blue-500 shrink-0" />
                         <span className="truncate">{activity.district}</span>
                     </div>
                 </div>
+
+                <ActivityPracticalInfo activity={activity} compact />
             </div>
 
             {/* Fila Inferior con Nivel y Acceso Rápido Móvil */}

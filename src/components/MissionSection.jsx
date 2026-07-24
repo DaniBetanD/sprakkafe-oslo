@@ -1,5 +1,4 @@
-import { ArrowRight, Globe, MessageCircle, Users } from "lucide-react";
-import { scrollToId } from "../utils/scrollTo";
+import { Globe, MessageCircle, Users } from "lucide-react";
 
 const cards = [
   {
@@ -19,7 +18,7 @@ const cards = [
   },
 ];
 
-export default function MissionSection({ activityCount }) {
+export default function MissionSection() {
   return (
     <div id="proyecto" className="py-4 md:py-6">
       <div className="max-w-2xl mb-6 md:mb-8">
@@ -59,23 +58,6 @@ export default function MissionSection({ activityCount }) {
         </p>
       </div>
 
-      <div className="mt-8 md:mt-10 rounded-2xl border border-gray-200 bg-white p-5 md:p-6 shadow-sm md:flex md:items-center md:justify-between md:gap-8">
-        <div>
-          <h3 className="text-lg md:text-xl font-bold text-gray-900">¿Te gustaría empezar?</h3>
-          <p className="mt-1 text-sm leading-relaxed text-gray-600">
-            {activityCount === 1
-              ? "Revisa el horario y descubre cómo participar."
-              : "Explora las opciones y encuentra la actividad adecuada para ti."}
-          </p>
-        </div>
-        <button
-          type="button"
-          onClick={() => scrollToId("actividades")}
-          className="mt-4 md:mt-0 inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 text-sm font-medium text-white hover:bg-blue-700 active:scale-[0.98] transition"
-        >
-          {activityCount === 1 ? "Ver la actividad" : "Ver actividades"} <ArrowRight size={16} aria-hidden="true" />
-        </button>
-      </div>
     </div>
   );
 }
