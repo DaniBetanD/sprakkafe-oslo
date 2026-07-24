@@ -3,7 +3,6 @@ import { ArrowLeft, MapPin, Calendar, Globe, ExternalLink, Mail, Phone } from "l
 import activities from "../data/activities.json";
 import organizations from "../data/organizations.json";
 import ActivityPracticalInfo from "../components/ActivityPracticalInfo";
-import WhatActivityForMe from "../components/WhatActivityForMe";
 import { DAYS, LEVELS } from "../utils/translations";
 import { getScheduleLabel } from "../utils/activityPresentation";
 
@@ -159,14 +158,38 @@ export default function ActivityPage() {
                             <span>{activity.address} · Ver en mapa →</span>
                         </a>
                     )}
+
+                    <div className="flex flex-col gap-2 border-t border-gray-100 pt-5 sm:flex-row">
+                        {activity.sourceUrl && (
+                            <a
+                                href={activity.sourceUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex min-h-[46px] flex-1 items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 text-sm font-semibold text-white transition hover:bg-blue-700"
+                            >
+                                Confirmar horario oficial <ExternalLink size={15} aria-hidden="true" />
+                            </a>
+                        )}
+                        {mapsUrl && (
+                            <a
+                                href={mapsUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex min-h-[46px] flex-1 items-center justify-center gap-2 rounded-xl bg-gray-100 px-4 text-sm font-semibold text-gray-700 transition hover:bg-gray-200"
+                            >
+                                <MapPin size={15} aria-hidden="true" /> Cómo llegar
+                            </a>
+                        )}
+                    </div>
+                    <p className="text-xs leading-relaxed text-gray-500">
+                        Recomendamos confirmar el horario en la fuente oficial antes de desplazarte.
+                    </p>
                 </section>
 
                 <section className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm md:p-8">
                     <h2 className="mb-4 text-lg font-bold text-gray-900">Antes de asistir</h2>
                     <ActivityPracticalInfo activity={activity} />
                 </section>
-                <WhatActivityForMe />
-
                 {/* Sobre la entidad */}
                 <section className="bg-white rounded-3xl border border-gray-200 p-6 shadow-sm space-y-4">
                     <h2 className="text-lg font-bold text-gray-900">Sobre la entidad organizadora</h2>
@@ -183,16 +206,6 @@ export default function ActivityPage() {
                                 className="inline-flex items-center gap-2 text-sm bg-blue-50 text-blue-700 px-4 py-2 rounded-xl font-medium hover:bg-blue-100 transition min-h-[44px]"
                             >
                                 <Globe size={16} /> Sitio Web Oficial <ExternalLink size={14} />
-                            </a>
-                        )}
-                        {activity.sourceUrl && activity.sourceUrl !== organization?.website && (
-                            <a
-                                href={activity.sourceUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-100"
-                            >
-                                <ExternalLink size={15} /> Ver información de la actividad
                             </a>
                         )}
                         {organization?.email && (

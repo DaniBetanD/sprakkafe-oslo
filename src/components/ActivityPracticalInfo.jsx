@@ -1,5 +1,5 @@
 import { CalendarClock, CircleDollarSign, UserRoundCheck, UsersRound } from "lucide-react";
-import { formatAvailableFrom } from "../utils/activityPresentation";
+import { formatAvailableFrom, formatCheckedDate } from "../utils/activityPresentation";
 
 export default function ActivityPracticalInfo({ activity, compact = false }) {
   const items = [
@@ -41,26 +41,33 @@ export default function ActivityPracticalInfo({ activity, compact = false }) {
       </div>
 
       {!compact && (
-        <div className="space-y-3 rounded-2xl border border-gray-100 bg-gray-50 p-4 text-sm leading-relaxed">
-          {activity.format && (
-            <div>
-              <p className="font-semibold text-gray-900">Qué puedes esperar</p>
-              <p className="mt-0.5 text-gray-600">{activity.format}</p>
-            </div>
+        <>
+          <div className="space-y-3 rounded-2xl border border-gray-100 bg-gray-50 p-4 text-sm leading-relaxed">
+            {activity.format && (
+              <div>
+                <p className="font-semibold text-gray-900">Qué puedes esperar</p>
+                <p className="mt-0.5 text-gray-600">{activity.format}</p>
+              </div>
+            )}
+            {activity.arrivalAdvice && (
+              <div>
+                <p className="font-semibold text-gray-900">Antes de ir</p>
+                <p className="mt-0.5 text-gray-600">{activity.arrivalAdvice}</p>
+              </div>
+            )}
+            {activity.seasonNote && (
+              <div>
+                <p className="font-semibold text-gray-900">Información temporal</p>
+                <p className="mt-0.5 text-gray-600">{activity.seasonNote}</p>
+              </div>
+            )}
+          </div>
+          {activity.lastChecked && (
+            <p className="text-xs text-gray-500">
+              Información revisada el {formatCheckedDate(activity.lastChecked)}.
+            </p>
           )}
-          {activity.arrivalAdvice && (
-            <div>
-              <p className="font-semibold text-gray-900">Antes de ir</p>
-              <p className="mt-0.5 text-gray-600">{activity.arrivalAdvice}</p>
-            </div>
-          )}
-          {activity.seasonNote && (
-            <div>
-              <p className="font-semibold text-gray-900">Información temporal</p>
-              <p className="mt-0.5 text-gray-600">{activity.seasonNote}</p>
-            </div>
-          )}
-        </div>
+        </>
       )}
     </div>
   );

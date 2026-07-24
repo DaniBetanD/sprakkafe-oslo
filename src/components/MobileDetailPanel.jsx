@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { X, ArrowRight, Globe, MapPin, Calendar } from "lucide-react";
+import { X, ArrowRight, ExternalLink, MapPin, Calendar } from "lucide-react";
 import { LEVELS } from "../utils/translations";
 import ActivityPracticalInfo from "./ActivityPracticalInfo";
 import { getScheduleLabel } from "../utils/activityPresentation";
@@ -159,15 +159,14 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
                             Ver organización
                         </Link>
                         
-                        {/* Sitio Web Oficial (Corregido tag <a>) */}
-                        {selectedOrg?.website && (
+                        {selected.sourceUrl && (
                             <a
-                                href={selectedOrg.website}
+                                href={selected.sourceUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center justify-center gap-2 text-gray-500 text-sm px-4 py-2 rounded-xl hover:text-gray-700 transition"
+                                className="flex min-h-[44px] items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-medium text-blue-700 hover:bg-blue-50 transition"
                             >
-                                <Globe size={14} /> Sitio web oficial
+                                Confirmar horario oficial <ExternalLink size={14} aria-hidden="true" />
                             </a>
                         )}
                     </div>

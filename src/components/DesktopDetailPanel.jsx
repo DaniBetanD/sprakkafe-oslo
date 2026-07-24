@@ -1,4 +1,4 @@
-import { ArrowRight, Calendar, Globe, MapPin, X } from "lucide-react";
+import { ArrowRight, Calendar, ExternalLink, MapPin, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { LEVELS } from "../utils/translations";
 import ActivityPracticalInfo from "./ActivityPracticalInfo";
@@ -104,14 +104,14 @@ export default function DesktopDetailPanel({ selected, organization, onClose }) 
         >
           Ver organización
         </Link>
-        {organization?.website && (
+        {selected.sourceUrl && (
           <a
-            href={organization.website}
+            href={selected.sourceUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 text-gray-500 text-sm px-4 py-2 rounded-xl hover:text-gray-700 transition"
+            className="flex min-h-[44px] items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-50"
           >
-            <Globe size={14} /> Sitio web oficial
+            Confirmar horario oficial <ExternalLink size={14} aria-hidden="true" />
           </a>
         )}
       </div>
