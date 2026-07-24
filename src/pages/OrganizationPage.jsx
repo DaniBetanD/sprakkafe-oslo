@@ -5,14 +5,16 @@ import organizations from "../data/organizations.json";
 import activities from "../data/activities.json";
 import sprakkafeMark from "../assets/sprakkafe-mark.svg";
 import ActivityPracticalInfo from "../components/ActivityPracticalInfo";
-import { formatCheckedDate, getScheduleLabel } from "../utils/activityPresentation";
+import { formatCheckedDate, getActivityAvailability, getScheduleLabel } from "../utils/activityPresentation";
 
 export default function OrganizationPage() {
 
     const { id } = useParams();
 
     const organization = organizations.find(o => o.id === id);
-    const orgActivities = activities.filter(a => a.organizationId === id);
+    const orgActivities = activities.filter(
+        (activity) => activity.organizationId === id && getActivityAvailability(activity) !== "expired",
+    );
 
     if (!organization) {
         return (

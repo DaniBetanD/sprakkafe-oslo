@@ -1,4 +1,4 @@
-import { DAYS } from "./translations";
+import { DAYS } from "./translations.js";
 
 export function getActivityDays(activity) {
   return activity.days || [activity.day];
@@ -10,14 +10,21 @@ export function getScheduleLabel(activity) {
   return `${days} · ${hours}`;
 }
 
+export function getActivityAvailability(activity, date = new Date()) {
+  if (activity.availableFrom && date < new Date(`${activity.availableFrom}T00:00:00`)) {
+    return "upcoming";
+  }
+  if (activity.availableUntil && date > new Date(`${activity.availableUntil}T23:59:59`)) {
+    return "expired";
+  }
+  if (activity.status === "paused") {
+    return "paused";
+  }
+  return "active";
+}
+
 export function isActivityAvailableOn(activity, date = new Date()) {
-  if (activity.status === "upcoming" && activity.availableFrom) {
-    return date >= new Date(`${activity.availableFrom}T00:00:00`);
-  }
-  if (activity.availableUntil) {
-    return date <= new Date(`${activity.availableUntil}T23:59:59`);
-  }
-  return true;
+  return getActivityAvailability(activity, date) === "active";
 }
 
 export function formatAvailableFrom(date) {

@@ -13,7 +13,7 @@ import MobileDetailPanel from "../components/MobileDetailPanel";
 import SearchBar from "../components/SearchBar";
 import TodayActivities from "../components/TodayActivities";
 import { scrollToId } from "../utils/scrollTo";
-import { getActivityDays, isActivityAvailableOn } from "../utils/activityPresentation";
+import { getActivityAvailability, getActivityDays, isActivityAvailableOn } from "../utils/activityPresentation";
 
 const JS_DAY_TO_EN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -26,14 +26,17 @@ export default function Home() {
     return organizations.find((organization) => organization.id === id);
   }
 
+  const visibleActivities = activities.filter(
+    (activity) => getActivityAvailability(activity) !== "expired",
+  );
   const todayEnglish = JS_DAY_TO_EN[new Date().getDay()];
-  const todayActivities = activities.filter(
+  const todayActivities = visibleActivities.filter(
     (activity) => isActivityAvailableOn(activity) && getActivityDays(activity).includes(todayEnglish),
   );
-  const showDiscoveryTools = activities.length >= 4;
+  const showDiscoveryTools = visibleActivities.length >= 4;
   const hasDiscoveryCriteria = query.trim() !== "" || Object.values(filters).some(Boolean);
 
-  const results = activities.filter((activity) => {
+  const results = visibleActivities.filter((activity) => {
     const organization = getOrganization(activity.organizationId);
     const searchableText = `${activity.name}${organization?.name || ""}${activity.district}${activity.level}`.toLowerCase();
     const matchesSearch = searchableText.includes(query.trim().toLowerCase());
@@ -95,7 +98,7 @@ export default function Home() {
             <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-5">
               <SearchBar query={query} onSearch={updateQuery} />
               <div className="mt-3">
-                <Filters filters={filters} setFilters={updateFilters} activities={activities} />
+                <Filters filters={filters} setFilters={updateFilters} activities={visibleActivities} />
               </div>
             </div>
           </section>

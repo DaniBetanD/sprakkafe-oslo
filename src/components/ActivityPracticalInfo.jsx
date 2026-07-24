@@ -1,11 +1,17 @@
 import { CalendarClock, CircleDollarSign, ClipboardCheck, UserRoundCheck, UsersRound } from "lucide-react";
-import { formatAvailableFrom, formatCheckedDate } from "../utils/activityPresentation";
+import { formatAvailableFrom, formatCheckedDate, getActivityAvailability } from "../utils/activityPresentation";
 
 export default function ActivityPracticalInfo({ activity, compact = false }) {
+  const availability = getActivityAvailability(activity);
   const items = [
-    activity.status === "upcoming" && activity.availableFrom && {
+    availability === "upcoming" && activity.availableFrom && {
       icon: CalendarClock,
       label: `Desde el ${formatAvailableFrom(activity.availableFrom)}`,
+      accent: true,
+    },
+    availability === "expired" && {
+      icon: CalendarClock,
+      label: "Programación finalizada",
       accent: true,
     },
     activity.availableUntil && {

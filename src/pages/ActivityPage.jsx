@@ -4,7 +4,7 @@ import activities from "../data/activities.json";
 import organizations from "../data/organizations.json";
 import ActivityPracticalInfo from "../components/ActivityPracticalInfo";
 import { DAYS, LEVELS } from "../utils/translations";
-import { getScheduleLabel } from "../utils/activityPresentation";
+import { getActivityAvailability, getScheduleLabel } from "../utils/activityPresentation";
 
 const LEVEL_COLORS = {
     "all": "bg-blue-50 text-blue-700",
@@ -48,6 +48,7 @@ export default function ActivityPage() {
     const mapsUrl = activity.address
         ? `https://maps.google.com/?q=${encodeURIComponent(activity.address + ', Oslo')}`
         : null;
+    const availability = getActivityAvailability(activity);
 
     return (
         <div className="min-h-screen bg-gray-50 pb-12">
@@ -110,6 +111,15 @@ export default function ActivityPage() {
                             {activity.name}
                         </h1>
                     </div>
+
+                    {availability === "expired" && (
+                        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4">
+                            <p className="font-semibold text-amber-950">Esta programación ha finalizado</p>
+                            <p className="mt-1 text-sm leading-relaxed text-amber-900">
+                                Conservamos la ficha como referencia. Consulta la fuente oficial para comprobar si existen nuevas fechas.
+                            </p>
+                        </div>
+                    )}
 
                     {activity.description && (
                         <p className="text-gray-600 leading-relaxed text-base">
