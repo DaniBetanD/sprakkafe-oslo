@@ -39,6 +39,32 @@
         "lastChecked": "2026-07-18"
     },
     {
+        "id": "casa-cultural",
+        "logoImg": "casa-cultural.png",
+        "name": "Casa Cultural",
+        "tipo": "Casa cultural",
+        "website": "https://casacultural.no/",
+        "email": "kultur@casacultural.no",
+        "phone": "+47 413 99 930",
+        "logo": "🏠",
+        "verified": true,
+        "description": "Casa Cultural es una casa de cultura hispana en Oslo que crea espacios inclusivos de idioma, cultura y comunidad para personas de todas las edades.",
+        "lastChecked": "2026-07-24"
+    },
+    {
+        "id": "kia-norge",
+        "logoImg": "kia-norge.png",
+        "name": "KIA Norge",
+        "tipo": "ONG",
+        "website": "https://www.kianorge.no/region/kia-ost",
+        "email": "post@kianorge.no",
+        "phone": "+47 48 31 41 00",
+        "logo": "🤝",
+        "verified": true,
+        "description": "KIA Norge crea espacios de encuentro entre culturas, idiomas y religiones. KIA Øst organiza actividades de integración y práctica del noruego en Oslo.",
+        "lastChecked": "2026-07-24"
+    },
+    {
         "id": "norskstart",
         "logoImg": "norskstart.png",
         "name": "Norsk Start Oslo",

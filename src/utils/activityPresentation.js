@@ -11,8 +11,13 @@ export function getScheduleLabel(activity) {
 }
 
 export function isActivityAvailableOn(activity, date = new Date()) {
-  if (activity.status !== "upcoming" || !activity.availableFrom) return true;
-  return date >= new Date(`${activity.availableFrom}T00:00:00`);
+  if (activity.status === "upcoming" && activity.availableFrom) {
+    return date >= new Date(`${activity.availableFrom}T00:00:00`);
+  }
+  if (activity.availableUntil) {
+    return date <= new Date(`${activity.availableUntil}T23:59:59`);
+  }
+  return true;
 }
 
 export function formatAvailableFrom(date) {

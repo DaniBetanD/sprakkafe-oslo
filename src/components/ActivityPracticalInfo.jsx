@@ -1,4 +1,4 @@
-import { CalendarClock, CircleDollarSign, UserRoundCheck, UsersRound } from "lucide-react";
+import { CalendarClock, CircleDollarSign, ClipboardCheck, UserRoundCheck, UsersRound } from "lucide-react";
 import { formatAvailableFrom, formatCheckedDate } from "../utils/activityPresentation";
 
 export default function ActivityPracticalInfo({ activity, compact = false }) {
@@ -8,6 +8,11 @@ export default function ActivityPracticalInfo({ activity, compact = false }) {
       label: `Desde el ${formatAvailableFrom(activity.availableFrom)}`,
       accent: true,
     },
+    activity.availableUntil && {
+      icon: CalendarClock,
+      label: `Hasta el ${formatAvailableFrom(activity.availableUntil)}`,
+      accent: true,
+    },
     activity.cost === "free" && {
       icon: CircleDollarSign,
       label: "Gratis",
@@ -15,6 +20,10 @@ export default function ActivityPracticalInfo({ activity, compact = false }) {
     activity.registration === "none" && {
       icon: UserRoundCheck,
       label: "Sin inscripción",
+    },
+    activity.registration === "required" && {
+      icon: ClipboardCheck,
+      label: "Inscripción necesaria",
     },
     activity.canComeAlone && {
       icon: UsersRound,
