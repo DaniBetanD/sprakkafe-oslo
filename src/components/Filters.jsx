@@ -1,119 +1,137 @@
 import { useMemo } from "react";
+import { X } from "lucide-react";
 import { getActivityDays } from "../utils/activityPresentation";
 import organizationsData from "../data/organizations.json";
 import { DAYS, LEVELS } from "../utils/translations";
 
+const WEEK_ORDER = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
 export default function Filters({ filters, setFilters, activities }) {
-    // 1. Optimizamos y extraemos valores únicos una sola vez con useMemo
-    const districts = useMemo(() => {
-        return [...new Set(activities.map(a => a.district).filter(Boolean))].sort();
-    }, [activities]);
-
-    const levels = useMemo(() => {
-        return [...new Set(activities.map(a => a.level).filter(Boolean))];
-    }, [activities]);
-
-    const days = useMemo(() => {
-        return [...new Set(activities.flatMap(getActivityDays).filter(Boolean))];
-    }, [activities]);
-
-    // Comprobamos si hay algún filtro activo para mostrar u ocultar el botón de limpiar
-    const hasActiveFilters = useMemo(() => {
-        return Object.values(filters).some(value => value !== "");
-    }, [filters]);
+    const districts = useMemo(
+        () => [...new Set(activities.map((activity) => activity.district).filter(Boolean))].sort(),
+        [activities],
+    );
+    const levels = useMemo(
+        () => [...new Set(activities.map((activity) => activity.level).filter(Boolean))],
+        [activities],
+    );
+    const days = useMemo(
+        () => [...new Set(activities.flatMap(getActivityDays).filter(Boolean))]
+            .sort((a, b) => WEEK_ORDER.indexOf(a) - WEEK_ORDER.indexOf(b)),
+        [activities],
+    );
+    const availableOrganizationIds = useMemo(
+        () => new Set(activities.map((activity) => activity.organizationId)),
+        [activities],
+    );
+    const availableOrganizations = useMemo(
+        () => organizationsData.filter((organization) => availableOrganizationIds.has(organization.id)),
+        [availableOrganizationIds],
+    );
 
     function update(field, value) {
-        setFilters(prev => ({
-            ...prev,
-            [field]: value
+        setFilters((previousFilters) => ({
+            ...previousFilters,
+            [field]: value,
         }));
     }
 
-    const handleClearFilters = () => {
-        setFilters({
-            district: "",
-            day: "",
-            level: "",
-            organization: ""
-        });
-    };
+    function clearFilters() {
+        setFilters({ district: "", day: "", level: "", organization: "" });
+    }
+
+    const activeFilters = [
+        filters.district && { field: "district", label: filters.district },
+        filters.day && { field: "day", label: DAYS[filters.day] || filters.day },
+        filters.level && { field: "level", label: LEVELS[filters.level] || filters.level },
+        filters.organization && {
+            field: "organization",
+            label: availableOrganizations.find((organization) => organization.id === filters.organization)?.name,
+        },
+    ].filter(Boolean);
+
+    const selectClassName = "min-h-[48px] w-full rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm text-gray-700 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500";
 
     return (
-        <div className="space-y-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                
-                {/* Filtro: Barrio */}
+        <div className="space-y-3">
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
                 <select
                     name="district"
                     aria-label="Filtrar por barrio"
                     value={filters.district}
-                    onChange={e => update("district", e.target.value)}
-                    className="rounded-xl border bg-white px-4 py-3 text-sm text-gray-700 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    onChange={(event) => update("district", event.target.value)}
+                    className={selectClassName}
                 >
                     <option value="">Barrio</option>
-                    {districts.map(d => (
-                        <option key={d} value={d}>{d}</option>
+                    {districts.map((district) => (
+                        <option key={district} value={district}>{district}</option>
                     ))}
                 </select>
 
-                {/* Filtro: Día */}
                 <select
                     name="day"
                     aria-label="Filtrar por día"
                     value={filters.day}
-                    onChange={e => update("day", e.target.value)}
-                    className="rounded-xl border bg-white px-4 py-3 text-sm text-gray-700 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    onChange={(event) => update("day", event.target.value)}
+                    className={selectClassName}
                 >
                     <option value="">Día</option>
-                    {days.map(d => (
-                        <option key={d} value={d}>
-                            {DAYS[d] || d}
-                        </option>
+                    {days.map((day) => (
+                        <option key={day} value={day}>{DAYS[day] || day}</option>
                     ))}
                 </select>
 
-                {/* Filtro: Nivel */}
                 <select
                     name="level"
                     aria-label="Filtrar por nivel"
                     value={filters.level}
-                    onChange={e => update("level", e.target.value)}
-                    className="rounded-xl border bg-white px-4 py-3 text-sm text-gray-700 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    onChange={(event) => update("level", event.target.value)}
+                    className={selectClassName}
                 >
                     <option value="">Nivel</option>
-                    {levels.map(l => (
-                        <option key={l} value={l}>
-                            {LEVELS[l] || l}
-                        </option>
+                    {levels.map((level) => (
+                        <option key={level} value={level}>{LEVELS[level] || level}</option>
                     ))}
                 </select>
 
-                {/* Filtro: Organización */}
                 <select
                     name="organization"
                     aria-label="Filtrar por organización"
                     value={filters.organization}
-                    onChange={e => update("organization", e.target.value)}
-                    className="rounded-xl border bg-white px-4 py-3 text-sm text-gray-700 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    onChange={(event) => update("organization", event.target.value)}
+                    className={selectClassName}
                 >
                     <option value="">Organización</option>
-                    {organizationsData.filter(Boolean).map(o => (
-                        <option key={o.id} value={o.id}>
-                            {o.name}
+                    {availableOrganizations.map((organization) => (
+                        <option key={organization.id} value={organization.id}>
+                            {organization.name}
                         </option>
                     ))}
                 </select>
             </div>
 
-            {/* 3. El botón solo se renderiza si el usuario realmente ha filtrado algo */}
-            {hasActiveFilters && (
-                <button
-                    type="button"
-                    onClick={handleClearFilters}
-                    className="mt-2 rounded-xl bg-gray-100 hover:bg-gray-200 px-5 py-2.5 text-gray-700 text-sm font-medium transition duration-200"
-                >
-                    Limpiar filtros
-                </button>
+            {activeFilters.length > 0 && (
+                <div className="flex flex-wrap items-center gap-2" aria-label="Filtros activos">
+                    {activeFilters.map((filter) => (
+                        <button
+                            key={filter.field}
+                            type="button"
+                            onClick={() => update(filter.field, "")}
+                            aria-label={`Quitar filtro ${filter.label}`}
+                            className="inline-flex min-h-[36px] items-center gap-1.5 rounded-full bg-blue-50 px-3 text-xs font-semibold text-blue-700 transition hover:bg-blue-100"
+                        >
+                            {filter.label}
+                            <X size={13} aria-hidden="true" />
+                        </button>
+                    ))}
+                    <button
+                        type="button"
+                        onClick={clearFilters}
+                        className="min-h-[36px] px-2 text-xs font-semibold text-gray-600 underline underline-offset-4 transition hover:text-gray-900"
+                    >
+                        Limpiar filtros
+                    </button>
+                </div>
             )}
         </div>
     );

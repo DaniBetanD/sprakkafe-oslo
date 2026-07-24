@@ -31,11 +31,12 @@ export default function Home() {
     (activity) => isActivityAvailableOn(activity) && getActivityDays(activity).includes(todayEnglish),
   );
   const showDiscoveryTools = activities.length >= 4;
+  const hasDiscoveryCriteria = query.trim() !== "" || Object.values(filters).some(Boolean);
 
   const results = activities.filter((activity) => {
     const organization = getOrganization(activity.organizationId);
     const searchableText = `${activity.name}${organization?.name || ""}${activity.district}${activity.level}`.toLowerCase();
-    const matchesSearch = searchableText.includes(query.toLowerCase());
+    const matchesSearch = searchableText.includes(query.trim().toLowerCase());
     const matchesDistrict = !filters.district || activity.district === filters.district;
     const matchesDay = !filters.day || getActivityDays(activity).includes(filters.day);
     const matchesLevel = !filters.level || activity.level === filters.level;
@@ -50,6 +51,18 @@ export default function Home() {
     setQuery("");
     setFilters({ district: "", day: "", level: "", organization: "" });
     scrollToId("actividades");
+  }
+
+  function updateFilters(nextFilters) {
+    setFilters((currentFilters) => (
+      typeof nextFilters === "function" ? nextFilters(currentFilters) : nextFilters
+    ));
+    setSelected(null);
+  }
+
+  function updateQuery(nextQuery) {
+    setQuery(nextQuery);
+    setSelected(null);
   }
 
   function toggleSelected(activity) {
@@ -80,15 +93,15 @@ export default function Home() {
         {showDiscoveryTools && (
           <section className="max-w-5xl mx-auto px-4 md:px-6 -mt-12 relative z-10 w-full">
             <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-5">
-              <SearchBar query={query} onSearch={setQuery} />
+              <SearchBar query={query} onSearch={updateQuery} />
               <div className="mt-3">
-                <Filters filters={filters} setFilters={setFilters} activities={activities} />
+                <Filters filters={filters} setFilters={updateFilters} activities={activities} />
               </div>
             </div>
           </section>
         )}
 
-        {todayActivities.length > 0 && (
+        {!hasDiscoveryCriteria && todayActivities.length > 0 && (
           <section className="max-w-5xl mx-auto px-4 md:px-6 w-full">
             <TodayActivities
               activities={todayActivities}
