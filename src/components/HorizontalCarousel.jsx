@@ -32,7 +32,11 @@ export default function HorizontalCarousel({ children }) {
   };
 
   return (
-    <div className="relative group w-full">
+    <div
+      className="relative group w-full"
+      role="region"
+      aria-label="Carrusel de actividades"
+    >
       {showLeft && (
         <button
           type="button"
@@ -55,6 +59,8 @@ export default function HorizontalCarousel({ children }) {
       )}
       <div
         ref={containerRef}
+        tabIndex="0"
+        aria-label="Desplázate horizontalmente para ver más actividades"
         className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 w-full"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >

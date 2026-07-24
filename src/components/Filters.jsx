@@ -118,7 +118,7 @@ export default function Filters({ filters, setFilters, activities }) {
                             type="button"
                             onClick={() => update(filter.field, "")}
                             aria-label={`Quitar filtro ${filter.label}`}
-                            className="inline-flex min-h-[36px] items-center gap-1.5 rounded-full bg-blue-50 px-3 text-xs font-semibold text-blue-700 transition hover:bg-blue-100"
+                            className="inline-flex min-h-[44px] items-center gap-1.5 rounded-full bg-blue-50 px-3 text-xs font-semibold text-blue-700 transition hover:bg-blue-100"
                         >
                             {filter.label}
                             <X size={13} aria-hidden="true" />
@@ -127,7 +127,7 @@ export default function Filters({ filters, setFilters, activities }) {
                     <button
                         type="button"
                         onClick={clearFilters}
-                        className="min-h-[36px] px-2 text-xs font-semibold text-gray-600 underline underline-offset-4 transition hover:text-gray-900"
+                        className="min-h-[44px] px-2 text-xs font-semibold text-gray-600 underline underline-offset-4 transition hover:text-gray-900"
                     >
                         Limpiar filtros
                     </button>

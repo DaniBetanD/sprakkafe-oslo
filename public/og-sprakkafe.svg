@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">Språkkafé Oslo</title>
+  <desc id="description">Tu próximo paso empieza con una conversación.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#3730A3"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <circle cx="1080" cy="90" r="210" fill="#FFFFFF" opacity=".05"/>
+  <circle cx="1140" cy="560" r="300" fill="#FDE68A" opacity=".08"/>
+
+  <g transform="translate(86 91) scale(2.25)">
+    <path fill="#FFFFFF" d="M18 6h28c7.73 0 14 6.27 14 14v20c0 7.73-6.27 14-14 14H31.2l-10.62 6.64A3 3 0 0 1 16 58.1V53.86C9.2 52.88 4 47.03 4 40V20C4 12.27 10.27 6 18 6Z"/>
+    <circle cx="32" cy="15" r="3.25" stroke="#2563EB" stroke-width="3.5"/>
+    <path d="m22.5 43 9.5-22 9.5 22M26.5 34h11" stroke="#2563EB" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="86" y="290" fill="#DBEAFE" font-family="Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="1.5">
+    SPRÅKKAFÉ OSLO
+  </text>
+  <text x="86" y="365" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="58" font-weight="700">
+    Tu próximo paso empieza
+  </text>
+  <text x="86" y="432" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="58" font-weight="700">
+    con una conversación
+  </text>
+  <text x="86" y="510" fill="#DBEAFE" font-family="Arial, sans-serif" font-size="27">
+    Encuentra dónde practicar noruego, conocer personas y sentirte parte de Oslo.
+  </text>
+</svg>

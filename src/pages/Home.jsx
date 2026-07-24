@@ -76,7 +76,7 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col">
       <Header />
 
-      <main className="flex-grow space-y-10 md:space-y-16 pb-12">
+      <main id="main-content" className="flex-grow space-y-10 md:space-y-16 pb-12">
         <section
           id="hero"
           className={`bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-12 ${showDiscoveryTools ? "pb-20" : "pb-12"}`}
@@ -120,7 +120,11 @@ export default function Home() {
             <h2 className="font-bold text-xl md:text-2xl text-gray-900">
               Todos los Språkkafé
             </h2>
-            <span className="bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1 rounded-full border border-blue-100">
+            <span
+              className="bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1 rounded-full border border-blue-100"
+              role="status"
+              aria-live="polite"
+            >
               {results.length} {results.length === 1 ? "actividad" : "actividades"}
             </span>
           </div>
