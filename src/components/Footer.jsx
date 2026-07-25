@@ -71,10 +71,21 @@ export default function Footer() {
                         </p>
                         <a
                             href="mailto:sprakkafenorge@gmail.com?subject=Organizaci%C3%B3n%20%E2%80%94%20Spr%C3%A5kkaf%C3%A9%20Oslo"
-                            className="mt-2 flex min-h-[44px] items-center text-sm font-semibold text-blue-600 transition hover:text-blue-700"
+                            className="mt-2 flex min-h-[44px] items-center text-sm font-semibold text-blue-600 transition hover:text-blue-700 md:hidden"
                         >
                             Contactar con nosotros →
                         </a>
+                        <a
+                            href="https://mail.google.com/mail/?view=cm&fs=1&to=sprakkafenorge@gmail.com&su=Organizaci%C3%B3n%20%E2%80%94%20Spr%C3%A5kkaf%C3%A9%20Oslo"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="mt-2 hidden min-h-[44px] items-center text-sm font-semibold text-blue-600 transition hover:text-blue-700 md:flex"
+                        >
+                            Contactar con nosotros →
+                        </a>
+                        <p className="break-all text-xs text-gray-500">
+                            sprakkafenorge@gmail.com
+                        </p>
                     </div>
                 </div>
 
