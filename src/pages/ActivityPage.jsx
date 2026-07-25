@@ -87,20 +87,9 @@ export default function ActivityPage() {
                             >
                                 {organization?.name}
                             </Link>
-                            <div className="flex items-center gap-2 mt-0.5">
-                                {organization?.verified ? (
-                                    <span className="text-xs font-medium text-green-700 bg-green-100 px-2 py-0.5 rounded-full">
-                                        ✓ Verificado
-                                    </span>
-                                ) : (
-                                    <span className="text-xs font-medium text-yellow-700 bg-yellow-100 px-2 py-0.5 rounded-full">
-                                        En pausa
-                                    </span>
-                                )}
-                                {organization?.tipo && (
-                                    <span className="text-xs text-gray-400">{organization.tipo}</span>
-                                )}
-                            </div>
+                            {organization?.tipo && (
+                                <p className="mt-0.5 text-xs text-gray-400">{organization.tipo}</p>
+                            )}
                         </div>
                     </div>
 

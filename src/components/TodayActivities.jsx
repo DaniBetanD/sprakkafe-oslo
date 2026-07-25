@@ -9,7 +9,7 @@ export default function TodayActivities({ activities, getOrganization, setSelect
       <div className="mb-4">
         <h2 className="text-xl font-bold text-gray-900 md:text-2xl">Actividades para hoy</h2>
         <p className="mt-1 text-sm text-gray-500">
-          Horarios confirmados para hoy. Revisa los detalles antes de salir.
+          Estas actividades están programadas para hoy. Revisa los detalles antes de salir.
         </p>
       </div>
       {activities.length === 1 ? (

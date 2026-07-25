@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, BadgeCheck, ExternalLink, Globe, Mail, Phone } from "lucide-react";
+import { ArrowLeft, ExternalLink, Globe, Mail, Phone } from "lucide-react";
 import { LEVELS } from "../utils/translations";
 import organizations from "../data/organizations.json";
 import activities from "../data/activities.json";
@@ -63,17 +63,7 @@ export default function OrganizationPage() {
                         </div>
                         <div>
                             <h1 className="text-2xl font-bold text-gray-900">{organization.name}</h1>
-                            <div className="mt-1 flex flex-wrap items-center gap-2">
-                                <span className="text-sm text-gray-500">{organization.tipo}</span>
-                                <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium ${
-                                    organization.verified
-                                        ? "bg-green-50 text-green-700"
-                                        : "bg-amber-50 text-amber-800"
-                                }`}>
-                                    <BadgeCheck size={13} aria-hidden="true" />
-                                    {organization.verified ? "Organización verificada" : "Pendiente de confirmar"}
-                                </span>
-                            </div>
+                            <p className="mt-1 text-sm text-gray-500">{organization.tipo}</p>
                         </div>
                     </div>
 
@@ -114,7 +104,7 @@ export default function OrganizationPage() {
 
                     {orgActivities.length === 0 ? (
                         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
-                            <h3 className="font-semibold text-amber-950">Sin fechas confirmadas por ahora</h3>
+                            <h3 className="font-semibold text-amber-950">Sin fechas publicadas por ahora</h3>
                             <p className="mt-1 text-sm leading-relaxed text-amber-900">
                                 Conservamos este perfil para revisar su programación cuando la organización publique nuevas actividades.
                             </p>
