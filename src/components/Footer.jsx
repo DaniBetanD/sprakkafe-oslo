@@ -18,7 +18,7 @@ export default function Footer() {
     return (
         <footer id="contacto" className="bg-white border-t border-gray-200">
             <div className="max-w-5xl mx-auto px-6 py-10 md:py-12">
-                <div className="grid grid-cols-1 gap-9 md:grid-cols-[1.5fr_1fr_1fr] md:gap-12">
+                <div className="grid grid-cols-1 gap-9 md:grid-cols-[1.4fr_0.8fr_1fr_1.2fr] md:gap-10">
                     <div className="md:col-span-1">
                         <div className="flex items-center gap-3 mb-4">
                             <img src={sprakkafeMark} alt="" className="h-11 w-11" aria-hidden="true" />
@@ -60,6 +60,21 @@ export default function Footer() {
                         <p className="mt-1 text-xs leading-relaxed text-gray-500">
                             Actividades y cambios importantes, directamente en tu email.
                         </p>
+                    </div>
+
+                    <div>
+                        <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-gray-900">
+                            Organizaciones
+                        </h4>
+                        <p className="text-sm leading-relaxed text-gray-600">
+                            ¿Organizas un Språkkafé? Escríbenos para añadirlo, actualizar información o realizar una consulta.
+                        </p>
+                        <a
+                            href="mailto:sprakkafenorge@gmail.com?subject=Organizaci%C3%B3n%20%E2%80%94%20Spr%C3%A5kkaf%C3%A9%20Oslo"
+                            className="mt-2 flex min-h-[44px] items-center text-sm font-semibold text-blue-600 transition hover:text-blue-700"
+                        >
+                            Contactar con nosotros →
+                        </a>
                     </div>
                 </div>
 
