@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sprakkafe-oslo.vercel.app/sitemap.xml
