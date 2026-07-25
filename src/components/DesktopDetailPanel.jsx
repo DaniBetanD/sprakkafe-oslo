@@ -24,6 +24,10 @@ export default function DesktopDetailPanel({ selected, organization, onClose }) 
               <img
                 src={new URL(`../assets/logos/${organization.logoImg}`, import.meta.url).href}
                 alt={organization.name}
+                loading="lazy"
+                decoding="async"
+                width="48"
+                height="48"
                 className="w-full h-full object-contain p-1"
               />
             ) : (

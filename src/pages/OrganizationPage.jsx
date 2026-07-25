@@ -55,6 +55,9 @@ export default function OrganizationPage() {
                                 <img
                                     src={new URL(`../assets/logos/${organization.logoImg}`, import.meta.url).href}
                                     alt={organization.name}
+                                    decoding="async"
+                                    width="56"
+                                    height="56"
                                     className="w-full h-full object-contain p-1"
                                 />
                             ) : (

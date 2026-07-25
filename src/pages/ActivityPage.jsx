@@ -74,6 +74,9 @@ export default function ActivityPage() {
                                 <img
                                     src={new URL(`../assets/logos/${organization.logoImg}`, import.meta.url).href}
                                     alt={organization.name}
+                                    decoding="async"
+                                    width="48"
+                                    height="48"
                                     className="w-full h-full object-contain p-1"
                                 />
                             ) : (

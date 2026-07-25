@@ -23,6 +23,10 @@ export default function ActivityCard({ activity, organization, onClick, searchCo
                             <img
                                 src={new URL(`../assets/logos/${organization.logoImg}`, import.meta.url).href}
                                 alt={organization.name}
+                                loading="lazy"
+                                decoding="async"
+                                width="36"
+                                height="36"
                                 className="w-full h-full object-contain p-0.5"
                             />
                         ) : (

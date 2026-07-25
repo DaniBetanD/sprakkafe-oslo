@@ -80,6 +80,10 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
                                     <img
                                         src={new URL(`../assets/logos/${selectedOrg.logoImg}`, import.meta.url).href}
                                         alt={selectedOrg.name}
+                                        loading="lazy"
+                                        decoding="async"
+                                        width="40"
+                                        height="40"
                                         className="w-full h-full object-contain p-1"
                                     />
                                 ) : (
