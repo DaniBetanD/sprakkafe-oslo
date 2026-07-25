@@ -149,11 +149,11 @@ export default function CommunitySignupModal({ onClose }) {
                             />
                         </div>
 
-                    <p className="text-xs leading-relaxed text-gray-600">
+                    <p className="text-sm leading-relaxed text-gray-600">
                         Solo te escribiremos cuando tengamos actividades, cambios de horario o novedades útiles para ti.
                     </p>
 
-                    <label className="flex items-start gap-3 text-xs leading-relaxed text-gray-600">
+                    <label className="flex items-start gap-3 text-sm leading-relaxed text-gray-600">
                         <input
                             type="checkbox"
                             required

@@ -166,7 +166,7 @@ export default function ActivityPage() {
                                 rel="noopener noreferrer"
                                 className="inline-flex min-h-[46px] flex-1 items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 text-sm font-semibold text-white transition hover:bg-blue-700"
                             >
-                                Confirmar horario oficial <ExternalLink size={15} aria-hidden="true" />
+                                Consultar horario oficial <ExternalLink size={15} aria-hidden="true" />
                             </a>
                         )}
                         {mapsUrl && (
@@ -204,7 +204,7 @@ export default function ActivityPage() {
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 text-sm bg-blue-50 text-blue-700 px-4 py-2 rounded-xl font-medium hover:bg-blue-100 transition min-h-[44px]"
                             >
-                                <Globe size={16} /> Sitio Web Oficial <ExternalLink size={14} />
+                                <Globe size={16} /> Sitio oficial <ExternalLink size={14} />
                             </a>
                         )}
                         {organization?.email && (

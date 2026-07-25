@@ -166,7 +166,7 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
                                 rel="noopener noreferrer"
                                 className="flex min-h-[44px] items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-medium text-blue-700 hover:bg-blue-50 transition"
                             >
-                                Confirmar horario oficial <ExternalLink size={14} aria-hidden="true" />
+                                Consultar horario oficial <ExternalLink size={14} aria-hidden="true" />
                             </a>
                         )}
                     </div>

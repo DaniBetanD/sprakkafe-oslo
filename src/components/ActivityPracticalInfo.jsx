@@ -33,7 +33,7 @@ export default function ActivityPracticalInfo({ activity, compact = false }) {
     },
     activity.canComeAlone && {
       icon: UsersRound,
-      label: "Puedes venir solo",
+      label: "Puedes venir por tu cuenta",
     },
   ].filter(Boolean);
 

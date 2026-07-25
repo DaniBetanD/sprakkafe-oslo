@@ -4,7 +4,7 @@ const cards = [
   {
     icon: <Users size={22} />,
     title: "Practica con confianza",
-    description: "Habla a tu ritmo en un ambiente seguro y relajado.",
+    description: "Habla a tu ritmo en un ambiente relajado y acogedor.",
   },
   {
     icon: <Globe size={22} />,
@@ -54,7 +54,7 @@ export default function MissionSection() {
           El idioma es el comienzo. Sentirse parte es la meta.
         </p>
         <p className="mt-2 text-sm leading-relaxed text-gray-600">
-          Reunimos actividades de organizaciones y espacios comunitarios para que encontrar un lugar donde practicar sea sencillo y seguro.
+          Reunimos actividades de organizaciones y espacios comunitarios para que encontrar un lugar donde practicar sea más sencillo.
         </p>
       </div>
 

@@ -21,7 +21,7 @@ export default function CommunityInviteSection() {
             Que no se te pase tu próxima oportunidad para practicar
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-blue-100 md:text-base">
-            Recibe en tu email nuevas actividades publicadas, cambios de horario y aperturas de Språkkafé en Oslo.
+            Recibe en tu email nuevas actividades publicadas, cambios de horario y nuevos lugares donde practicar en Oslo.
           </p>
           <button
             type="button"

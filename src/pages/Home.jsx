@@ -87,7 +87,7 @@ export default function Home() {
               <br className="sm:hidden" />
               <span className="text-yellow-200">Språkkafé</span>
             </h1>
-            <p className="mt-4 text-sm md:text-lg text-blue-100 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-4 text-base md:text-lg text-blue-100 max-w-2xl mx-auto leading-relaxed">
               Practica noruego en un entorno real, conoce gente y descubre la cultura de Oslo.
             </p>
           </div>
@@ -118,7 +118,7 @@ export default function Home() {
         <section id="actividades" className="max-w-5xl mx-auto px-4 md:px-6 w-full">
           <div className="flex justify-between items-center mb-5">
             <h2 className="font-bold text-xl md:text-2xl text-gray-900">
-              Todos los Språkkafé
+              Encuentra tu Språkkafé
             </h2>
             <span
               className="bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1 rounded-full border border-blue-100"
