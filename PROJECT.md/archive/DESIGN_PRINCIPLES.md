@@ -1,3 +1,7 @@
+# Archivo histórico — Design Principles
+
+> Sus principios vigentes se consolidaron en `UX_PRINCIPLES.md` y `DESIGN_SYSTEM.md`.
+
 # Design Principles
 
 Este documento define cómo diseñamos Språkkafé Oslo.

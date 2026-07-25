@@ -1,3 +1,7 @@
+# Archivo histórico — Development Guide
+
+> Su contenido vigente se consolidó en `PROJECT_HANDBOOK.md` y `ARCHITECTURE.md`. No debe utilizarse como instrucción actual.
+
 # Språkkafé Oslo
 # Development Guide
 

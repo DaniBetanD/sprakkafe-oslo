@@ -142,7 +142,7 @@ Simplicity creates opportunities.
 
 ## 🛡 Trust
 
-Users should know that every activity has been verified.
+Users should understand where the information comes from and when they need to confirm details with the organisation.
 
 We prioritise reliable information over large amounts of information.
 
@@ -156,7 +156,7 @@ Learning Norwegian does not end after attending one activity.
 
 The platform should support people throughout their integration journey.
 
-Future features will include:
+The platform can continue supporting this journey through:
 
 * community
 * newsletters

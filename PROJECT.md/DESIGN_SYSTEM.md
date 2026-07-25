@@ -1,699 +1,101 @@
-# Språkkafé Oslo
-# Design System
+# Sistema de diseño — Språkkafé Oslo
 
-Versión: 1.0
-Estado: Documento vivo
-Última actualización: Julio 2026
+Versión: 3.0
+Última actualización: 25 de julio de 2026
 
----
+## Propósito
 
-# Filosofía del diseño
+Mantener una experiencia simple, cálida y reconocible. Este documento registra reglas; no autoriza rediseñar componentes congelados.
 
-El diseño de Språkkafé Oslo no busca impresionar.
+## Principios
 
-Busca transmitir confianza.
+- Mobile First desde 390 px.
+- Una acción principal clara por bloque.
+- Información que pueda escanearse rápidamente.
+- Espacio suficiente para reducir carga cognitiva.
+- Consistencia antes que novedad visual.
 
-Una persona que llega a esta web normalmente:
+## Personalidad
 
-• acaba de llegar a Noruega
-• está aprendiendo el idioma
-• tiene dudas
-• puede sentirse sola
-• necesita información clara
+La interfaz debe sentirse cercana, tranquila, clara y fiable. No debe parecer un panel administrativo ni una aplicación corporativa fría.
 
-Cada decisión visual debe reducir la ansiedad del usuario.
+## Color
 
-Nuestro trabajo consiste en hacer que la información sea fácil de encontrar y que el usuario quiera dar el siguiente paso.
+- Azul principal: acciones, foco y elementos de identidad.
+- Azul claro: superficies informativas y estados suaves.
+- Blanco: fondo principal y tarjetas.
+- Grises oscuros: títulos y texto principal.
+- `gray-500` o más oscuro para texto secundario pequeño.
 
----
+No utilizar `gray-400` en textos pequeños sobre blanco cuando no alcance WCAG AA.
 
-# Principios del diseño
+## Tipografía
 
-## 1. Mobile First
+La familia principal es Inter Variable, servida localmente.
 
-Toda pantalla se diseña primero para móvil.
+- Texto normal móvil: preferentemente 16 px.
+- Texto auxiliar: solo reducir cuando conserve legibilidad y contraste.
+- Títulos: jerarquía clara, sin saltos decorativos innecesarios.
+- Párrafos: ancho y altura de línea cómodos.
 
-Desktop es una adaptación.
+## Espaciado y forma
 
-Nunca al revés.
+- Utilizar la escala de Tailwind y evitar valores arbitrarios sin motivo.
+- Mantener radios, bordes y sombras ya aprobados en cada familia de componentes.
+- Áreas táctiles de al menos 44 × 44 px.
+- Respetar áreas seguras del dispositivo cuando existan acciones cercanas al borde.
 
-Viewport de referencia:
+## Botones y enlaces
 
-390 px
+- Texto orientado a una acción comprensible.
+- Foco visible mediante teclado.
+- Estados hover, active y disabled coherentes.
+- No depender únicamente del color para comunicar estado.
+- La longitud responde a claridad; no existe un máximo rígido de tres palabras.
 
----
+## Iconografía
 
-## 2. Simplicidad
+Utilizar Lucide React o los recursos aprobados. Los iconos complementan el texto; no sustituyen etiquetas necesarias.
 
-Eliminar cualquier elemento que no aporte valor.
+## Componentes congelados
 
-Cada bloque debe responder únicamente a una pregunta del usuario.
+Necesitan un sprint específico para cambiar su identidad visual:
 
-Ejemplo:
+- Header y navegación.
+- Hero.
+- Footer.
+- MissionSection.
+- ActivityCard.
+- OrganizationPage.
+- Home.
+- Colores, tipografía, espaciados y layouts globales.
 
-¿Dónde practico?
+Se permiten correcciones concretas de comportamiento, contenido o accesibilidad que preserven el diseño aprobado.
 
-↓
+## Responsive
 
-Lista de actividades
+Validar:
 
-No necesitamos explicar cinco cosas antes.
+1. Móvil a 390 px.
+2. Tablet cuando el cambio lo afecte.
+3. Escritorio.
 
----
+Evitar scroll horizontal accidental, controles demasiado juntos y bloques que pierdan su jerarquía.
 
-## 3. Escaneo rápido
+## Accesibilidad
 
-La mayoría de usuarios no leen.
+- Contraste WCAG AA.
+- Navegación por teclado.
+- Foco visible.
+- HTML semántico.
+- Etiquetas accesibles para controles.
+- Texto alternativo útil.
+- Preferencias de movimiento respetadas.
 
-Escanean.
+## Animación
 
-Por ello:
+Usar movimiento breve y funcional. No debe retrasar acciones, distraer ni ser imprescindible para comprender la interfaz.
 
-•
+## Fuente de verdad
 
-Pocos textos largos
-
-•
-
-Mucho espacio en blanco
-
-•
-
-Jerarquía visual clara
-
-•
-
-Bloques separados
-
----
-
-## 4. Una acción principal
-
-Cada pantalla tiene un único objetivo.
-
-Ejemplos:
-
-Home
-
-↓
-
-Encontrar una actividad
-
-Activity Page
-
-↓
-
-Convencer al usuario para asistir
-
-Organization Page
-
-↓
-
-Generar confianza
-
----
-
-# Personalidad visual
-
-Språkkafé Oslo debe sentirse como:
-
-✓ amable
-
-✓ moderna
-
-✓ humana
-
-✓ limpia
-
-✓ cercana
-
-Nunca:
-
-✗ corporativa
-
-✗ fría
-
-✗ saturada
-
-✗ complicada
-
----
-
-# Paleta de colores
-
-## Color principal
-
-Blue 600
-
-Uso:
-
-•
-
-Botones principales
-
-•
-
-Links activos
-
-•
-
-Badges destacados
-
----
-
-## Azul claro
-
-Blue 100
-
-Uso:
-
-Fondos suaves
-
-Iconos
-
-Cards
-
----
-
-## Gris
-
-Gray 50
-
-Fondos
-
-Gray 100
-
-Separadores
-
-Gray 400
-
-Texto secundario
-
-Gray 900
-
-Texto principal
-
----
-
-# Colores de niveles
-
-Estos colores nunca deben cambiar.
-
-| Nivel | Color |
-|--------|--------|
-| A1 | Verde |
-| A2 | Azul |
-| B1 | Púrpura |
-| B2 | Naranja |
-
----
-
-# Espaciado
-
-El espacio es parte del diseño.
-
-Nunca juntar bloques.
-
-Separaciones recomendadas:
-
-Entre secciones:
-
-80–96 px
-
-Entre tarjetas:
-
-24 px
-
-Entre título y texto:
-
-16 px
-
-Entre botones:
-
-12 px
-
----
-
-# Bordes
-
-Cards
-
-rounded-2xl
-
-Botones
-
-rounded-xl
-
-Badges
-
-rounded-full
-
----
-
-# Sombras
-
-Siempre suaves.
-
-Usar:
-
-shadow-sm
-
-o
-
-shadow-md
-
-Nunca sombras agresivas.
-
----
-
-# Tipografía
-
-Fuente:
-
-Inter
-
----
-
-## Hero
-
-40-48 px
-
-Bold
-
----
-
-## Títulos principales
-
-32 px
-
-Bold
-
----
-
-## Subtítulos
-
-24 px
-
-Semibold
-
----
-
-## Texto normal
-
-16 px
-
-Line-height amplio
-
----
-
-## Texto auxiliar
-
-14 px
-
-Gray 500
-
----
-
-# Botones
-
-Todos los botones deben tener:
-
-hover
-
-↓
-
-Ligero cambio de color
-
-active
-
-↓
-
-scale-95
-
-transition
-
-↓
-
-150 ms
-
-Ejemplo:
-
-```
-active:scale-95
-transition-all
-duration-150
-```
-
----
-
-# Cards
-
-Las tarjetas deben transmitir tranquilidad.
-
-Siempre:
-
-•
-
-bordes redondeados
-
-•
-
-mucho padding
-
-•
-
-iconografía sencilla
-
-•
-
-texto corto
-
-Nunca:
-
-•
-
-mucho texto
-
-•
-
-iconos grandes
-
-•
-
-colores fuertes
-
----
-
-# Iconografía
-
-Biblioteca:
-
-Lucide React
-
-Estilo:
-
-simple
-
-lineal
-
-coherente
-
-Nunca mezclar estilos diferentes.
-
----
-
-# Animaciones
-
-Las animaciones deben ser discretas.
-
-Permitidas:
-
-fade
-
-slide
-
-scale
-
-Duración:
-
-150–300 ms
-
-Nunca:
-
-rebotes
-
-giros
-
-animaciones largas
-
----
-
-# Carruseles
-
-En móvil:
-
-scroll horizontal
-
-snap
-
-cards grandes
-
-En desktop:
-
-grid
-
-Nunca carruseles automáticos.
-
-El usuario controla el movimiento.
-
----
-
-# Header
-
-Identidad aprobada:
-
-Inspirado en Notion, sin copiarlo literalmente.
-
-Debe sentirse editorial, ordenado y cercano; nunca como una barra corporativa o una landing comercial genérica.
-
-La marca utiliza una ficha cuadrada con iconografía lineal de idioma, el nombre Språkkafé y la ubicación Oslo en dos líneas.
-
-La navegación usa enlaces discretos con fondos suaves al interactuar. El CTA comunitario se integra en el conjunto y no debe dominar visualmente todo el Header.
-
-Siempre visible.
-
-Sticky.
-
-Transparencia ligera.
-
-Blur.
-
-Tres acciones principales:
-
-•
-
-Actividades
-
-•
-
-Sobre el proyecto
-
-•
-
-Únete
-
-En móvil:
-
-El CTA «Únete» permanece visible.
-
-El menú hamburguesa despliega Inicio, Actividades y Sobre el proyecto con etiquetas claras y una breve descripción.
-
----
-
-# Footer
-
-El footer no es un lugar para esconder enlaces.
-
-La marca visual debe reutilizar la misma ficha de idioma y el mismo nombre en dos líneas aprobados para el Header.
-
-Debe transmitir confianza.
-
-Incluye:
-
-•
-
-identidad
-
-•
-
-proyecto
-
-•
-
-copyright
-
-No añadir enlaces innecesarios.
-
----
-
-# Activity Cards
-
-Cada tarjeta responde a tres preguntas:
-
-¿Qué actividad es?
-
-↓
-
-¿Dónde?
-
-↓
-
-¿Cuándo?
-
-Todo lo demás es secundario.
-
----
-
-# Activity Page
-
-Orden psicológico obligatorio:
-
-1.
-
-Confianza
-
-↓
-
-2.
-
-Interés
-
-↓
-
-3.
-
-Motivación
-
-↓
-
-4.
-
-Decisión
-
-Nunca cambiar este orden.
-
----
-
-# Home
-
-Orden recomendado
-
-1 Hero
-
-↓
-
-2 Categorías
-
-↓
-
-3 Actividades destacadas
-
-↓
-
-4 Misión
-
-↓
-
-5 Cómo funciona
-
-↓
-
-6 Footer
-
-Jerarquía adaptativa aprobada:
-
-- Antes del listado se muestra un único bloque compacto de confianza para la primera visita.
-- Este bloque responde únicamente a tres inseguridades universales: venir solo, escuchar primero y no hablar perfecto.
-- No incluye requisitos concretos de una actividad, botones ni llamadas a la acción que compitan con el listado.
-- El buscador y los filtros aparecen cuando existen al menos cuatro actividades; con menos contenido, el listado directo tiene prioridad.
-- La búsqueda filtra al escribir y mantiene un campo táctil de al menos 48 px.
-- Una única actividad se muestra a ancho completo en móvil, sin carrusel ni controles de desplazamiento.
-- Las descripciones de carruseles y categorías utilizan un mínimo de 14 px en móvil, salvo badges puramente auxiliares.
-- Las categorías solo se muestran cuando existe contenido real para alguna categoría específica.
-- Nunca se muestran categorías vacías o controles deshabilitados únicamente para completar una cuadrícula.
-- Las actividades recomendadas solo aparecen cuando hay al menos cuatro actividades y aportan descubrimiento real.
-- Con una sola actividad, se muestra directamente como «Actividad disponible» y nunca se duplica en varios bloques.
-- Los avisos estacionales contextualizan la disponibilidad sin ocultar la actividad confirmada.
-
-Cierre narrativo aprobado:
-
-- «Nuestra misión» funciona como etiqueta editorial y «Sentirse parte de Noruega» como único título principal del bloque.
-- Las tres ideas —confianza, cultura y personas— tienen el mismo peso y utilizan textos breves de al menos 14 px.
-- La declaración de misión se integra como una cita visual sencilla y memorable: «El idioma es el comienzo. Sentirse parte es la meta.»
-- El CTA final utiliza una superficie blanca y un único botón azul; no compite con el contenido ni repite el Hero.
-- Con una sola actividad el CTA dice «Ver la actividad»; con varias utiliza «Ver actividades».
-- El Footer continúa visualmente el cierre y comparte la misma identidad de marca que el Header.
-
----
-
-# Accesibilidad
-
-Objetivo:
-
-WCAG AA
-
-Siempre comprobar:
-
-Contraste
-
-Área táctil mínima
-
-44x44 px
-
-Navegación con teclado
-
-Textos legibles
-
----
-
-# Responsive
-
-Referencia móvil:
-
-390 px
-
-Tablet:
-
-768 px
-
-Desktop:
-
-1024+
-
-Todo nuevo componente debe revisarse en las tres resoluciones.
-
----
-
-# Componentes reutilizables
-
-Siempre reutilizar antes de crear.
-
-Actualmente existen:
-
-Header
-
-Footer
-
-ActivityCard
-
-SearchBar
-
-Filters
-
-MissionSection
-
-MobileCarousel
-
-ScrollToTop
-
-MobileDetailPanel
-
-No duplicar componentes.
-
----
-
-# Filosofía de UX
-
-El usuario nunca debe preguntarse:
-
-"¿Y ahora qué hago?"
-
-Siempre debe existir una siguiente acción clara.
-
----
-
-# Regla de oro
-
-Si un elemento no ayuda al usuario a encontrar una actividad o a sentirse más seguro para asistir...
-
-...ese elemento no pertenece a Språkkafé Oslo.
+La implementación aprobada es la referencia visual principal. Si este documento y un componente congelado difieren, no se modifica el componente automáticamente: se documenta la diferencia y se abre un sprint específico.

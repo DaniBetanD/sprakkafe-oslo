@@ -1,98 +1,47 @@
-# 🇳🇴 Språkkafé Oslo
+# Documentación del proyecto
 
-Un directorio para descubrir actividades gratuitas donde practicar noruego, conocer personas y sentirse parte de la comunidad.
+Este directorio reúne la documentación activa de Språkkafé Oslo. No todos los archivos tienen la misma autoridad.
 
----
+## Orden de autoridad
 
-## ¿Qué es Språkkafé Oslo?
+1. Decisiones expresas aprobadas por la administradora del proyecto.
+2. `AGENTS.md`, para las reglas obligatorias de ejecución.
+3. `PROJECT_HANDBOOK.md`, para el flujo de trabajo.
+4. Documentos especializados de producto, arquitectura, diseño y contenido.
+5. `PROJECT_STATUS.md` y `../docs/ROADMAP.md`, para estado y prioridades.
+6. `archive/`, únicamente como memoria histórica.
 
-Språkkafé Oslo reúne en un solo lugar las actividades organizadas por bibliotecas, organizaciones y centros comunitarios donde cualquier persona puede practicar noruego en un entorno seguro y acogedor.
+## Documentos activos
 
-Nuestro objetivo no es enseñar gramática.
+| Documento | Función |
+| --- | --- |
+| `PROJECT_VISION.md` | Misión, usuario y dirección de largo plazo |
+| `PROJECT_STATUS.md` | Fotografía factual del producto actual |
+| `PROJECT_HANDBOOK.md` | Forma oficial de trabajar y cerrar sprints |
+| `ARCHITECTURE.md` | Estructura técnica vigente |
+| `DESIGN_SYSTEM.md` | Reglas visuales aprobadas |
+| `UX_PRINCIPLES.md` | Principios de experiencia de usuario |
+| `CONTENT_GUIDELINES.md` | Voz, copy y accesibilidad editorial |
+| `CONTRIBUTING.md` | Formas de colaborar |
+| `ACTIVITY_INTAKE.md` | Alta administrada de actividades |
+| `WEEKLY_VERIFICATION.md` | Revisión dominical de información |
+| `CHANGELOG.md` | Cambios relevantes del producto |
 
-Nuestro objetivo es ayudar a las personas a integrarse en Noruega a través del idioma, la comunidad y la cultura.
+## Documentos fuera de este directorio
 
----
+- `../README.md`: entrada técnica al repositorio.
+- `../docs/ROADMAP.md`: trabajo futuro priorizado.
+- `../docs/BRAND_GUIDELINES.md`: identidad de marca.
+- `../LICENSE`: licencia del repositorio.
 
-## ¿Qué puedes encontrar?
+## Histórico
 
-Actualmente el directorio incluye actividades como:
+Los archivos de `archive/` y `audits/` no contienen instrucciones vigentes. Una propuesta histórica nunca prevalece sobre una decisión aprobada o un documento activo.
 
-- ☕ Språkkafé
-- 🗣️ Norsktrening
-- 👥 Conversation Cafés
-- 👩 Women's Groups
-- 🌍 Intercambios de idiomas
-- 🤝 Actividades comunitarias
+## Mantenimiento
 
-Todas ellas organizadas por entidades oficiales y organizaciones locales.
-
----
-
-## Tecnologías
-
-Este proyecto está construido con:
-
-- React
-- Vite
-- Tailwind CSS
-- React Router
-- Lucide React
-
----
-
-## Estado del proyecto
-
-Actualmente el proyecto se encuentra en fase MVP.
-
-Las principales funcionalidades ya están disponibles:
-
-- Directorio de actividades
-- Búsqueda
-- Filtros
-- Página individual de actividad
-- Página de organizaciones
-- Diseño responsive
-- Optimización UX/UI
-
----
-
-## Roadmap
-
-### MVP
-
-- ✅ Directorio de Oslo
-- ✅ Página de actividades
-- ✅ Página de organizaciones
-
-### Próximas fases
-
-- Newsletter de comunidad
-- Organizaciones verificadas
-- Compartir experiencias
-- Expansión a Bergen
-- Expansión a Trondheim
-- Expansión a Stavanger
-- Expansión nacional
-
----
-
-## Contribuir
-
-¿Conoces una actividad que no aparece?
-
-¿Trabajas en una organización?
-
-¿Quieres colaborar con el proyecto?
-
-Toda ayuda es bienvenida.
-
----
-
-## Nuestra misión
-
-Ayudar a las personas a sentirse parte de Noruega.
-
----
-
-Proyecto independiente.
+- Actualizar `PROJECT_STATUS.md` cuando cambie una capacidad real.
+- Actualizar el roadmap al aprobar o cerrar una fase.
+- Registrar en el changelog solo cambios relevantes para producto u operación.
+- Evitar repetir reglas: enlazar al documento canónico.
+- Añadir la fecha de revisión a documentos vivos.

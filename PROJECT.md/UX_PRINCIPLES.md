@@ -1,544 +1,84 @@
-# UX Principles
-## Språkkafé Oslo
+# Principios UX — Språkkafé Oslo
 
-Versión: MVP 1.0
-Estado: Documento vivo
+Versión: 3.0
+Última actualización: 25 de julio de 2026
 
----
+## Usuario principal
 
-# Filosofía
+Una persona hispanohablante, recién llegada a Noruega, que utiliza principalmente el móvil, dispone de poco tiempo y puede sentir inseguridad antes de asistir.
 
-Språkkafé Oslo no pretende ser un directorio de actividades.
+## Objetivo
 
-Pretende ayudar a una persona que acaba de llegar a Noruega a dar el primer paso.
+Ayudarle a encontrar una actividad adecuada y dar su primer paso con la menor fricción posible.
 
-Cada decisión de diseño debe responder a una pregunta:
+## Principios
 
-> ¿Hace que asistir al primer Språkkafé sea más fácil?
+### 1. Comunidad primero
 
-Si la respuesta es no,
-la funcionalidad probablemente no pertenece al MVP.
+La tecnología debe facilitar conversaciones y pertenencia, no convertirse en protagonista.
 
----
+### 2. Mobile First
 
-# Nuestro usuario
+La experiencia se diseña y valida primero a 390 px.
 
-No diseñamos para todo el mundo.
+### 3. Escaneo rápido
 
-Diseñamos principalmente para:
+El usuario debe reconocer en pocos segundos qué actividad es, cuándo comienza, dónde se realiza y cómo obtener más información.
 
-• Personas hispanohablantes
+### 4. Reducir decisiones
 
-• Nuevas en Noruega
+Mostrar primero las opciones y datos que ayudan a elegir. Evitar filtros, categorías o acciones sin utilidad comprobada.
 
-• Nivel A1–B1
+### 5. Confianza sin promesas excesivas
 
-• Poco conocimiento de la ciudad
+Explicar con honestidad lo conocido y lo desconocido. No utilizar “verificado” como reclamo público ni inventar información ausente.
 
-• Uso principalmente desde móvil
+### 6. Primera visita
 
-• Poco tiempo disponible
+El contenido debe reducir miedo sin obligar al usuario recurrente a atravesar explicaciones repetitivas.
 
-• Baja confianza hablando noruego
+### 7. Accesibilidad
 
----
+Contraste, foco, semántica, áreas táctiles y lenguaje claro forman parte del producto, no son una fase opcional.
 
-# Objetivo principal
+### 8. Consistencia
 
-Reducir la ansiedad.
+Los patrones aprobados se reutilizan. Una mejora aislada no debe cambiar la identidad de otros componentes.
 
-No solamente encontrar actividades.
+### 9. Recuperación
 
-Sino conseguir que una persona diga:
+Los errores deben explicar qué ocurrió y ofrecer una salida clara, como regresar al directorio.
 
-"Creo que puedo ir."
+### 10. Contenido real
 
----
+La estructura se adapta a la información oficial disponible. No se completa una ficha con suposiciones para que parezca uniforme.
 
-# Principios UX
+## Flujo principal
 
-## 1. Mobile First
+```text
+Llegar
+  ↓
+Entender la propuesta
+  ↓
+Buscar o explorar
+  ↓
+Comparar información práctica
+  ↓
+Abrir una actividad
+  ↓
+Contactar o asistir
+```
 
-El móvil es la plataforma principal.
+La newsletter es un flujo secundario y nunca debe competir con encontrar una actividad.
 
-Todo comienza diseñándose en:
+## Criterios de éxito
 
-390 px
+- Encontrar una opción relevante con rapidez.
+- Comprender los datos prácticos.
+- Navegar cómodamente desde móvil.
+- Saber qué hacer cuando falta información.
+- Sentir confianza suficiente para dar el siguiente paso.
 
-Después se adapta a escritorio.
+## Regla de oro
 
-Nunca al revés.
-
----
-
-## 2. Escaneo rápido
-
-El usuario no lee.
-
-Escanea.
-
-Por ello:
-
-•
-
-Títulos claros
-
-•
-
-Mucho espacio
-
-•
-
-Tarjetas pequeñas
-
-•
-
-Información agrupada
-
-•
-
-Pocos párrafos largos
-
----
-
-## 3. Una acción principal
-
-Cada pantalla debe tener una acción clara.
-
-Ejemplos:
-
-Home
-
-↓
-
-Encontrar una actividad
-
-Activity Page
-
-↓
-
-Decidir asistir
-
-Organization Page
-
-↓
-
-Descubrir más actividades
-
----
-
-## 4. Reducir decisiones
-
-No mostrar demasiadas opciones.
-
-El exceso de opciones produce abandono.
-
-Preferimos:
-
-4 categorías muy claras
-
-antes que
-
-20 filtros complicados.
-
----
-
-## 5. Mostrar primero lo importante
-
-Orden psicológico:
-
-1.
-
-Confianza
-
-↓
-
-2.
-
-Información
-
-↓
-
-3.
-
-Beneficios
-
-↓
-
-4.
-
-Acción
-
----
-
-# Jerarquía visual
-
-Cada pantalla debe tener:
-
-Hero
-
-↓
-
-Acción principal
-
-↓
-
-Contenido
-
-↓
-
-Información secundaria
-
-↓
-
-Footer
-
-Nunca mezclar bloques.
-
-Nunca romper el flujo.
-
----
-
-# Flujo emocional
-
-Queremos llevar al usuario por este recorrido:
-
-Curiosidad
-
-↓
-
-Entiendo qué es
-
-↓
-
-Parece fácil
-
-↓
-
-Me interesa
-
-↓
-
-Quiero probar
-
-↓
-
-Asisto
-
----
-
-# Carga cognitiva
-
-Reducir todo lo posible.
-
-Ejemplos:
-
-✔ iconos
-
-✔ colores
-
-✔ badges
-
-✔ tarjetas
-
-✔ listas
-
-Evitar:
-
-❌ texto largo
-
-❌ demasiados botones
-
-❌ información repetida
-
----
-
-# Actividades
-
-Las actividades son el centro del producto.
-
-Nunca deben quedar escondidas.
-
-Pero tampoco ocupar toda la Home.
-
-La Home debe inspirar.
-
-Las actividades deben convertir.
-
----
-
-# Categorías
-
-Las categorías ayudan a descubrir.
-
-No sustituyen al buscador.
-
-No sustituyen los filtros.
-
-Funcionan como accesos rápidos.
-
-MVP:
-
-• Språkkafé hoy
-
-• Familias
-
-• Conversación
-
-• Ver todas
-
-En el futuro podrán crecer.
-
----
-
-# Carruseles
-
-Los carruseles tienen un objetivo:
-
-Reducir scroll.
-
-Nunca esconder contenido importante.
-
-Reglas:
-
-•
-
-Swipe natural
-
-•
-
-Snap obligatorio
-
-•
-
-Una tarjeta visible
-
-•
-
-Indicadores simples
-
----
-
-# Animaciones
-
-Todas las animaciones deben ser:
-
-rápidas
-
-naturales
-
-discretas
-
-Duración recomendada:
-
-150–300 ms
-
-Nunca usar animaciones largas.
-
-Nunca distraer.
-
----
-
-# Botones
-
-Todos los botones deben responder visualmente.
-
-Mínimo:
-
-hover
-
-active
-
-focus
-
-En móvil:
-
-active:scale-95
-
-para generar sensación táctil.
-
----
-
-# Navegación
-
-Debe ser evidente.
-
-Nunca depender del botón Atrás del navegador.
-
-Siempre navegación explícita.
-
-Utilizar:
-
-React Router
-
-+
-
-scrollToId()
-
-Nunca:
-
-history.back()
-
----
-
-# Scroll
-
-El scroll forma parte de la experiencia.
-
-Siempre:
-
-scroll suave
-
-offset para el Header
-
-Nunca:
-
-scrollIntoView()
-
-directamente.
-
----
-
-# Colores
-
-El color comunica significado.
-
-Ejemplo:
-
-Azul
-
-Confianza
-
-Verde
-
-Principiante
-
-Naranja
-
-Intermedio
-
-Rojo
-
-Sólo errores
-
-No utilizar colores aleatorios.
-
----
-
-# Accesibilidad
-
-Objetivo:
-
-WCAG AA
-
-Requisitos:
-
-•
-
-Contraste suficiente
-
-•
-
-Botones grandes
-
-•
-
-Área táctil mínima
-
-44 px
-
-•
-
-Texto legible
-
-•
-
-Focus visible
-
----
-
-# Microcopys
-
-El lenguaje debe ser:
-
-humano
-
-positivo
-
-simple
-
-Nunca burocrático.
-
-Ejemplo:
-
-❌
-
-"No existen resultados"
-
-✔
-
-"No hemos encontrado actividades con esos filtros."
-
----
-
-# Qué NO queremos
-
-No queremos parecer:
-
-•
-
-un directorio antiguo
-
-•
-
-una página institucional
-
-•
-
-una web gubernamental
-
-•
-
-un listado infinito
-
-Queremos parecer:
-
-una comunidad.
-
----
-
-# Definición de éxito
-
-Una persona entra.
-
-En menos de dos minutos:
-
-✔ entiende el proyecto
-
-✔ encuentra una actividad
-
-✔ pierde el miedo
-
-✔ decide asistir
-
-Si conseguimos eso,
-
-la experiencia ha cumplido su objetivo.
-
----
-
-# Regla de oro
-
-Siempre priorizar:
-
-claridad
-
-antes que diseño.
-
-simplicidad
-
-antes que funcionalidades.
-
-personas
-
-antes que tecnología.
+Cada decisión debe reducir una barrera real del usuario sin añadir otra.

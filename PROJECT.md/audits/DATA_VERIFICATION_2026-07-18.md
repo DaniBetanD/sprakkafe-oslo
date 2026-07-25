@@ -1,5 +1,7 @@
 # Verificación de datos — 18 de julio de 2026
 
+> Auditoría histórica. No representa necesariamente el estado actual de las actividades.
+
 ## Criterio
 
 Durante julio solo se publica como activa una actividad con horario de verano confirmado por una fuente oficial. Una página general o un horario ordinario sin información estacional no se considera confirmación suficiente.

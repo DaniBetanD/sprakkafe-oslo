@@ -1,143 +1,66 @@
-# Contributing
+# Cómo contribuir
 
-¡Gracias por querer colaborar con Språkkafé Oslo! 🇳🇴
+Última actualización: 25 de julio de 2026
 
-Este proyecto nace con una idea muy sencilla:
+Språkkafé Oslo acepta aportaciones que mejoren la fiabilidad de la información y ayuden a las personas a encontrar una comunidad donde practicar noruego.
 
-> Ayudar a que más personas se sientan parte de Noruega.
+## Informar sobre una actividad
 
-Toda contribución, grande o pequeña, ayuda a conseguir ese objetivo.
+Utiliza una fuente oficial y proporciona:
 
----
+- nombre de la actividad;
+- organización responsable;
+- enlace oficial;
+- lugar;
+- día y hora conocidos;
+- cualquier cambio o fecha de actualización relevante.
 
-# ¿Cómo puedes ayudar?
+La incorporación sigue `ACTIVITY_INTAKE.md`. La administradora revisa y aprueba la ficha antes de modificar datos o publicar.
 
-No hace falta ser desarrollador.
+## Solicitar una corrección
 
-Hay muchas formas de contribuir.
+Las organizaciones pueden utilizar el contacto del footer para:
 
-## Encontrando nuevos grupos
+- añadir una organización o actividad;
+- corregir horarios, dirección o enlaces;
+- informar sobre vacaciones o cancelaciones;
+- solicitar la retirada de información.
 
-¿Conoces un Språkkafé?
-
-¿Un grupo de conversación?
-
-¿Una biblioteca que organiza actividades?
-
-¿Un Norsktrening?
-
-Puedes ayudarnos a incorporarlo al directorio.
-
----
-
-## Corrigiendo información
-
-Los horarios cambian.
-
-Las organizaciones se mudan.
-
-Los enlaces dejan de funcionar.
-
-Si detectas algún error, estaremos encantados de corregirlo.
-
----
-
-## Mejorando la experiencia
-
-Siempre buscamos hacer el proyecto más sencillo.
-
-Puedes proponer mejoras relacionadas con:
-
-- UX
-- UI
-- Accesibilidad
-- Responsive
-- Rendimiento
-
----
+Incluye la URL oficial que respalda el cambio siempre que sea posible.
 
 ## Desarrollo
 
-Si eres desarrollador puedes contribuir mediante Pull Requests.
+Antes de comenzar:
 
-Antes de comenzar, revisa:
+1. Lee `AGENTS.md`.
+2. Consulta `PROJECT_HANDBOOK.md`.
+3. Revisa `PROJECT_STATUS.md` y el documento especializado relacionado.
+4. Confirma que existe un sprint con objetivo y alcance definidos.
 
-- PROJECT_VISION.md
-- DESIGN_PRINCIPLES.md
+Validación mínima:
 
-Estos documentos explican la filosofía del proyecto y sirven como guía para cualquier decisión de diseño o desarrollo.
+```bash
+npm run lint
+npm run build
+```
 
----
+Los cambios visuales se revisan primero a 390 px y después en escritorio.
 
-# Antes de añadir una nueva funcionalidad
+## Principios
 
-Hazte siempre esta pregunta:
+- Resolver una necesidad real.
+- Aplicar la mínima intervención.
+- No reabrir decisiones aprobadas.
+- No inventar datos ausentes.
+- Mantener accesibilidad y claridad.
+- No añadir dependencias o funcionalidades fuera del sprint.
 
-> ¿Esto ayuda a que una persona se sienta parte de Noruega?
+## Pull requests y commits
 
-Si la respuesta es sí...
+Un cambio debe ser coherente, revisable y limitado al objetivo. Utiliza mensajes como `fix:`, `feat:`, `docs:`, `refactor:` o `chore:` según corresponda.
 
-Vamos por buen camino.
+No incluyas secretos, `.env.local`, artefactos generados o dependencias instaladas.
 
----
+## Gracias
 
-# Nuestros principios
-
-Cuando contribuimos al proyecto intentamos mantener siempre estos valores.
-
-- Simplicidad
-- Claridad
-- Comunidad
-- Accesibilidad
-- Confianza
-- Respeto por las organizaciones
-
----
-
-# Código
-
-Intentamos mantener un código sencillo.
-
-Preferimos:
-
-- Componentes pequeños.
-- Nombres descriptivos.
-- Reutilizar antes que duplicar.
-- Comentarios únicamente cuando aportan contexto.
-
----
-
-# Diseño
-
-El protagonista nunca es la interfaz.
-
-El protagonista son las personas.
-
-Cada pantalla debe ayudar a encontrar una actividad de la forma más sencilla posible.
-
----
-
-# Reportar un nuevo grupo
-
-Si quieres añadir una nueva actividad intenta incluir:
-
-- Nombre
-- Organización
-- Dirección
-- Barrio
-- Día
-- Horario
-- Nivel
-- Página oficial
-
-Así podremos verificar la información rápidamente.
-
----
-
-# Gracias
-
-Este proyecto existe gracias al trabajo de cientos de bibliotecas, voluntarios y organizaciones que crean espacios seguros para conversar.
-
-Nuestro objetivo es ayudar a que más personas puedan encontrarlos.
-
-❤️ Gracias por formar parte de esta comunidad.
+Cada corrección ayuda a que otra persona encuentre un lugar donde practicar, conocer gente y sentirse parte de Noruega.

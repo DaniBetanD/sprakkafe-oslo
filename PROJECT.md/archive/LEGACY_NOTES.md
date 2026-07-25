@@ -1,3 +1,7 @@
+# Archivo histórico — notas antiguas
+
+> No contiene instrucciones ni trabajo aprobado vigente. Se conserva únicamente como contexto histórico.
+
 Lo que NOS FALTA (Trabajo pendiente)
 F1.1 — Navegación Global: Nos falta cazar y eliminar todos los enlaces muertos (href="#") que queden en el Footer o en las secciones de la Home.
 

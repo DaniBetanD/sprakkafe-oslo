@@ -1,3 +1,7 @@
+# Archivo histórico — Git Workflow
+
+> Su contenido vigente se consolidó en `PROJECT_HANDBOOK.md`. No debe utilizarse como instrucción actual.
+
 # Språkkafé Oslo
 # Git Workflow
 

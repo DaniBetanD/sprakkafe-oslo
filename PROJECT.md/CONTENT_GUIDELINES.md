@@ -1,476 +1,146 @@
-# Manual de Contenidos
-## Språkkafé Oslo
+# Guía de contenidos — Språkkafé Oslo
 
-Versión: 1.0
-Estado: Documento vivo
+Versión: 3.0
+Última actualización: 25 de julio de 2026
 
----
+## Objetivo
 
-# Objetivo
+Ayudar al usuario a comprender rápidamente una actividad y sentirse preparado para dar el siguiente paso.
 
-El contenido es el principal producto de Språkkafé Oslo.
+## Voz
 
-No estamos construyendo únicamente una web.
+El contenido debe ser:
 
-Estamos ayudando a que una persona encuentre el lugar donde empezará a sentirse parte de Noruega.
+- claro;
+- cercano;
+- inclusivo;
+- útil;
+- honesto;
+- esperanzador sin exagerar.
 
-Cada palabra debe reducir incertidumbre.
+Escribimos para personas hispanohablantes con distintos niveles de comprensión. Preferimos palabras cotidianas, frases cortas y una idea principal por párrafo.
 
-Cada pantalla debe aumentar la confianza.
+## Qué evitar
 
-Cada actividad debe invitar a participar.
+- Lenguaje administrativo o técnico.
+- Promesas que la organización no haya publicado.
+- Urgencia artificial.
+- Párrafos largos.
+- Repetir la misma explicación en varios bloques.
+- Presentar como hecho una suposición.
+- Utilizar “verificado” como reclamo comercial.
 
----
+## Información oficial
 
-# Principios editoriales
+- Basar horarios, lugar, nivel, modalidad y disponibilidad en fuentes oficiales.
+- No asumir que una actividad es gratuita porque otras lo sean.
+- Si no consta el precio, indicar que se contacte con la entidad.
+- Si solo consta la hora de inicio, mostrar únicamente esa hora.
+- No estimar la duración.
+- Comunicar vacaciones, pausas y horarios especiales de forma explícita.
 
-Todo el contenido debe cumplir cinco principios.
+La revisión administrativa sigue siendo obligatoria antes de publicar.
 
-## 1. Claro
+## Jerarquía de una actividad
 
-El usuario debe entender la información en pocos segundos.
+Priorizar:
 
-Evitar frases largas.
+1. Nombre.
+2. Día y hora conocidos.
+3. Lugar o modalidad.
+4. Organización.
+5. Nivel o público cuando conste.
+6. Instrucciones para participar.
+7. Enlace oficial.
 
-Evitar burocracia.
-
-Evitar lenguaje técnico.
-
-Ejemplo:
-
-❌ Actividad orientada a la práctica comunicativa del idioma noruego.
-
-✅ Practica noruego hablando con otras personas.
-
----
-
-## 2. Cercano
-
-La web debe sentirse humana.
-
-No institucional.
-
-No fría.
-
-No comercial.
-
-La sensación debe ser:
-
-"Alguien preparó esto para ayudarme."
-
----
-
-## 3. Inclusivo
-
-Nunca asumir:
-
-• nacionalidad
-
-• edad
-
-• nivel educativo
-
-• experiencia previa
-
-Todos son bienvenidos.
-
----
-
-## 4. Útil
-
-Cada texto debe responder una pregunta del usuario.
-
-¿Dónde?
-
-¿Cuándo?
-
-¿Para quién?
-
-¿Qué hago?
-
-¿Qué puedo esperar?
-
-Si un texto no aporta información útil, probablemente sobra.
-
----
-
-## 5. Inspirador
-
-No solamente informamos.
-
-También motivamos.
-
-Queremos reducir el miedo a asistir por primera vez.
-
-Ejemplo:
-
-"No hace falta hablar perfecto."
-
-"Puedes venir solo."
-
-"Todos empiezan alguna vez."
-
----
-
-# Tono de voz
-
-La personalidad de Språkkafé Oslo es:
-
-Amable.
-
-Optimista.
-
-Cercana.
-
-Respetuosa.
-
-Sencilla.
-
-Nunca infantil.
-
-Nunca exagerada.
-
-Nunca comercial.
-
----
-
-# Qué evitar
-
-No utilizar frases como:
-
-"Somos los mejores..."
-
-"La mejor plataforma..."
-
-"Increíble experiencia..."
-
-"100% garantizado"
-
-No vender.
-
-No presionar.
-
-No generar falsas expectativas.
-
----
-
-# Regla del lenguaje
-
-Siempre escribir pensando en una persona que:
-
-• lleva poco tiempo en Noruega
-
-• está aprendiendo noruego
-
-• probablemente consulta desde el móvil
-
-• puede tener un nivel limitado de español
-
-Por ello:
-
-✔ frases cortas
-
-✔ verbos sencillos
-
-✔ estructura simple
-
----
-
-# Longitud recomendada
+La descripción complementa estos datos; no debe ocultarlos ni repetirlos.
 
 ## Títulos
 
-Entre 3 y 8 palabras.
-
-Ejemplo:
-
-Practica noruego con otras personas
-
----
-
-## Subtítulos
-
-Una o dos frases.
-
-Nunca párrafos largos.
-
----
+- Describir el contenido, no adornarlo.
+- Mantener el nombre oficial cuando sea útil para reconocer la actividad.
+- Evitar mayúsculas sostenidas y signos innecesarios.
+- Diferenciar actividades similares mediante organización, lugar o temporada.
 
 ## Descripciones
 
-Entre 40 y 90 palabras.
+- Empezar por lo que el usuario puede hacer.
+- Explicar particularidades prácticas.
+- Separar información emocional de instrucciones.
+- Eliminar frases que no ayuden a decidir o prepararse.
 
----
+## Botones y enlaces
 
-## Botones
+Usar un verbo y un resultado reconocible:
 
-Máximo 3 palabras.
+- Ver actividades
+- Ver detalles
+- Contactar con la organización
+- Unirme a la comunidad
+- Volver a actividades
 
-Ejemplos:
+Usar el menor número de palabras que permita entender la acción. No existe un máximo rígido si una etiqueta más larga evita ambigüedad.
 
-Ver actividad
+No utilizar “Más”, “Aquí” o “Continuar” cuando puedan ser ambiguos fuera de contexto.
 
-Más información
+## Estados y errores
 
-Cómo llegar
+Un mensaje debe:
 
-Guardar
-
-Compartir
-
----
-
-# Actividades
-
-Cada actividad debe responder rápidamente:
-
-Qué es
-
-Dónde
-
-Cuándo
-
-Quién puede asistir
-
-Qué nivel necesita
-
-Cómo participar
-
-Nunca esconder información importante.
-
----
-
-# Organización
-
-Cada organización debe explicar:
-
-Quién organiza
-
-Qué actividades ofrece
-
-Dónde se encuentra
-
-Cómo contactar
-
-Página web
-
----
-
-# Hero
-
-El Hero debe responder inmediatamente:
-
-¿Qué es esta web?
-
-¿Para quién?
-
-¿Por qué debería seguir leyendo?
-
-Regla:
-
-5 segundos.
-
-Si en cinco segundos el usuario no entiende el propósito, el Hero debe rediseñarse.
-
----
-
-# Mission Section
-
-Debe inspirar.
-
-No vender.
-
-Debe explicar:
-
-Por qué existe Språkkafé Oslo.
-
-Qué problema intenta resolver.
-
-Qué impacto busca.
-
----
-
-# Cómo funciona
-
-Debe ser extremadamente visual.
-
-Máximo tres pasos.
+1. Explicar brevemente qué sucede.
+2. Evitar culpar al usuario.
+3. Ofrecer una salida concreta.
 
 Ejemplo:
 
-1. Encuentra una actividad
+> Esta actividad no está disponible ahora. Puedes volver al directorio y encontrar otra opción.
 
-2. Participa
+## Newsletter
 
-3. Vuelve cuando quieras
+El copy debe explicar:
 
----
+- qué recibirá la persona;
+- con qué propósito se utilizará su email;
+- que puede darse de baja;
+- qué acción confirma la suscripción.
 
-# Tarjetas
+La propuesta debe inspirar sin competir con el objetivo principal de encontrar una actividad.
 
-Las tarjetas deben mostrar únicamente la información imprescindible.
+## Organizaciones
 
-Prioridad:
+Hablar con respeto y precisión. Facilitar que una organización solicite un alta, corrección o retirada. No insinuar colaboración, validación o respaldo si no existe confirmación expresa.
 
-Nombre
+## Emojis
 
-Horario
+Usarlos con moderación para aportar calidez o facilitar el escaneo. Nunca deben sustituir información, etiquetas accesibles o iconos funcionales.
 
-Lugar
+## SEO
 
-Nivel
+- Un único `h1` por página.
+- Encabezados en orden lógico.
+- Títulos y descripciones naturales.
+- Enlaces con texto descriptivo.
+- No añadir texto irrelevante para aumentar una métrica.
 
-Organización
+## Accesibilidad editorial
 
-Nunca añadir texto innecesario.
+- Lenguaje sencillo.
+- Enlaces comprensibles fuera de contexto.
+- Texto alternativo que describa la función de la imagen.
+- Evitar instrucciones basadas solo en color o posición.
+- No incluir información esencial únicamente dentro de una imagen.
 
----
+## Revisión
 
-# Mensajes de error
+Antes de aprobar un texto:
 
-Siempre explicar qué ocurre.
+- ¿Se entiende al leerlo una sola vez?
+- ¿Ayuda a decidir o actuar?
+- ¿Distingue hechos de información desconocida?
+- ¿Mantiene el tono humano del proyecto?
+- ¿Evita repetir contenido cercano?
+- ¿Funciona en una pantalla móvil?
 
-Siempre ofrecer una solución.
+## Regla de oro
 
-Ejemplo:
-
-❌ Error.
-
-✅ No hemos encontrado actividades con esos filtros.
-Prueba a ampliar la búsqueda.
-
----
-
-# Estados vacíos
-
-Nunca dejar una pantalla vacía.
-
-Siempre explicar.
-
-Ejemplo:
-
-Todavía no hay actividades para este filtro.
-
-Prueba otro barrio o elimina algunos filtros.
-
----
-
-# Microcopys
-
-Los pequeños textos tienen mucho impacto.
-
-Ejemplos:
-
-No hace falta inscripción.
-
-Actividad gratuita.
-
-Todos los niveles.
-
-Puedes venir solo.
-
-Ambiente relajado.
-
----
-
-# Emojis
-
-Uso moderado.
-
-Solo cuando aporten claridad.
-
-Ejemplos:
-
-📍 ubicación
-
-🕒 horario
-
-🌍 idiomas
-
-🤝 comunidad
-
-Evitar abusar de ellos.
-
----
-
-# Idiomas
-
-La versión principal es español.
-
-En el futuro existirán:
-
-Noruego
-
-Inglés
-
-Portugués
-
-Ucraniano
-
-Árabe
-
-Todos los textos deberán ser fácilmente traducibles.
-
-Evitar expresiones locales.
-
-Evitar juegos de palabras.
-
----
-
-# SEO
-
-Cada página debe tener:
-
-Un único H1.
-
-Jerarquía correcta H2 → H3.
-
-Descripción clara.
-
-URLs limpias.
-
-Contenido original.
-
----
-
-# Accesibilidad
-
-No depender únicamente del color.
-
-Utilizar títulos claros.
-
-Botones descriptivos.
-
-Texto alternativo en imágenes.
-
-Contraste suficiente.
-
-Lenguaje comprensible.
-
----
-
-# Revisión editorial
-
-Antes de publicar cualquier contenido comprobar:
-
-□ ¿Es fácil de entender?
-
-□ ¿Aporta valor?
-
-□ ¿Reduce dudas?
-
-□ ¿Invita a participar?
-
-□ ¿Suena cercano?
-
-□ ¿Se entiende en móvil?
-
-Si alguna respuesta es "no", el contenido debe revisarse.
-
----
-
-# Filosofía editorial
-
-Cada palabra debe ayudar a que una persona dé el paso de asistir a su primer Språkkafé.
-
-Ese es el verdadero objetivo del proyecto.
+Cada frase debe reducir una duda, explicar una acción o hacer que la persona se sienta bienvenida.
