@@ -1,10 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Heart, X } from "lucide-react";
 
 export default function CommunitySignupModal({ onClose }) {
     const dialogRef = useRef(null);
     const recaptchaRef = useRef(null);
+    const [submitted, setSubmitted] = useState(false);
 
     useEffect(() => {
         const appRoot = document.getElementById("root");
@@ -109,32 +110,44 @@ export default function CommunitySignupModal({ onClose }) {
                 </div>
 
                 <h2 id="community-modal-title" className="text-2xl font-bold tracking-tight text-gray-900">
-                    Tu primer paso empieza aquí
+                    {submitted ? "Revisa tu correo" : "Tu primer paso empieza aquí"}
                 </h2>
                 <p id="community-modal-description" className="mt-2 text-sm leading-relaxed text-gray-600">
-                    Descubre nuevos lugares donde practicar noruego, conocer personas y sentirte más cerca de Oslo.
+                    {submitted
+                        ? "Te hemos enviado un mensaje para confirmar tu suscripción. Si no lo encuentras, revisa la carpeta de spam."
+                        : "Descubre nuevos lugares donde practicar noruego, conocer personas y sentirte más cerca de Oslo."}
                 </p>
 
-                <form
-                    className="mt-6 space-y-4"
-                    action="https://assets.mailerlite.com/jsonp/2519322/forms/193542070263088770/subscribe"
-                    method="post"
-                    target="_blank"
-                >
-                    <div>
-                        <label htmlFor="community-email" className="mb-2 block text-sm font-semibold text-gray-900">
-                            Tu email
-                        </label>
-                        <input
-                            id="community-email"
-                            type="email"
-                            name="fields[email]"
-                            autoComplete="email"
-                            required
-                            placeholder="tu@email.com"
-                            className="min-h-12 w-full rounded-xl border border-gray-300 px-4 text-base text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
-                        />
-                    </div>
+                {submitted ? (
+                    <button
+                        type="button"
+                        onClick={onClose}
+                        className="mt-6 min-h-12 w-full rounded-xl bg-blue-600 px-4 font-semibold text-white transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+                    >
+                        Entendido
+                    </button>
+                ) : (
+                    <form
+                        className="mt-6 space-y-4"
+                        action="https://assets.mailerlite.com/jsonp/2519322/forms/193542070263088770/subscribe"
+                        method="post"
+                        target="community-signup-response"
+                        onSubmit={() => setSubmitted(true)}
+                    >
+                        <div>
+                            <label htmlFor="community-email" className="mb-2 block text-sm font-semibold text-gray-900">
+                                Tu email
+                            </label>
+                            <input
+                                id="community-email"
+                                type="email"
+                                name="fields[email]"
+                                autoComplete="email"
+                                required
+                                placeholder="tu@email.com"
+                                className="min-h-12 w-full rounded-xl border border-gray-300 px-4 text-base text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
+                            />
+                        </div>
 
                     <p className="text-xs leading-relaxed text-gray-600">
                         Solo te escribiremos cuando tengamos actividades, cambios de horario o novedades útiles para ti.
@@ -162,7 +175,9 @@ export default function CommunitySignupModal({ onClose }) {
                     >
                         Quiero formar parte
                     </button>
-                </form>
+                    </form>
+                )}
+                <iframe className="hidden" name="community-signup-response" title="Respuesta de suscripción" />
             </div>
         </div>,
         document.body,
