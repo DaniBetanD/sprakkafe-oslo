@@ -67,7 +67,7 @@ export default function Footer() {
                     <p className="text-sm text-gray-500">
                         Hecho con cariño ❤️ para ayudar a más personas a sentirse parte de Noruega.
                     </p>
-                    <p className="text-xs text-gray-400 font-medium">
+                    <p className="text-xs text-gray-500 font-medium">
                         © {new Date().getFullYear()} Språkkafé Oslo
                     </p>
                 </div>
