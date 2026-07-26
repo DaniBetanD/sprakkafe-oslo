@@ -25,6 +25,8 @@ Este directorio reúne la documentación activa de Språkkafé Oslo. No todos lo
 | `CONTRIBUTING.md` | Formas de colaborar |
 | `ACTIVITY_INTAKE.md` | Alta administrada de actividades |
 | `WEEKLY_VERIFICATION.md` | Revisión dominical de información |
+| `ORGANIZATION_OUTREACH.md` | Contacto administrado con organizaciones |
+| `ORGANIZATION_EMAIL_DRAFTS.md` | Borradores individuales preparados para Gmail |
 | `CHANGELOG.md` | Cambios relevantes del producto |
 
 ## Documentos fuera de este directorio

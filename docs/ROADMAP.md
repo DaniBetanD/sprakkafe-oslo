@@ -2,7 +2,7 @@
 
 Versión: 2.0
 Estado: Documento vivo
-Última actualización: 25 de julio de 2026
+Última actualización: 26 de julio de 2026
 
 ## Objetivo
 
@@ -29,9 +29,13 @@ El roadmap contiene trabajo futuro. El estado de lo ya implementado se mantiene 
 Prioridad alta:
 
 - Mantener actualizados los horarios y estados de verano.
-- Completar la consolidación documental.
+- Establecer contacto directo y administrado con las organizaciones.
 - Validar periódicamente suscripción, navegación, enlaces compartidos y páginas de detalle.
 - Medir errores reales antes de incorporar nuevas funcionalidades.
+
+Sprint activo:
+
+- `ORG-REL-001` — Primer contacto con organizaciones.
 
 ## Próxima fase — Operación y contenidos
 

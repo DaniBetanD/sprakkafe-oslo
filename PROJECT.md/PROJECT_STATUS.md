@@ -2,7 +2,7 @@
 
 Versión: 3.0
 Estado: Documento vivo
-Última actualización: 25 de julio de 2026
+Última actualización: 26 de julio de 2026
 
 ## Estado general
 
@@ -70,7 +70,7 @@ No se rediseñan fuera de un sprint específico:
 
 ## Trabajo actual
 
-- Consolidación documental.
+- `ORG-REL-001`: preparación del primer contacto con organizaciones.
 - Mantenimiento de información estacional.
 - QA periódico de suscripción, enlaces, rutas y producción.
 
