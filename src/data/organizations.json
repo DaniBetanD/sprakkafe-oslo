@@ -10,7 +10,7 @@
         "logo": "🔴",
         "verified": true,
         "description": "Røde Kors ofrece norsktrening gratuito en múltiples ubicaciones de Oslo. Grupos de conversación y práctica estructurada para todos los niveles.",
-        "lastChecked": "2026-07-18"
+        "lastChecked": "2026-07-26"
     },
     {
         "id": "deichman",
@@ -23,7 +23,7 @@
         "logo": "📚",
         "verified": true,
         "description": "Las bibliotecas Deichman organizan språkkafé en varios distritos de Oslo. Ambiente relajado y sin estructura escolar.",
-        "lastChecked": "2026-07-18"
+        "lastChecked": "2026-07-26"
     },
     {
         "id": "caritas",
@@ -36,7 +36,7 @@
         "logo": "🤝",
         "verified": true,
         "description": "Caritas ofrece språktrening estructurado y språkkafé informal en el centro de Oslo. Combinan aprendizaje formal con conversación.",
-        "lastChecked": "2026-07-18"
+        "lastChecked": "2026-07-26"
     },
     {
         "id": "casa-cultural",
@@ -49,7 +49,7 @@
         "logo": "🏠",
         "verified": true,
         "description": "Casa Cultural es una casa de cultura hispana en Oslo que crea espacios inclusivos de idioma, cultura y comunidad para personas de todas las edades.",
-        "lastChecked": "2026-07-24"
+        "lastChecked": "2026-07-26"
     },
     {
         "id": "kia-norge",
@@ -62,7 +62,7 @@
         "logo": "🤝",
         "verified": true,
         "description": "KIA Norge crea espacios de encuentro entre culturas, idiomas y religiones. KIA Øst organiza actividades de integración y práctica del noruego en Oslo.",
-        "lastChecked": "2026-07-24"
+        "lastChecked": "2026-07-26"
     },
     {
         "id": "norskstart",
@@ -75,7 +75,7 @@
         "logo": "🎓",
         "verified": true,
         "description": "Organización estudiantil de OsloMet que ofrece språkkafé gratuito durante el semestre para personas inmigrantes. Cuadernillos semanales A1-B2.",
-        "lastChecked": "2026-07-18"
+        "lastChecked": "2026-07-26"
     },
     {
         "id": "haugerud",
@@ -88,7 +88,7 @@
         "logo": "🏠",
         "verified": true,
         "description": "Antigua Haugerud Frivilligsentral, integrada desde 2025 en Nabolagshuset de Trosterud. El centro está de vacaciones del 3 de julio al 17 de agosto de 2026.",
-        "lastChecked": "2026-07-18"
+        "lastChecked": "2026-07-26"
     },
     {
         "id": "pauluskirke",
@@ -101,7 +101,7 @@
         "logo": "⛪",
         "verified": true,
         "description": "La iglesia Paulus ofrece språkkafé los jueves de 10:00 a 12:00 durante la temporada ordinaria. La actividad está de pausa y regresa después de las vacaciones de verano.",
-        "lastChecked": "2026-07-18"
+        "lastChecked": "2026-07-26"
     },
     {
         "id": "ethnos",
@@ -114,7 +114,7 @@
         "logo": "🌍",
         "verified": false,
         "description": "Organización asociada anteriormente a cursos de noruego. No se ha podido confirmar una programación oficial vigente para el verano de 2026.",
-        "lastChecked": "2026-07-18"
+        "lastChecked": "2026-07-26"
     },
     {
         "id": "alfaskolen",
@@ -127,7 +127,7 @@
         "logo": "✏️",
         "verified": true,
         "description": "Escuela de noruego en Kongens gate 15. Su språkkafé gratuito está en pausa desde primavera de 2026 y todavía no ha publicado una nueva fecha.",
-        "lastChecked": "2026-07-18"
+        "lastChecked": "2026-07-26"
     },
     {
         "id": "sagene",
@@ -140,7 +140,7 @@
         "logo": "🏘️",
         "verified": true,
         "description": "Centro de voluntariado ubicado en Sandakerveien 61. Su programación oficial de 2026 publica cursos de noruego con inscripción, pero no confirma el antiguo språkkafé dominical.",
-        "lastChecked": "2026-07-18"
+        "lastChecked": "2026-07-26"
     },
     {
         "id": "toyen-frivilligsentral",
@@ -153,6 +153,6 @@
         "logo": "🏘️",
         "verified": true,
         "description": "Centro municipal de voluntariado con sede en Kolstadgata 1. Colabora con Deichman Tøyen en actividades lingüísticas; la actividad de los lunes figura durante la temporada, pero no se ha confirmado su continuidad en julio.",
-        "lastChecked": "2026-07-18"
+        "lastChecked": "2026-07-26"
     }
 ]

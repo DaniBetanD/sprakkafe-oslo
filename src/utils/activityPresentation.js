@@ -27,6 +27,21 @@ export function isActivityAvailableOn(activity, date = new Date()) {
   return getActivityAvailability(activity, date) === "active";
 }
 
+export function isActivityVisible(activity, date = new Date()) {
+  const availability = getActivityAvailability(activity, date);
+
+  if (availability === "expired") {
+    return false;
+  }
+  if (availability !== "upcoming" || !activity.availableFrom) {
+    return true;
+  }
+
+  const visibleFrom = new Date(`${activity.availableFrom}T00:00:00`);
+  visibleFrom.setDate(visibleFrom.getDate() - 7);
+  return date >= visibleFrom;
+}
+
 export function formatAvailableFrom(date) {
   return new Intl.DateTimeFormat("es-ES", {
     day: "numeric",

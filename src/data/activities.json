@@ -16,9 +16,117 @@
     "arrivalAdvice": "Llega al menos 15 minutos antes. La actividad tiene plazas limitadas.",
     "format": "Conversación en grupos organizados por nivel.",
     "status": "active",
+    "availableUntil": "2026-08-03",
     "seasonNote": "Horario especial de verano hasta el 3 de agosto. La programación ordinaria vuelve el 10 de agosto.",
     "sourceUrl": "https://www.rodekors.no/lokalforeninger/oslo/sommer-oslo-rode-kors/",
-    "lastChecked": "2026-07-24"
+    "lastChecked": "2026-07-26"
+  },
+  {
+    "id": "rodekors-hausmann",
+    "organizationId": "rodekors",
+    "name": "Norsktrening Røde Kors — Hausmanns gate",
+    "district": "Sentrum",
+    "days": ["Tuesday", "Wednesday", "Saturday"],
+    "day": "Tuesday",
+    "time": "11:00",
+    "endTime": "13:00",
+    "level": "all",
+    "address": "Hausmanns gate 23, 0182 Oslo",
+    "description": "Práctica presencial de noruego oral en grupos guiados por personas voluntarias.",
+    "cost": "free",
+    "registration": "none",
+    "canComeAlone": true,
+    "arrivalAdvice": "Llega al menos 15 minutos antes. La actividad tiene plazas limitadas.",
+    "format": "Conversación en grupos organizados por nivel.",
+    "status": "upcoming",
+    "availableFrom": "2026-08-10",
+    "seasonNote": "La programación ordinaria vuelve después del horario especial de verano.",
+    "sourceUrl": "https://www.rodekors.no/lokalforeninger/oslo/aktiviteter/flyktninger-innvandrere/norsktrening/",
+    "lastChecked": "2026-07-26"
+  },
+  {
+    "id": "rodekors-bjorvika",
+    "organizationId": "rodekors",
+    "name": "Norsktrening en Deichman Bjørvika",
+    "district": "Sentrum",
+    "day": "Monday",
+    "time": "17:00",
+    "endTime": "19:00",
+    "level": "all",
+    "address": "Anne-Cath. Vestlys plass 1, 0150 Oslo",
+    "description": "Práctica de noruego oral organizada por Røde Kors en Deichman Bjørvika.",
+    "cost": "free",
+    "registration": "none",
+    "canComeAlone": true,
+    "arrivalAdvice": "Llega al menos 30 minutos antes. La actividad tiene plazas limitadas.",
+    "format": "Conversación en grupos organizados por nivel.",
+    "status": "upcoming",
+    "availableFrom": "2026-08-10",
+    "sourceUrl": "https://www.rodekors.no/lokalforeninger/oslo/aktiviteter/flyktninger-innvandrere/norsktrening/",
+    "lastChecked": "2026-07-26"
+  },
+  {
+    "id": "rodekors-furuset",
+    "organizationId": "rodekors",
+    "name": "Norsktrening en Deichman Furuset",
+    "district": "Alna",
+    "day": "Tuesday",
+    "time": "17:00",
+    "endTime": "19:00",
+    "level": "all",
+    "address": "Trygve Lies plass 5, 1051 Oslo",
+    "description": "Práctica de noruego oral organizada por Røde Kors en Deichman Furuset.",
+    "cost": "free",
+    "registration": "none",
+    "canComeAlone": true,
+    "arrivalAdvice": "Llega al menos 15 minutos antes. La actividad tiene plazas limitadas.",
+    "format": "Conversación en grupos organizados por nivel.",
+    "status": "upcoming",
+    "availableFrom": "2026-08-10",
+    "sourceUrl": "https://www.rodekors.no/lokalforeninger/oslo/aktiviteter/flyktninger-innvandrere/norsktrening/",
+    "lastChecked": "2026-07-26"
+  },
+  {
+    "id": "rodekors-grunerlokka",
+    "organizationId": "rodekors",
+    "name": "Norsktrening en Deichman Grünerløkka",
+    "district": "Grünerløkka",
+    "day": "Monday",
+    "time": "17:00",
+    "endTime": "19:00",
+    "level": "all",
+    "address": "Schous plass 10, 0552 Oslo",
+    "description": "Práctica de noruego oral organizada por Røde Kors en Deichman Grünerløkka.",
+    "cost": "free",
+    "registration": "none",
+    "canComeAlone": true,
+    "arrivalAdvice": "Llega al menos 15 minutos antes. La actividad tiene plazas limitadas.",
+    "format": "Conversación en grupos organizados por nivel.",
+    "status": "upcoming",
+    "availableFrom": "2026-08-10",
+    "sourceUrl": "https://www.rodekors.no/lokalforeninger/oslo/aktiviteter/flyktninger-innvandrere/norsktrening/",
+    "lastChecked": "2026-07-26"
+  },
+  {
+    "id": "rodekors-veitvet",
+    "organizationId": "rodekors",
+    "name": "Norsktrening en Veitvet Senter",
+    "district": "Bjerke",
+    "day": "Wednesday",
+    "time": "17:00",
+    "endTime": "19:00",
+    "level": "all",
+    "address": "Veitvetveien 8, 0596 Oslo",
+    "description": "Práctica de noruego oral organizada por Røde Kors en Veitvet Senter.",
+    "cost": "free",
+    "registration": "none",
+    "canComeAlone": true,
+    "arrivalAdvice": "Llega al menos 15 minutos antes. La actividad tiene plazas limitadas.",
+    "format": "Conversación en grupos organizados por nivel, con servicio sencillo de comida y actividades para niños.",
+    "status": "upcoming",
+    "availableFrom": "2026-08-10",
+    "sourceUrl": "https://www.rodekors.no/lokalforeninger/oslo/aktiviteter/flyktninger-innvandrere/norsktrening/",
+    "lastChecked": "2026-07-26"
   },
   {
     "id": "deichman-stovner",
@@ -36,8 +144,9 @@
     "canComeAlone": true,
     "format": "Conversación informal en grupo.",
     "status": "active",
-    "sourceUrl": "https://deichman.no/event/sprakkaf_b8zMkZe7fJ",
-    "lastChecked": "2026-07-24"
+    "availableUntil": "2026-12-11",
+    "sourceUrl": "https://yplev.rmy.no/%40deichman/event/sprakkafe-9",
+    "lastChecked": "2026-07-26"
   },
   {
     "id": "deichman-holmlia",
@@ -55,8 +164,9 @@
     "canComeAlone": true,
     "format": "Conversación informal en grupo.",
     "status": "active",
+    "availableUntil": "2026-12-30",
     "sourceUrl": "https://yplev.rmy.no/%40deichman/event/sprakkafe-6",
-    "lastChecked": "2026-07-24"
+    "lastChecked": "2026-07-26"
   },
   {
     "id": "deichman-roa",
@@ -74,8 +184,9 @@
     "canComeAlone": true,
     "format": "Conversación informal en grupo.",
     "status": "active",
+    "availableUntil": "2026-12-29",
     "sourceUrl": "https://yplev.rmy.no/%40deichman/event/sprakkafe-4",
-    "lastChecked": "2026-07-24"
+    "lastChecked": "2026-07-26"
   },
   {
     "id": "rodekors-majorstuen",
@@ -95,8 +206,9 @@
     "arrivalAdvice": "Llega al menos 15 minutos antes. La actividad tiene plazas limitadas.",
     "format": "Conversación en grupos organizados por nivel.",
     "status": "active",
+    "availableUntil": "2026-12-10",
     "sourceUrl": "https://www.rodekors.no/lokalforeninger/oslo/aktiviteter/flyktninger-innvandrere/norsktrening/",
-    "lastChecked": "2026-07-24"
+    "lastChecked": "2026-07-26"
   },
   {
     "id": "caritas-norsktrening",
@@ -117,7 +229,29 @@
     "availableFrom": "2026-08-19",
     "seasonNote": "Primera sesión publicada después de la pausa de verano: 19 de agosto.",
     "sourceUrl": "https://caritas.no/kurs/norsktrening-2/",
-    "lastChecked": "2026-07-24"
+    "lastChecked": "2026-07-26"
+  },
+  {
+    "id": "caritas-sprakkafe",
+    "organizationId": "caritas",
+    "name": "Norsk språkkafé Caritas",
+    "district": "Sentrum",
+    "day": "Monday",
+    "time": "17:00",
+    "endTime": "18:30",
+    "level": "all",
+    "address": "Storgata 38, 0182 Oslo",
+    "description": "Encuentro informal para practicar noruego conversando sobre distintos temas.",
+    "cost": "free",
+    "registration": "none",
+    "canComeAlone": true,
+    "arrivalAdvice": "Llama al timbre de kursrom 1 junto a la entrada principal.",
+    "format": "Conversación informal en grupo con personas voluntarias y otras personas que aprenden noruego.",
+    "status": "upcoming",
+    "availableFrom": "2026-08-10",
+    "seasonNote": "Primera sesión publicada después de la pausa de verano: 10 de agosto.",
+    "sourceUrl": "https://caritas.no/kurs/norsk-sprakkafe-2/",
+    "lastChecked": "2026-07-26"
   },
   {
     "id": "casa-cultural-sprakkafe",
@@ -138,7 +272,7 @@
     "availableUntil": "2026-08-30",
     "seasonNote": "La programación publicada alterna sesiones de noruego y español los domingos hasta el 30 de agosto.",
     "sourceUrl": "https://pameldinger.no/e/nb/zpnk9e",
-    "lastChecked": "2026-07-24"
+    "lastChecked": "2026-07-26"
   },
   {
     "id": "kia-tullinsgate",
@@ -156,6 +290,6 @@
     "status": "active",
     "seasonNote": "La publicación no indica un horario especial de verano. Confirma la actividad antes de desplazarte.",
     "sourceUrl": "https://www.kianorge.no/aktivitet/sprakkafe-i-oslo-tullinsgate",
-    "lastChecked": "2026-07-24"
+    "lastChecked": "2026-07-26"
   }
 ]

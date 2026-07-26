@@ -13,7 +13,7 @@ import MobileDetailPanel from "../components/MobileDetailPanel";
 import SearchBar from "../components/SearchBar";
 import TodayActivities from "../components/TodayActivities";
 import { scrollToId } from "../utils/scrollTo";
-import { getActivityAvailability, getActivityDays, isActivityAvailableOn } from "../utils/activityPresentation";
+import { getActivityDays, isActivityAvailableOn, isActivityVisible } from "../utils/activityPresentation";
 
 const JS_DAY_TO_EN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -26,9 +26,7 @@ export default function Home() {
     return organizations.find((organization) => organization.id === id);
   }
 
-  const visibleActivities = activities.filter(
-    (activity) => getActivityAvailability(activity) !== "expired",
-  );
+  const visibleActivities = activities.filter((activity) => isActivityVisible(activity));
   const todayEnglish = JS_DAY_TO_EN[new Date().getDay()];
   const todayActivities = visibleActivities.filter(
     (activity) => isActivityAvailableOn(activity) && getActivityDays(activity).includes(todayEnglish),
