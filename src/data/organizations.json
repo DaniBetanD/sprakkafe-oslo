@@ -154,5 +154,16 @@
         "verified": true,
         "description": "Centro municipal de voluntariado con sede en Kolstadgata 1. Colabora con Deichman Tøyen en actividades lingüísticas; la actividad de los lunes figura durante la temporada, pero no se ha confirmado su continuidad en julio.",
         "lastChecked": "2026-07-26"
+    },
+    {
+        "id": "latinamerikansk-forening",
+        "name": "Latinamerikansk Forening",
+        "tipo": "Asociación comunitaria",
+        "website": "https://latinamerikansk.no/",
+        "email": "kontakt@latinamerikansk.no",
+        "phone": "+47 973 34 873",
+        "logo": "🌎",
+        "description": "Organización comunitaria que promueve la inclusión, el intercambio cultural y espacios de encuentro entre la comunidad latinoamericana y la sociedad noruega.",
+        "lastChecked": "2026-07-27"
     }
 ]

@@ -11,7 +11,7 @@ Preparados: 26 de julio de 2026
 3. Comprobar nombre, enlaces y firma.
 4. Enviar los mensajes individualmente, nunca como envío múltiple.
 5. Anotar localmente la fecha de envío y cualquier respuesta.
-6. No reenviar conversaciones ni datos personales al repositorio.
+6. No guardar conversaciones ni datos personales en el repositorio.
 
 ## 1. Røde Kors Oslo
 
@@ -20,22 +20,27 @@ Preparados: 26 de julio de 2026
 
 Hei Røde Kors Oslo,
 
-Jeg heter Karina og står bak Språkkafé Oslo, en ny, uavhengig og gratis nettjeneste for spansktalende som ønsker å praktisere norsk og bli kjent med lokalsamfunnet i Oslo.
+Jeg heter Daniel Betancur og står bak Språkkafé Oslo. Jeg har bakgrunn innen digital markedsføring og webutvikling, og er frivillig rådgiver i Caritas Oslo, hvor jeg møter innvandrere og flyktninger som trenger støtte i integreringsprosessen.
 
-Vi samler informasjon om gratis språkkafeer og norsktrening fra offisielle nettsider, slik at det blir enklere for nyankomne å finne et tilbud som passer. Vi har tatt med Røde Kors' norsktreningstilbud i oversikten vår:
+Gjennom dette arbeidet har jeg møtt mange mennesker som ønsker å lære norsk og bli bedre kjent med det norske samfunnet, men som av praktiske, språklige eller personlige grunner synes det er vanskelig å finne eller delta i passende aktiviteter. Derfor utviklet jeg Språkkafé Oslo, en enkel og gratis nettjeneste som skal gjøre veien til språket, kulturen og lokalsamfunnet kortere. Dette er mitt personlige og uavhengige initiativ og er ikke en offisiell del av Caritas.
 
-https://sprakkafe-oslo.vercel.app/organization/rodekors
+Prosjektet er fortsatt under utvikling. Nettsiden som er tilgjengelig i dag er den første fungerende versjonen, en MVP, med fokus på gratis språkkafeer og norsktrening i Oslo. På lengre sikt ønsker vi å gjøre den til en enkel og pålitelig inngang til tilbud som kan hjelpe mennesker med å lære norsk, delta i lokalsamfunnet og bli bedre kjent med norsk kultur og samfunn.
 
-Vi ønsker gjerne å kontrollere at informasjonen er riktig, og samtidig presentere prosjektet for dere. Tjenesten er gratis både for brukere og organisasjoner.
+Vi har tatt med disse tilbudene fra Røde Kors:
 
-Dere kan når som helst kontakte oss dersom dere ønsker å rette informasjon, melde fra om ferie eller endringer, legge til et nytt tilbud eller be oss fjerne innhold.
+- Norsktrening om sommeren: https://sprakkafe-oslo.vercel.app/activity/1
+- Norsktrening på Deichman Majorstuen: https://sprakkafe-oslo.vercel.app/activity/rodekors-majorstuen
 
-Hvis dere har anledning, setter vi pris på en kort bekreftelse på om opplysningene er korrekte. Vi vil også gjerne bruke denne e-postadressen som kontaktpunkt for fremtidige oppdateringer, dersom det passer for dere.
+Vi blir glade om dere vil se gjennom sidene og gi beskjed dersom noe er feil, mangler eller bør forklares bedre. Dere kjenner tilbudene best, og tilbakemeldingen deres hjelper oss med å gi brukerne pålitelig og nyttig informasjon.
+
+Finnes det en annen person eller e-postadresse som er bedre egnet for å holde informasjonen om disse aktivitetene oppdatert?
+
+Hvis dere kjenner andre organisasjoner eller gratis språktreningstilbud som bør være med i oversikten, tar vi gjerne imot anbefalinger. Dersom dere synes Språkkafé Oslo kan være nyttig for deltakerne eller nettverket deres, må dere også gjerne dele nettsiden. Det er selvfølgelig helt frivillig.
 
 Takk for arbeidet dere gjør for språk, fellesskap og inkludering i Oslo.
 
 Vennlig hilsen  
-Karina  
+Daniel Betancur
 Språkkafé Oslo  
 https://sprakkafe-oslo.vercel.app  
 sprakkafenorge@gmail.com
@@ -47,103 +52,165 @@ sprakkafenorge@gmail.com
 
 Hei Deichman,
 
-Jeg heter Karina og står bak Språkkafé Oslo, en ny, uavhengig og gratis nettjeneste for spansktalende som ønsker å praktisere norsk og bli kjent med lokalsamfunnet i Oslo.
+Jeg heter Daniel Betancur og står bak Språkkafé Oslo. Jeg har bakgrunn innen digital markedsføring og webutvikling, og er frivillig rådgiver i Caritas Oslo, hvor jeg møter innvandrere og flyktninger som trenger støtte i integreringsprosessen.
 
-Vi samler informasjon om gratis språkkafeer og norsktrening fra offisielle nettsider, slik at det blir enklere for nyankomne å finne et tilbud som passer. Vi viser for tiden språkkafeer ved blant annet Deichman Stovner, Holmlia og Røa:
+Gjennom dette arbeidet har jeg møtt mange mennesker som ønsker å lære norsk og bli bedre kjent med det norske samfunnet, men som av praktiske, språklige eller personlige grunner synes det er vanskelig å finne eller delta i passende aktiviteter. Derfor utviklet jeg Språkkafé Oslo, en enkel og gratis nettjeneste som skal gjøre veien til språket, kulturen og lokalsamfunnet kortere. Dette er mitt personlige og uavhengige initiativ og er ikke en offisiell del av Caritas.
 
-https://sprakkafe-oslo.vercel.app/organization/deichman
+Prosjektet er fortsatt under utvikling. Nettsiden som er tilgjengelig i dag er den første fungerende versjonen, en MVP, med fokus på gratis språkkafeer og norsktrening i Oslo. På lengre sikt ønsker vi å gjøre den til en enkel og pålitelig inngang til tilbud som kan hjelpe mennesker med å lære norsk, delta i lokalsamfunnet og bli bedre kjent med norsk kultur og samfunn.
 
-Vi ønsker gjerne å kontrollere at informasjonen er riktig, og samtidig presentere prosjektet for dere. Tjenesten er gratis både for brukere og organisasjoner.
+Vi har tatt med disse språkkafeene:
 
-Dere kan når som helst kontakte oss dersom dere ønsker å rette tidspunkt, adresse eller annen informasjon, melde fra om ferie eller avlysninger, legge til et nytt tilbud eller be oss endre innhold.
+- Deichman Stovner: https://sprakkafe-oslo.vercel.app/activity/deichman-stovner
+- Deichman Holmlia: https://sprakkafe-oslo.vercel.app/activity/deichman-holmlia
+- Deichman Røa: https://sprakkafe-oslo.vercel.app/activity/deichman-roa
 
-Hvis dere har anledning, setter vi pris på en kort bekreftelse på om opplysningene er korrekte. Hvis en annen person eller avdeling er riktig kontakt for språkkafeene, blir vi takknemlige om dere kan videresende meldingen.
+Vi blir glade om dere vil se gjennom sidene og gi beskjed dersom noe er feil, mangler eller bør forklares bedre.
+
+Finnes det en person eller e-postadresse som er bedre egnet for å holde informasjonen om språkkafeene oppdatert?
+
+Hvis dere kjenner andre avdelinger eller gratis språktilbud som bør være med i oversikten, tar vi gjerne imot anbefalinger. Dersom dere synes Språkkafé Oslo kan være nyttig for bibliotekets brukere eller nettverk, må dere også gjerne dele nettsiden. Det er selvfølgelig helt frivillig.
 
 Takk for at bibliotekene deres skaper åpne møteplasser for språk og fellesskap i Oslo.
 
 Vennlig hilsen  
-Karina  
+Daniel Betancur
 Språkkafé Oslo  
 https://sprakkafe-oslo.vercel.app  
 sprakkafenorge@gmail.com
 
-## 3. Caritas Norge
+## 3. Latinamerikansk Forening
+
+**Para:** `kontakt@latinamerikansk.no`
+**Asunto:** Latinamerikansk Forening ya aparece en Språkkafé Oslo
+
+Hola:
+
+Muchas gracias por la conversación y por vuestro interés en formar parte del proyecto.
+
+He preparado una primera versión del perfil de Latinamerikansk Forening y de las actividades que compartisteis. Hemos respetado sus nombres y su naturaleza: no las presentamos como Språkkafés, sino como actividades de idioma, cultura, naturaleza y comunidad.
+
+Podéis revisarlas directamente aquí:
+
+- Perfil de la organización: https://sprakkafe-oslo.vercel.app/organization/latinamerikansk-forening
+- Natur, språk og fellesskap: https://sprakkafe-oslo.vercel.app/activity/laf-natur-sprak-fellesskap
+- Formación gratuita de SUP: https://sprakkafe-oslo.vercel.app/activity/laf-sup-opplaering-sognsvann
+
+La web se encuentra todavía en fase de desarrollo y esta es su primera versión funcional. Por eso vuestra revisión es especialmente importante. Nos gustaría saber si existe algún error, falta información o debemos cambiar la manera de explicar las actividades.
+
+Para completar las fichas, cuando sea posible necesitamos confirmar:
+
+- horarios y puntos de encuentro;
+- proceso de inscripción;
+- requisitos de seguridad para SUP;
+- próximas fechas;
+- persona o email adecuado para mantener la información actualizada;
+- autorización para utilizar vuestro logo.
+
+También estaremos encantados de incorporar otras actividades que ayuden a las personas a practicar idiomas, conocer la cultura y participar en la comunidad.
+
+Si consideráis que la web puede ser útil para vuestros participantes o vuestra red, podéis compartirla libremente. No existe ningún coste para la organización ni para las personas usuarias.
+
+Gracias de nuevo por la confianza y por el trabajo que realizáis a favor de la inclusión y la comunidad.
+
+Un saludo,
+
+Daniel Betancur
+
+Språkkafé Oslo
+
+https://sprakkafe-oslo.vercel.app
+
+sprakkafenorge@gmail.com
+
+## 4. Caritas Norge
 
 **Para:** `caritas@caritas.no`  
 **Asunto:** Språkkafé Oslo – Caritas' språktrening i vår oversikt
 
 Hei Caritas Norge,
 
-Jeg heter Karina og står bak Språkkafé Oslo, en ny, uavhengig og gratis nettjeneste for spansktalende som ønsker å praktisere norsk og bli kjent med lokalsamfunnet i Oslo.
+Jeg heter Daniel Betancur og er frivillig rådgiver ved Caritas Ressurssenter i Oslo. Gjennom møtene med innvandrere og flyktninger har jeg sett at mange ønsker å lære norsk og bli bedre kjent med det norske samfunnet, men at praktiske, språklige eller personlige forhold kan gjøre det vanskelig å finne eller delta i passende aktiviteter.
 
-Vi samler informasjon om gratis språkkafeer og norsktrening fra offisielle nettsider. Vi har tatt med Caritas' språktrening i oversikten vår:
+Med bakgrunn innen digital markedsføring og webutvikling utviklet jeg derfor Språkkafé Oslo, en enkel og gratis nettjeneste som skal gjøre veien til språket, kulturen og lokalsamfunnet kortere. Prosjektet er mitt personlige og uavhengige initiativ og er ikke en offisiell del av Caritas.
 
-https://sprakkafe-oslo.vercel.app/organization/caritas
+Prosjektet er fortsatt under utvikling. Nettsiden som er tilgjengelig i dag er den første fungerende versjonen, en MVP, med fokus på gratis språkkafeer og norsktrening i Oslo. På lengre sikt ønsker vi å gjøre den til en enkel og pålitelig inngang til tilbud som kan hjelpe mennesker med å lære norsk, delta i lokalsamfunnet og bli bedre kjent med norsk kultur og samfunn.
 
-Vi ønsker gjerne å kontrollere at informasjonen er riktig før den nye perioden starter, og samtidig presentere prosjektet for dere. Tjenesten er gratis både for brukere og organisasjoner.
+Vi har tatt med Caritas' språktrening:
 
-Dere kan når som helst kontakte oss dersom dere ønsker å rette informasjon, bekrefte nye datoer, melde fra om endringer eller be oss fjerne innhold.
+https://sprakkafe-oslo.vercel.app/activity/caritas-norsktrening
 
-Hvis dere har anledning, setter vi pris på en kort bekreftelse på om opplysningene er korrekte, og om denne e-postadressen kan brukes som kontaktpunkt for fremtidige oppdateringer.
+Vi blir glade om dere vil se gjennom siden og gi beskjed dersom noe er feil, mangler eller bør forklares bedre.
+
+Finnes det en person eller e-postadresse som er bedre egnet for å holde informasjonen om aktiviteten oppdatert?
+
+Hvis dere kjenner andre organisasjoner eller gratis språktilbud som bør være med i oversikten, tar vi gjerne imot anbefalinger. Dersom dere synes Språkkafé Oslo kan være nyttig for brukerne eller nettverket deres, må dere også gjerne dele nettsiden. Det er selvfølgelig helt frivillig.
 
 Takk for arbeidet dere gjør for språk, veiledning og inkludering.
 
 Vennlig hilsen  
-Karina  
+Daniel Betancur
 Språkkafé Oslo  
 https://sprakkafe-oslo.vercel.app  
 sprakkafenorge@gmail.com
 
-## 4. Casa Cultural
+## 5. Casa Cultural
 
 **Para:** `kultur@casacultural.no`  
-**Asunto:** Språkkafé Oslo – Casa Cultural en nuestro directorio
+**Asunto:** Språkkafé Oslo – vuestra actividad en nuestro directorio
 
 Hola Casa Cultural:
 
-Me llamo Karina y soy la responsable de Språkkafé Oslo, un nuevo servicio web independiente y gratuito dirigido principalmente a personas hispanohablantes que quieren practicar noruego y conectar con la vida local en Oslo.
+Me llamo Daniel Betancur y soy el responsable de Språkkafé Oslo. Tengo experiencia en marketing digital y desarrollo web, y colaboro como asesor voluntario en Caritas Oslo, donde acompaño a personas inmigrantes y refugiadas en diferentes aspectos de su proceso de integración.
 
-Reunimos información sobre Språkkafés y actividades gratuitas de práctica del noruego utilizando fuentes oficiales. Hemos incluido vuestro Språkkafé de noruego y español:
+A través de esta experiencia he conocido a muchas personas que quieren aprender noruego y acercarse a la sociedad noruega, pero que por diferentes circunstancias prácticas, lingüísticas o personales encuentran dificultades para localizar una actividad adecuada o dar el primer paso. De esa necesidad nació Språkkafé Oslo: una herramienta sencilla y gratuita que pretende acercar a las personas al idioma, la cultura y la comunidad local. Es una iniciativa personal e independiente y no forma parte oficialmente de Caritas.
 
-https://sprakkafe-oslo.vercel.app/organization/casa-cultural
+El proyecto continúa en fase de desarrollo y la web disponible actualmente es su primera versión funcional, un MVP centrado en Språkkafés y actividades gratuitas para practicar noruego en Oslo. Nuestra visión a largo plazo es convertirla en un punto de entrada sencillo y fiable para encontrar oportunidades que ayuden a las personas a aprender noruego, participar en la comunidad y conocer mejor la cultura y la sociedad noruega.
 
-Nos gustaría presentaros el proyecto y comprobar que la información publicada es correcta. El servicio es gratuito tanto para los usuarios como para las organizaciones.
+Hemos incluido vuestro Språkkafé de noruego y español:
 
-Podéis escribirnos en cualquier momento para corregir horarios, dirección u otros datos, comunicar vacaciones o cancelaciones, añadir una nueva actividad o solicitar que modifiquemos o retiremos información.
+https://sprakkafe-oslo.vercel.app/activity/casa-cultural-sprakkafe
 
-Si es posible, agradeceríamos una breve confirmación de que los datos son correctos y de que podemos utilizar este email como contacto para futuras actualizaciones.
+Nos gustaría que revisarais la página y nos avisarais si existe algún error, falta información o debemos explicar algo mejor.
+
+¿Existe alguna persona o dirección de email más adecuada para mantener actualizada esta actividad?
+
+Si conocéis otras organizaciones o actividades gratuitas de práctica del noruego que deberían aparecer en el directorio, estaremos encantados de recibir vuestras recomendaciones. Si consideráis que Språkkafé Oslo puede resultar útil para vuestros participantes o vuestra red, también podéis compartir la web. Por supuesto, es completamente voluntario.
 
 Gracias por crear espacios de encuentro entre el idioma, la cultura y la comunidad hispana en Oslo.
 
 Un saludo,  
-Karina  
+Daniel Betancur
 Språkkafé Oslo  
 https://sprakkafe-oslo.vercel.app  
 sprakkafenorge@gmail.com
 
-## 5. KIA Norge
+## 6. KIA Norge
 
 **Para:** `post@kianorge.no`  
 **Asunto:** Språkkafé Oslo – KIA Østs språkkafé i vår oversikt
 
 Hei KIA Norge,
 
-Jeg heter Karina og står bak Språkkafé Oslo, en ny, uavhengig og gratis nettjeneste for spansktalende som ønsker å praktisere norsk og bli kjent med lokalsamfunnet i Oslo.
+Jeg heter Daniel Betancur og står bak Språkkafé Oslo. Jeg har bakgrunn innen digital markedsføring og webutvikling, og er frivillig rådgiver i Caritas Oslo, hvor jeg møter innvandrere og flyktninger som trenger støtte i integreringsprosessen.
 
-Vi samler informasjon om gratis språkkafeer og norsktrening fra offisielle nettsider. Vi har tatt med KIA Østs språkkafé i Tullins gate i oversikten vår:
+Gjennom dette arbeidet har jeg møtt mange mennesker som ønsker å lære norsk og bli bedre kjent med det norske samfunnet, men som av praktiske, språklige eller personlige grunner synes det er vanskelig å finne eller delta i passende aktiviteter. Derfor utviklet jeg Språkkafé Oslo, en enkel og gratis nettjeneste som skal gjøre veien til språket, kulturen og lokalsamfunnet kortere. Dette er mitt personlige og uavhengige initiativ og er ikke en offisiell del av Caritas.
 
-https://sprakkafe-oslo.vercel.app/organization/kia-norge
+Prosjektet er fortsatt under utvikling. Nettsiden som er tilgjengelig i dag er den første fungerende versjonen, en MVP, med fokus på gratis språkkafeer og norsktrening i Oslo. På lengre sikt ønsker vi å gjøre den til en enkel og pålitelig inngang til tilbud som kan hjelpe mennesker med å lære norsk, delta i lokalsamfunnet og bli bedre kjent med norsk kultur og samfunn.
 
-Vi ønsker gjerne å kontrollere at informasjonen er riktig, og samtidig presentere prosjektet for dere. Tjenesten er gratis både for brukere og organisasjoner.
+Vi har tatt med KIA Østs språkkafé i Tullins gate:
 
-Dere kan når som helst kontakte oss dersom dere ønsker å rette tidspunkt, adresse eller annen informasjon, melde fra om ferie eller endringer, legge til et tilbud eller be oss fjerne innhold.
+https://sprakkafe-oslo.vercel.app/activity/kia-tullinsgate
 
-Hvis dere har anledning, setter vi pris på en kort bekreftelse på om opplysningene er korrekte. Hvis en annen person i KIA Øst er riktig kontakt, blir vi takknemlige om dere kan videresende meldingen.
+Vi blir glade om dere vil se gjennom siden og gi beskjed dersom noe er feil, mangler eller bør forklares bedre.
+
+Finnes det en person eller e-postadresse som er bedre egnet for å holde informasjonen om aktiviteten oppdatert?
+
+Hvis dere kjenner andre organisasjoner eller gratis språktilbud som bør være med i oversikten, tar vi gjerne imot anbefalinger. Dersom dere synes Språkkafé Oslo kan være nyttig for deltakerne eller nettverket deres, må dere også gjerne dele nettsiden. Det er selvfølgelig helt frivillig.
 
 Takk for arbeidet dere gjør for fellesskap og inkludering på tvers av språk og kulturer.
 
 Vennlig hilsen  
-Karina  
+Daniel Betancur
 Språkkafé Oslo  
 https://sprakkafe-oslo.vercel.app  
 sprakkafenorge@gmail.com
