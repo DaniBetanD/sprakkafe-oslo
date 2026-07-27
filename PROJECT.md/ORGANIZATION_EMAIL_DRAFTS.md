@@ -97,10 +97,8 @@ Podéis revisarlas directamente aquí:
 
 La web se encuentra todavía en fase de desarrollo y esta es su primera versión funcional. Por eso vuestra revisión es especialmente importante. Nos gustaría saber si existe algún error, falta información o debemos cambiar la manera de explicar las actividades.
 
-Para completar las fichas, cuando sea posible necesitamos confirmar:
+Para seguir mejorando las fichas, cuando sea posible nos gustaría confirmar:
 
-- horarios y puntos de encuentro;
-- proceso de inscripción;
 - requisitos de seguridad para SUP;
 - próximas fechas;
 - persona o email adecuado para mantener la información actualizada;

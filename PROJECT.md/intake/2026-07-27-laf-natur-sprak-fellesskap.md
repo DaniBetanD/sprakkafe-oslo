@@ -1,8 +1,11 @@
 # Ficha de aprobación — Natur, språk og fellesskap
 
-Estado: Pendiente de aprobación administrativa
+Estado: Aprobado y publicado
 Preparada: 27 de julio de 2026
-Fuente: https://latinamerikansk.no/natur-spraak-felleskap
+Fuentes:
+
+- https://latinamerikansk.no/natur-spraak-felleskap
+- https://us17.list-manage.com/survey?u=5d80e2986ff1012c5ea8c6dc8&id=bfdebfd2ee&attribution=false
 
 ## Valoración
 
@@ -49,16 +52,16 @@ Mientras no exista autorización para el logo, se utilizará el icono neutral `�
   "level": "all",
   "address": "Distintos puntos de Oslo y Oslomarka",
   "description": "Rutas guiadas para disfrutar de Oslo y sus espacios naturales mientras se practican idiomas y se comparten experiencias en comunidad.",
-  "cost": "unknown",
-  "registration": "unknown",
+  "cost": "free",
+  "registration": "required",
   "canComeAlone": true,
-  "arrivalAdvice": "Consulta la información oficial para confirmar el punto de encuentro de cada ruta.",
-  "format": "Ruta guiada con conversación e intercambio cultural en noruego, español, inglés y portugués.",
+  "arrivalAdvice": "La actividad necesita inscripción previa. Cuando tu plaza esté confirmada, recibirás la información práctica y el punto de encuentro. Lleva agua, algo de comida, calzado adecuado y ropa según el tiempo.",
+  "format": "Ruta guiada con conversación e intercambio cultural en noruego sencillo, con información y orientación en español y portugués cuando sea necesario.",
   "status": "upcoming",
   "availableFrom": "2026-07-29",
   "availableUntil": "2026-08-05",
-  "seasonNote": "29 de julio a las 11:00: Ekebergparken. 31 de julio a las 11:00: ruta de arte urbano. 5 de agosto a las 11:00: Frognerparken.",
-  "sourceUrl": "https://latinamerikansk.no/natur-spraak-felleskap",
+  "seasonNote": "29 de julio a las 11:00: Ekebergparken. 31 de julio a las 11:00: ruta de arte urbano por Oslo. 5 de agosto a las 11:00: Frognerparken con personas mayores.",
+  "sourceUrl": "https://us17.list-manage.com/survey?u=5d80e2986ff1012c5ea8c6dc8&id=bfdebfd2ee&attribution=false",
   "lastChecked": "2026-07-27"
 }
 ```
@@ -98,19 +101,20 @@ No se publicarán como próximas actividades:
 
 Pueden conservarse como referencia histórica de la programación.
 
-## Información pendiente
+## Información confirmada y pendiente
 
-Antes de publicar se debe confirmar:
+Confirmado:
 
-- Si las rutas son gratuitas.
-- Si es necesaria inscripción.
-- Punto de encuentro exacto para cada salida.
+- Las rutas son gratuitas.
+- La inscripción y la confirmación de plaza son obligatorias.
+- La información práctica y el punto de encuentro se envían después de confirmar la plaza.
+
+Pendiente:
+
 - Duración aproximada, solo si la organización desea publicarla.
-- Número de plazas o requisitos.
-- Canal para solicitar información en otro idioma.
+- Número de plazas.
 - Persona o email encargado de mantener las fechas actualizadas.
-- Permiso para utilizar el nombre y el logo.
-- Confirmación de que `canComeAlone: true` describe correctamente la actividad.
+- Permiso para utilizar el logo.
 
 ## Curso de esquí de fondo
 
@@ -150,7 +154,7 @@ Aunque no es una actividad específicamente lingüística, puede contribuir a la
   "district": "Nordmarka",
   "days": ["Monday", "Wednesday", "Saturday", "Sunday"],
   "day": "Monday",
-  "time": "Horario por confirmar",
+  "time": "11:00 o 17:00",
   "endTime": null,
   "level": "all",
   "address": "Sognsvann, Oslo",
@@ -158,13 +162,13 @@ Aunque no es una actividad específicamente lingüística, puede contribuir a la
   "cost": "free",
   "registration": "required",
   "canComeAlone": null,
-  "arrivalAdvice": "La actividad necesita inscripción previa. Utiliza el enlace oficial para inscribirte y confirmar el horario, el punto de encuentro y el equipamiento necesario.",
-  "format": "Formación práctica de SUP. La organización ayuda a localizar equipamiento mediante BUA u otros proveedores.",
+  "arrivalAdvice": "La actividad necesita inscripción previa y la organización debe confirmar tu plaza. Necesitas una tabla de SUP; si no tienes una, pueden ayudarte a solicitarla gratis en BUA Oslo o alquilarla en Mad Goats.",
+  "format": "Formación práctica de SUP para principiantes. La información práctica se envía después de confirmar la plaza.",
   "status": "active",
   "availableFrom": "2026-07-27",
   "availableUntil": "2026-08-02",
-  "seasonNote": "Próximas fechas en Sognsvann: 27 y 29 de julio, y 1 y 2 de agosto de 2026. Horarios pendientes de confirmar.",
-  "sourceUrl": "https://latinamerikansk.no/natur-spraak-felleskap",
+  "seasonNote": "Sognsvann: 27 de julio a las 11:00; 29 de julio a las 17:00; 1 y 2 de agosto a las 17:00. Si la lista de espera alcanza diez personas, la organización podrá abrir nuevos cursos gratuitos en agosto.",
+  "sourceUrl": "https://us17.list-manage.com/survey?u=5d80e2986ff1012c5ea8c6dc8&id=bfdebfd2ee&attribution=false",
   "lastChecked": "2026-07-27"
 }
 ```
@@ -187,16 +191,16 @@ Latinamerikansk Forening puede ayudarte a localizar equipamiento a través de BU
 
 La actividad necesita inscripción previa. Utiliza el enlace oficial para consultar las condiciones y solicitar tu plaza:
 
-https://latinamerikansk.no/natur-spraak-felleskap
+https://us17.list-manage.com/survey?u=5d80e2986ff1012c5ea8c6dc8&id=bfdebfd2ee&attribution=false
 
 ### Próximas fechas
 
 | Fecha | Lugar | Hora |
 | --- | --- | --- |
-| 27 de julio | Sognsvann | Pendiente de confirmar |
-| 29 de julio | Sognsvann | Pendiente de confirmar |
-| 1 de agosto | Sognsvann | Pendiente de confirmar |
-| 2 de agosto | Sognsvann | Pendiente de confirmar |
+| 27 de julio | Sognsvann | 11:00 |
+| 29 de julio | Sognsvann | 17:00 |
+| 1 de agosto | Sognsvann | 17:00 |
+| 2 de agosto | Sognsvann | 17:00 |
 
 ### Fechas anteriores
 
@@ -204,24 +208,20 @@ Las sesiones de Marina Aker Brygge del 22, 24 y 26 de julio no se publicarán co
 
 ### Información pendiente
 
-- Hora de inicio de cada sesión.
 - Punto de encuentro exacto.
-- Procedimiento exacto de inscripción dentro del enlace oficial.
 - Edad mínima o requisitos físicos.
 - Saber nadar y otras condiciones de seguridad.
-- Material incluido o procedimiento exacto para obtenerlo.
 - Ropa recomendada.
 - Número de plazas.
 - Persona o canal de contacto.
-- Confirmación de que la colaboración con `SUP mot kreft` puede mencionarse públicamente.
 
 ## Decisión administrativa requerida
 
-- [ ] Aprobar la organización.
-- [ ] Aprobar el nombre y la categoría.
-- [ ] Aprobar el texto público.
-- [ ] Confirmar los datos pendientes con la presidenta.
-- [ ] Aprobar la publicación de las tres próximas rutas.
-- [ ] Aprobar la ampliación de alcance para actividades comunitarias no centradas exclusivamente en idiomas.
-- [ ] Aprobar la ficha de SUP cuando se confirme el horario y la seguridad.
+- [x] Aprobar la organización.
+- [x] Aprobar el nombre y la categoría.
+- [x] Aprobar el texto público.
+- [x] Revisar la información oficial de inscripción.
+- [x] Aprobar la publicación de las tres próximas rutas.
+- [x] Aprobar la ampliación de alcance para actividades comunitarias no centradas exclusivamente en idiomas.
+- [x] Aprobar y publicar la ficha de SUP con sus horarios.
 - [ ] Mantener el curso de esquí como pendiente.
