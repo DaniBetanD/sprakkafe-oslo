@@ -42,7 +42,7 @@ export default function HorizontalCarousel({ children }) {
           type="button"
           aria-label="Ver elementos anteriores"
           onClick={() => scrollBy(-260)}
-          className="absolute -left-3 top-1/2 -translate-y-1/2 z-20 bg-white text-gray-800 p-2 rounded-full shadow-lg border border-gray-100 transition min-h-[44px] min-w-[44px] flex items-center justify-center"
+          className="absolute -left-3 top-1/2 -translate-y-1/2 z-20 bg-white text-gray-800 p-2 rounded-full shadow-lg border border-gray-100 transition min-h-[44px] min-w-[44px] hidden lg:flex items-center justify-center"
         >
           <ChevronLeft size={20} />
         </button>
@@ -52,7 +52,7 @@ export default function HorizontalCarousel({ children }) {
           type="button"
           aria-label="Ver elementos siguientes"
           onClick={() => scrollBy(260)}
-          className="absolute -right-3 top-1/2 -translate-y-1/2 z-20 bg-white text-gray-800 p-2 rounded-full shadow-lg border border-gray-100 transition min-h-[44px] min-w-[44px] flex items-center justify-center"
+          className="absolute -right-3 top-1/2 -translate-y-1/2 z-20 bg-white text-gray-800 p-2 rounded-full shadow-lg border border-gray-100 transition min-h-[44px] min-w-[44px] hidden lg:flex items-center justify-center"
         >
           <ChevronRight size={20} />
         </button>
@@ -66,6 +66,12 @@ export default function HorizontalCarousel({ children }) {
       >
         {children}
       </div>
+      {showRight && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-white via-white/80 to-transparent lg:hidden"
+        />
+      )}
     </div>
   );
 }
