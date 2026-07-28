@@ -69,7 +69,7 @@ export default function HorizontalCarousel({ children }) {
       {showRight && (
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-gray-100 via-gray-50/90 to-transparent lg:hidden"
+          className="carousel-edge-fade pointer-events-none absolute inset-y-0 right-0 z-10 w-16 lg:hidden"
         />
       )}
     </div>
