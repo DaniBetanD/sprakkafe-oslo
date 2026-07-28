@@ -32,13 +32,15 @@ p {
   margin: 0;
 }
 
-.carousel-edge-fade {
-  background: linear-gradient(
-    to left,
-    rgba(243, 244, 246, 1) 0%,
-    rgba(249, 250, 251, 0.9) 45%,
-    rgba(255, 255, 255, 0) 100%
-  );
+@media (max-width: 1023px) {
+  .carousel-edge-cue {
+    background: linear-gradient(
+      to left,
+      rgba(37, 99, 235, 0.22) 0%,
+      rgba(59, 130, 246, 0.08) 55%,
+      rgba(59, 130, 246, 0) 100%
+    );
+  }
 }
 
 @keyframes slideUp {
