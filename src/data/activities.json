@@ -251,8 +251,8 @@
     "status": "upcoming",
     "availableFrom": "2026-08-10",
     "seasonNote": "Primera sesión publicada después de la pausa de verano: 10 de agosto.",
-    "sourceUrl": "https://caritas.no/kurs/norsk-sprakkafe-2/",
-    "lastChecked": "2026-07-26"
+    "sourceUrl": "https://caritas.no/es/evento/norsk-sprakkafe-2/",
+    "lastChecked": "2026-07-29"
   },
   {
     "id": "casa-cultural-sprakkafe",
@@ -485,6 +485,27 @@
     "availableFrom": "2026-08-04",
     "seasonNote": "La actividad está anunciada todos los martes. Consulta la fuente oficial para confirmar cada nueva fecha.",
     "sourceUrl": "https://deichman.no/event/new-amigos-language-caf%C3%A9_QmLtctJqmW",
+    "lastChecked": "2026-07-29"
+  },
+  {
+    "id": "caritas-snakk-og-sok-sondre-nordstrand",
+    "organizationId": "caritas",
+    "name": "Snakk og Søk — Søndre Nordstrand",
+    "district": "Søndre Nordstrand",
+    "day": "Tuesday",
+    "time": "11:00",
+    "endTime": "15:00",
+    "level": "all",
+    "address": "Holmlia senter vei 9, Oslo",
+    "description": "Practica noruego, conoce mejor la sociedad noruega y recibe apoyo para buscar empleo.",
+    "cost": "free",
+    "registration": "none",
+    "canComeAlone": true,
+    "format": "Café de idiomas informal con conversación sobre Noruega, la vida cotidiana y el entorno laboral. También ofrece ordenador y ayuda con el currículum y las solicitudes de empleo.",
+    "status": "upcoming",
+    "availableFrom": "2026-08-04",
+    "seasonNote": "Actividad presencial gratuita todos los martes, de 11:00 a 15:00.",
+    "sourceUrl": "https://caritas.no/es/evento/snakk-og-sok-pa-sondre-nordstrand/",
     "lastChecked": "2026-07-29"
   }
 ]
