@@ -5,12 +5,14 @@
         "name": "Røde Kors Oslo",
         "tipo": "ONG",
         "website": "https://www.rodekors.no/lokalforeninger/oslo/aktiviteter/flyktninger-innvandrere/norsktrening/",
+        "facebook": "https://www.facebook.com/ORKnorsktrening/",
         "email": "norsktrening.oslo@redcross.no",
         "phone": "+47 911 98 339",
+        "secondaryPhone": "+47 458 66 125",
         "logo": "🔴",
         "verified": true,
-        "description": "Røde Kors ofrece norsktrening gratuito en múltiples ubicaciones de Oslo. Grupos de conversación y práctica estructurada para todos los niveles.",
-        "lastChecked": "2026-07-26"
+        "description": "Røde Kors ofrece práctica oral de noruego para mayores de 18 años en grupos guiados por voluntariado y organizados según el nivel. No es un curso de idiomas.",
+        "lastChecked": "2026-07-29"
     },
     {
         "id": "deichman",
@@ -154,6 +156,20 @@
         "verified": true,
         "description": "Centro municipal de voluntariado con sede en Kolstadgata 1. Colabora con Deichman Tøyen en actividades lingüísticas; la actividad de los lunes figura durante la temporada, pero no se ha confirmado su continuidad en julio.",
         "lastChecked": "2026-07-26"
+    },
+    {
+        "id": "stella-kvinnesenter",
+        "logoImg": "rodekors.svg",
+        "name": "Stella – Røde Kors kvinnesenter",
+        "tipo": "Centro comunitario para mujeres",
+        "website": "https://www.rodekors.no/lokalforeninger/oslo/aktiviteter/kvinner/stella/",
+        "facebook": "https://www.facebook.com/stellakvinnesenteroslo/",
+        "email": "stella@redcross.no",
+        "phone": "+47 22 05 44 45",
+        "logo": "🔴",
+        "verified": true,
+        "description": "Centro gratuito de cursos, actividades y encuentro para mujeres de Oslo y alrededores, con especial atención a mujeres de minorías y madres.",
+        "lastChecked": "2026-07-29"
     },
     {
         "id": "latinamerikansk-forening",

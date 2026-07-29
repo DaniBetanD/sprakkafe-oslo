@@ -79,6 +79,12 @@ export default function OrganizationPage() {
                                 <Globe size={16} /> Sitio oficial <ExternalLink size={14} aria-hidden="true" />
                             </a>
                         )}
+                        {organization.facebook && (
+                            <a href={organization.facebook} target="_blank" rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 text-sm bg-blue-50 text-blue-700 px-4 py-2 rounded-xl font-medium hover:bg-blue-100 transition min-h-[44px]">
+                                Ver Facebook <ExternalLink size={14} aria-hidden="true" />
+                            </a>
+                        )}
                         {organization.email && (
                             <a href={`mailto:${organization.email}`}
                                 className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition min-h-[44px]">
@@ -89,6 +95,12 @@ export default function OrganizationPage() {
                             <a href={`tel:${organization.phone}`}
                                 className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition min-h-[44px]">
                                 <Phone size={16} /> {organization.phone}
+                            </a>
+                        )}
+                        {organization.secondaryPhone && (
+                            <a href={`tel:${organization.secondaryPhone}`}
+                                className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition min-h-[44px]">
+                                <Phone size={16} /> {organization.secondaryPhone}
                             </a>
                         )}
                     </div>

@@ -1,5 +1,5 @@
 import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
-import { ArrowLeft, MapPin, Calendar, Globe, ExternalLink, Mail, Phone } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, Globe, ExternalLink, Mail, MessageCircle, Phone } from "lucide-react";
 import activities from "../data/activities.json";
 import organizations from "../data/organizations.json";
 import ActivityPracticalInfo from "../components/ActivityPracticalInfo";
@@ -161,7 +161,7 @@ export default function ActivityPage() {
                         </a>
                     )}
 
-                    <div className="flex flex-col gap-2 border-t border-gray-100 pt-5 sm:flex-row">
+                    <div className="flex flex-col gap-2 border-t border-gray-100 pt-5 sm:flex-row sm:flex-wrap">
                         {activity.sourceUrl && (
                             <a
                                 href={activity.sourceUrl}
@@ -170,6 +170,18 @@ export default function ActivityPage() {
                                 className="inline-flex min-h-[46px] flex-1 items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 text-sm font-semibold text-white transition hover:bg-blue-700"
                             >
                                 Consultar horario oficial <ExternalLink size={15} aria-hidden="true" />
+                            </a>
+                        )}
+                        {activity.registrationUrl && (
+                            <a
+                                href={activity.registrationUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex min-h-[46px] flex-1 items-center justify-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-4 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-100"
+                            >
+                                <MessageCircle size={16} aria-hidden="true" />
+                                Unirse al grupo de WhatsApp
+                                <ExternalLink size={14} aria-hidden="true" />
                             </a>
                         )}
                         {mapsUrl && (
@@ -210,6 +222,16 @@ export default function ActivityPage() {
                                 <Globe size={16} /> Sitio oficial <ExternalLink size={14} />
                             </a>
                         )}
+                        {organization?.facebook && (
+                            <a
+                                href={organization.facebook}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 text-sm bg-blue-50 text-blue-700 px-4 py-2 rounded-xl font-medium hover:bg-blue-100 transition min-h-[44px]"
+                            >
+                                Ver Facebook <ExternalLink size={14} aria-hidden="true" />
+                            </a>
+                        )}
                         {organization?.email && (
                             <a
                                 href={`mailto:${organization.email}`}
@@ -224,6 +246,14 @@ export default function ActivityPage() {
                                 className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition min-h-[44px]"
                             >
                                 <Phone size={16} /> {organization.phone}
+                            </a>
+                        )}
+                        {organization?.secondaryPhone && (
+                            <a
+                                href={`tel:${organization.secondaryPhone}`}
+                                className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition min-h-[44px]"
+                            >
+                                <Phone size={16} /> {organization.secondaryPhone}
                             </a>
                         )}
                         <Link

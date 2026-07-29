@@ -1,7 +1,7 @@
 # Guía de contenidos — Språkkafé Oslo
 
-Versión: 3.0
-Última actualización: 25 de julio de 2026
+Versión: 3.1
+Última actualización: 29 de julio de 2026
 
 ## Objetivo
 
@@ -109,6 +109,16 @@ La propuesta debe inspirar sin competir con el objetivo principal de encontrar u
 ## Organizaciones
 
 Hablar con respeto y precisión. Facilitar que una organización solicite un alta, corrección o retirada. No insinuar colaboración, validación o respaldo si no existe confirmación expresa.
+
+## Actividades de integración
+
+El directorio también puede incluir actividades comunitarias que ayuden claramente a practicar noruego, conocer personas, reducir el aislamiento, crear redes de apoyo o comprender mejor la vida en Noruega.
+
+- Conservar siempre el nombre y la categoría reales.
+- No presentar una actividad como Språkkafé o curso de idiomas si la organización no la define así.
+- Explicar de forma concreta cómo contribuye al idioma, la comunidad o la cultura.
+- No asumir que es gratuita si la fuente oficial no publica el precio.
+- Separar el enlace informativo oficial del enlace de inscripción o del grupo externo.
 
 ## Emojis
 
