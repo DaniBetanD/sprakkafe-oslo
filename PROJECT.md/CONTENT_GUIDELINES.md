@@ -35,6 +35,7 @@ Escribimos para personas hispanohablantes con distintos niveles de comprensión.
 - Basar horarios, lugar, nivel, modalidad y disponibilidad en fuentes oficiales.
 - No asumir que una actividad es gratuita porque otras lo sean.
 - Si no consta el precio, indicar que se contacte con la entidad.
+- Las actividades publicadas por las bibliotecas Deichman se consideran gratuitas, salvo que la fuente oficial indique expresamente un precio.
 - Si solo consta la hora de inicio, mostrar únicamente esa hora.
 - No estimar la duración.
 - Comunicar vacaciones, pausas y horarios especiales de forma explícita.

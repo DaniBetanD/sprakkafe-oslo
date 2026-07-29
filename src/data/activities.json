@@ -465,5 +465,26 @@
     "sourceUrl": "https://www.rodekors.no/lokalforeninger/oslo/aktiviteter/flyktninger-innvandrere/turgruppe/",
     "registrationUrl": "https://chat.whatsapp.com/DPvzng1fEOc1DTZMoX20Ev",
     "lastChecked": "2026-07-29"
+  },
+  {
+    "id": "new-amigos-language-cafe-toyen",
+    "organizationId": "toyen-frivilligsentral",
+    "name": "New Amigos Language Café",
+    "district": "Gamle Oslo",
+    "day": "Tuesday",
+    "time": "18:00",
+    "endTime": "20:00",
+    "level": "all",
+    "address": "Deichman Tøyen, Oslo",
+    "description": "Practica noruego y otros idiomas jugando a New Amigos mientras conoces personas de distintos países.",
+    "cost": "free",
+    "registration": "none",
+    "canComeAlone": true,
+    "format": "Juego de mesa y conversación en tres niveles. Organizado por Tøyen Frivilligsentral y Deichman Tøyen.",
+    "status": "upcoming",
+    "availableFrom": "2026-08-04",
+    "seasonNote": "La actividad está anunciada todos los martes. Consulta la fuente oficial para confirmar cada nueva fecha.",
+    "sourceUrl": "https://deichman.no/event/new-amigos-language-caf%C3%A9_QmLtctJqmW",
+    "lastChecked": "2026-07-29"
   }
 ]
