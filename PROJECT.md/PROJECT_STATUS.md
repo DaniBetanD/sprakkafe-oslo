@@ -71,6 +71,7 @@ No se rediseñan fuera de un sprint específico:
 ## Trabajo actual
 
 - `ORG-REL-001`: preparación del primer contacto con organizaciones.
+- Definición de una estrategia de marketing orgánico basada en confianza, utilidad y recomendación.
 - Mantenimiento de información estacional.
 - QA periódico de suscripción, enlaces, rutas y producción.
 

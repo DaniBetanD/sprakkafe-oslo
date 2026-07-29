@@ -27,6 +27,7 @@ Este directorio reúne la documentación activa de Språkkafé Oslo. No todos lo
 | `WEEKLY_VERIFICATION.md` | Revisión dominical de información |
 | `ORGANIZATION_OUTREACH.md` | Contacto administrado con organizaciones |
 | `ORGANIZATION_EMAIL_DRAFTS.md` | Borradores individuales preparados para Gmail |
+| `ORGANIC_MARKETING_STRATEGY.md` | Estrategia de difusión orgánica y crecimiento por recomendación |
 | `CHANGELOG.md` | Cambios relevantes del producto |
 
 ## Documentos fuera de este directorio
