@@ -2,13 +2,17 @@ import { useMemo } from "react";
 import { X } from "lucide-react";
 import { getActivityDays } from "../utils/activityPresentation";
 import organizationsData from "../data/organizations.json";
-import { DAYS, LEVELS } from "../utils/translations";
+import { ACTIVITY_CATEGORIES, DAYS, LEVELS } from "../utils/translations";
 
 const WEEK_ORDER = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 export default function Filters({ filters, setFilters, activities }) {
     const districts = useMemo(
         () => [...new Set(activities.map((activity) => activity.district).filter(Boolean))].sort(),
+        [activities],
+    );
+    const categories = useMemo(
+        () => [...new Set(activities.map((activity) => activity.category).filter(Boolean))],
         [activities],
     );
     const levels = useMemo(
@@ -37,10 +41,14 @@ export default function Filters({ filters, setFilters, activities }) {
     }
 
     function clearFilters() {
-        setFilters({ district: "", day: "", level: "", organization: "" });
+        setFilters({ category: "", district: "", day: "", level: "", organization: "" });
     }
 
     const activeFilters = [
+        filters.category && {
+            field: "category",
+            label: ACTIVITY_CATEGORIES[filters.category] || filters.category,
+        },
         filters.district && { field: "district", label: filters.district },
         filters.day && { field: "day", label: DAYS[filters.day] || filters.day },
         filters.level && { field: "level", label: LEVELS[filters.level] || filters.level },
@@ -54,7 +62,22 @@ export default function Filters({ filters, setFilters, activities }) {
 
     return (
         <div className="space-y-3">
-            <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
+                <select
+                    name="category"
+                    aria-label="Filtrar por tipo de actividad"
+                    value={filters.category}
+                    onChange={(event) => update("category", event.target.value)}
+                    className={`${selectClassName} col-span-2 md:col-span-1`}
+                >
+                    <option value="">Tipo de actividad</option>
+                    {categories.map((category) => (
+                        <option key={category} value={category}>
+                            {ACTIVITY_CATEGORIES[category] || category}
+                        </option>
+                    ))}
+                </select>
+
                 <select
                     name="district"
                     aria-label="Filtrar por barrio"

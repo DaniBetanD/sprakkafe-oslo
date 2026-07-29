@@ -14,12 +14,13 @@ import SearchBar from "../components/SearchBar";
 import TodayActivities from "../components/TodayActivities";
 import { scrollToId } from "../utils/scrollTo";
 import { getActivityDays, isActivityAvailableOn, isActivityVisible } from "../utils/activityPresentation";
+import { ACTIVITY_CATEGORIES } from "../utils/translations";
 
 const JS_DAY_TO_EN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 export default function Home() {
   const [query, setQuery] = useState("");
-  const [filters, setFilters] = useState({ district: "", day: "", level: "", organization: "" });
+  const [filters, setFilters] = useState({ category: "", district: "", day: "", level: "", organization: "" });
   const [selected, setSelected] = useState(null);
 
   function getOrganization(id) {
@@ -36,21 +37,22 @@ export default function Home() {
 
   const results = visibleActivities.filter((activity) => {
     const organization = getOrganization(activity.organizationId);
-    const searchableText = `${activity.name}${organization?.name || ""}${activity.district}${activity.level}`.toLowerCase();
+    const searchableText = `${activity.name}${organization?.name || ""}${activity.district}${activity.level}${ACTIVITY_CATEGORIES[activity.category] || ""}`.toLowerCase();
     const matchesSearch = searchableText.includes(query.trim().toLowerCase());
+    const matchesCategory = !filters.category || activity.category === filters.category;
     const matchesDistrict = !filters.district || activity.district === filters.district;
     const matchesDay = !filters.day || getActivityDays(activity).includes(filters.day);
     const matchesLevel = !filters.level || activity.level === filters.level;
     const matchesOrganization = !filters.organization || activity.organizationId === filters.organization;
 
-    return matchesSearch && matchesDistrict && matchesDay && matchesLevel && matchesOrganization;
+    return matchesSearch && matchesCategory && matchesDistrict && matchesDay && matchesLevel && matchesOrganization;
   });
 
   const selectedOrganization = selected ? getOrganization(selected.organizationId) : null;
 
   function resetDiscovery() {
     setQuery("");
-    setFilters({ district: "", day: "", level: "", organization: "" });
+    setFilters({ category: "", district: "", day: "", level: "", organization: "" });
     scrollToId("actividades");
   }
 

@@ -2,6 +2,7 @@
   {
     "id": "1",
     "organizationId": "rodekors",
+    "category": "language-practice",
     "name": "Norsktrening Røde Kors — verano",
     "district": "Sentrum",
     "day": "Wednesday",
@@ -24,6 +25,7 @@
   {
     "id": "rodekors-hausmann",
     "organizationId": "rodekors",
+    "category": "language-practice",
     "name": "Norsktrening Røde Kors — Hausmanns gate",
     "district": "Sentrum",
     "days": ["Tuesday", "Wednesday", "Saturday"],
@@ -47,6 +49,7 @@
   {
     "id": "rodekors-bjorvika",
     "organizationId": "rodekors",
+    "category": "language-practice",
     "name": "Norsktrening en Deichman Bjørvika",
     "district": "Sentrum",
     "day": "Monday",
@@ -68,6 +71,7 @@
   {
     "id": "rodekors-furuset",
     "organizationId": "rodekors",
+    "category": "language-practice",
     "name": "Norsktrening en Deichman Furuset",
     "district": "Alna",
     "day": "Tuesday",
@@ -89,6 +93,7 @@
   {
     "id": "rodekors-grunerlokka",
     "organizationId": "rodekors",
+    "category": "language-practice",
     "name": "Norsktrening en Deichman Grünerløkka",
     "district": "Grünerløkka",
     "day": "Monday",
@@ -110,6 +115,7 @@
   {
     "id": "rodekors-veitvet",
     "organizationId": "rodekors",
+    "category": "language-practice",
     "name": "Norsktrening en Veitvet Senter",
     "district": "Bjerke",
     "day": "Wednesday",
@@ -131,6 +137,7 @@
   {
     "id": "deichman-stovner",
     "organizationId": "deichman",
+    "category": "language-cafe",
     "name": "Språkkafé Deichman Stovner",
     "district": "Stovner",
     "day": "Friday",
@@ -151,6 +158,7 @@
   {
     "id": "deichman-holmlia",
     "organizationId": "deichman",
+    "category": "language-cafe",
     "name": "Språkkafé Deichman Holmlia",
     "district": "Søndre Nordstrand",
     "day": "Wednesday",
@@ -171,6 +179,7 @@
   {
     "id": "deichman-roa",
     "organizationId": "deichman",
+    "category": "language-cafe",
     "name": "Språkkafé Deichman Røa",
     "district": "Vestre Aker",
     "day": "Tuesday",
@@ -191,6 +200,7 @@
   {
     "id": "rodekors-majorstuen",
     "organizationId": "rodekors",
+    "category": "language-practice",
     "name": "Norsktrening en Deichman Majorstuen",
     "district": "Frogner",
     "days": ["Tuesday", "Thursday"],
@@ -214,6 +224,7 @@
   {
     "id": "caritas-norsktrening",
     "organizationId": "caritas",
+    "category": "language-practice",
     "name": "Språktrening Caritas",
     "district": "Sentrum",
     "day": "Wednesday",
@@ -235,6 +246,7 @@
   {
     "id": "caritas-sprakkafe",
     "organizationId": "caritas",
+    "category": "language-cafe",
     "name": "Norsk språkkafé Caritas",
     "district": "Sentrum",
     "day": "Monday",
@@ -257,6 +269,7 @@
   {
     "id": "casa-cultural-sprakkafe",
     "organizationId": "casa-cultural",
+    "category": "language-cafe",
     "name": "Språkkafé noruego y español — Casa Cultural",
     "district": "Sagene",
     "day": "Sunday",
@@ -278,6 +291,7 @@
   {
     "id": "kia-tullinsgate",
     "organizationId": "kia-norge",
+    "category": "language-cafe",
     "name": "Språkkafé KIA — Tullins gate",
     "district": "Sentrum",
     "day": "Tuesday",
@@ -296,6 +310,7 @@
   {
     "id": "laf-natur-sprak-fellesskap",
     "organizationId": "latinamerikansk-forening",
+    "category": "nature",
     "name": "Natur, språk og fellesskap",
     "district": "Oslo",
     "days": [
@@ -321,6 +336,7 @@
   {
     "id": "laf-sup-opplaering-sognsvann",
     "organizationId": "latinamerikansk-forening",
+    "category": "sport",
     "name": "Formación gratuita de SUP en Sognsvann",
     "district": "Nordmarka",
     "days": [
@@ -348,6 +364,7 @@
   {
     "id": "rodekors-digital-summer",
     "organizationId": "rodekors",
+    "category": "digital",
     "name": "Norsktrening digital Røde Kors — verano",
     "district": "Digital",
     "day": "Monday",
@@ -368,6 +385,7 @@
   {
     "id": "rodekors-digital",
     "organizationId": "rodekors",
+    "category": "digital",
     "name": "Norsktrening digital Røde Kors",
     "district": "Digital",
     "days": ["Monday", "Tuesday", "Wednesday"],
@@ -388,6 +406,7 @@
   {
     "id": "stella-open-house-summer",
     "organizationId": "stella-kvinnesenter",
+    "category": "women",
     "name": "Encuentro abierto Stella — verano",
     "district": "Sentrum",
     "day": "Thursday",
@@ -408,6 +427,7 @@
   {
     "id": "stella-open-house",
     "organizationId": "stella-kvinnesenter",
+    "category": "women",
     "name": "Encuentro abierto Stella",
     "district": "Sentrum",
     "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -428,6 +448,7 @@
   {
     "id": "rodekors-turgruppa",
     "organizationId": "rodekors",
+    "category": "nature",
     "name": "Turgruppa — Oslo Røde Kors",
     "district": "Oslo",
     "day": "Sunday",
@@ -448,6 +469,7 @@
   {
     "id": "rodekors-fotballgruppa",
     "organizationId": "rodekors",
+    "category": "sport",
     "name": "Fotballgruppa — Oslo Røde Kors",
     "district": "Oslo",
     "days": ["Saturday", "Sunday"],
@@ -469,6 +491,7 @@
   {
     "id": "new-amigos-language-cafe-toyen",
     "organizationId": "toyen-frivilligsentral",
+    "category": "language-cafe",
     "name": "New Amigos Language Café",
     "district": "Gamle Oslo",
     "day": "Tuesday",
@@ -490,6 +513,7 @@
   {
     "id": "caritas-snakk-og-sok-sondre-nordstrand",
     "organizationId": "caritas",
+    "category": "employment",
     "name": "Snakk og Søk — Søndre Nordstrand",
     "district": "Søndre Nordstrand",
     "day": "Tuesday",

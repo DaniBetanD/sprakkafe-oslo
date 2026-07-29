@@ -70,6 +70,7 @@ No se rediseñan fuera de un sprint específico:
 
 ## Trabajo actual
 
+- `UX-DISCOVERY-002`: filtro por categoría aprobado e implementado.
 - `ORG-REL-001`: preparación del primer contacto con organizaciones.
 - Definición de una estrategia de marketing orgánico basada en confianza, utilidad y recomendación.
 - Mantenimiento de información estacional.

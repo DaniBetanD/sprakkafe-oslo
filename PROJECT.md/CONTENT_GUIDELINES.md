@@ -121,6 +121,12 @@ El directorio también puede incluir actividades comunitarias que ayuden clarame
 - No asumir que es gratuita si la fuente oficial no publica el precio.
 - Separar el enlace informativo oficial del enlace de inscripción o del grupo externo.
 
+### Categoría principal
+
+Cada actividad debe tener una sola categoría principal basada en la razón más probable por la que una persona la buscaría. La organización, el lugar o una característica secundaria no sustituyen esa finalidad.
+
+Las categorías se definen de forma centralizada. Si una actividad no encaja con claridad, debe revisarse antes de crear una categoría nueva.
+
 ## Emojis
 
 Usarlos con moderación para aportar calidez o facilitar el escaneo. Nunca deben sustituir información, etiquetas accesibles o iconos funcionales.

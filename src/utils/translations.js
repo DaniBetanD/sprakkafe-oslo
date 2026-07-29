@@ -15,3 +15,14 @@ export const LEVELS = {
   B1: "B1 — Intermedio",
   B2: "B2 — Intermedio alto"
 };
+
+export const ACTIVITY_CATEGORIES = {
+  "language-practice": "Práctica de noruego",
+  "language-cafe": "Café de idiomas",
+  employment: "Empleo y orientación",
+  community: "Cultura y comunidad",
+  nature: "Naturaleza y paseos",
+  sport: "Deporte",
+  women: "Actividades para mujeres",
+  digital: "Digital"
+};
