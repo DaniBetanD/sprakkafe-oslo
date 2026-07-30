@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { ArrowRight, Mail } from "lucide-react";
 import CommunitySignupModal from "./CommunitySignupModal";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function CommunityInviteSection() {
   const [showModal, setShowModal] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <>
@@ -16,23 +18,23 @@ export default function CommunityInviteSection() {
           <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-white/10" aria-hidden="true">
             <Mail size={21} />
           </div>
-          <p className="text-sm font-semibold text-blue-100">Únete a la comunidad</p>
+          <p className="text-sm font-semibold text-blue-100">{t("inviteEyebrow")}</p>
           <h2 id="community-invite-title" className="mt-2 text-2xl font-bold tracking-tight md:text-3xl">
-            Que no se te pase tu próxima oportunidad para practicar
+            {t("inviteTitle")}
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-blue-100 md:text-base">
-            Recibe en tu email nuevas actividades publicadas, cambios de horario y nuevos lugares donde practicar en Oslo.
+            {t("inviteText")}
           </p>
           <button
             type="button"
             onClick={() => setShowModal(true)}
             className="mt-6 inline-flex min-h-[46px] items-center justify-center gap-2 rounded-xl bg-white px-5 text-sm font-semibold text-blue-700 shadow-sm transition hover:bg-blue-50 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue-700"
           >
-            Quiero recibir novedades
+            {t("inviteButton")}
             <ArrowRight size={17} aria-hidden="true" />
           </button>
           <p className="mt-3 text-xs text-blue-100">
-            Solo información útil. Podrás darte de baja cuando quieras.
+            {t("inviteNote")}
           </p>
         </div>
       </section>

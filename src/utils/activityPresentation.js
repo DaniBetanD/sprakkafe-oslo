@@ -1,11 +1,13 @@
-import { DAYS } from "./translations.js";
+import { getUiTranslations } from "./translations.js";
 
 export function getActivityDays(activity) {
   return activity.days || [activity.day];
 }
 
-export function getScheduleLabel(activity) {
-  const days = getActivityDays(activity).map((day) => DAYS[day] || day).join(" y ");
+export function getScheduleLabel(activity, locale = "es") {
+  const { days: dayLabels } = getUiTranslations(locale);
+  const conjunction = locale === "en" ? " and " : " y ";
+  const days = getActivityDays(activity).map((day) => dayLabels[day] || day).join(conjunction);
   const hours = activity.endTime ? `${activity.time}–${activity.endTime}` : activity.time;
   return `${days} · ${hours}`;
 }
@@ -42,15 +44,15 @@ export function isActivityVisible(activity, date = new Date()) {
   return date >= visibleFrom;
 }
 
-export function formatAvailableFrom(date) {
-  return new Intl.DateTimeFormat("es-ES", {
+export function formatAvailableFrom(date, locale = "es") {
+  return new Intl.DateTimeFormat(locale === "en" ? "en-GB" : "es-ES", {
     day: "numeric",
     month: "short",
   }).format(new Date(`${date}T00:00:00`));
 }
 
-export function formatCheckedDate(date) {
-  return new Intl.DateTimeFormat("es-ES", {
+export function formatCheckedDate(date, locale = "es") {
+  return new Intl.DateTimeFormat(locale === "en" ? "en-GB" : "es-ES", {
     day: "numeric",
     month: "long",
     year: "numeric",

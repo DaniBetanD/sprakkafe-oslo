@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Heart, X } from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const RECAPTCHA_SCRIPT_URL = "https://www.google.com/recaptcha/api.js?render=explicit";
 const RECAPTCHA_SCRIPT_SOURCES = [
@@ -30,6 +31,7 @@ function getRecaptchaScriptUrl() {
 }
 
 export default function CommunitySignupModal({ onClose }) {
+    const { t } = useLanguage();
     const dialogRef = useRef(null);
     const recaptchaRef = useRef(null);
     const [submitted, setSubmitted] = useState(false);
@@ -130,19 +132,19 @@ export default function CommunitySignupModal({ onClose }) {
                         type="button"
                         onClick={onClose}
                         className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-gray-500 transition hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-                        aria-label="Cerrar formulario"
+                        aria-label={t("closeForm")}
                     >
                         <X size={21} />
                     </button>
                 </div>
 
                 <h2 id="community-modal-title" className="text-2xl font-bold tracking-tight text-gray-900">
-                    {submitted ? "Revisa tu correo" : "Tu primer paso empieza aquí"}
+                    {submitted ? t("checkEmail") : t("signupTitle")}
                 </h2>
                 <p id="community-modal-description" className="mt-2 text-sm leading-relaxed text-gray-600">
                     {submitted
-                        ? "Te hemos enviado un mensaje para confirmar tu suscripción. Si no lo encuentras, revisa la carpeta de spam."
-                        : "Descubre nuevos lugares donde practicar noruego, conocer personas y sentirte más cerca de Oslo."}
+                        ? t("confirmationText")
+                        : t("signupText")}
                 </p>
 
                 {submitted ? (
@@ -151,7 +153,7 @@ export default function CommunitySignupModal({ onClose }) {
                         onClick={onClose}
                         className="mt-6 min-h-12 w-full rounded-xl bg-blue-600 px-4 font-semibold text-white transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
                     >
-                        Entendido
+                        {t("understood")}
                     </button>
                 ) : (
                     <form
@@ -163,7 +165,7 @@ export default function CommunitySignupModal({ onClose }) {
                     >
                         <div>
                             <label htmlFor="community-email" className="mb-2 block text-sm font-semibold text-gray-900">
-                                Tu email
+                                {t("yourEmail")}
                             </label>
                             <input
                                 id="community-email"
@@ -177,7 +179,7 @@ export default function CommunitySignupModal({ onClose }) {
                         </div>
 
                     <p className="text-sm leading-relaxed text-gray-600">
-                        Solo te escribiremos cuando tengamos actividades, cambios de horario o novedades útiles para ti.
+                        {t("signupPrivacy")}
                     </p>
 
                     <label className="flex items-start gap-3 text-sm leading-relaxed text-gray-600">
@@ -187,7 +189,7 @@ export default function CommunitySignupModal({ onClose }) {
                             className="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-300 text-blue-600 focus:ring-blue-600"
                         />
                         <span>
-                            Sí, quiero recibir novedades de la comunidad de Språkkafé. Podré darme de baja cuando quiera.
+                            {t("signupConsent")}
                         </span>
                     </label>
 
@@ -200,11 +202,11 @@ export default function CommunitySignupModal({ onClose }) {
                         type="submit"
                         className="min-h-12 w-full rounded-xl bg-blue-600 px-4 font-semibold text-white transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
                     >
-                        Quiero formar parte
+                        {t("signupSubmit")}
                     </button>
                     </form>
                 )}
-                <iframe className="hidden" name="community-signup-response" title="Respuesta de suscripción" />
+                <iframe className="hidden" name="community-signup-response" title={t("signupResponse")} />
             </div>
         </div>,
         document.body,

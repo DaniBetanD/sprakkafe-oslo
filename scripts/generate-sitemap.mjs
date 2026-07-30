@@ -28,15 +28,15 @@ const latestUpdate = [...activities, ...organizations]
   .sort()
   .at(-1);
 
-const urls = [
-  createUrl("/", latestUpdate, "1.0"),
+const urls = ["es", "en"].flatMap((locale) => [
+  createUrl(`/${locale}`, latestUpdate, "1.0"),
   ...activities.map((activity) => (
-    createUrl(`/activity/${encodeURIComponent(activity.id)}`, activity.lastChecked, "0.8")
+    createUrl(`/${locale}/activity/${encodeURIComponent(activity.id)}`, activity.lastChecked, "0.8")
   )),
   ...organizations.map((organization) => (
-    createUrl(`/organization/${encodeURIComponent(organization.id)}`, organization.lastChecked, "0.7")
+    createUrl(`/${locale}/organization/${encodeURIComponent(organization.id)}`, organization.lastChecked, "0.7")
   )),
-];
+]);
 
 const sitemap = [
   '<?xml version="1.0" encoding="UTF-8"?>',

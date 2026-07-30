@@ -14,20 +14,25 @@ import SearchBar from "../components/SearchBar";
 import TodayActivities from "../components/TodayActivities";
 import { scrollToId } from "../utils/scrollTo";
 import { getActivityDays, isActivityAvailableOn, isActivityVisible } from "../utils/activityPresentation";
-import { ACTIVITY_CATEGORIES } from "../utils/translations";
+import { getUiTranslations } from "../utils/translations";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const JS_DAY_TO_EN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 export default function Home() {
+  const { activityContent, locale, organizationContent, t } = useLanguage();
+  const { categories } = getUiTranslations(locale);
+  const localizedActivities = activities.map(activityContent);
+  const localizedOrganizations = organizations.map(organizationContent);
   const [query, setQuery] = useState("");
   const [filters, setFilters] = useState({ category: "", district: "", day: "", level: "", organization: "" });
   const [selected, setSelected] = useState(null);
 
   function getOrganization(id) {
-    return organizations.find((organization) => organization.id === id);
+    return localizedOrganizations.find((organization) => organization.id === id);
   }
 
-  const visibleActivities = activities.filter((activity) => isActivityVisible(activity));
+  const visibleActivities = localizedActivities.filter((activity) => isActivityVisible(activity));
   const todayEnglish = JS_DAY_TO_EN[new Date().getDay()];
   const todayActivities = visibleActivities.filter(
     (activity) => isActivityAvailableOn(activity) && getActivityDays(activity).includes(todayEnglish),
@@ -37,7 +42,7 @@ export default function Home() {
 
   const results = visibleActivities.filter((activity) => {
     const organization = getOrganization(activity.organizationId);
-    const searchableText = `${activity.name}${organization?.name || ""}${activity.district}${activity.level}${ACTIVITY_CATEGORIES[activity.category] || ""}`.toLowerCase();
+    const searchableText = `${activity.name}${organization?.name || ""}${activity.district}${activity.level}${categories[activity.category] || ""}`.toLowerCase();
     const matchesSearch = searchableText.includes(query.trim().toLowerCase());
     const matchesCategory = !filters.category || activity.category === filters.category;
     const matchesDistrict = !filters.district || activity.district === filters.district;
@@ -83,12 +88,12 @@ export default function Home() {
         >
           <div className="max-w-5xl mx-auto px-6 text-center">
             <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
-              Encuentra tu{" "}
+              {t("heroTitle")}{" "}
               <br className="sm:hidden" />
               <span className="text-yellow-200">Språkkafé</span>
             </h1>
             <p className="mt-4 text-base md:text-lg text-blue-100 max-w-2xl mx-auto leading-relaxed">
-              Practica noruego en un entorno real, conoce gente y descubre la cultura de Oslo.
+              {t("heroText")}
             </p>
           </div>
         </section>
@@ -118,26 +123,26 @@ export default function Home() {
         <section id="actividades" className="max-w-5xl mx-auto px-4 md:px-6 w-full">
           <div className="flex justify-between items-center mb-5">
             <h2 className="font-bold text-xl md:text-2xl text-gray-900">
-              Encuentra tu Språkkafé
+              {t("findSprakkafe")}
             </h2>
             <span
               className="bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1 rounded-full border border-blue-100"
               role="status"
               aria-live="polite"
             >
-              {results.length} {results.length === 1 ? "actividad" : "actividades"}
+              {results.length} {results.length === 1 ? t("activitySingular") : t("activityPlural")}
             </span>
           </div>
 
           {results.length === 0 ? (
             <div className="text-center py-12 bg-white border border-dashed border-gray-200 rounded-2xl p-6">
-              <p className="text-sm text-gray-500">No hay actividades que coincidan.</p>
+              <p className="text-sm text-gray-500">{t("noMatches")}</p>
               <button
                 type="button"
                 onClick={resetDiscovery}
                 className="mt-3 text-xs font-bold text-blue-600 underline min-h-[44px]"
               >
-                Ver todas las actividades
+                {t("viewAllActivities")}
               </button>
             </div>
           ) : (

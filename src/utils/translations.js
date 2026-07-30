@@ -26,3 +26,39 @@ export const ACTIVITY_CATEGORIES = {
   women: "Actividades para mujeres",
   digital: "Digital"
 };
+
+export const TRANSLATIONS_BY_LOCALE = {
+  es: { days: DAYS, levels: LEVELS, categories: ACTIVITY_CATEGORIES },
+  en: {
+    days: {
+      Monday: "Monday",
+      Tuesday: "Tuesday",
+      Wednesday: "Wednesday",
+      Thursday: "Thursday",
+      Friday: "Friday",
+      Saturday: "Saturday",
+      Sunday: "Sunday",
+    },
+    levels: {
+      all: "All levels",
+      A1: "A1 — Beginner",
+      A2: "A2 — Elementary",
+      B1: "B1 — Intermediate",
+      B2: "B2 — Upper intermediate",
+    },
+    categories: {
+      "language-practice": "Norwegian practice",
+      "language-cafe": "Language café",
+      employment: "Employment and guidance",
+      community: "Culture and community",
+      nature: "Nature and walks",
+      sport: "Sport",
+      women: "Activities for women",
+      digital: "Online",
+    },
+  },
+};
+
+export function getUiTranslations(locale) {
+  return TRANSLATIONS_BY_LOCALE[locale] || TRANSLATIONS_BY_LOCALE.es;
+}

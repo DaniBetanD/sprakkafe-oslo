@@ -1,34 +1,23 @@
 import { Globe, MessageCircle, Users } from "lucide-react";
-
-const cards = [
-  {
-    icon: <Users size={22} />,
-    title: "Practica con confianza",
-    description: "Habla a tu ritmo en un ambiente relajado y acogedor.",
-  },
-  {
-    icon: <Globe size={22} />,
-    title: "Descubre la cultura",
-    description: "Conoce la vida cotidiana a través de conversaciones reales.",
-  },
-  {
-    icon: <MessageCircle size={22} />,
-    title: "Conecta con personas",
-    description: "Comparte, aprende y encuentra personas con quienes sentirte acompañado.",
-  },
-];
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function MissionSection() {
+  const { t } = useLanguage();
+  const cards = [
+    { icon: <Users size={22} />, title: t("missionCard1Title"), description: t("missionCard1Text") },
+    { icon: <Globe size={22} />, title: t("missionCard2Title"), description: t("missionCard2Text") },
+    { icon: <MessageCircle size={22} />, title: t("missionCard3Title"), description: t("missionCard3Text") },
+  ];
+
   return (
     <div id="proyecto" className="py-4 md:py-6">
       <div className="max-w-2xl mb-6 md:mb-8">
-        <p className="text-sm font-semibold text-blue-600">Nuestra misión</p>
+        <p className="text-sm font-semibold text-blue-600">{t("missionEyebrow")}</p>
         <h2 className="mt-2 text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
-          Sentirse parte de Noruega
+          {t("missionTitle")}
         </h2>
         <p className="mt-3 text-base leading-relaxed text-gray-600">
-          Aprender un idioma también es conversar, conocer personas y comprender la vida cotidiana.
-          Queremos que ese primer paso resulte más fácil.
+          {t("missionText")}
         </p>
       </div>
 
@@ -51,10 +40,10 @@ export default function MissionSection() {
 
       <div className="mt-6 md:mt-8 max-w-3xl border-l-2 border-blue-500 pl-4 md:pl-5">
         <p className="text-base font-semibold leading-relaxed text-gray-900">
-          El idioma es el comienzo. Sentirse parte es la meta.
+          {t("missionStatement")}
         </p>
         <p className="mt-2 text-sm leading-relaxed text-gray-600">
-          Reunimos actividades de organizaciones y espacios comunitarios para que encontrar un lugar donde practicar sea más sencillo.
+          {t("missionSupport")}
         </p>
       </div>
 

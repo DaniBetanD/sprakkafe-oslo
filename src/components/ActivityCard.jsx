@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { Calendar, MapPin } from "lucide-react";
-import { LEVELS } from "../utils/translations";
+import { getUiTranslations } from "../utils/translations";
 import ActivityPracticalInfo from "./ActivityPracticalInfo";
 import { getScheduleLabel } from "../utils/activityPresentation";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const LEVEL_COLORS = {
     "all": "bg-blue-50 text-blue-700",
@@ -13,6 +14,8 @@ const LEVEL_COLORS = {
 };
 
 export default function ActivityCard({ activity, organization, onClick, searchContext }) {
+    const { locale, pathFor } = useLanguage();
+
     return (
         <article className="bg-white rounded-3xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between h-full">
             <div className="space-y-4">
@@ -40,7 +43,7 @@ export default function ActivityCard({ activity, organization, onClick, searchCo
 
                 {/* Título Enlazable con Estado Contextual */}
                 <Link 
-                    to={`/activity/${activity.id}`} 
+                    to={pathFor(`/activity/${activity.id}`)}
                     state={{ fromSearch: searchContext }}
                     className="block group min-h-[44px]"
                 >
@@ -53,7 +56,7 @@ export default function ActivityCard({ activity, organization, onClick, searchCo
                 <div className="space-y-2 text-sm text-gray-500">
                     <div className="flex items-center gap-2">
                         <Calendar size={14} className="text-blue-500 shrink-0" />
-                        <span>{getScheduleLabel(activity)}</span>
+                        <span>{getScheduleLabel(activity, locale)}</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <MapPin size={14} className="text-blue-500 shrink-0" />
@@ -67,7 +70,7 @@ export default function ActivityCard({ activity, organization, onClick, searchCo
             {/* Fila Inferior con Nivel y Acceso Rápido Móvil */}
             <div className="mt-5 pt-4 border-t border-gray-50 flex items-center justify-between">
                 <span className={`inline-flex px-2.5 py-1 rounded-lg text-xs font-bold ${LEVEL_COLORS[activity.level] || "bg-gray-100 text-gray-600"}`}>
-                    {LEVELS[activity.level]}
+                    {getUiTranslations(locale).levels[activity.level]}
                 </span>
                 
                 <button

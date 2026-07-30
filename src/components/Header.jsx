@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { CalendarDays, Heart, House, Info, Menu, X } from "lucide-react";
+import { CalendarDays, Globe2, Heart, House, Info, Menu, X } from "lucide-react";
 import sprakkafeMark from "../assets/sprakkafe-mark.svg";
 import { scrollToId } from "../utils/scrollTo";
 import CommunitySignupModal from "./CommunitySignupModal";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,6 +12,7 @@ export default function Header() {
     const menuButtonRef = useRef(null);
     const location = useLocation();
     const navigate = useNavigate();
+    const { locale, pathFor, setLocale, t } = useLanguage();
 
     const closeMenu = () => setIsMenuOpen(false);
 
@@ -31,8 +33,8 @@ export default function Header() {
     function handleNavClick(e, id) {
         e.preventDefault();
         closeMenu();
-        if (location.pathname !== "/") {
-            navigate("/");
+        if (location.pathname !== pathFor("/")) {
+            navigate(pathFor("/"));
             // Pequeño delay para asegurar el renderizado de la Home antes del scroll
             setTimeout(() => scrollToId(id), 100);
         } else {
@@ -47,14 +49,14 @@ export default function Header() {
                     href="#main-content"
                     className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-2 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-blue-700 focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
                 >
-                    Saltar al contenido
+                    {t("skipToContent")}
                 </a>
                  <div className="max-w-5xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between gap-3">
                         <Link
-                            to="/"
+                            to={pathFor("/")}
                             onClick={(e) => handleNavClick(e, "hero")}
                             className="flex items-center gap-2.5 rounded-lg p-1 -ml-1 hover:bg-gray-100 transition-colors duration-150 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-                            aria-label="Språkkafé Oslo, ir al inicio"
+                            aria-label={t("homeAria")}
                         >
                             <img
                                 src={sprakkafeMark}
@@ -69,21 +71,30 @@ export default function Header() {
                         </Link>
 
                         {/* Desktop Navigation */}
-                        <nav aria-label="Navegación principal" className="hidden md:flex items-center gap-1 text-sm font-medium">
+                        <nav aria-label={t("mainNavigation")} className="hidden md:flex items-center gap-1 text-sm font-medium">
                             <a href="#actividades" onClick={(e) => handleNavClick(e, "actividades")}
                                 className="min-h-[44px] inline-flex items-center rounded-lg px-3 text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
-                                Actividades
+                                {t("activities")}
                             </a>
 
                             <a href="#proyecto" onClick={(e) => handleNavClick(e, "proyecto")}
                                 className="min-h-[44px] inline-flex items-center rounded-lg px-3 text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
-                                Sobre el proyecto
+                                {t("aboutProject")}
                             </a>
 
                             <button type="button" onClick={() => setShowModal(true)}
                                 className="ml-2 min-h-[44px] inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 text-white font-medium hover:bg-blue-700 active:scale-[0.98] transition shadow-sm cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
                                 <Heart size={16} aria-hidden="true" />
-                                Únete a la comunidad
+                                {t("joinCommunity")}
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setLocale(locale === "es" ? "en" : "es")}
+                                className="ml-1 inline-flex min-h-[44px] items-center gap-1.5 rounded-lg px-3 font-semibold text-gray-600 transition hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                                aria-label={`${t("languageLabel")}: ${locale.toUpperCase()}`}
+                            >
+                                <Globe2 size={16} aria-hidden="true" />
+                                {locale === "es" ? "EN" : "ES"}
                             </button>
                         </nav>
 
@@ -98,14 +109,22 @@ export default function Header() {
                                 className="min-h-[44px] inline-flex items-center gap-1.5 rounded-lg px-3 text-sm font-medium text-blue-700 hover:bg-blue-50 active:scale-[0.98] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
                            >
                                 <Heart size={16} aria-hidden="true" />
-                                Únete
+                                {t("join")}
+                           </button>
+                           <button
+                                type="button"
+                                onClick={() => setLocale(locale === "es" ? "en" : "es")}
+                                className="flex h-11 min-w-11 items-center justify-center rounded-lg px-2 text-xs font-bold text-gray-600 transition hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                                aria-label={`${t("languageLabel")}: ${locale.toUpperCase()}`}
+                           >
+                                {locale === "es" ? "EN" : "ES"}
                            </button>
                            <button
                                 ref={menuButtonRef}
                                 type="button"
                                 className="w-11 h-11 flex items-center justify-center rounded-lg text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-all duration-150 active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
                                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                                aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+                                aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
                                 aria-expanded={isMenuOpen}
                                 aria-controls="mobile-navigation"
                             >
@@ -117,15 +136,15 @@ export default function Header() {
                     {/* Mobile Navigation Panel (Optimized for 390px) */}
                     <nav
                         id="mobile-navigation"
-                        aria-label="Navegación móvil"
+                        aria-label={t("mobileNavigation")}
                         aria-hidden={!isMenuOpen}
                         className={`md:hidden max-w-5xl mx-auto px-3 overflow-hidden transition-all duration-200 ${isMenuOpen ? "max-h-80 opacity-100 pb-3" : "max-h-0 opacity-0"}`}
                     >
                         <div className="border-t border-gray-200 pt-2">
                             {[
-                                { id: "hero", label: "Inicio", description: "Volver al comienzo", icon: House },
-                                { id: "actividades", label: "Actividades", description: "Encontrar un Språkkafé", icon: CalendarDays },
-                                { id: "proyecto", label: "Sobre el proyecto", description: "Conocer nuestra misión", icon: Info },
+                                { id: "hero", label: t("home"), description: t("backToStart"), icon: House },
+                                { id: "actividades", label: t("activities"), description: t("findSprakkafe"), icon: CalendarDays },
+                                { id: "proyecto", label: t("aboutProject"), description: t("knowMission"), icon: Info },
                             ].map((item) => {
                                 const Icon = item.icon;
                                 return (

@@ -1,15 +1,17 @@
 import ActivityCard from "./ActivityCard";
 import HorizontalCarousel from "./HorizontalCarousel";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function TodayActivities({ activities, getOrganization, setSelected, selected }) {
+  const { t } = useLanguage();
   if (activities.length === 0) return null;
 
   return (
     <div className="py-2">
       <div className="mb-4">
-        <h2 className="text-xl font-bold text-gray-900 md:text-2xl">Actividades para hoy</h2>
+        <h2 className="text-xl font-bold text-gray-900 md:text-2xl">{t("todayTitle")}</h2>
         <p className="mt-1 text-sm text-gray-500">
-          Estas actividades están programadas para hoy. Revisa los detalles antes de salir.
+          {t("todayText")}
         </p>
       </div>
       {activities.length === 1 ? (

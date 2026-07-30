@@ -1,31 +1,47 @@
 import { lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
+import { LanguageProvider, useLanguage } from "./i18n/LanguageContext";
+import { getLocaleFromPath } from "./i18n/locale";
+import LanguageSuggestion from "./components/LanguageSuggestion";
 import Home from "./pages/Home";
 
 const ActivityPage = lazy(() => import("./pages/ActivityPage"));
 const OrganizationPage = lazy(() => import("./pages/OrganizationPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
-function App() {
+function LoadingFallback() {
+    const { t } = useLanguage();
     return (
-        <>
+        <main className="flex min-h-screen items-center justify-center bg-gray-50 px-6">
+            <p className="text-sm text-gray-600">{t("loading")}</p>
+        </main>
+    );
+}
+
+function App() {
+    const location = useLocation();
+
+    if (!getLocaleFromPath(location.pathname)) {
+        const suffix = location.pathname === "/" ? "" : location.pathname;
+        return <Navigate to={`/es${suffix}${location.search}${location.hash}`} replace />;
+    }
+
+    return (
+        <LanguageProvider>
             <ScrollToTop />
+            <LanguageSuggestion />
             <Suspense
-                fallback={(
-                    <main className="flex min-h-screen items-center justify-center bg-gray-50 px-6">
-                        <p className="text-sm text-gray-600">Cargando…</p>
-                    </main>
-                )}
+                fallback={<LoadingFallback />}
             >
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/activity/:id" element={<ActivityPage />} />
-                    <Route path="/organization/:id" element={<OrganizationPage />} />
+                    <Route path="/:locale" element={<Home />} />
+                    <Route path="/:locale/activity/:id" element={<ActivityPage />} />
+                    <Route path="/:locale/organization/:id" element={<OrganizationPage />} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </Suspense>
-        </>
+        </LanguageProvider>
     );
 }
 

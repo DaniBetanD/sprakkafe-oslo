@@ -1,9 +1,10 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { X, ArrowRight, ExternalLink, MapPin, Calendar } from "lucide-react";
-import { LEVELS } from "../utils/translations";
+import { getUiTranslations } from "../utils/translations";
 import ActivityPracticalInfo from "./ActivityPracticalInfo";
 import { getScheduleLabel } from "../utils/activityPresentation";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const LEVEL_COLORS = {
     "all": "bg-blue-50 text-blue-700",
@@ -14,6 +15,7 @@ const LEVEL_COLORS = {
 };
 
 export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
+    const { locale, pathFor, t } = useLanguage();
     const closeButtonRef = useRef(null);
     const panelRef = useRef(null);
 
@@ -99,7 +101,7 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
                             ref={closeButtonRef}
                             type="button"
                             onClick={onClose}
-                            aria-label="Cerrar detalles de la actividad"
+                            aria-label={t("closeDetails")}
                             className="text-gray-400 hover:text-gray-600 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl shrink-0"
                         >
                             <X size={20} />
@@ -121,10 +123,10 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
                     <div className="flex items-center justify-between gap-2">
                         <div className="flex items-center gap-2 text-sm text-gray-600">
                             <Calendar size={14} className="text-blue-500 shrink-0" />
-                            <span>{getScheduleLabel(selected)}</span>
+                            <span>{getScheduleLabel(selected, locale)}</span>
                         </div>
                         <span className={`text-xs font-semibold px-2.5 py-1 rounded-full shrink-0 ${LEVEL_COLORS[selected.level] || "bg-gray-100 text-gray-600"}`}>
-                            {LEVELS[selected.level] || selected.level}
+                            {getUiTranslations(locale).levels[selected.level] || selected.level}
                         </span>
                     </div>
 
@@ -148,19 +150,19 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
                     {/* Acciones */}
                     <div className="flex flex-col gap-2 pb-2">
                         <Link
-                            to={`/activity/${selected.id}`}
+                            to={pathFor(`/activity/${selected.id}`)}
                             onClick={onClose}
                             className="flex items-center justify-center gap-2 bg-blue-600 text-white text-sm font-semibold px-4 py-3 rounded-xl hover:bg-blue-700 transition"
                         >
-                            Ver página completa <ArrowRight size={15} />
+                            {t("fullPage")} <ArrowRight size={15} />
                         </Link>
                         
                         <Link
-                            to={`/organization/${selectedOrg?.id}`}
+                            to={pathFor(`/organization/${selectedOrg?.id}`)}
                             onClick={onClose}
                             className="flex items-center justify-center gap-2 bg-gray-100 text-gray-700 text-sm font-medium px-4 py-3 rounded-xl hover:bg-gray-200 transition"
                         >
-                            Ver organización
+                            {t("viewOrganization")}
                         </Link>
                         
                         {selected.sourceUrl && (
@@ -170,7 +172,7 @@ export default function MobileDetailPanel({ selected, selectedOrg, onClose }) {
                                 rel="noopener noreferrer"
                                 className="flex min-h-[44px] items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-medium text-blue-700 hover:bg-blue-50 transition"
                             >
-                                Consultar horario oficial <ExternalLink size={14} aria-hidden="true" />
+                                {t("officialSchedule")} <ExternalLink size={14} aria-hidden="true" />
                             </a>
                         )}
                     </div>

@@ -1,15 +1,17 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import sprakkafeMark from "../assets/sprakkafe-mark.svg";
 import { scrollToId } from "../utils/scrollTo";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Footer() {
     const location = useLocation();
     const navigate = useNavigate();
+    const { pathFor, t } = useLanguage();
 
     function handleNavClick(e, id) {
         e.preventDefault();
-        if (location.pathname !== "/") {
-            navigate("/", { state: { scrollTo: id } });
+        if (location.pathname !== pathFor("/")) {
+            navigate(pathFor("/"), { state: { scrollTo: id } });
         } else {
             scrollToId(id);
         }
@@ -28,23 +30,23 @@ export default function Footer() {
                             </div>
                         </div>
                         <p className="max-w-sm text-gray-600 text-sm leading-relaxed">
-                            Reunimos actividades gratuitas para practicar noruego, conocer gente y conectar con la vida local.
+                            {t("footerDescription")}
                         </p>
                     </div>
 
                     <div>
                         <h4 className="font-bold text-gray-900 text-sm tracking-wider uppercase mb-3">
-                            Explorar
+                            {t("explore")}
                         </h4>
                         <ul className="text-sm">
                             <li>
                                 <a href="#actividades" onClick={(e) => handleNavClick(e, "actividades")} className="text-gray-600 hover:text-blue-600 transition min-h-[44px] flex items-center">
-                                    Actividades
+                                    {t("activities")}
                                 </a>
                             </li>
                             <li>
                                 <a href="#proyecto" onClick={(e) => handleNavClick(e, "proyecto")} className="text-gray-600 hover:text-blue-600 transition min-h-[44px] flex items-center">
-                                    Sobre el proyecto
+                                    {t("aboutProject")}
                                 </a>
                             </li>
                         </ul>
@@ -52,28 +54,28 @@ export default function Footer() {
 
                     <div>
                         <h4 className="font-bold text-gray-900 text-sm tracking-wider uppercase mb-3">
-                            Comunidad
+                            {t("community")}
                         </h4>
                         <a href="#comunidad" onClick={(e) => handleNavClick(e, "comunidad")} className="text-gray-600 hover:text-blue-600 transition min-h-[44px] flex items-center text-sm">
-                            Recibir novedades
+                            {t("receiveNews")}
                         </a>
                         <p className="mt-1 text-xs leading-relaxed text-gray-500">
-                            Actividades y cambios importantes, directamente en tu email.
+                            {t("receiveNewsText")}
                         </p>
                     </div>
 
                     <div>
                         <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-gray-900">
-                            Organizaciones
+                            {t("organizations")}
                         </h4>
                         <p className="text-sm leading-relaxed text-gray-600">
-                            ¿Organizas un Språkkafé? Escríbenos para añadirlo, actualizar información o realizar una consulta.
+                            {t("organizationContactText")}
                         </p>
                         <a
                             href="mailto:sprakkafenorge@gmail.com?subject=Organizaci%C3%B3n%20%E2%80%94%20Spr%C3%A5kkaf%C3%A9%20Oslo"
                             className="mt-2 flex min-h-[44px] items-center text-sm font-semibold text-blue-600 transition hover:text-blue-700 md:hidden"
                         >
-                            Contactar con nosotros →
+                            {t("contactUs")}
                         </a>
                         <a
                             href="https://mail.google.com/mail/?view=cm&fs=1&to=sprakkafenorge@gmail.com&su=Organizaci%C3%B3n%20%E2%80%94%20Spr%C3%A5kkaf%C3%A9%20Oslo"
@@ -81,7 +83,7 @@ export default function Footer() {
                             rel="noreferrer"
                             className="mt-2 hidden min-h-[44px] items-center text-sm font-semibold text-blue-600 transition hover:text-blue-700 md:flex"
                         >
-                            Contactar con nosotros →
+                            {t("contactUs")}
                         </a>
                         <p className="break-all text-xs text-gray-500">
                             sprakkafenorge@gmail.com
@@ -91,7 +93,7 @@ export default function Footer() {
 
                 <div className="mt-9 pt-6 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
                     <p className="text-sm text-gray-500">
-                        Hecho con cariño ❤️ para ayudar a más personas a sentirse parte de Noruega.
+                        {t("footerStatement")}
                     </p>
                     <p className="text-xs text-gray-500 font-medium">
                         © {new Date().getFullYear()} Språkkafé Oslo

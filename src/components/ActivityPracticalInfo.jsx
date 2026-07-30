@@ -1,39 +1,41 @@
 import { CalendarClock, CircleDollarSign, ClipboardCheck, UserRoundCheck, UsersRound } from "lucide-react";
 import { formatAvailableFrom, formatCheckedDate, getActivityAvailability } from "../utils/activityPresentation";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function ActivityPracticalInfo({ activity, compact = false }) {
+  const { locale, t } = useLanguage();
   const availability = getActivityAvailability(activity);
   const items = [
     availability === "upcoming" && activity.availableFrom && {
       icon: CalendarClock,
-      label: `Desde el ${formatAvailableFrom(activity.availableFrom)}`,
+      label: t("fromDate", { date: formatAvailableFrom(activity.availableFrom, locale) }),
       accent: true,
     },
     availability === "expired" && {
       icon: CalendarClock,
-      label: "Programación finalizada",
+      label: t("scheduleEnded"),
       accent: true,
     },
     activity.availableUntil && {
       icon: CalendarClock,
-      label: `Hasta el ${formatAvailableFrom(activity.availableUntil)}`,
+      label: t("untilDate", { date: formatAvailableFrom(activity.availableUntil, locale) }),
       accent: true,
     },
     activity.cost === "free" && {
       icon: CircleDollarSign,
-      label: "Gratis",
+      label: t("free"),
     },
     activity.registration === "none" && {
       icon: UserRoundCheck,
-      label: "Sin inscripción",
+      label: t("noRegistration"),
     },
     activity.registration === "required" && {
       icon: ClipboardCheck,
-      label: "Inscripción necesaria",
+      label: t("registrationRequired"),
     },
     activity.canComeAlone && {
       icon: UsersRound,
-      label: "Puedes venir por tu cuenta",
+      label: t("comeAlone"),
     },
   ].filter(Boolean);
 
@@ -60,26 +62,26 @@ export default function ActivityPracticalInfo({ activity, compact = false }) {
           <div className="space-y-3 rounded-2xl border border-gray-100 bg-gray-50 p-4 text-sm leading-relaxed">
             {activity.format && (
               <div>
-                <p className="font-semibold text-gray-900">Qué puedes esperar</p>
+                <p className="font-semibold text-gray-900">{t("whatToExpect")}</p>
                 <p className="mt-0.5 text-gray-600">{activity.format}</p>
               </div>
             )}
             {activity.arrivalAdvice && (
               <div>
-                <p className="font-semibold text-gray-900">Antes de ir</p>
+                <p className="font-semibold text-gray-900">{t("beforeGoing")}</p>
                 <p className="mt-0.5 text-gray-600">{activity.arrivalAdvice}</p>
               </div>
             )}
             {activity.seasonNote && (
               <div>
-                <p className="font-semibold text-gray-900">Información temporal</p>
+                <p className="font-semibold text-gray-900">{t("seasonalInformation")}</p>
                 <p className="mt-0.5 text-gray-600">{activity.seasonNote}</p>
               </div>
             )}
           </div>
           {activity.lastChecked && (
             <p className="text-xs text-gray-500">
-              Información revisada el {formatCheckedDate(activity.lastChecked)}.
+              {t("checkedOn", { date: formatCheckedDate(activity.lastChecked, locale) })}
             </p>
           )}
         </>

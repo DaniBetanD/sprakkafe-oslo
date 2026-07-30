@@ -3,8 +3,9 @@ import { ArrowLeft, MapPin, Calendar, Globe, ExternalLink, Mail, MessageCircle, 
 import activities from "../data/activities.json";
 import organizations from "../data/organizations.json";
 import ActivityPracticalInfo from "../components/ActivityPracticalInfo";
-import { DAYS, LEVELS } from "../utils/translations";
+import { getUiTranslations } from "../utils/translations";
 import { getActivityAvailability, getScheduleLabel } from "../utils/activityPresentation";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const LEVEL_COLORS = {
     "all": "bg-blue-50 text-blue-700",
@@ -18,23 +19,29 @@ export default function ActivityPage() {
     const { id } = useParams();
     const location = useLocation();
     const navigate = useNavigate();
+    const { activityContent, locale, organizationContent, pathFor, t } = useLanguage();
+    const { days: dayLabels, levels: levelLabels } = getUiTranslations(locale);
 
-    const activity = activities.find(a => String(a.id) === String(id));
-    const organization = activity ? organizations.find(org => String(org.id) === String(activity.organizationId)) : null;
+    const rawActivity = activities.find(a => String(a.id) === String(id));
+    const activity = rawActivity ? activityContent(rawActivity) : null;
+    const rawOrganization = activity ? organizations.find(org => String(org.id) === String(activity.organizationId)) : null;
+    const organization = rawOrganization ? organizationContent(rawOrganization) : null;
 
     // Recuperamos los filtros del buscador para volver atrás sin perder el contexto
-    const previousSearch = location.state?.fromSearch ? `/?${location.state.fromSearch}` : "/";
+    const previousSearch = location.state?.fromSearch
+        ? `${pathFor("/")}?${location.state.fromSearch}`
+        : pathFor("/");
 
     if (!activity) {
         return (
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-center space-y-4">
-                    <h2 className="text-2xl font-bold text-gray-900">Actividad no encontrada</h2>
+                    <h2 className="text-2xl font-bold text-gray-900">{t("activityNotFound")}</h2>
                     <button 
-                        onClick={() => navigate("/")} 
+                        onClick={() => navigate(pathFor("/"))}
                         className="inline-flex items-center gap-2 text-blue-600 hover:underline font-medium min-h-[44px]"
                     >
-                        <ArrowLeft size={16} /> Volver al inicio
+                        <ArrowLeft size={16} /> {t("backHome")}
                     </button>
                 </div>
             </div>
@@ -43,7 +50,7 @@ export default function ActivityPage() {
 
     const otherActivities = activities.filter(
         a => String(a.organizationId) === String(activity.organizationId) && String(a.id) !== String(activity.id)
-    );
+    ).map(activityContent);
 
     const mapsUrl = activity.address
         ? `https://maps.google.com/?q=${encodeURIComponent(activity.address + ', Oslo')}`
@@ -60,7 +67,7 @@ export default function ActivityPage() {
                         className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-blue-600 transition group min-h-[44px] px-2 rounded-xl active:scale-95"
                     >
                         <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-0.5" />
-                        <span>Actividades</span>
+                        <span>{t("activities")}</span>
                     </button>
                 </div>
             </div>
@@ -85,7 +92,7 @@ export default function ActivityPage() {
                         </div>
                         <div>
                             <Link
-                                to={`/organization/${organization?.id}`}
+                                to={pathFor(`/organization/${organization?.id}`)}
                                 className="font-semibold text-gray-900 hover:text-blue-600 transition min-h-[44px] flex items-center"
                             >
                                 {organization?.name}
@@ -106,9 +113,9 @@ export default function ActivityPage() {
 
                     {availability === "expired" && (
                         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4">
-                            <p className="font-semibold text-amber-950">Esta programación ha finalizado</p>
+                            <p className="font-semibold text-amber-950">{t("scheduleFinishedTitle")}</p>
                             <p className="mt-1 text-sm leading-relaxed text-amber-900">
-                                Conservamos la ficha como referencia. Consulta la fuente oficial para comprobar si existen nuevas fechas.
+                                {t("scheduleFinishedText")}
                             </p>
                         </div>
                     )}
@@ -124,7 +131,7 @@ export default function ActivityPage() {
                     <div className="flex flex-wrap gap-3">
                         <div className="inline-flex items-center gap-2 bg-gray-50 border border-gray-100 px-4 py-2 rounded-xl text-sm text-gray-700">
                             <Calendar size={15} className="text-blue-500" />
-                            {getScheduleLabel(activity)}
+                            {getScheduleLabel(activity, locale)}
                         </div>
 
                         {mapsUrl ? (
@@ -145,7 +152,7 @@ export default function ActivityPage() {
                         )}
 
                         <span className={`inline-flex items-center px-4 py-2 rounded-xl text-sm font-semibold ${LEVEL_COLORS[activity.level] || "bg-gray-100 text-gray-600"}`}>
-                            {LEVELS[activity.level]}
+                            {levelLabels[activity.level]}
                         </span>
                     </div>
 
@@ -157,7 +164,7 @@ export default function ActivityPage() {
                             className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition group min-h-[44px]"
                         >
                             <MapPin size={14} className="text-blue-400 group-hover:text-blue-600 shrink-0" />
-                            <span>{activity.address} · Ver en mapa →</span>
+                            <span>{activity.address} · {t("viewOnMap")}</span>
                         </a>
                     )}
 
@@ -169,7 +176,7 @@ export default function ActivityPage() {
                                 rel="noopener noreferrer"
                                 className="inline-flex min-h-[46px] flex-1 items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 text-sm font-semibold text-white transition hover:bg-blue-700"
                             >
-                                Consultar horario oficial <ExternalLink size={15} aria-hidden="true" />
+                                {t("officialSchedule")} <ExternalLink size={15} aria-hidden="true" />
                             </a>
                         )}
                         {activity.registrationUrl && (
@@ -180,7 +187,7 @@ export default function ActivityPage() {
                                 className="inline-flex min-h-[46px] flex-1 items-center justify-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-4 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-100"
                             >
                                 <MessageCircle size={16} aria-hidden="true" />
-                                Unirse al grupo de WhatsApp
+                                {t("joinWhatsapp")}
                                 <ExternalLink size={14} aria-hidden="true" />
                             </a>
                         )}
@@ -191,24 +198,24 @@ export default function ActivityPage() {
                                 rel="noopener noreferrer"
                                 className="inline-flex min-h-[46px] flex-1 items-center justify-center gap-2 rounded-xl bg-gray-100 px-4 text-sm font-semibold text-gray-700 transition hover:bg-gray-200"
                             >
-                                <MapPin size={15} aria-hidden="true" /> Cómo llegar
+                                <MapPin size={15} aria-hidden="true" /> {t("directions")}
                             </a>
                         )}
                     </div>
                     <p className="text-xs leading-relaxed text-gray-500">
-                        Recomendamos confirmar el horario en la fuente oficial antes de desplazarte.
+                        {t("confirmSchedule")}
                     </p>
                 </section>
 
                 <section className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm md:p-8">
-                    <h2 className="mb-4 text-lg font-bold text-gray-900">Antes de asistir</h2>
+                    <h2 className="mb-4 text-lg font-bold text-gray-900">{t("beforeAttending")}</h2>
                     <ActivityPracticalInfo activity={activity} />
                 </section>
                 {/* Sobre la entidad */}
                 <section className="bg-white rounded-3xl border border-gray-200 p-6 shadow-sm space-y-4">
-                    <h2 className="text-lg font-bold text-gray-900">Sobre la entidad organizadora</h2>
+                    <h2 className="text-lg font-bold text-gray-900">{t("organizingEntity")}</h2>
                     <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                        {organization?.description || "Esta entidad organiza eventos de intercambio y café de idiomas gratuito en Oslo."}
+                        {organization?.description || t("entityFallback")}
                     </p>
 
                     <div className="flex flex-wrap gap-3 pt-2">
@@ -219,7 +226,7 @@ export default function ActivityPage() {
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 text-sm bg-blue-50 text-blue-700 px-4 py-2 rounded-xl font-medium hover:bg-blue-100 transition min-h-[44px]"
                             >
-                                <Globe size={16} /> Sitio oficial <ExternalLink size={14} />
+                                <Globe size={16} /> {t("officialSite")} <ExternalLink size={14} />
                             </a>
                         )}
                         {organization?.facebook && (
@@ -229,7 +236,7 @@ export default function ActivityPage() {
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 text-sm bg-blue-50 text-blue-700 px-4 py-2 rounded-xl font-medium hover:bg-blue-100 transition min-h-[44px]"
                             >
-                                Ver Facebook <ExternalLink size={14} aria-hidden="true" />
+                                {t("viewFacebook")} <ExternalLink size={14} aria-hidden="true" />
                             </a>
                         )}
                         {organization?.email && (
@@ -237,7 +244,7 @@ export default function ActivityPage() {
                                 href={`mailto:${organization.email}`}
                                 className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition min-h-[44px]"
                             >
-                                <Mail size={16} /> Contacto
+                                <Mail size={16} /> {t("contact")}
                             </a>
                         )}
                         {organization?.phone && (
@@ -257,10 +264,10 @@ export default function ActivityPage() {
                             </a>
                         )}
                         <Link
-                            to={`/organization/${organization?.id}`}
+                            to={pathFor(`/organization/${organization?.id}`)}
                             className="inline-flex items-center gap-2 text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-xl font-medium hover:bg-gray-200 transition min-h-[44px]"
                         >
-                            Ver perfil completo
+                            {t("fullProfile")}
                         </Link>
                     </div>
                 </section>
@@ -269,18 +276,18 @@ export default function ActivityPage() {
                 {otherActivities.length > 0 && (
                     <section className="space-y-3">
                         <h2 className="text-lg font-bold text-gray-900">
-                            Más actividades de {organization?.name}
+                            {t("moreActivities", { name: organization?.name })}
                         </h2>
                         {otherActivities.map(a => (
                             <Link
                                 key={a.id}
-                                to={`/activity/${a.id}`}
+                                to={pathFor(`/activity/${a.id}`)}
                                 state={{ fromSearch: location.state?.fromSearch }}
                                 className="block bg-white rounded-2xl border border-gray-200 p-4 hover:shadow-md transition"
                             >
                                 <h3 className="font-semibold text-gray-900">{a.name}</h3>
                                 <p className="text-sm text-gray-500 mt-1">
-                                    {DAYS[a.day]} · {a.time} · {a.district} · {LEVELS[a.level]}
+                                    {dayLabels[a.day]} · {a.time} · {a.district} · {levelLabels[a.level]}
                                 </p>
                             </Link>
                         ))}
