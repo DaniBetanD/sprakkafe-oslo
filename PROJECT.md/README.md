@@ -28,7 +28,16 @@ Este directorio reúne la documentación activa de Språkkafé Oslo. No todos lo
 | `ORGANIZATION_OUTREACH.md` | Contacto administrado con organizaciones |
 | `ORGANIZATION_EMAIL_DRAFTS.md` | Borradores individuales preparados para Gmail |
 | `ORGANIC_MARKETING_STRATEGY.md` | Estrategia de difusión orgánica y crecimiento por recomendación |
+| `MARKETING_001_ACTIVATION_KIT.md` | Kit operativo para la primera activación orgánica de 14 días |
+| `ANALYTICS_MVP_001.md` | Medición anónima y revisión semanal del uso del MVP |
+| `PERF_MVP_002.md` | Medición del rendimiento real mediante Core Web Vitals |
 | `CHANGELOG.md` | Cambios relevantes del producto |
+
+## Expedientes de incorporación
+
+La carpeta `intake/` contiene propuestas pendientes de aprobación administrativa. Una ficha guardada en esta carpeta no significa que la organización o actividad esté publicada.
+
+El expediente de LIN permanece pendiente de revisión hasta el 7 de agosto de 2026.
 
 ## Documentos fuera de este directorio
 

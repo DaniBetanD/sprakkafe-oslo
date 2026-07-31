@@ -1,8 +1,8 @@
 # Estado del proyecto
 
-Versión: 3.0
+Versión: 3.1
 Estado: Documento vivo
-Última actualización: 26 de julio de 2026
+Última actualización: 31 de julio de 2026
 
 ## Estado general
 
@@ -31,6 +31,9 @@ El objetivo actual es proteger la fiabilidad de la información, comprobar los f
 | Rendimiento | Optimizado y validado |
 | Seguridad web | CSP, COOP, XFO y Trusted Types activos |
 | Administración de contenidos | Manual, con aprobación obligatoria |
+| Idiomas | Español e inglés activos |
+| Analítica | Vercel Web Analytics activo |
+| Rendimiento real | Vercel Speed Insights activo |
 
 ## Arquitectura vigente
 
@@ -43,9 +46,9 @@ El objetivo actual es proteger la fiabilidad de la información, comprobar los f
 
 Rutas públicas:
 
-- `/`
-- `/activity/:id`
-- `/organization/:id`
+- `/es` y `/en`
+- `/:locale/activity/:id`
+- `/:locale/organization/:id`
 - ruta comodín para la página 404
 
 ## Operación de contenidos
@@ -70,9 +73,10 @@ No se rediseñan fuera de un sprint específico:
 
 ## Trabajo actual
 
-- `UX-DISCOVERY-002`: filtro por categoría aprobado e implementado.
-- `ORG-REL-001`: preparación del primer contacto con organizaciones.
-- Definición de una estrategia de marketing orgánico basada en confianza, utilidad y recomendación.
+- `MARKETING-001`: primera activación orgánica de 14 días en ejecución.
+- `CONTENT-ORG-002`: perfil de LIN preparado como borrador; revisión prevista para el 7 de agosto de 2026.
+- Construcción de una línea base semanal con Analytics y Speed Insights.
+- Contacto y seguimiento administrado con organizaciones.
 - Mantenimiento de información estacional.
 - QA periódico de suscripción, enlaces, rutas y producción.
 
@@ -80,13 +84,14 @@ No se rediseñan fuera de un sprint específico:
 
 - Mantener una rutina editorial para la newsletter.
 - Mejorar el flujo asistido de incorporación desde fuentes oficiales.
-- Definir analítica mínima y respetuosa con la privacidad cuando aporte una decisión útil.
+- Evaluar los primeros datos de Analytics y Speed Insights cuando exista una muestra suficiente.
+- Revisar el perfil de LIN el 7 de agosto de 2026 y decidir su publicación.
 
 ## No implementado
 
 - Base de datos y panel administrativo.
 - Perfiles de usuario, favoritos, comentarios o valoraciones.
-- Multi-ciudad y multiidioma.
+- Multi-ciudad y otros idiomas además de español e inglés.
 - Automatización de publicaciones sin aprobación humana.
 
 Estos elementos pertenecen al roadmap y no están autorizados como desarrollo inmediato.
