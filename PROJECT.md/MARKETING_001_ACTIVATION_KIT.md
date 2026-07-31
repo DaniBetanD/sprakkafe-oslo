@@ -1,8 +1,8 @@
 # MARKETING-001 — Primera activación orgánica
 
-Estado: En ejecución, aprobado por la administración  
-Duración: 14 días  
-Fecha de preparación: 29 de julio de 2026  
+Estado: En ejecución, aprobado por la administración
+Duración: 14 días
+Fecha de preparación: 29 de julio de 2026
 Fecha de activación: 31 de julio de 2026
 
 ## Objetivo
@@ -133,8 +133,8 @@ Plantilla:
 >
 > Estas son algunas opciones:
 >
-> • [día]: [actividad] — [hora] — [barrio]  
-> • [día]: [actividad] — [hora] — [barrio]  
+> • [día]: [actividad] — [hora] — [barrio]
+> • [día]: [actividad] — [hora] — [barrio]
 > • [día]: [actividad] — [hora] — [barrio]
 >
 > Revisa los detalles y confirma el horario antes de salir:
@@ -147,8 +147,8 @@ Plantilla:
 >
 > Here are a few options:
 >
-> • [day]: [activity] — [time] — [district]  
-> • [day]: [activity] — [time] — [district]  
+> • [day]: [activity] — [time] — [district]
+> • [day]: [activity] — [time] — [district]
 > • [day]: [activity] — [time] — [district]
 >
 > Check the details and confirm the schedule before travelling:
