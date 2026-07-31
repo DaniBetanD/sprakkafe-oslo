@@ -1,5 +1,6 @@
 const ALLOWED_SCRIPT_SOURCES = [
     [window.location.origin, "/_vercel/insights/"],
+    [window.location.origin, "/_vercel/speed-insights/"],
     ["https://www.google.com", "/recaptcha/"],
     ["https://www.gstatic.com", "/recaptcha/"],
 ];
