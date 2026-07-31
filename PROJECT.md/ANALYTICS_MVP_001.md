@@ -88,6 +88,7 @@ Si más adelante se propone una herramienta con cookies, grabaciones o seguimien
 ## Criterios de aceptación
 
 - El paquete oficial está integrado una sola vez.
+- La política Trusted Types permite únicamente el cargador de Analytics alojado en `/_vercel/insights/`.
 - La aplicación compila sin errores.
 - Las rutas españolas e inglesas siguen funcionando.
 - No se añaden cookies ni un banner de consentimiento.

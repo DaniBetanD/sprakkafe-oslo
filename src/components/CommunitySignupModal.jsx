@@ -2,33 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Heart, X } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { createTrustedScriptUrl } from "../utils/trustedTypes";
 
 const RECAPTCHA_SCRIPT_URL = "https://www.google.com/recaptcha/api.js?render=explicit";
-const RECAPTCHA_SCRIPT_SOURCES = [
-    ["https://www.google.com", "/recaptcha/"],
-    ["https://www.gstatic.com", "/recaptcha/"],
-];
-let trustedTypesDefaultPolicy;
-
-function getRecaptchaScriptUrl() {
-    if (!window.trustedTypes) return RECAPTCHA_SCRIPT_URL;
-
-    trustedTypesDefaultPolicy ??= window.trustedTypes.createPolicy("default", {
-        createScriptURL: (url) => {
-            const parsedUrl = new URL(url, window.location.origin);
-            const isAllowed = RECAPTCHA_SCRIPT_SOURCES.some(
-                ([origin, path]) => parsedUrl.origin === origin && parsedUrl.pathname.startsWith(path),
-            );
-
-            if (!isAllowed) {
-                throw new TypeError("URL de script no permitida");
-            }
-            return parsedUrl.href;
-        },
-    });
-
-    return trustedTypesDefaultPolicy.createScriptURL(RECAPTCHA_SCRIPT_URL);
-}
 
 export default function CommunitySignupModal({ onClose }) {
     const { t } = useLanguage();
@@ -63,7 +39,7 @@ export default function CommunitySignupModal({ onClose }) {
             recaptchaScript.addEventListener("load", renderRecaptcha);
         } else {
             recaptchaScript = document.createElement("script");
-            recaptchaScript.src = getRecaptchaScriptUrl();
+            recaptchaScript.src = createTrustedScriptUrl(RECAPTCHA_SCRIPT_URL);
             recaptchaScript.async = true;
             recaptchaScript.defer = true;
             recaptchaScript.dataset.sprakkafeRecaptcha = "true";
