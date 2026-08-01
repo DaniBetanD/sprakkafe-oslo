@@ -49,6 +49,10 @@ export default function Footer() {
                                     {t("aboutProject")}
                                 </a>
                             </li>
+                            <li><a href={pathFor(`/info/${t("projectSlug")}`)} className="flex min-h-[44px] items-center text-gray-600 transition hover:text-blue-600">{t("projectPage")}</a></li>
+                            <li><a href={pathFor(`/info/${t("methodologySlug")}`)} className="flex min-h-[44px] items-center text-gray-600 transition hover:text-blue-600">{t("editorialMethod")}</a></li>
+                            <li><a href={pathFor(`/info/${t("privacySlug")}`)} className="flex min-h-[44px] items-center text-gray-600 transition hover:text-blue-600">{t("privacy")}</a></li>
+                            <li><a href={pathFor(`/info/${t("termsSlug")}`)} className="flex min-h-[44px] items-center text-gray-600 transition hover:text-blue-600">{t("terms")}</a></li>
                         </ul>
                     </div>
 

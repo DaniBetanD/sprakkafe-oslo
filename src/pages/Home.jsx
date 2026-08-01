@@ -16,6 +16,8 @@ import { scrollToId } from "../utils/scrollTo";
 import { getActivityDays, isActivityAvailableOn, isActivityVisible } from "../utils/activityPresentation";
 import { getUiTranslations } from "../utils/translations";
 import { useLanguage } from "../i18n/LanguageContext";
+import SeoMetadata from "../components/SeoMetadata";
+import { getHomeSeo } from "../utils/seo";
 
 const JS_DAY_TO_EN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -54,6 +56,7 @@ export default function Home() {
   });
 
   const selectedOrganization = selected ? getOrganization(selected.organizationId) : null;
+  const seo = getHomeSeo(visibleActivities, locale);
 
   function resetDiscovery() {
     setQuery("");
@@ -79,6 +82,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col">
+      <SeoMetadata {...seo} locale={locale} />
       <Header />
 
       <main id="main-content" className="flex-grow space-y-10 md:space-y-16 pb-12">

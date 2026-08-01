@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 const ActivityPage = lazy(() => import("./pages/ActivityPage"));
 const OrganizationPage = lazy(() => import("./pages/OrganizationPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
+const InformationPage = lazy(() => import("./pages/InformationPage"));
 
 function LoadingFallback() {
     const { t } = useLanguage();
@@ -38,6 +39,7 @@ function App() {
                     <Route path="/:locale" element={<Home />} />
                     <Route path="/:locale/activity/:id" element={<ActivityPage />} />
                     <Route path="/:locale/organization/:id" element={<OrganizationPage />} />
+                    <Route path="/:locale/info/:page" element={<InformationPage />} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </Suspense>

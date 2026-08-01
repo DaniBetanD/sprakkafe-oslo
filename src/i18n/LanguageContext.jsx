@@ -18,30 +18,7 @@ export function LanguageProvider({ children }) {
 
   useEffect(() => {
     document.documentElement.lang = locale;
-    document.title = locale === "en"
-      ? "Språkkafé Oslo — Practise Norwegian and connect"
-      : "Språkkafé Oslo — Practica noruego y conecta";
-    const description = document.querySelector('meta[name="description"]');
-    description?.setAttribute(
-      "content",
-      locale === "en"
-        ? "Find free activities in Oslo where you can practise Norwegian, meet people and connect with local life."
-        : "Encuentra actividades gratuitas para practicar noruego, conocer personas y sentirte parte de Oslo.",
-    );
-    const canonical = document.querySelector('link[rel="canonical"]');
-    canonical?.setAttribute("href", `${window.location.origin}${location.pathname}`);
-
-    for (const language of ["es", "en"]) {
-      let alternate = document.querySelector(`link[rel="alternate"][hreflang="${language}"]`);
-      if (!alternate) {
-        alternate = document.createElement("link");
-        alternate.rel = "alternate";
-        alternate.hreflang = language;
-        document.head.appendChild(alternate);
-      }
-      alternate.href = `${window.location.origin}${localizePath(location.pathname, language)}`;
-    }
-  }, [locale, location.pathname]);
+  }, [locale]);
 
   const value = useMemo(() => ({
     locale,

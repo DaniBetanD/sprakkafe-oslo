@@ -2,12 +2,27 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../i18n/LanguageContext";
 import sprakkafeMark from "../assets/sprakkafe-mark.svg";
+import SeoMetadata from "../components/SeoMetadata";
 
 export default function NotFoundPage() {
-  const { pathFor, t } = useLanguage();
+  const { locale, pathFor, t } = useLanguage();
+  const pathname = window.location.pathname;
+  const title = locale === "en" ? "Page not found | Språkkafé Oslo" : "Página no encontrada | Språkkafé Oslo";
+  const description = locale === "en"
+    ? "Return to Språkkafé Oslo to find free activities where you can practise Norwegian."
+    : "Vuelve a Språkkafé Oslo para encontrar actividades gratuitas donde practicar noruego.";
   return (
-    <main className="flex min-h-screen items-center justify-center bg-gray-50 px-6" id="main-content">
-      <section className="w-full max-w-md rounded-3xl border border-gray-200 bg-white p-7 text-center shadow-sm md:p-9">
+    <>
+      <SeoMetadata
+        title={title}
+        description={description}
+        locale={locale}
+        pathname={pathname}
+        noIndex
+        schema={{ "@context": "https://schema.org", "@type": "WebPage", name: title }}
+      />
+      <main className="flex min-h-screen items-center justify-center bg-gray-50 px-6" id="main-content">
+        <section className="w-full max-w-md rounded-3xl border border-gray-200 bg-white p-7 text-center shadow-sm md:p-9">
         <img src={sprakkafeMark} alt="" className="mx-auto h-14 w-14" aria-hidden="true" />
         <p className="mt-5 text-sm font-semibold text-blue-600">{t("notFoundEyebrow")}</p>
         <h1 className="mt-2 text-2xl font-bold tracking-tight text-gray-900">
@@ -23,7 +38,8 @@ export default function NotFoundPage() {
           <ArrowLeft size={16} aria-hidden="true" />
           {t("findSprakkafe")}
         </Link>
-      </section>
-    </main>
+        </section>
+      </main>
+    </>
   );
 }

@@ -2,7 +2,7 @@
 
 Versión: 2.0
 Estado: Documento vivo
-Última actualización: 26 de julio de 2026
+Última actualización: 1 de agosto de 2026
 
 ## Objetivo
 
@@ -35,7 +35,7 @@ Prioridad alta:
 
 Sprint activo:
 
-- `ORG-REL-001` — Primer contacto con organizaciones.
+- `SEO-GEO-002` — Indexación, confianza y medición.
 
 ## Próxima fase — Operación y contenidos
 
@@ -44,6 +44,8 @@ Sprint activo:
 - Definir una rutina editorial para la newsletter.
 - Crear recursos breves que reduzcan barreras para la primera visita.
 - Evaluar analítica respetuosa con la privacidad.
+- Revisar la posible actividad de Tøyen Frivilligsentral y su comunidad de Facebook.
+- Evaluar en un sprint UX propio una invitación contextual a la newsletter durante el scroll.
 
 ## Fase futura — Datos y administración
 

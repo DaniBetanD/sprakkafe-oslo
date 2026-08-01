@@ -73,6 +73,7 @@ No se rediseñan fuera de un sprint específico:
 
 ## Trabajo actual
 
+- `SEO-GEO-002`: base indexable y páginas de confianza en revisión antes de publicar.
 - `MARKETING-001`: primera activación orgánica de 14 días en ejecución.
 - `CONTENT-ORG-002`: perfil de LIN preparado como borrador; revisión prevista para el 7 de agosto de 2026.
 - Construcción de una línea base semanal con Analytics y Speed Insights.
@@ -86,6 +87,8 @@ No se rediseñan fuera de un sprint específico:
 - Mejorar el flujo asistido de incorporación desde fuentes oficiales.
 - Evaluar los primeros datos de Analytics y Speed Insights cuando exista una muestra suficiente.
 - Revisar el perfil de LIN el 7 de agosto de 2026 y decidir su publicación.
+- Comprobar una posible actividad de Tøyen Frivilligsentral y el grupo de Facebook facilitado por la administración; no publicar sin revisión.
+- Valorar en un sprint UX independiente una invitación a la newsletter activada durante el desplazamiento, sin implementarla dentro de SEO-GEO-002.
 
 ## No implementado
 

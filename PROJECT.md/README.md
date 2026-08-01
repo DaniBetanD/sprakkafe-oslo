@@ -31,6 +31,7 @@ Este directorio reúne la documentación activa de Språkkafé Oslo. No todos lo
 | `MARKETING_001_ACTIVATION_KIT.md` | Kit operativo para la primera activación orgánica de 14 días |
 | `ANALYTICS_MVP_001.md` | Medición anónima y revisión semanal del uso del MVP |
 | `PERF_MVP_002.md` | Medición del rendimiento real mediante Core Web Vitals |
+| `SEO_GEO_002.md` | Indexación, transparencia editorial y autoridad externa verificable |
 | `CHANGELOG.md` | Cambios relevantes del producto |
 
 ## Expedientes de incorporación

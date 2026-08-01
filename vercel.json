@@ -31,17 +31,54 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/es",
+      "permanent": true
+    },
+    {
+      "source": "/activity/:id",
+      "destination": "/es/activity/:id",
+      "permanent": true
+    },
+    {
+      "source": "/organization/:id",
+      "destination": "/es/organization/:id",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/en",
       "destination": "/en.html"
     },
     {
-      "source": "/en/(.*)",
-      "destination": "/en.html"
+      "source": "/es/activity/:id",
+      "destination": "/seo/es/activity/:id.html"
     },
     {
-      "source": "/(.*)",
+      "source": "/en/activity/:id",
+      "destination": "/seo/en/activity/:id.html"
+    },
+    {
+      "source": "/es/organization/:id",
+      "destination": "/seo/es/organization/:id.html"
+    },
+    {
+      "source": "/en/organization/:id",
+      "destination": "/seo/en/organization/:id.html"
+    },
+    {
+      "source": "/es/info/:page",
+      "destination": "/seo/es/info/:page.html"
+    },
+    {
+      "source": "/en/info/:page",
+      "destination": "/seo/en/info/:page.html"
+    },
+    {
+      "source": "/es",
       "destination": "/index.html"
     }
   ]

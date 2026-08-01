@@ -7,6 +7,8 @@ import sprakkafeMark from "../assets/sprakkafe-mark.svg";
 import ActivityPracticalInfo from "../components/ActivityPracticalInfo";
 import { formatCheckedDate, getActivityAvailability, getScheduleLabel } from "../utils/activityPresentation";
 import { useLanguage } from "../i18n/LanguageContext";
+import SeoMetadata from "../components/SeoMetadata";
+import { getOrganizationSeo } from "../utils/seo";
 
 export default function OrganizationPage() {
     const { activityContent, locale, organizationContent, pathFor, t } = useLanguage();
@@ -33,8 +35,11 @@ export default function OrganizationPage() {
         );
     }
 
+    const seo = getOrganizationSeo(organization, locale);
+
     return (
         <div className="min-h-screen bg-gray-50 pb-12">
+            <SeoMetadata {...seo} locale={locale} />
 
             <div className="bg-white/70 backdrop-blur-xl border-b border-gray-100 sticky top-0 z-10">
                 <div className="max-w-3xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">

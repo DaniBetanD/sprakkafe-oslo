@@ -1,392 +1,690 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es" />
     <lastmod>2026-07-29</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://sprakkafe-oslo.vercel.app/es/info/proyecto</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/info/proyecto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/info/project" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/info/proyecto" />
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sprakkafe-oslo.vercel.app/es/info/metodologia</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/info/metodologia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/info/methodology" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/info/metodologia" />
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sprakkafe-oslo.vercel.app/es/info/privacidad</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/info/privacidad" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/info/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/info/privacidad" />
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sprakkafe-oslo.vercel.app/es/info/uso</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/info/uso" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/info/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/info/uso" />
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/1</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/1" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/1" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/1" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/rodekors-hausmann</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-hausmann" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-hausmann" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-hausmann" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/rodekors-bjorvika</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-bjorvika" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-bjorvika" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-bjorvika" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/rodekors-furuset</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-furuset" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-furuset" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-furuset" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/rodekors-grunerlokka</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-grunerlokka" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-grunerlokka" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-grunerlokka" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/rodekors-veitvet</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-veitvet" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-veitvet" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-veitvet" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/deichman-stovner</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/deichman-stovner" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/deichman-stovner" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/deichman-stovner" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/deichman-holmlia</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/deichman-holmlia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/deichman-holmlia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/deichman-holmlia" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/deichman-roa</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/deichman-roa" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/deichman-roa" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/deichman-roa" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/rodekors-majorstuen</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-majorstuen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-majorstuen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-majorstuen" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/caritas-norsktrening</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/caritas-norsktrening" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/caritas-norsktrening" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/caritas-norsktrening" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/caritas-sprakkafe</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/caritas-sprakkafe" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/caritas-sprakkafe" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/caritas-sprakkafe" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/casa-cultural-sprakkafe</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/casa-cultural-sprakkafe" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/casa-cultural-sprakkafe" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/casa-cultural-sprakkafe" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/kia-tullinsgate</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/kia-tullinsgate" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/kia-tullinsgate" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/kia-tullinsgate" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/laf-natur-sprak-fellesskap</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/laf-natur-sprak-fellesskap" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/laf-natur-sprak-fellesskap" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/laf-natur-sprak-fellesskap" />
     <lastmod>2026-07-27</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/laf-sup-opplaering-sognsvann</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/laf-sup-opplaering-sognsvann" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/laf-sup-opplaering-sognsvann" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/laf-sup-opplaering-sognsvann" />
     <lastmod>2026-07-27</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital-summer</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital-summer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-digital-summer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital-summer" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-digital" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/stella-open-house-summer</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/stella-open-house-summer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/stella-open-house-summer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/stella-open-house-summer" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/stella-open-house</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/stella-open-house" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/stella-open-house" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/stella-open-house" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/rodekors-turgruppa</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-turgruppa" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-turgruppa" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-turgruppa" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/rodekors-fotballgruppa</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-fotballgruppa" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-fotballgruppa" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-fotballgruppa" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/new-amigos-language-cafe-toyen</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/new-amigos-language-cafe-toyen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/new-amigos-language-cafe-toyen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/new-amigos-language-cafe-toyen" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/caritas-snakk-og-sok-sondre-nordstrand</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/caritas-snakk-og-sok-sondre-nordstrand" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/caritas-snakk-og-sok-sondre-nordstrand" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/caritas-snakk-og-sok-sondre-nordstrand" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/organization/rodekors</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/rodekors" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/rodekors" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/rodekors" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/organization/deichman</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/deichman" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/deichman" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/deichman" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/organization/caritas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/caritas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/caritas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/caritas" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/organization/casa-cultural</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/casa-cultural" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/casa-cultural" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/casa-cultural" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/organization/kia-norge</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/kia-norge" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/kia-norge" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/kia-norge" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/organization/norskstart</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/norskstart" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/norskstart" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/norskstart" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/organization/haugerud</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/haugerud" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/haugerud" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/haugerud" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/organization/pauluskirke</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/pauluskirke" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/pauluskirke" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/pauluskirke" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/organization/ethnos</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/ethnos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/ethnos" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/ethnos" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/organization/alfaskolen</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/alfaskolen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/alfaskolen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/alfaskolen" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/organization/sagene</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/sagene" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/sagene" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/sagene" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/organization/toyen-frivilligsentral</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/toyen-frivilligsentral" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/toyen-frivilligsentral" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/toyen-frivilligsentral" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/organization/stella-kvinnesenter</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/stella-kvinnesenter" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/stella-kvinnesenter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/stella-kvinnesenter" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/organization/latinamerikansk-forening</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/latinamerikansk-forening" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/latinamerikansk-forening" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/latinamerikansk-forening" />
     <lastmod>2026-07-27</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es" />
     <lastmod>2026-07-29</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://sprakkafe-oslo.vercel.app/en/info/project</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/info/proyecto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/info/project" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/info/proyecto" />
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sprakkafe-oslo.vercel.app/en/info/methodology</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/info/metodologia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/info/methodology" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/info/metodologia" />
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sprakkafe-oslo.vercel.app/en/info/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/info/privacidad" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/info/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/info/privacidad" />
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sprakkafe-oslo.vercel.app/en/info/terms</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/info/uso" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/info/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/info/uso" />
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/1</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/1" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/1" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/1" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/rodekors-hausmann</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-hausmann" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-hausmann" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-hausmann" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/rodekors-bjorvika</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-bjorvika" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-bjorvika" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-bjorvika" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/rodekors-furuset</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-furuset" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-furuset" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-furuset" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/rodekors-grunerlokka</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-grunerlokka" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-grunerlokka" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-grunerlokka" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/rodekors-veitvet</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-veitvet" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-veitvet" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-veitvet" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/deichman-stovner</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/deichman-stovner" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/deichman-stovner" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/deichman-stovner" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/deichman-holmlia</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/deichman-holmlia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/deichman-holmlia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/deichman-holmlia" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/deichman-roa</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/deichman-roa" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/deichman-roa" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/deichman-roa" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/rodekors-majorstuen</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-majorstuen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-majorstuen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-majorstuen" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/caritas-norsktrening</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/caritas-norsktrening" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/caritas-norsktrening" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/caritas-norsktrening" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/caritas-sprakkafe</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/caritas-sprakkafe" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/caritas-sprakkafe" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/caritas-sprakkafe" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/casa-cultural-sprakkafe</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/casa-cultural-sprakkafe" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/casa-cultural-sprakkafe" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/casa-cultural-sprakkafe" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/kia-tullinsgate</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/kia-tullinsgate" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/kia-tullinsgate" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/kia-tullinsgate" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/laf-natur-sprak-fellesskap</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/laf-natur-sprak-fellesskap" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/laf-natur-sprak-fellesskap" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/laf-natur-sprak-fellesskap" />
     <lastmod>2026-07-27</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/laf-sup-opplaering-sognsvann</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/laf-sup-opplaering-sognsvann" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/laf-sup-opplaering-sognsvann" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/laf-sup-opplaering-sognsvann" />
     <lastmod>2026-07-27</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/rodekors-digital-summer</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital-summer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-digital-summer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital-summer" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/rodekors-digital</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-digital" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/stella-open-house-summer</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/stella-open-house-summer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/stella-open-house-summer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/stella-open-house-summer" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/stella-open-house</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/stella-open-house" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/stella-open-house" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/stella-open-house" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/rodekors-turgruppa</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-turgruppa" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-turgruppa" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-turgruppa" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/rodekors-fotballgruppa</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-fotballgruppa" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-fotballgruppa" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-fotballgruppa" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/new-amigos-language-cafe-toyen</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/new-amigos-language-cafe-toyen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/new-amigos-language-cafe-toyen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/new-amigos-language-cafe-toyen" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/caritas-snakk-og-sok-sondre-nordstrand</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/caritas-snakk-og-sok-sondre-nordstrand" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/caritas-snakk-og-sok-sondre-nordstrand" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/caritas-snakk-og-sok-sondre-nordstrand" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/organization/rodekors</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/rodekors" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/rodekors" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/rodekors" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/organization/deichman</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/deichman" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/deichman" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/deichman" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/organization/caritas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/caritas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/caritas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/caritas" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/organization/casa-cultural</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/casa-cultural" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/casa-cultural" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/casa-cultural" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/organization/kia-norge</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/kia-norge" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/kia-norge" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/kia-norge" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/organization/norskstart</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/norskstart" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/norskstart" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/norskstart" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/organization/haugerud</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/haugerud" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/haugerud" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/haugerud" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/organization/pauluskirke</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/pauluskirke" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/pauluskirke" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/pauluskirke" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/organization/ethnos</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/ethnos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/ethnos" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/ethnos" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/organization/alfaskolen</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/alfaskolen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/alfaskolen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/alfaskolen" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/organization/sagene</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/sagene" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/sagene" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/sagene" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/organization/toyen-frivilligsentral</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/toyen-frivilligsentral" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/toyen-frivilligsentral" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/toyen-frivilligsentral" />
     <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/organization/stella-kvinnesenter</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/stella-kvinnesenter" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/stella-kvinnesenter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/stella-kvinnesenter" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/organization/latinamerikansk-forening</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/latinamerikansk-forening" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/latinamerikansk-forening" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/organization/latinamerikansk-forening" />
     <lastmod>2026-07-27</lastmod>
     <priority>0.7</priority>
   </url>

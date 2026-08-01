@@ -6,6 +6,8 @@ import ActivityPracticalInfo from "../components/ActivityPracticalInfo";
 import { getUiTranslations } from "../utils/translations";
 import { getActivityAvailability, getScheduleLabel } from "../utils/activityPresentation";
 import { useLanguage } from "../i18n/LanguageContext";
+import SeoMetadata from "../components/SeoMetadata";
+import { getActivitySeo } from "../utils/seo";
 
 const LEVEL_COLORS = {
     "all": "bg-blue-50 text-blue-700",
@@ -48,6 +50,8 @@ export default function ActivityPage() {
         );
     }
 
+    const seo = getActivitySeo(activity, organization, locale);
+
     const otherActivities = activities.filter(
         a => String(a.organizationId) === String(activity.organizationId) && String(a.id) !== String(activity.id)
     ).map(activityContent);
@@ -59,6 +63,7 @@ export default function ActivityPage() {
 
     return (
         <div className="min-h-screen bg-gray-50 pb-12">
+            <SeoMetadata {...seo} locale={locale} />
             {/* Nav Cabecera Limpia */}
             <div className="bg-white/70 backdrop-blur-xl border-b border-gray-100 sticky top-0 z-10">
                 <div className="max-w-3xl mx-auto px-6 h-16 flex items-center">
