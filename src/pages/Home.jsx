@@ -17,6 +17,7 @@ import { getActivityDays, isActivityAvailableOn, isActivityVisible } from "../ut
 import { getUiTranslations } from "../utils/translations";
 import { useLanguage } from "../i18n/LanguageContext";
 import SeoMetadata from "../components/SeoMetadata";
+import ScrollSignupPrompt from "../components/ScrollSignupPrompt";
 import { getHomeSeo } from "../utils/seo";
 
 const JS_DAY_TO_EN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -84,6 +85,7 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col">
       <SeoMetadata {...seo} locale={locale} />
       <Header />
+      <ScrollSignupPrompt disabled={Boolean(selected)} />
 
       <main id="main-content" className="flex-grow space-y-10 md:space-y-16 pb-12">
         <section

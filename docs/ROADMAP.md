@@ -35,7 +35,7 @@ Prioridad alta:
 
 Sprint activo:
 
-- `SEO-GEO-002` — Indexación, confianza y medición.
+- `UX-NEWSLETTER-002` — Invitación contextual a la newsletter.
 
 ## Próxima fase — Operación y contenidos
 

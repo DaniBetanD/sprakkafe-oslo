@@ -73,6 +73,7 @@ No se rediseñan fuera de un sprint específico:
 
 ## Trabajo actual
 
+- `UX-NEWSLETTER-002`: invitación contextual preparada y pendiente de revisión visual.
 - `SEO-GEO-002`: base indexable y páginas de confianza en revisión antes de publicar.
 - `MARKETING-001`: primera activación orgánica de 14 días en ejecución.
 - `CONTENT-ORG-002`: perfil de LIN preparado como borrador; revisión prevista para el 7 de agosto de 2026.

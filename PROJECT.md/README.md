@@ -32,6 +32,7 @@ Este directorio reúne la documentación activa de Språkkafé Oslo. No todos lo
 | `ANALYTICS_MVP_001.md` | Medición anónima y revisión semanal del uso del MVP |
 | `PERF_MVP_002.md` | Medición del rendimiento real mediante Core Web Vitals |
 | `SEO_GEO_002.md` | Indexación, transparencia editorial y autoridad externa verificable |
+| `UX_NEWSLETTER_002.md` | Invitación contextual y no intrusiva a la newsletter |
 | `CHANGELOG.md` | Cambios relevantes del producto |
 
 ## Expedientes de incorporación

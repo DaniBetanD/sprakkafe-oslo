@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { Heart, X } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { createTrustedScriptUrl } from "../utils/trustedTypes";
+import { markSignupEngaged, markSignupSubscribed } from "../utils/signupPreferences";
 
 const RECAPTCHA_SCRIPT_URL = "https://www.google.com/recaptcha/api.js?render=explicit";
 
@@ -13,6 +14,7 @@ export default function CommunitySignupModal({ onClose }) {
     const [submitted, setSubmitted] = useState(false);
 
     useEffect(() => {
+        markSignupEngaged();
         const appRoot = document.getElementById("root");
         const previousOverflow = document.body.style.overflow;
         const previousFocus = document.activeElement;
@@ -137,7 +139,10 @@ export default function CommunitySignupModal({ onClose }) {
                         action="https://assets.mailerlite.com/jsonp/2519322/forms/193542070263088770/subscribe"
                         method="post"
                         target="community-signup-response"
-                        onSubmit={() => setSubmitted(true)}
+                        onSubmit={() => {
+                            markSignupSubscribed();
+                            setSubmitted(true);
+                        }}
                     >
                         <div>
                             <label htmlFor="community-email" className="mb-2 block text-sm font-semibold text-gray-900">
