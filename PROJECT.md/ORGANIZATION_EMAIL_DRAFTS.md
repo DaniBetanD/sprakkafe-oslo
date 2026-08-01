@@ -2,7 +2,7 @@
 
 Sprint: `ORG-REL-001`  
 Estado: Listos para revisión administrativa  
-Actualizados: 28 de julio de 2026
+Actualizados: 1 de agosto de 2026
 
 ## Estructura aprobada
 
@@ -28,20 +28,21 @@ Las solicitudes para compartir el proyecto, recomendar otras organizaciones, fac
 ## 1. Røde Kors Oslo
 
 **Para:** `norsktrening.oslo@redcross.no`  
-**Asunto:** Kan dere se over Røde Kors-aktivitetene?
+**Asunto:** Kan dere se over Røde Kors-tilbudene på Språkkafé Oslo?
 
 Hei Røde Kors Oslo,
 
-Jeg heter Daniel Betancur og står bak Språkkafé Oslo, et uavhengig prosjekt som gjør det enklere å finne gratis språktrening i Oslo.
+Jeg heter Daniel Betancur og står bak Språkkafé Oslo, et uavhengig og gratis prosjekt som gjør det enklere for spansktalende og nyankomne å finne steder der de kan øve på norsk og bli kjent med andre.
 
-Jeg har tatt med to av tilbudene deres, slik at spansktalende og nyankomne lettere kan finne praktisk informasjon og velge en aktivitet som passer:
+Jeg har samlet elleve av Røde Kors' tilbud i Oslo, blant annet norsktrening på flere steder, digital norsktrening, turgruppe og fotball. Her kan dere se organisasjonsprofilen og alle aktivitetene som er registrert:
 
-- Norsktrening om sommeren: https://sprakkafe-oslo.vercel.app/activity/1
-- Norsktrening på Deichman Majorstuen: https://sprakkafe-oslo.vercel.app/activity/rodekors-majorstuen
+https://sprakkafe-oslo.vercel.app/es/organization/rodekors
 
-Jeg bruker informasjon fra offisielle kilder og ønsker at sidene skal være så pålitelige som mulig.
+Informasjonen bygger på Røde Kors' offentlige nettsider. Prosjektet er ikke en offisiell del av Røde Kors, og jeg ønsker at innholdet skal være så korrekt og nyttig som mulig.
 
-Kan dere se over aktivitetene og svare dersom noe er feil, mangler eller bør forklares annerledes?
+Kan dere se over profilen og gi meg beskjed dersom noe er feil, mangler eller bør forklares annerledes?
+
+Hvis dere mener oversikten kan være nyttig for deltakere eller frivillige, må dere gjerne dele lenken videre. Det er selvfølgelig helt frivillig.
 
 Takk for arbeidet dere gjør for språk, fellesskap og inkludering i Oslo.
 
@@ -52,22 +53,31 @@ https://sprakkafe-oslo.vercel.app
 
 ## 2. Deichman Bibliotek
 
-**Para:** `post@deichman.no`  
-**Asunto:** Kan dere se over Deichmans språkkafeer?
+**Envío:** preparar un correo individual para cada biblioteca; no utilizar copia múltiple.
 
-Hei Deichman,
+| Biblioteca | Para | Actividad |
+| --- | --- | --- |
+| Stovner | `stovner@deichman.no` | `deichman-stovner` |
+| Holmlia | `holmlia@deichman.no` | `deichman-holmlia` |
+| Røa | `roa@deichman.no` | `deichman-roa` |
 
-Jeg heter Daniel Betancur og står bak Språkkafé Oslo, et uavhengig prosjekt som hjelper spansktalende og nyankomne med å finne gratis språktrening i Oslo.
+**Asunto:** Kan dere se over språkkafeen på Deichman [sede]?
 
-Jeg har samlet tre av Deichmans språkkafeer på nettsiden:
+Hei Deichman [sede],
 
-- Stovner: https://sprakkafe-oslo.vercel.app/activity/deichman-stovner
-- Holmlia: https://sprakkafe-oslo.vercel.app/activity/deichman-holmlia
-- Røa: https://sprakkafe-oslo.vercel.app/activity/deichman-roa
+Jeg heter Daniel Betancur, og de siste ukene har jeg jobbet med et personlig prosjekt som heter Språkkafé Oslo.
 
-Målet er å gjøre tilbudene lettere å oppdage og gi brukerne tydelig informasjon før de møter opp.
+Gjennom frivillig arbeid har jeg møtt mange som gjerne vil øve på norsk og bli kjent med andre, men som ikke alltid vet hvor de skal lete eller hva som møter dem første gang. Derfor lager jeg en gratis og uavhengig oversikt over åpne språk- og fellesskapsaktiviteter i Oslo.
 
-Kan dere se over sidene og svare dersom noe er feil, mangler eller bør forklares annerledes?
+Deichman er en naturlig del av denne oversikten. Jeg har samlet informasjon om språkkafeen deres her:
+
+https://sprakkafe-oslo.vercel.app/es/activity/[actividad]
+
+Informasjonen bygger på Deichmans egne arrangementsider, men det er viktig for meg at den også oppleves riktig for dere.
+
+Har dere anledning til å ta en rask titt og si fra hvis noe er feil, mangler eller kan forklares bedre?
+
+Hvis dere mener siden kan være nyttig for besøkende eller ansatte, må dere gjerne dele lenken videre. Det er selvfølgelig helt frivillig.
 
 Takk for at bibliotekene deres skaper åpne møteplasser for språk og fellesskap.
 

@@ -20,12 +20,11 @@
         "name": "Deichman Bibliotek",
         "tipo": "Biblioteca",
         "website": "https://deichman.no/",
-        "email": "post@deichman.no",
-        "phone": "+47 23 43 29 00",
+    "phone": "+47 23 43 29 00",
         "logo": "📚",
         "verified": true,
         "description": "Las bibliotecas Deichman organizan språkkafé en varios distritos de Oslo. Ambiente relajado y sin estructura escolar.",
-        "lastChecked": "2026-07-26"
+    "lastChecked": "2026-08-01"
     },
     {
         "id": "caritas",

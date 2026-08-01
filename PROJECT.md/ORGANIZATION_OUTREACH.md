@@ -27,8 +27,8 @@ El contacto busca construir una relación útil y estable. No solicita una recom
 
 | Organización | Email público actual | Actividades | Estado del contacto |
 | --- | --- | ---: | --- |
-| Røde Kors Oslo | `norsktrening.oslo@redcross.no` | 2 | Borrador pendiente |
-| Deichman Bibliotek | `post@deichman.no` | 3 | Borrador pendiente |
+| Røde Kors Oslo | `norsktrening.oslo@redcross.no` | 11 | Enviado 01-08-2026 · seguimiento 08-08-2026 si no responde |
+| Deichman Bibliotek | Contactos por sede: `stovner@deichman.no`, `holmlia@deichman.no`, `roa@deichman.no` | 3 | Stovner, Holmlia y Røa enviados 01-08-2026 · seguimiento 08-08-2026 si no responden |
 | Caritas Norge | `caritas@caritas.no` | 1 | Borrador pendiente |
 | Casa Cultural | `kultur@casacultural.no` | 1 | Borrador pendiente |
 | KIA Norge | `post@kianorge.no` | 1 | Borrador pendiente |

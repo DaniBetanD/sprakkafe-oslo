@@ -195,6 +195,11 @@ Acciones realizadas antes o durante la activación:
 | Contacto con Latinamerikansk Forening | Enviado | Registrado en la hoja de seguimiento |
 | Contacto con LIN | Enviado | Registrado en la hoja de seguimiento |
 | Solicitud amistosa de opinión a un contacto de Caritas | Enviado | Registrado en la hoja de seguimiento |
+| Contacto con Røde Kors Oslo | Enviado el 1 de agosto de 2026 | Pendiente de registrar en la hoja de seguimiento |
+| Contacto con Deichman Bibliotek | Fallido el 1 de agosto de 2026: dirección inválida | Reenvío individual por sede pendiente |
+| Contacto con Deichman Stovner | Enviado el 1 de agosto de 2026 | Pendiente de registrar en la hoja de seguimiento |
+| Contacto con Deichman Holmlia | Enviado el 1 de agosto de 2026 | Pendiente de registrar en la hoja de seguimiento |
+| Contacto con Deichman Røa | Enviado el 1 de agosto de 2026 | Pendiente de registrar en la hoja de seguimiento |
 
 Estas acciones cuentan para el aprendizaje del experimento, aunque hayan utilizado correos personalizados en lugar de las plantillas generales.
 
