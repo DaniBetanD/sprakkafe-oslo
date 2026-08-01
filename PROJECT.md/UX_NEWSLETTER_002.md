@@ -1,6 +1,6 @@
 # UX-NEWSLETTER-002 — Invitación contextual
 
-Estado: Aprobado para producción
+Estado: Completado y publicado
 Fecha: 1 de agosto de 2026
 
 ## Objetivo
@@ -38,4 +38,4 @@ Existe una versión equivalente en inglés.
 - [x] No compite con el bloque permanente
 - [x] Sin errores de consola
 - [x] Revisión visual administrativa
-- [ ] Commit, push y producción
+- [x] Commit, push y producción

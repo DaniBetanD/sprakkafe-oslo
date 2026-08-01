@@ -23,7 +23,7 @@ El objetivo actual es proteger la fiabilidad de la información, comprobar los f
 | Página 404 | Funcional |
 | Header, Hero, MissionSection y Footer | Estables y aprobados |
 | Responsive | Validado en móvil y escritorio |
-| Newsletter | Activa mediante MailerLite |
+| Newsletter | Activa mediante MailerLite, con invitación contextual aprobada |
 | Contacto de organizaciones | Activo desde el footer |
 | Compartir por WhatsApp | Metadatos configurados |
 | SEO técnico | Implementado |
@@ -73,7 +73,7 @@ No se rediseñan fuera de un sprint específico:
 
 ## Trabajo actual
 
-- `UX-NEWSLETTER-002`: invitación contextual preparada y pendiente de revisión visual.
+- `UX-NEWSLETTER-002`: completado y publicado el 1 de agosto de 2026.
 - `SEO-GEO-002`: base indexable y páginas de confianza en revisión antes de publicar.
 - `MARKETING-001`: primera activación orgánica de 14 días en ejecución.
 - `CONTENT-ORG-002`: perfil de LIN preparado como borrador; revisión prevista para el 7 de agosto de 2026.
