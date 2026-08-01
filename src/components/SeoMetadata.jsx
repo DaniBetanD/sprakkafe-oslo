@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { localizePath } from "../i18n/locale";
+import { createTrustedJsonLd } from "../utils/trustedTypes";
 
 const SITE_URL = "https://sprakkafe-oslo.vercel.app";
 
@@ -65,7 +66,7 @@ export default function SeoMetadata({ title, description, locale, pathname, alte
       structuredData.type = "application/ld+json";
       document.head.appendChild(structuredData);
     }
-    structuredData.textContent = JSON.stringify(schema);
+    structuredData.textContent = createTrustedJsonLd(schema);
   }, [alternatePath, description, locale, noIndex, pathname, schema, title]);
 
   return null;

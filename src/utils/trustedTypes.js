@@ -6,6 +6,7 @@ const ALLOWED_SCRIPT_SOURCES = [
 ];
 
 let defaultPolicy;
+let jsonLdPolicy;
 
 function validateScriptUrl(url) {
     const parsedUrl = new URL(url, window.location.origin);
@@ -33,4 +34,16 @@ export function installTrustedTypesPolicy() {
 export function createTrustedScriptUrl(url) {
     const policy = installTrustedTypesPolicy();
     return policy ? policy.createScriptURL(url) : url;
+}
+
+export function createTrustedJsonLd(schema) {
+    const serializedSchema = JSON.stringify(schema).replace(/</g, "\\u003c");
+
+    if (!window.trustedTypes) return serializedSchema;
+
+    jsonLdPolicy ??= window.trustedTypes.createPolicy("sprakkafe-json-ld", {
+        createScript: (value) => value,
+    });
+
+    return jsonLdPolicy.createScript(serializedSchema);
 }
