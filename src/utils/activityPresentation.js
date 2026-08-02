@@ -59,6 +59,10 @@ export function isActivityAvailableOn(activity, date = new Date()) {
   return getActivityAvailability(activity, date) === "active";
 }
 
+export function isActivityListed(activity, date = new Date()) {
+  return getActivityAvailability(activity, date) !== "expired";
+}
+
 export function isActivityVisible(activity, date = new Date()) {
   const availability = getActivityAvailability(activity, date);
 

@@ -10,12 +10,12 @@ import MobileDetailPanel from "../components/MobileDetailPanel";
 import SearchBar from "../components/SearchBar";
 import SeoMetadata from "../components/SeoMetadata";
 import { useLanguage } from "../i18n/LanguageContext";
-import { activityMatchesQuery, getActivityDays, isActivityVisible } from "../utils/activityPresentation";
+import { activityMatchesQuery, getActivityDays, isActivityListed } from "../utils/activityPresentation";
 import { getActivitiesSeo } from "../utils/seo";
 
 export default function ActivitiesPage() {
   const { activityContent, locale, organizationContent, pathFor, t } = useLanguage();
-  const localizedActivities = activities.map(activityContent).filter((activity) => isActivityVisible(activity));
+  const localizedActivities = activities.map(activityContent).filter((activity) => isActivityListed(activity));
   const localizedOrganizations = organizations.map(organizationContent);
   const [query, setQuery] = useState("");
   const [filters, setFilters] = useState({ category: "", district: "", day: "", level: "", organization: "" });
