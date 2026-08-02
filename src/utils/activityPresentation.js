@@ -4,6 +4,36 @@ export function getActivityDays(activity) {
   return activity.days || [activity.day];
 }
 
+function normalizeSearchText(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase();
+}
+
+export function activityMatchesQuery(activity, organization, query, locale = "es") {
+  const normalizedQuery = normalizeSearchText(query.trim());
+  if (!normalizedQuery) {
+    return true;
+  }
+
+  const { categories, days, levels } = getUiTranslations(locale);
+  const activityDays = getActivityDays(activity);
+  const searchableText = [
+    activity.name,
+    organization?.name,
+    activity.district,
+    activity.level,
+    levels[activity.level],
+    activity.category,
+    categories[activity.category],
+    ...activityDays,
+    ...activityDays.map((day) => days[day]),
+  ].join(" ");
+
+  return normalizeSearchText(searchableText).includes(normalizedQuery);
+}
+
 export function getScheduleLabel(activity, locale = "es") {
   const { days: dayLabels } = getUiTranslations(locale);
   const conjunction = locale === "en" ? " and " : " y ";

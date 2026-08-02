@@ -84,7 +84,7 @@ export default function CommunitySignupModal({ onClose }) {
 
     return createPortal(
         <div
-            className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 p-0 backdrop-blur-sm sm:items-center sm:p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm"
             role="presentation"
             onMouseDown={(event) => {
                 if (event.target === event.currentTarget) onClose();
@@ -97,7 +97,7 @@ export default function CommunitySignupModal({ onClose }) {
                 aria-labelledby="community-modal-title"
                 aria-describedby="community-modal-description"
                 tabIndex="-1"
-                className="max-h-[92vh] w-full max-w-md overflow-y-auto rounded-t-3xl bg-white p-6 shadow-2xl outline-none sm:rounded-3xl sm:p-8"
+                className="max-h-[82dvh] w-full max-w-sm overflow-y-auto rounded-3xl bg-white p-5 shadow-2xl outline-none sm:max-h-[92vh] sm:max-w-md sm:p-8"
             >
                 <div className="mb-5 flex items-start justify-between gap-4">
                     <div

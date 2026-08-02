@@ -28,17 +28,17 @@ export default function ActivityPracticalInfo({ activity, compact = false }) {
     availability === "upcoming" && activity.availableFrom && {
       icon: CalendarClock,
       label: upcomingLabel,
-      accent: true,
+      tone: "upcoming",
     },
     availability === "expired" && {
       icon: CalendarClock,
       label: t("scheduleEnded"),
-      accent: true,
+      tone: "ending",
     },
     shouldShowAvailableUntil(activity) && {
       icon: CalendarClock,
       label: t("untilDate", { date: formatAvailableFrom(activity.availableUntil, locale) }),
-      accent: true,
+      tone: "ending",
     },
     activity.cost === "free" && {
       icon: CircleDollarSign,
@@ -63,11 +63,15 @@ export default function ActivityPracticalInfo({ activity, compact = false }) {
   return (
     <div className={compact ? "flex flex-wrap gap-1.5" : "space-y-4"}>
       <div className="flex flex-wrap gap-2">
-        {visibleItems.map(({ icon: Icon, label, accent }) => (
+        {visibleItems.map(({ icon: Icon, label, tone }) => (
           <span
             key={label}
             className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-semibold ${
-              accent ? "bg-amber-50 text-amber-800" : "bg-blue-50 text-blue-700"
+              tone === "upcoming"
+                ? "bg-green-50 text-green-800"
+                : tone === "ending"
+                  ? "bg-red-50 text-red-700"
+                  : "bg-blue-50 text-blue-700"
             }`}
           >
             <Icon size={14} aria-hidden="true" />

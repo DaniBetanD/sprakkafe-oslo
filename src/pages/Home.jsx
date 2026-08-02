@@ -14,8 +14,12 @@ import MobileDetailPanel from "../components/MobileDetailPanel";
 import SearchBar from "../components/SearchBar";
 import TodayActivities from "../components/TodayActivities";
 import { scrollToId } from "../utils/scrollTo";
-import { getActivityDays, isActivityAvailableOn, isActivityVisible } from "../utils/activityPresentation";
-import { getUiTranslations } from "../utils/translations";
+import {
+  activityMatchesQuery,
+  getActivityDays,
+  isActivityAvailableOn,
+  isActivityVisible,
+} from "../utils/activityPresentation";
 import { useLanguage } from "../i18n/LanguageContext";
 import SeoMetadata from "../components/SeoMetadata";
 import ScrollSignupPrompt from "../components/ScrollSignupPrompt";
@@ -25,7 +29,6 @@ const JS_DAY_TO_EN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "F
 
 export default function Home() {
   const { activityContent, locale, organizationContent, pathFor, t } = useLanguage();
-  const { categories } = getUiTranslations(locale);
   const localizedActivities = activities.map(activityContent);
   const localizedOrganizations = organizations.map(organizationContent);
   const [query, setQuery] = useState("");
@@ -46,8 +49,7 @@ export default function Home() {
 
   const results = visibleActivities.filter((activity) => {
     const organization = getOrganization(activity.organizationId);
-    const searchableText = `${activity.name}${organization?.name || ""}${activity.district}${activity.level}${categories[activity.category] || ""}`.toLowerCase();
-    const matchesSearch = searchableText.includes(query.trim().toLowerCase());
+    const matchesSearch = activityMatchesQuery(activity, organization, query, locale);
     const matchesCategory = !filters.category || activity.category === filters.category;
     const matchesDistrict = !filters.district || activity.district === filters.district;
     const matchesDay = !filters.day || getActivityDays(activity).includes(filters.day);
