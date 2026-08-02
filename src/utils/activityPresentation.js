@@ -55,6 +55,22 @@ export function getDaysUntilAvailableFrom(activity, date = new Date()) {
   return Math.round((availableFrom - today) / (24 * 60 * 60 * 1000));
 }
 
+export function getDaysUntilAvailableUntil(activity, date = new Date()) {
+  if (!activity.availableUntil) {
+    return null;
+  }
+
+  const today = new Date(date);
+  today.setHours(0, 0, 0, 0);
+  const availableUntil = new Date(`${activity.availableUntil}T00:00:00`);
+  return Math.round((availableUntil - today) / (24 * 60 * 60 * 1000));
+}
+
+export function shouldShowAvailableUntil(activity, date = new Date()) {
+  const daysUntilEnd = getDaysUntilAvailableUntil(activity, date);
+  return daysUntilEnd !== null && daysUntilEnd >= 0 && daysUntilEnd <= 7;
+}
+
 export function formatAvailableWeekday(date, locale = "es") {
   return new Intl.DateTimeFormat(locale === "en" ? "en-GB" : "es-ES", {
     weekday: "long",

@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { localizeActivity, localizeOrganization } from "../src/i18n/contentTranslations.js";
-import { getActivitySeo, getHomeSeo, getOrganizationSeo } from "../src/utils/seo.js";
+import { getActivitiesSeo, getActivitySeo, getHomeSeo, getOrganizationSeo } from "../src/utils/seo.js";
 import { getInformationSeo } from "../src/utils/seo.js";
 import { getInformationPage, INFORMATION_SLUGS } from "../src/utils/informationPages.js";
 
@@ -68,7 +68,7 @@ function renderDocument(template, seo, locale, content) {
     .replace(/<link rel="canonical" href="[^"]+"\s*\/>/, `<link rel="canonical" href="${canonicalUrl}" />\n    ${alternates}`)
     .replace(/<script(?: id="page-structured-data")? type="application\/ld\+json">.*?<\/script>/s,
       `<script id="page-structured-data" type="application/ld+json">${JSON.stringify(seo.schema)}</script>`)
-    .replace('<div id="root"></div>', `<div id="root">${content}</div>`);
+    .replace('<div id="root"></div>', `<div id="root"></div><noscript>${content}</noscript>`);
 
   html = replaceMeta(html, "description", seo.description);
   html = replaceMeta(html, "ogTitle", seo.title);
@@ -135,6 +135,20 @@ function homeFallback(localizedActivities, locale) {
   </main>`;
 }
 
+function activitiesFallback(localizedActivities, locale) {
+  const title = locale === "en" ? "All activities" : "Todas las actividades";
+  const intro = locale === "en"
+    ? "Browse available activities in Oslo where you can practise Norwegian and meet people."
+    : "Consulta las actividades disponibles en Oslo para practicar noruego y conocer personas.";
+  return `<main id="main-content" data-seo-fallback>
+    <h1>${title}</h1>
+    <p>${intro}</p>
+    <ul>${localizedActivities.map((activity) => (
+      `<li><a href="/${locale}/activity/${encodeURIComponent(activity.id)}">${escapeHtml(activity.name)}</a> â€” ${escapeHtml(activity.district || "Oslo")}</li>`
+    )).join("")}</ul>
+  </main>`;
+}
+
 async function writePage(relativePath, html) {
   const outputUrl = new URL(relativePath, distRoot);
   await mkdir(dirname(fileURLToPath(outputUrl)), { recursive: true });
@@ -155,6 +169,10 @@ for (const locale of ["es", "en"]) {
   const homeSeo = getHomeSeo(localizedActivities, locale);
   const homeHtml = renderDocument(template, homeSeo, locale, homeFallback(localizedActivities, locale));
   await writePage(locale === "en" ? "en.html" : "index.html", homeHtml);
+
+  const activitiesSeo = getActivitiesSeo(localizedActivities, locale);
+  const activitiesHtml = renderDocument(template, activitiesSeo, locale, activitiesFallback(localizedActivities, locale));
+  await writePage(`seo/${locale}/activities.html`, activitiesHtml);
 
   for (const slug of INFORMATION_SLUGS[locale]) {
     const content = getInformationPage(slug, locale);

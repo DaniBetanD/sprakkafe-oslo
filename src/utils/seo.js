@@ -56,6 +56,33 @@ export function getHomeSeo(activities, locale) {
   };
 }
 
+export function getActivitiesSeo(activities, locale) {
+  const pathname = `/${locale}/activities`;
+  const isEnglish = locale === "en";
+  return {
+    pathname,
+    title: isEnglish
+      ? `All activities in Oslo | ${SITE_NAME}`
+      : `Todas las actividades en Oslo | ${SITE_NAME}`,
+    description: isEnglish
+      ? "Browse available activities in Oslo where you can practise Norwegian, meet people and take part in the community."
+      : "Consulta las actividades disponibles en Oslo para practicar noruego, conocer personas y participar en la comunidad.",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: isEnglish ? "Activities in Oslo" : "Actividades en Oslo",
+      url: `${SITE_URL}${pathname}`,
+      inLanguage: locale,
+      itemListElement: activities.map((activity, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: activity.name,
+        url: `${SITE_URL}/${locale}/activity/${encodeURIComponent(activity.id)}`,
+      })),
+    },
+  };
+}
+
 export function getActivitySeo(activity, organization, locale) {
   const pathname = `/${locale}/activity/${encodeURIComponent(activity.id)}`;
   const isEnglish = locale === "en";

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import activities from "../data/activities.json";
 import organizations from "../data/organizations.json";
 import ActivityCard from "../components/ActivityCard";
@@ -23,7 +24,7 @@ import { getHomeSeo } from "../utils/seo";
 const JS_DAY_TO_EN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 export default function Home() {
-  const { activityContent, locale, organizationContent, t } = useLanguage();
+  const { activityContent, locale, organizationContent, pathFor, t } = useLanguage();
   const { categories } = getUiTranslations(locale);
   const localizedActivities = activities.map(activityContent);
   const localizedOrganizations = organizations.map(organizationContent);
@@ -196,6 +197,17 @@ export default function Home() {
                   onClose={() => setSelected(null)}
                 />
               </div>
+            </div>
+          )}
+
+          {results.length > 0 && (
+            <div className="mt-6 text-center">
+              <Link
+                to={pathFor("/activities")}
+                className="inline-flex min-h-[44px] items-center justify-center rounded-xl border border-blue-200 bg-white px-5 text-sm font-semibold text-blue-700 transition hover:bg-blue-50"
+              >
+                {t("viewAllActivities")}
+              </Link>
             </div>
           )}
         </section>

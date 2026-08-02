@@ -7,6 +7,7 @@ import LanguageSuggestion from "./components/LanguageSuggestion";
 import Home from "./pages/Home";
 
 const ActivityPage = lazy(() => import("./pages/ActivityPage"));
+const ActivitiesPage = lazy(() => import("./pages/ActivitiesPage"));
 const OrganizationPage = lazy(() => import("./pages/OrganizationPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 const InformationPage = lazy(() => import("./pages/InformationPage"));
@@ -37,6 +38,7 @@ function App() {
             >
                 <Routes>
                     <Route path="/:locale" element={<Home />} />
+                    <Route path="/:locale/activities" element={<ActivitiesPage />} />
                     <Route path="/:locale/activity/:id" element={<ActivityPage />} />
                     <Route path="/:locale/organization/:id" element={<OrganizationPage />} />
                     <Route path="/:locale/info/:page" element={<InformationPage />} />

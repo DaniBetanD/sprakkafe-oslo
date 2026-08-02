@@ -5,6 +5,7 @@ import {
   formatCheckedDate,
   getActivityAvailability,
   getDaysUntilAvailableFrom,
+  shouldShowAvailableUntil,
 } from "../utils/activityPresentation";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -34,7 +35,7 @@ export default function ActivityPracticalInfo({ activity, compact = false }) {
       label: t("scheduleEnded"),
       accent: true,
     },
-    activity.availableUntil && {
+    shouldShowAvailableUntil(activity) && {
       icon: CalendarClock,
       label: t("untilDate", { date: formatAvailableFrom(activity.availableUntil, locale) }),
       accent: true,

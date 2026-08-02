@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import sprakkafeMark from "../assets/sprakkafe-mark.svg";
 import { scrollToId } from "../utils/scrollTo";
 import { useLanguage } from "../i18n/LanguageContext";
@@ -40,9 +40,9 @@ export default function Footer() {
                         </h4>
                         <ul className="text-sm">
                             <li>
-                                <a href="#actividades" onClick={(e) => handleNavClick(e, "actividades")} className="text-gray-600 hover:text-blue-600 transition min-h-[44px] flex items-center">
+                                <Link to={pathFor("/activities")} className="text-gray-600 hover:text-blue-600 transition min-h-[44px] flex items-center">
                                     {t("activities")}
-                                </a>
+                                </Link>
                             </li>
                             <li>
                                 <a href="#proyecto" onClick={(e) => handleNavClick(e, "proyecto")} className="text-gray-600 hover:text-blue-600 transition min-h-[44px] flex items-center">

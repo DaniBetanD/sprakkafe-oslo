@@ -34,6 +34,7 @@ const latestUpdate = [...activities, ...organizations]
 
 const urls = ["es", "en"].flatMap((locale) => [
   createUrl(`/${locale}`, "/en", latestUpdate, "1.0"),
+  createUrl(`/${locale}/activities`, "/en/activities", latestUpdate, "0.9", "/es/activities"),
   ...INFORMATION_SLUGS[locale].map((slug, index) => {
     const spanishPath = `/es/info/${INFORMATION_SLUGS.es[index]}`;
     const englishPath = `/en/info/${INFORMATION_SLUGS.en[index]}`;

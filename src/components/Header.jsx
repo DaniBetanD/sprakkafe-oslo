@@ -42,6 +42,12 @@ export default function Header() {
         }
     }
 
+    function handleActivitiesClick(event) {
+        event.preventDefault();
+        closeMenu();
+        navigate(pathFor("/activities"));
+    }
+
     return (
         <>
             <header className="sticky top-0 z-50 border-b border-gray-200/80 bg-white/95 backdrop-blur-xl">
@@ -72,7 +78,7 @@ export default function Header() {
 
                         {/* Desktop Navigation */}
                         <nav aria-label={t("mainNavigation")} className="hidden md:flex items-center gap-1 text-sm font-medium">
-                            <a href="#actividades" onClick={(e) => handleNavClick(e, "actividades")}
+                            <a href={pathFor("/activities")} onClick={handleActivitiesClick}
                                 className="min-h-[44px] inline-flex items-center rounded-lg px-3 text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
                                 {t("activities")}
                             </a>
@@ -143,15 +149,17 @@ export default function Header() {
                         <div className="border-t border-gray-200 pt-2">
                             {[
                                 { id: "hero", label: t("home"), description: t("backToStart"), icon: House },
-                                { id: "actividades", label: t("activities"), description: t("findSprakkafe"), icon: CalendarDays },
+                                { id: "actividades", label: t("activities"), description: t("allActivitiesMenuDescription"), icon: CalendarDays, route: true },
                                 { id: "proyecto", label: t("aboutProject"), description: t("knowMission"), icon: Info },
                             ].map((item) => {
                                 const Icon = item.icon;
                                 return (
                                     <a
                                         key={item.id}
-                                        href={`#${item.id}`}
-                                        onClick={(event) => handleNavClick(event, item.id)}
+                                        href={item.route ? pathFor("/activities") : `#${item.id}`}
+                                        onClick={(event) => (
+                                            item.route ? handleActivitiesClick(event) : handleNavClick(event, item.id)
+                                        )}
                                         tabIndex={isMenuOpen ? 0 : -1}
                                         className="flex min-h-[56px] items-center gap-3 rounded-lg px-3 text-gray-700 hover:bg-gray-100 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
                                     >
