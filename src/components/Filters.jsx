@@ -61,7 +61,7 @@ export default function Filters({ filters, setFilters, activities }) {
         },
     ].filter(Boolean);
 
-    const selectClassName = "min-h-[48px] w-full rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm text-gray-700 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500";
+    const selectClassName = "min-h-[48px] min-w-0 w-full truncate rounded-xl border border-gray-200 bg-white py-3 pl-3 pr-10 text-sm text-gray-700 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500";
 
     return (
         <div className="space-y-3">
