@@ -286,7 +286,7 @@
     "availableUntil": "2026-08-30",
     "seasonNote": "La programación publicada alterna sesiones de noruego y español los domingos hasta el 30 de agosto.",
     "sourceUrl": "https://pameldinger.no/e/nb/zpnk9e",
-    "lastChecked": "2026-07-26"
+    "lastChecked": "2026-08-02"
   },
   {
     "id": "kia-tullinsgate",
@@ -326,40 +326,12 @@
     "registration": "required",
     "arrivalAdvice": "La actividad necesita inscripción previa. Cuando tu plaza esté confirmada, recibirás la información práctica y el punto de encuentro. Lleva agua, algo de comida, calzado adecuado y ropa según el tiempo.",
     "format": "Ruta guiada con conversación e intercambio cultural en noruego sencillo, con información y orientación en español y portugués cuando sea necesario.",
-    "status": "upcoming",
+    "status": "active",
     "availableFrom": "2026-07-29",
     "availableUntil": "2026-08-05",
     "seasonNote": "29 de julio a las 11:00: Ekebergparken. 31 de julio a las 11:00: ruta de arte urbano por Oslo. 5 de agosto a las 11:00: Frognerparken con personas mayores.",
-    "sourceUrl": "https://us17.list-manage.com/survey?u=5d80e2986ff1012c5ea8c6dc8&id=bfdebfd2ee&attribution=false",
-    "lastChecked": "2026-07-27"
-  },
-  {
-    "id": "laf-sup-opplaering-sognsvann",
-    "organizationId": "latinamerikansk-forening",
-    "category": "sport",
-    "name": "Formación gratuita de SUP en Sognsvann",
-    "district": "Nordmarka",
-    "days": [
-      "Monday",
-      "Wednesday",
-      "Saturday",
-      "Sunday"
-    ],
-    "day": "Monday",
-    "time": "11:00 o 17:00",
-    "level": "all",
-    "address": "Sognsvann, Oslo",
-    "description": "Iniciación gratuita y segura al stand-up paddleboarding en colaboración con instructores de SUP mot kreft.",
-    "cost": "free",
-    "registration": "required",
-    "arrivalAdvice": "La actividad necesita inscripción previa y la organización debe confirmar tu plaza. Necesitas una tabla de SUP; si no tienes una, pueden ayudarte a solicitarla gratis en BUA Oslo o alquilarla en Mad Goats.",
-    "format": "Formación práctica de SUP para principiantes. La información práctica se envía después de confirmar la plaza.",
-    "status": "active",
-    "availableFrom": "2026-07-27",
-    "availableUntil": "2026-08-02",
-    "seasonNote": "Sognsvann: 27 de julio a las 11:00; 29 de julio a las 17:00; 1 y 2 de agosto a las 17:00. Si la lista de espera alcanza diez personas, la organización podrá abrir nuevos cursos gratuitos en agosto.",
-    "sourceUrl": "https://us17.list-manage.com/survey?u=5d80e2986ff1012c5ea8c6dc8&id=bfdebfd2ee&attribution=false",
-    "lastChecked": "2026-07-27"
+    "sourceUrl": "https://latinamerikansk.no/natur-spraak-felleskap",
+    "lastChecked": "2026-08-02"
   },
   {
     "id": "rodekors-digital-summer",
@@ -489,6 +461,24 @@
     "lastChecked": "2026-07-29"
   },
   {
+    "id": "toyen-kultur-sprakkafe",
+    "organizationId": "toyen-frivilligsentral",
+    "category": "language-cafe",
+    "name": "KulTur språkkafé — Tøyen",
+    "district": "Gamle Oslo",
+    "day": "Tuesday",
+    "time": "11:00",
+    "endTime": "13:00",
+    "level": "all",
+    "address": "Aktivitetshuset K1, Kolstadgata 1, 0652 Oslo",
+    "description": "Encuentro para practicar noruego, conocer personas y participar en actividades culturales o al aire libre.",
+    "format": "Språkkafé y actividades comunitarias organizadas desde Aktivitetshuset K1.",
+    "status": "active",
+    "seasonNote": "Actividad publicada para los martes de 11:00 a 13:00.",
+    "sourceUrl": "https://frivillig.no/tyen-frivilligsentral",
+    "lastChecked": "2026-08-02"
+  },
+  {
     "id": "new-amigos-language-cafe-toyen",
     "organizationId": "toyen-frivilligsentral",
     "category": "language-cafe",
@@ -506,9 +496,9 @@
     "format": "Juego de mesa y conversación en tres niveles. Organizado por Tøyen Frivilligsentral y Deichman Tøyen.",
     "status": "upcoming",
     "availableFrom": "2026-08-04",
-    "seasonNote": "La actividad está anunciada todos los martes. Consulta la fuente oficial para confirmar cada nueva fecha.",
+    "seasonNote": "Actividad drop-in todos los martes en Deichman Tøyen; no requiere inscripción previa.",
     "sourceUrl": "https://deichman.no/event/new-amigos-language-caf%C3%A9_QmLtctJqmW",
-    "lastChecked": "2026-07-29"
+    "lastChecked": "2026-08-02"
   },
   {
     "id": "caritas-snakk-og-sok-sondre-nordstrand",

@@ -1,14 +1,32 @@
 import { CalendarClock, CircleDollarSign, ClipboardCheck, UserRoundCheck, UsersRound } from "lucide-react";
-import { formatAvailableFrom, formatCheckedDate, getActivityAvailability } from "../utils/activityPresentation";
+import {
+  formatAvailableFrom,
+  formatAvailableWeekday,
+  formatCheckedDate,
+  getActivityAvailability,
+  getDaysUntilAvailableFrom,
+} from "../utils/activityPresentation";
 import { useLanguage } from "../i18n/LanguageContext";
 
 export default function ActivityPracticalInfo({ activity, compact = false }) {
   const { locale, t } = useLanguage();
   const availability = getActivityAvailability(activity);
+  const daysUntilStart = getDaysUntilAvailableFrom(activity);
+  let upcomingLabel = null;
+
+  if (activity.availableFrom) {
+    if (daysUntilStart === 1) {
+      upcomingLabel = t("startsTomorrow");
+    } else if (daysUntilStart >= 2 && daysUntilStart <= 3) {
+      upcomingLabel = t("startsNextDay", { day: formatAvailableWeekday(activity.availableFrom, locale) });
+    } else {
+      upcomingLabel = t("fromDate", { date: formatAvailableFrom(activity.availableFrom, locale) });
+    }
+  }
   const items = [
     availability === "upcoming" && activity.availableFrom && {
       icon: CalendarClock,
-      label: t("fromDate", { date: formatAvailableFrom(activity.availableFrom, locale) }),
+      label: upcomingLabel,
       accent: true,
     },
     availability === "expired" && {

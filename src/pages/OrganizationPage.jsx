@@ -5,7 +5,7 @@ import organizations from "../data/organizations.json";
 import activities from "../data/activities.json";
 import sprakkafeMark from "../assets/sprakkafe-mark.svg";
 import ActivityPracticalInfo from "../components/ActivityPracticalInfo";
-import { formatCheckedDate, getActivityAvailability, getScheduleLabel } from "../utils/activityPresentation";
+import { formatCheckedDate, getScheduleLabel, isActivityVisible } from "../utils/activityPresentation";
 import { useLanguage } from "../i18n/LanguageContext";
 import SeoMetadata from "../components/SeoMetadata";
 import { getOrganizationSeo } from "../utils/seo";
@@ -19,7 +19,7 @@ export default function OrganizationPage() {
     const rawOrganization = organizations.find(o => o.id === id);
     const organization = rawOrganization ? organizationContent(rawOrganization) : null;
     const orgActivities = activities.filter(
-        (activity) => activity.organizationId === id && getActivityAvailability(activity) !== "expired",
+        (activity) => activity.organizationId === id && isActivityVisible(activity),
     ).map(activityContent);
 
     if (!organization) {

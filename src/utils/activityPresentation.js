@@ -40,8 +40,25 @@ export function isActivityVisible(activity, date = new Date()) {
   }
 
   const visibleFrom = new Date(`${activity.availableFrom}T00:00:00`);
-  visibleFrom.setDate(visibleFrom.getDate() - 7);
+  visibleFrom.setDate(visibleFrom.getDate() - 3);
   return date >= visibleFrom;
+}
+
+export function getDaysUntilAvailableFrom(activity, date = new Date()) {
+  if (!activity.availableFrom) {
+    return null;
+  }
+
+  const today = new Date(date);
+  today.setHours(0, 0, 0, 0);
+  const availableFrom = new Date(`${activity.availableFrom}T00:00:00`);
+  return Math.round((availableFrom - today) / (24 * 60 * 60 * 1000));
+}
+
+export function formatAvailableWeekday(date, locale = "es") {
+  return new Intl.DateTimeFormat(locale === "en" ? "en-GB" : "es-ES", {
+    weekday: "long",
+  }).format(new Date(`${date}T00:00:00`));
 }
 
 export function formatAvailableFrom(date, locale = "es") {

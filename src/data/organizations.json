@@ -50,7 +50,7 @@
         "logo": "🏠",
         "verified": true,
         "description": "Casa Cultural es una casa de cultura hispana en Oslo que crea espacios inclusivos de idioma, cultura y comunidad para personas de todas las edades.",
-        "lastChecked": "2026-07-26"
+        "lastChecked": "2026-08-02"
     },
     {
         "id": "kia-norge",
@@ -153,8 +153,8 @@
         "phone": "+47 477 92 781",
         "logo": "🏘️",
         "verified": true,
-        "description": "Centro municipal de voluntariado con sede en Kolstadgata 1. Colabora con Deichman Tøyen en actividades lingüísticas; la actividad de los lunes figura durante la temporada, pero no se ha confirmado su continuidad en julio.",
-        "lastChecked": "2026-07-26"
+        "description": "Centro municipal de voluntariado con sede en Kolstadgata 1. Organiza KulTur språkkafé y colabora con Deichman Tøyen en actividades lingüísticas como New Amigos.",
+        "lastChecked": "2026-08-02"
     },
     {
         "id": "stella-kvinnesenter",
@@ -178,7 +178,8 @@
         "email": "kontakt@latinamerikansk.no",
         "phone": "+47 973 34 873",
         "logo": "🌎",
+        "verified": true,
         "description": "Organización comunitaria que promueve la inclusión, el intercambio cultural y espacios de encuentro entre la comunidad latinoamericana y la sociedad noruega.",
-        "lastChecked": "2026-07-27"
+        "lastChecked": "2026-08-02"
     }
 ]

@@ -78,13 +78,6 @@ const activityEnglish = {
     arrivalAdvice: "Registration is required. After confirmation you will receive the meeting point and practical information. Bring water, food, suitable shoes and weather-appropriate clothing.",
     seasonNote: "29 July at 11:00: Ekebergparken. 31 July at 11:00: Oslo street-art walk. 5 August at 11:00: Frognerparken with older participants.",
   },
-  "laf-sup-opplaering-sognsvann": {
-    name: "Free SUP training at Sognsvann",
-    description: "Free and safe introduction to stand-up paddleboarding with instructors from SUP mot kreft.",
-    format: "Practical beginner SUP training. Details are sent after your place is confirmed.",
-    arrivalAdvice: "Registration and confirmation are required. You need a SUP board; the organisation can help you borrow one for free from BUA Oslo or rent one from Mad Goats.",
-    seasonNote: "Sognsvann: 27 July at 11:00; 29 July at 17:00; 1 and 2 August at 17:00. More free August sessions may open if the waiting list reaches ten people.",
-  },
   "rodekors-digital-summer": {
     name: "Røde Kors online Norsktrening — summer",
     description: "Online spoken Norwegian practice for people aged 18 and over.",
@@ -120,10 +113,16 @@ const activityEnglish = {
     format: "Football sessions indoors or outdoors depending on the season.",
     arrivalAdvice: "Join the official WhatsApp group to confirm the venue and seasonal changes.",
   },
+  "toyen-kultur-sprakkafe": {
+    name: "KulTur language café — Tøyen",
+    description: "Practise Norwegian, meet people and join cultural or outdoor activities.",
+    format: "Language café and community activities organised from Aktivitetshuset K1.",
+    seasonNote: "Published for Tuesdays from 11:00 to 13:00.",
+  },
   "new-amigos-language-cafe-toyen": {
     description: "Practise Norwegian and other languages through the New Amigos game while meeting people from different countries.",
     format: "Board game and conversation at three levels, organised by Tøyen Frivilligsentral and Deichman Tøyen.",
-    seasonNote: "The activity is announced every Tuesday. Check the official source for each new date.",
+    seasonNote: "Drop-in every Tuesday at Deichman Tøyen; no advance registration is required.",
   },
   "caritas-snakk-og-sok-sondre-nordstrand": {
     description: "Practise Norwegian, learn about Norwegian society and receive support with job seeking.",
@@ -144,7 +143,7 @@ const organizationEnglish = {
   ethnos: { tipo: "NGO", description: "An organisation previously associated with Norwegian courses. No current official summer 2026 programme has been confirmed." },
   alfaskolen: { tipo: "School", description: "A Norwegian school at Kongens gate 15. Its free Språkkafé has been paused since spring 2026." },
   sagene: { tipo: "Volunteer centre", description: "A volunteer centre at Sandakerveien 61. Its 2026 programme lists Norwegian courses, but not the former Sunday Språkkafé." },
-  "toyen-frivilligsentral": { tipo: "Volunteer centre", description: "A municipal volunteer centre collaborating with Deichman Tøyen on language activities." },
+  "toyen-frivilligsentral": { tipo: "Volunteer centre", description: "A municipal volunteer centre that organises KulTur language café and collaborates with Deichman Tøyen on activities such as New Amigos." },
   "stella-kvinnesenter": { tipo: "Community centre for women", description: "A free learning and meeting centre for women in Oslo, with a particular focus on minority women and mothers." },
   "latinamerikansk-forening": { tipo: "Community association", description: "A community organisation promoting inclusion, cultural exchange and connections between Latin American communities and Norwegian society." },
 };
