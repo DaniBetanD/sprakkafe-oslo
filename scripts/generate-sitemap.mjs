@@ -1,5 +1,6 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { INFORMATION_SLUGS } from "../src/utils/informationPages.js";
+import { guides } from "../src/data/guides.js";
 
 const projectRoot = new URL("../", import.meta.url);
 const baseUrl = "https://sprakkafe-oslo.vercel.app";
@@ -35,6 +36,14 @@ const latestUpdate = [...activities, ...organizations]
 const urls = ["es", "en"].flatMap((locale) => [
   createUrl(`/${locale}`, "/en", latestUpdate, "1.0"),
   createUrl(`/${locale}/activities`, "/en/activities", latestUpdate, "0.9", "/es/activities"),
+  createUrl(`/${locale}/guides`, "/en/guides", "2026-08-07", "0.7", "/es/guides"),
+  ...guides.map((guide) => createUrl(
+    `/${locale}/guides/${encodeURIComponent(guide.slug)}`,
+    `/en/guides/${encodeURIComponent(guide.slug)}`,
+    guide.updatedAt,
+    "0.7",
+    `/es/guides/${encodeURIComponent(guide.slug)}`,
+  )),
   ...INFORMATION_SLUGS[locale].map((slug, index) => {
     const spanishPath = `/es/info/${INFORMATION_SLUGS.es[index]}`;
     const englishPath = `/en/info/${INFORMATION_SLUGS.en[index]}`;

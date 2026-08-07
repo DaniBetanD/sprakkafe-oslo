@@ -11,6 +11,8 @@ const ActivitiesPage = lazy(() => import("./pages/ActivitiesPage"));
 const OrganizationPage = lazy(() => import("./pages/OrganizationPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 const InformationPage = lazy(() => import("./pages/InformationPage"));
+const GuidesPage = lazy(() => import("./pages/GuidesPage"));
+const GuidePage = lazy(() => import("./pages/GuidePage"));
 
 function LoadingFallback() {
     const { t } = useLanguage();
@@ -42,6 +44,8 @@ function App() {
                     <Route path="/:locale/activity/:id" element={<ActivityPage />} />
                     <Route path="/:locale/organization/:id" element={<OrganizationPage />} />
                     <Route path="/:locale/info/:page" element={<InformationPage />} />
+                    <Route path="/:locale/guides" element={<GuidesPage />} />
+                    <Route path="/:locale/guides/:slug" element={<GuidePage />} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </Suspense>
