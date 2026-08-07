@@ -3,8 +3,9 @@ import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { localizeActivity, localizeOrganization } from "../src/i18n/contentTranslations.js";
 import { getActivitiesSeo, getActivitySeo, getHomeSeo, getOrganizationSeo } from "../src/utils/seo.js";
-import { getInformationSeo } from "../src/utils/seo.js";
+import { getGuideSeo, getGuidesSeo, getInformationSeo } from "../src/utils/seo.js";
 import { getInformationPage, INFORMATION_SLUGS } from "../src/utils/informationPages.js";
+import { getGuide, getLocalizedGuides, guideHubContent, guides } from "../src/data/guides.js";
 
 const projectRoot = new URL("../", import.meta.url);
 const distRoot = new URL("../dist/", import.meta.url);
@@ -149,6 +150,26 @@ function activitiesFallback(localizedActivities, locale) {
   </main>`;
 }
 
+function guidesFallback(localizedGuides, locale) {
+  const content = guideHubContent[locale];
+  return `<main id="main-content" data-seo-fallback>
+    <h1>${escapeHtml(content.title)}</h1>
+    <p>${escapeHtml(content.intro)}</p>
+    <ul>${localizedGuides.map((guide) => (
+      `<li><a href="/${locale}/guides/${encodeURIComponent(guide.slug)}">${escapeHtml(guide.title)}</a></li>`
+    )).join("")}</ul>
+  </main>`;
+}
+
+function guideFallback(guide, locale) {
+  return `<main id="main-content" data-seo-fallback><article>
+    <h1>${escapeHtml(guide.title)}</h1>
+    <p>${escapeHtml(guide.intro)}</p>
+    ${guide.sections.map((section) => `<section><h2>${escapeHtml(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}${section.items ? `<ul>${section.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : ""}</section>`).join("")}
+    <p><a href="/${locale}/activities">${escapeHtml(guide.ctaLabel)}</a></p>
+  </article></main>`;
+}
+
 async function writePage(relativePath, html) {
   const outputUrl = new URL(relativePath, distRoot);
   await mkdir(dirname(fileURLToPath(outputUrl)), { recursive: true });
@@ -173,6 +194,18 @@ for (const locale of ["es", "en"]) {
   const activitiesSeo = getActivitiesSeo(localizedActivities, locale);
   const activitiesHtml = renderDocument(template, activitiesSeo, locale, activitiesFallback(localizedActivities, locale));
   await writePage(`seo/${locale}/activities.html`, activitiesHtml);
+
+  const localizedGuides = getLocalizedGuides(locale);
+  const guidesSeo = getGuidesSeo(localizedGuides, locale);
+  const guidesHtml = renderDocument(template, guidesSeo, locale, guidesFallback(localizedGuides, locale));
+  await writePage(`seo/${locale}/guides.html`, guidesHtml);
+
+  for (const guideItem of guides) {
+    const guide = getGuide(guideItem.slug, locale);
+    const seo = getGuideSeo(guide, locale);
+    const html = renderDocument(template, seo, locale, guideFallback(guide, locale));
+    await writePage(`seo/${locale}/guides/${encodeURIComponent(guide.slug)}.html`, html);
+  }
 
   for (const slug of INFORMATION_SLUGS[locale]) {
     const content = getInformationPage(slug, locale);

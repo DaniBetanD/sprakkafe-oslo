@@ -83,6 +83,57 @@ export function getActivitiesSeo(activities, locale) {
   };
 }
 
+export function getGuidesSeo(guides, locale) {
+  const pathname = `/${locale}/guides`;
+  const isEnglish = locale === "en";
+  const title = isEnglish ? "Practical guides for newcomers" : "Guías prácticas para personas recién llegadas";
+  const description = isEnglish
+    ? "Practical guides to help you prepare for language cafés, practise Norwegian and take part in community activities in Oslo."
+    : "Guías prácticas para prepararte antes de un Språkkafé, practicar noruego y participar en actividades comunitarias en Oslo.";
+
+  return {
+    pathname,
+    title: `${title} | ${SITE_NAME}`,
+    description,
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: title,
+      description,
+      url: `${SITE_URL}${pathname}`,
+      inLanguage: locale,
+      itemListElement: guides.map((guide, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: guide.title,
+        url: `${SITE_URL}${pathname}/${encodeURIComponent(guide.slug)}`,
+      })),
+    },
+  };
+}
+
+export function getGuideSeo(guide, locale) {
+  const pathname = `/${locale}/guides/${encodeURIComponent(guide.slug)}`;
+  return {
+    pathname,
+    title: `${guide.title} | ${SITE_NAME}`,
+    description: guide.description,
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: guide.title,
+      description: guide.description,
+      url: `${SITE_URL}${pathname}`,
+      inLanguage: locale,
+      datePublished: guide.publishedAt,
+      dateModified: guide.updatedAt,
+      author: { "@type": "Organization", name: SITE_NAME, url: `${SITE_URL}/${locale}` },
+      publisher: { "@type": "Organization", name: SITE_NAME, url: `${SITE_URL}/${locale}` },
+      isPartOf: { "@type": "WebSite", name: SITE_NAME, url: `${SITE_URL}/${locale}` },
+    },
+  };
+}
+
 export function getActivitySeo(activity, organization, locale) {
   const pathname = `/${locale}/activity/${encodeURIComponent(activity.id)}`;
   const isEnglish = locale === "en";

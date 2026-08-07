@@ -45,6 +45,11 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
+                                <Link to={pathFor("/guides")} className="text-gray-600 hover:text-blue-600 transition min-h-[44px] flex items-center">
+                                    {t("guides")}
+                                </Link>
+                            </li>
+                            <li>
                                 <a href="#proyecto" onClick={(e) => handleNavClick(e, "proyecto")} className="text-gray-600 hover:text-blue-600 transition min-h-[44px] flex items-center">
                                     {t("aboutProject")}
                                 </a>

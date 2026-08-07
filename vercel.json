@@ -63,6 +63,22 @@
       "destination": "/seo/en/activities.html"
     },
     {
+      "source": "/es/guides",
+      "destination": "/seo/es/guides.html"
+    },
+    {
+      "source": "/en/guides",
+      "destination": "/seo/en/guides.html"
+    },
+    {
+      "source": "/es/guides/:slug",
+      "destination": "/seo/es/guides/:slug.html"
+    },
+    {
+      "source": "/en/guides/:slug",
+      "destination": "/seo/en/guides/:slug.html"
+    },
+    {
       "source": "/en",
       "destination": "/en.html"
     },

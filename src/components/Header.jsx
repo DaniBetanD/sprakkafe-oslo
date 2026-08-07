@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { CalendarDays, Globe2, Heart, House, Info, Menu, X } from "lucide-react";
+import { BookOpen, CalendarDays, Globe2, Heart, House, Info, Menu, X } from "lucide-react";
 import sprakkafeMark from "../assets/sprakkafe-mark.svg";
 import { scrollToId } from "../utils/scrollTo";
 import CommunitySignupModal from "./CommunitySignupModal";
@@ -48,6 +48,12 @@ export default function Header() {
         navigate(pathFor("/activities"));
     }
 
+    function handleGuidesClick(event) {
+        event.preventDefault();
+        closeMenu();
+        navigate(pathFor("/guides"));
+    }
+
     return (
         <>
             <header className="sticky top-0 z-50 border-b border-gray-200/80 bg-white/95 backdrop-blur-xl">
@@ -81,6 +87,11 @@ export default function Header() {
                             <a href={pathFor("/activities")} onClick={handleActivitiesClick}
                                 className="min-h-[44px] inline-flex items-center rounded-lg px-3 text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
                                 {t("activities")}
+                            </a>
+
+                            <a href={pathFor("/guides")} onClick={handleGuidesClick}
+                                className="min-h-[44px] inline-flex items-center rounded-lg px-3 text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+                                {t("guides")}
                             </a>
 
                             <a href="#proyecto" onClick={(e) => handleNavClick(e, "proyecto")}
@@ -150,15 +161,18 @@ export default function Header() {
                             {[
                                 { id: "hero", label: t("home"), description: t("backToStart"), icon: House },
                                 { id: "actividades", label: t("activities"), description: t("allActivitiesMenuDescription"), icon: CalendarDays, route: true },
+                                { id: "guides", label: t("guides"), description: t("guidesMenuDescription"), icon: BookOpen, route: "guides" },
                                 { id: "proyecto", label: t("aboutProject"), description: t("knowMission"), icon: Info },
                             ].map((item) => {
                                 const Icon = item.icon;
                                 return (
                                     <a
                                         key={item.id}
-                                        href={item.route ? pathFor("/activities") : `#${item.id}`}
+                                        href={item.route ? pathFor(item.route === "guides" ? "/guides" : "/activities") : `#${item.id}`}
                                         onClick={(event) => (
-                                            item.route ? handleActivitiesClick(event) : handleNavClick(event, item.id)
+                                            item.route === "guides"
+                                                ? handleGuidesClick(event)
+                                                : item.route ? handleActivitiesClick(event) : handleNavClick(event, item.id)
                                         )}
                                         tabIndex={isMenuOpen ? 0 : -1}
                                         className="flex min-h-[56px] items-center gap-3 rounded-lg px-3 text-gray-700 hover:bg-gray-100 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
