@@ -35,17 +35,20 @@ Prioridad alta:
 
 Sprint activo:
 
-- `UX-NEWSLETTER-002` — Invitación contextual a la newsletter.
+- `MARKETING-360-001` — Campaña coordinada de agosto y perfil profesional de Daniel.
+
+Completado recientemente:
+
+- `TECH-CONTENT-HUB-001` — Área bilingüe de guías y primera guía para preparar una visita.
 
 ## Próxima fase — Operación y contenidos
 
 - Preparar un flujo asistido para extraer información desde una URL oficial.
 - Mantener la aprobación final del administrador antes de publicar cambios.
 - Definir una rutina editorial para la newsletter.
-- Crear recursos breves que reduzcan barreras para la primera visita.
+- Ampliar las guías solo a partir de dudas reales y señales de uso.
 - Evaluar analítica respetuosa con la privacidad.
 - Revisar la posible actividad de Tøyen Frivilligsentral y su comunidad de Facebook.
-- Evaluar en un sprint UX propio una invitación contextual a la newsletter durante el scroll.
 
 ## Fase futura — Datos y administración
 
