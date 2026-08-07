@@ -1,8 +1,8 @@
 # Estado del proyecto
 
-Versión: 3.1
+Versión: 3.2
 Estado: Documento vivo
-Última actualización: 31 de julio de 2026
+Última actualización: 7 de agosto de 2026
 
 ## Estado general
 
@@ -23,7 +23,8 @@ El objetivo actual es proteger la fiabilidad de la información, comprobar los f
 | Página 404 | Funcional |
 | Header, Hero, MissionSection y Footer | Estables y aprobados |
 | Responsive | Validado en móvil y escritorio |
-| Newsletter | Activa mediante MailerLite, con invitación contextual aprobada |
+| Newsletter | Activa mediante MailerLite desde la sección estable de comunidad |
+| Guías bilingües | Área activa con la primera guía para preparar una visita |
 | Contacto de organizaciones | Activo desde el footer |
 | Compartir por WhatsApp | Metadatos configurados |
 | SEO técnico | Implementado |
@@ -49,6 +50,8 @@ Rutas públicas:
 - `/es` y `/en`
 - `/:locale/activity/:id`
 - `/:locale/organization/:id`
+- `/:locale/guides`
+- `/:locale/guides/:slug`
 - ruta comodín para la página 404
 
 ## Operación de contenidos
@@ -73,8 +76,10 @@ No se rediseñan fuera de un sprint específico:
 
 ## Trabajo actual
 
+- `MARKETING-360-001`: plan coordinado de agosto y optimización del perfil de Facebook en preparación.
+- `TECH-CONTENT-HUB-001`: área bilingüe de guías y primera guía publicadas el 7 de agosto de 2026.
 - `UX-NEWSLETTER-002`: completado y publicado el 1 de agosto de 2026.
-- `SEO-GEO-002`: base indexable y páginas de confianza en revisión antes de publicar.
+- `SEO-GEO-002`: publicado; Google verificado y Bing procesando el sitemap.
 - `MARKETING-001`: primera activación orgánica de 14 días en ejecución.
 - `CONTENT-ORG-002`: perfil de LIN preparado como borrador; revisión prevista para el 7 de agosto de 2026.
 - Construcción de una línea base semanal con Analytics y Speed Insights.
@@ -89,7 +94,6 @@ No se rediseñan fuera de un sprint específico:
 - Evaluar los primeros datos de Analytics y Speed Insights cuando exista una muestra suficiente.
 - Revisar el perfil de LIN el 7 de agosto de 2026 y decidir su publicación.
 - Comprobar una posible actividad de Tøyen Frivilligsentral y el grupo de Facebook facilitado por la administración; no publicar sin revisión.
-- Valorar en un sprint UX independiente una invitación a la newsletter activada durante el desplazamiento, sin implementarla dentro de SEO-GEO-002.
 
 ## No implementado
 

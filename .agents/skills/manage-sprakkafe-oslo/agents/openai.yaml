@@ -1,0 +1,4 @@
+interface:
+  display_name: "Språkkafé Oslo"
+  short_description: "Flujo seguro para desarrollar y operar Språkkafé"
+  default_prompt: "Usa $manage-sprakkafe-oslo para trabajar en Språkkafé Oslo con el flujo y las validaciones del proyecto."
