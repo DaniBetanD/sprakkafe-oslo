@@ -81,7 +81,7 @@ No se rediseñan fuera de un sprint específico:
 - `UX-NEWSLETTER-002`: completado y publicado el 1 de agosto de 2026.
 - `SEO-GEO-002`: publicado; Google verificado y Bing procesando el sitemap.
 - `MARKETING-001`: primera activación orgánica de 14 días en ejecución.
-- `CONTENT-ORG-002`: perfil de LIN preparado como borrador; revisión prevista para el 7 de agosto de 2026.
+- `CONTENT-ORG-002`: perfil institucional de LIN aprobado e incorporado el 8 de agosto de 2026; sin actividades vigentes publicadas.
 - Construcción de una línea base semanal con Analytics y Speed Insights.
 - Contacto y seguimiento administrado con organizaciones.
 - Mantenimiento de información estacional.
@@ -92,7 +92,6 @@ No se rediseñan fuera de un sprint específico:
 - Mantener una rutina editorial para la newsletter.
 - Mejorar el flujo asistido de incorporación desde fuentes oficiales.
 - Evaluar los primeros datos de Analytics y Speed Insights cuando exista una muestra suficiente.
-- Revisar el perfil de LIN el 7 de agosto de 2026 y decidir su publicación.
 - Comprobar una posible actividad de Tøyen Frivilligsentral y el grupo de Facebook facilitado por la administración; no publicar sin revisión.
 
 ## No implementado

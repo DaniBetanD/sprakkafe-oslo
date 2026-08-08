@@ -181,5 +181,17 @@
         "verified": true,
         "description": "Organización comunitaria que promueve la inclusión, el intercambio cultural y espacios de encuentro entre la comunidad latinoamericana y la sociedad noruega.",
         "lastChecked": "2026-08-02"
+    },
+    {
+        "id": "lin",
+        "name": "LIN — Likestilling, Inkludering og Nettverk",
+        "tipo": "Organización de integración",
+        "website": "https://www.linorg.no/",
+        "email": "post@linorg.no",
+        "phone": "+47 21 64 64 63",
+        "logo": "🤝",
+        "verified": true,
+        "description": "Organización nacional de recursos que promueve la igualdad, la inclusión y la creación de redes mediante cursos, orientación y actividades para comprender mejor la sociedad y la vida laboral en Noruega.",
+        "lastChecked": "2026-08-08"
     }
 ]

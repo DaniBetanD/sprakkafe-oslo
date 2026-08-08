@@ -146,6 +146,7 @@ const organizationEnglish = {
   "toyen-frivilligsentral": { tipo: "Volunteer centre", description: "A municipal volunteer centre that organises KulTur language café and collaborates with Deichman Tøyen on activities such as New Amigos." },
   "stella-kvinnesenter": { tipo: "Community centre for women", description: "A free learning and meeting centre for women in Oslo, with a particular focus on minority women and mothers." },
   "latinamerikansk-forening": { tipo: "Community association", description: "A community organisation promoting inclusion, cultural exchange and connections between Latin American communities and Norwegian society." },
+  lin: { tipo: "Integration organisation", description: "A national resource organisation promoting equality, inclusion and stronger networks through courses, guidance and activities about Norwegian society and working life." },
 };
 
 export function localizeActivity(activity, locale) {
