@@ -1,7 +1,9 @@
 # TECH-CONTENT-HUB-001 — Área de guías
 
-Estado: Implementado y validado, pendiente de publicación
+Estado: Implementado, publicado y validado en producción
 Fecha: 7 de agosto de 2026
+
+Validación de producción: 8 de agosto de 2026
 
 ## Objetivo
 
