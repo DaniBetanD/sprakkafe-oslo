@@ -47,7 +47,7 @@ El perfil debe respetar los nombres originales, destinatarios, requisitos y proc
 ### 1. Brobyggerkurs Oslo
 
 **Prioridad:** alta
-**Estado:** sin convocatoria vigente confirmada
+**Estado:** perfil publicable en pausa, sin fechas vigentes
 
 - Curso gratuito de diez semanas.
 - Nivel publicado: noruego A2 o superior.
@@ -55,7 +55,8 @@ El perfil debe respetar los nombres originales, destinatarios, requisitos y proc
 - Incluye creación de redes y posibilidad de continuar como persona voluntaria.
 - La página específica mantiene las fechas de primavera de 2026, que ya han pasado.
 - Una noticia de otoño muestra 9 de septiembre en martes y 11 de septiembre en jueves; esa combinación corresponde a 2025 y no debe interpretarse como convocatoria de 2026.
-- No publicar como actividad activa hasta confirmar una nueva fecha.
+- Publicar el perfil de la actividad como pausado y mantener el enlace oficial de inscripción/lista de espera.
+- No presentarlo como activo hasta que LIN anuncie nuevas fechas.
 
 Fuente: https://www.linorg.no/kurs/brobygger-kurs
 
@@ -116,16 +117,17 @@ Fuente: https://www.linorg.no/aktuelt/bli-med-kurs-og-aktiviteter-pa-lin-i-host
 
 1. No se localizó una respuesta de LIN ni el correo inicial en la cuenta de Gmail conectada.
 2. La web oficial confirma nombre, propósito, dirección, horario de atención, email y teléfono.
-3. Brobyggerkurs no tiene una convocatoria de otoño de 2026 confirmada; la noticia encontrada corresponde a 2025.
+3. Brobyggerkurs no tiene una convocatoria de otoño de 2026 confirmada; la noticia encontrada corresponde a 2025. La página específica confirma el curso de primavera de 2026 y mantiene abierto el formulario de inscripción/lista de espera.
 4. Mentorprogram 2026 continúa cerrado.
 5. Karriereveiledning y la ayuda jurídica permanecen fuera del MVP por sus condiciones específicas y porque no son actividades principales de idioma o comunidad.
 
 ## Cambios aprobados
 
 - `src/data/organizations.json`
+- `src/data/activities.json`, únicamente para el perfil pausado de Brobyggerkurs Oslo
 - `src/i18n/contentTranslations.js`
 
-No se modifica `src/data/activities.json` en esta primera fase.
+La actividad debe permanecer en pausa hasta que exista una convocatoria oficial vigente.
 
 ## Decisión de la administradora
 
