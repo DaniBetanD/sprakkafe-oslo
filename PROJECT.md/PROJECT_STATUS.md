@@ -81,7 +81,7 @@ No se rediseñan fuera de un sprint específico:
 - `UX-NEWSLETTER-002`: completado y publicado el 1 de agosto de 2026.
 - `SEO-GEO-002`: publicado; Google verificado y Bing procesando el sitemap.
 - `MARKETING-001`: primera activación orgánica de 14 días en ejecución.
-- `CONTENT-ORG-002`: perfil institucional de LIN aprobado e incorporado el 8 de agosto de 2026; sin actividades vigentes publicadas.
+- `CONTENT-ORG-002`: perfil institucional de LIN incorporado; Brobyggerkurs Oslo publicado en pausa hasta que existan nuevas fechas.
 - Construcción de una línea base semanal con Analytics y Speed Insights.
 - Contacto y seguimiento administrado con organizaciones.
 - Mantenimiento de información estacional.

@@ -129,6 +129,13 @@ const activityEnglish = {
     format: "An informal language café about Norway, everyday life and working life, with computer access and help with CVs and applications.",
     seasonNote: "Free in-person activity every Tuesday from 11:00 to 15:00.",
   },
+  "lin-brobyggerkurs-oslo": {
+    name: "Brobygger course Oslo",
+    time: "By group",
+    description: "A free course where you can learn about Norwegian society and working life, expand your network and understand rights and services while practising Norwegian.",
+    format: "A ten-week in-person course about Norwegian society, rights, employment, health, personal finance, volunteering and community participation.",
+    seasonNote: "The published spring 2026 groups have ended. LIN keeps the registration form open and may use a waiting list until new dates are announced.",
+  },
 };
 
 const organizationEnglish = {

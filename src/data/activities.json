@@ -521,5 +521,26 @@
     "seasonNote": "Actividad presencial gratuita todos los martes, de 11:00 a 15:00.",
     "sourceUrl": "https://caritas.no/es/evento/snakk-og-sok-pa-sondre-nordstrand/",
     "lastChecked": "2026-07-29"
+  },
+  {
+    "id": "lin-brobyggerkurs-oslo",
+    "organizationId": "lin",
+    "category": "community",
+    "name": "Brobyggerkurs Oslo",
+    "district": "Sentrum",
+    "days": ["Tuesday", "Thursday"],
+    "day": "Tuesday",
+    "time": "Según el grupo",
+    "level": "A2",
+    "address": "Storgata 32, 9. etasje, 0184 Oslo",
+    "description": "Curso gratuito para conocer mejor la sociedad y la vida laboral en Noruega, ampliar tu red y aprender sobre derechos y servicios mientras practicas noruego.",
+    "cost": "free",
+    "registration": "required",
+    "format": "Curso presencial de diez semanas sobre sociedad noruega, derechos, empleo, salud, economía, voluntariado y participación comunitaria.",
+    "status": "paused",
+    "seasonNote": "Los grupos publicados de primavera de 2026 ya finalizaron. LIN mantiene abierto el formulario y puede utilizar una lista de espera hasta anunciar nuevas fechas.",
+    "sourceUrl": "https://www.linorg.no/kurs/brobygger-kurs",
+    "registrationUrl": "https://www.linorg.no/kurs/brobygger-kurs",
+    "lastChecked": "2026-08-08"
   }
 ]

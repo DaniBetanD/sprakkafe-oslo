@@ -257,6 +257,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://sprakkafe-oslo.vercel.app/es/activity/lin-brobyggerkurs-oslo</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/lin-brobyggerkurs-oslo" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/lin-brobyggerkurs-oslo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/lin-brobyggerkurs-oslo" />
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/organization/rodekors</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/organization/rodekors" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/organization/rodekors" />
@@ -630,6 +638,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/caritas-snakk-og-sok-sondre-nordstrand" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/caritas-snakk-og-sok-sondre-nordstrand" />
     <lastmod>2026-07-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sprakkafe-oslo.vercel.app/en/activity/lin-brobyggerkurs-oslo</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/lin-brobyggerkurs-oslo" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/lin-brobyggerkurs-oslo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/lin-brobyggerkurs-oslo" />
+    <lastmod>2026-08-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>

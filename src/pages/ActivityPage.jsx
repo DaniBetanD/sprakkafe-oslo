@@ -60,6 +60,7 @@ export default function ActivityPage() {
         ? `https://maps.google.com/?q=${encodeURIComponent(activity.address + ', Oslo')}`
         : null;
     const availability = getActivityAvailability(activity);
+    const isWhatsAppRegistration = activity.registrationUrl?.includes("chat.whatsapp.com");
 
     return (
         <div className="min-h-screen bg-gray-50 pb-12">
@@ -191,8 +192,8 @@ export default function ActivityPage() {
                                 rel="noopener noreferrer"
                                 className="inline-flex min-h-[46px] flex-1 items-center justify-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-4 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-100"
                             >
-                                <MessageCircle size={16} aria-hidden="true" />
-                                {t("joinWhatsapp")}
+                                {isWhatsAppRegistration && <MessageCircle size={16} aria-hidden="true" />}
+                                {t(isWhatsAppRegistration ? "joinWhatsapp" : "officialRegistration")}
                                 <ExternalLink size={14} aria-hidden="true" />
                             </a>
                         )}
