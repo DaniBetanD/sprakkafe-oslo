@@ -40,6 +40,7 @@ Sprint activo:
 Completado recientemente:
 
 - `TECH-CONTENT-HUB-001` — Área bilingüe de guías y primera guía para preparar una visita.
+- `CONTENT-ORG-002` — Perfil institucional de LIN, sin actividades vigentes asociadas.
 
 ## Próxima fase — Operación y contenidos
 

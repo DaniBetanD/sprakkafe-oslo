@@ -41,7 +41,7 @@ Este directorio reúne la documentación activa de Språkkafé Oslo. No todos lo
 
 La carpeta `intake/` contiene propuestas pendientes de aprobación administrativa. Una ficha guardada en esta carpeta no significa que la organización o actividad esté publicada.
 
-El expediente de LIN permanece pendiente de revisión y aprobación administrativa.
+El expediente de LIN documenta la aprobación de su perfil institucional y las actividades que permanecen pendientes de una convocatoria vigente.
 
 ## Documentos fuera de este directorio
 
