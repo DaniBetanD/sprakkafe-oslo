@@ -33,6 +33,16 @@
   ],
   "redirects": [
     {
+      "source": "/go/facebook",
+      "destination": "/es?utm_source=facebook&utm_medium=profile&utm_campaign=always_on&utm_content=bio",
+      "permanent": false
+    },
+    {
+      "source": "/go/primera-visita",
+      "destination": "/es/guides/first-sprakkafe?utm_source=facebook&utm_medium=organic&utm_campaign=agosto_2026&utm_content=aug_p_02",
+      "permanent": false
+    },
+    {
       "source": "/hola",
       "destination": "/es?utm_source=personal&utm_medium=message&utm_campaign=agosto_2026&utm_content=contacto_reciente",
       "permanent": false
