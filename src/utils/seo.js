@@ -170,6 +170,7 @@ export function getActivitySeo(activity, organization, locale) {
       eventAttendanceMode: activity.address
         ? "https://schema.org/OfflineEventAttendanceMode"
         : "https://schema.org/OnlineEventAttendanceMode",
+      startDate: activity.availableFrom || undefined,
       eventSchedule,
       location: activity.address ? {
         "@type": "Place",
