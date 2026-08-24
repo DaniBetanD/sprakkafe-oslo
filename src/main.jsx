@@ -8,6 +8,7 @@ import './index.css'
 import './App.css'
 import App from './App.jsx'
 import { installTrustedTypesPolicy } from './utils/trustedTypes.js'
+import { filterAnalyticsEvent } from './utils/analytics.js'
 
 installTrustedTypesPolicy()
 
@@ -16,7 +17,7 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>  {/* <-- Envuelve App con BrowserRouter */}
       <App />
     </BrowserRouter>
-    <Analytics />
+    <Analytics beforeSend={filterAnalyticsEvent} />
     <SpeedInsights />
   </StrictMode>,
 )
