@@ -1,6 +1,6 @@
 # TECH-ANALYTICS-002 — Exclusión de tráfico interno y de pruebas
 
-Estado: implementación local; despliegue y verificación real pendientes
+Estado: desplegado y prueba controlada superada; observación de varios días pendiente
 Fecha de inicio: 24 de agosto de 2026
 
 ## Objetivo
@@ -68,6 +68,20 @@ La variación es demasiado alta y la muestra demasiado pequeña para atribuir un
 3. Activar la marca interna en otro navegador o perfil, visitar otra ruta de control y confirmar que no aparece.
 4. Verificar que un deployment Preview tampoco envía eventos.
 5. Comparar varios días antes y después; investigar cualquier caída anómala antes de cerrar el bloque.
+
+## Evidencia de despliegue y prueba controlada
+
+Despliegue de producción activado el 24 de agosto de 2026 mediante el [PR #6](https://github.com/DaniBetanD/sprakkafe-oslo/pull/6).
+
+Prueba realizada después del despliegue:
+
+| Caso | Ruta | Evidencia de red | Resultado en Vercel Analytics |
+| --- | --- | --- | --- |
+| Navegador sin marca | `/en/info/privacy` | Carga del script y `POST /_vercel/insights/view` | 1 página vista de producción registrada a las 20:15 UTC. |
+| Navegador interno marcado | `/en/info/cookies` | Ninguna solicitud a `/_vercel/insights` | La ruta no apareció en la consulta del mismo intervalo. |
+| Deployment Preview | URL generada por el PR | El acceso anónimo fue redirigido al login de protección de Vercel antes de cargar la aplicación. | No alcanzó la integración de Analytics; el panel debe mantenerse filtrado por **Production**. |
+
+La prueba positiva confirma que el tráfico normal continúa registrándose. La prueba negativa confirma que la marca local cancela el envío antes de llegar a Vercel. Queda pendiente comparar varios días posteriores con la línea base para detectar una caída anómala no esperada.
 
 ## Criterio de cierre
 
