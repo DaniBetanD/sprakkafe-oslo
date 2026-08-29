@@ -65,14 +65,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://sprakkafe-oslo.vercel.app/es/activity/1</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/1" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/1" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/1" />
-    <lastmod>2026-07-26</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/rodekors-hausmann</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-hausmann" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-hausmann" />
@@ -177,34 +169,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sprakkafe-oslo.vercel.app/es/activity/laf-natur-sprak-fellesskap</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/laf-natur-sprak-fellesskap" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/laf-natur-sprak-fellesskap" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/laf-natur-sprak-fellesskap" />
-    <lastmod>2026-08-02</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital-summer</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital-summer" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-digital-summer" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital-summer" />
-    <lastmod>2026-07-29</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-digital" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital" />
-    <lastmod>2026-07-29</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sprakkafe-oslo.vercel.app/es/activity/stella-open-house-summer</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/stella-open-house-summer" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/stella-open-house-summer" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/stella-open-house-summer" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
@@ -449,14 +417,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://sprakkafe-oslo.vercel.app/en/activity/1</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/1" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/1" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/1" />
-    <lastmod>2026-07-26</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/rodekors-hausmann</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-hausmann" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-hausmann" />
@@ -561,34 +521,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sprakkafe-oslo.vercel.app/en/activity/laf-natur-sprak-fellesskap</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/laf-natur-sprak-fellesskap" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/laf-natur-sprak-fellesskap" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/laf-natur-sprak-fellesskap" />
-    <lastmod>2026-08-02</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sprakkafe-oslo.vercel.app/en/activity/rodekors-digital-summer</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital-summer" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-digital-summer" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital-summer" />
-    <lastmod>2026-07-29</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://sprakkafe-oslo.vercel.app/en/activity/rodekors-digital</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/rodekors-digital" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/rodekors-digital" />
-    <lastmod>2026-07-29</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sprakkafe-oslo.vercel.app/en/activity/stella-open-house-summer</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/activity/stella-open-house-summer" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/activity/stella-open-house-summer" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/activity/stella-open-house-summer" />
     <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
   </url>
