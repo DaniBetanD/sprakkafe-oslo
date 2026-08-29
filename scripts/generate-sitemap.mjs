@@ -4,6 +4,7 @@ import { guides } from "../src/data/guides.js";
 
 const projectRoot = new URL("../", import.meta.url);
 const baseUrl = "https://sprakkafe-oslo.vercel.app";
+const today = new Date().toISOString().slice(0, 10);
 
 async function readJson(path) {
   return JSON.parse(await readFile(new URL(path, projectRoot), "utf8"));
@@ -27,6 +28,10 @@ const [activities, organizations] = await Promise.all([
   readJson("src/data/organizations.json"),
 ]);
 
+const sitemapActivities = activities.filter((activity) => (
+  !activity.availableUntil || activity.availableUntil >= today
+));
+
 const latestUpdate = [...activities, ...organizations]
   .map((item) => item.lastChecked)
   .filter(Boolean)
@@ -49,7 +54,7 @@ const urls = ["es", "en"].flatMap((locale) => [
     const englishPath = `/en/info/${INFORMATION_SLUGS.en[index]}`;
     return createUrl(`/${locale}/info/${slug}`, englishPath, "2026-08-01", "0.5", spanishPath);
   }),
-  ...activities.map((activity) => (
+  ...sitemapActivities.map((activity) => (
     createUrl(
       `/${locale}/activity/${encodeURIComponent(activity.id)}`,
       `/en/activity/${encodeURIComponent(activity.id)}`,
