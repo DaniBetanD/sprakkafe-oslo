@@ -136,6 +136,7 @@ export function getGuideSeo(guide, locale) {
 
 export function getActivitySeo(activity, organization, locale) {
   const pathname = `/${locale}/activity/${encodeURIComponent(activity.id)}`;
+  const publicUrl = `${SITE_URL}${pathname}`;
   const isEnglish = locale === "en";
   const visibleDay = isEnglish ? activity.day : spanishDays[activity.day] || activity.day;
   const schedule = [visibleDay, activity.time].filter(Boolean).join(" · ");
@@ -154,6 +155,10 @@ export function getActivitySeo(activity, organization, locale) {
     startDate: activity.availableFrom || undefined,
     endDate: activity.availableUntil || undefined,
   } : undefined;
+  const eventStatuses = {
+    active: "https://schema.org/EventScheduled",
+    upcoming: "https://schema.org/EventScheduled",
+  };
 
   return {
     pathname,
@@ -164,14 +169,21 @@ export function getActivitySeo(activity, organization, locale) {
       "@type": "Event",
       name: activity.name,
       description: activity.description,
-      url: `${SITE_URL}${pathname}`,
+      url: publicUrl,
       inLanguage: locale,
       isAccessibleForFree: activity.cost === "free" ? true : undefined,
+      eventStatus: eventStatuses[activity.status],
       eventAttendanceMode: activity.address
         ? "https://schema.org/OfflineEventAttendanceMode"
         : "https://schema.org/OnlineEventAttendanceMode",
       startDate: activity.availableFrom || undefined,
       eventSchedule,
+      offers: activity.cost === "free" ? {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "NOK",
+        url: activity.registrationUrl || publicUrl,
+      } : undefined,
       location: activity.address ? {
         "@type": "Place",
         name: activity.district || "Oslo",

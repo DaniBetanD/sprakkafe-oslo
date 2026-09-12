@@ -275,20 +275,40 @@ Las fechas del Bloque 2 son relativas a la puerta verde de Analytics, no comprom
 ## Definition of Done
 
 - [ ] Todos los navegadores internos conocidos están marcados.
-- [ ] Tres días completos de Analytics están comparados y documentados.
-- [ ] No existe una caída anómala atribuible al filtro.
-- [ ] TECH-ANALYTICS-002 está cerrado y publicado.
-- [ ] `EventScheduled` aparece en todos los eventos `active` y `upcoming`.
-- [ ] `Offer` aparece solo con gratuidad confirmada.
-- [ ] No existen `endDate`, `performer` ni `image` inventados.
+- [x] Tres días completos de Analytics están comparados y documentados.
+- [x] No existe una caída anómala atribuible al filtro.
+- [x] TECH-ANALYTICS-002 está cerrado localmente; publicación incluida en el cambio del Bloque 2.
+- [x] `EventScheduled` aparece en todos los eventos `active` y `upcoming`.
+- [x] `Offer` aparece solo con gratuidad confirmada.
+- [x] No existen `endDate`, `performer` ni `image` inventados.
 - [ ] Validaciones local y externa sin errores.
 - [ ] Cambio fusionado y verificado en producción.
 - [ ] Search Console muestra el nuevo rastreo sin errores o la validación solicitada queda registrada y pendiente explícitamente.
 - [ ] Documentación final publicada.
 
+## Evidencia de ejecución
+
+### Cierre de Analytics
+
+El 10 de septiembre de 2026 se analizaron 16 días completos posteriores al despliegue. Se registraron 89 páginas vistas y hubo tráfico en 14 de los 16 días. La continuidad y los picos posteriores descartan un bloqueo sostenido atribuible al filtro. Resultado: **verde**.
+
+### Auditoría de gratuidad y marcado local
+
+La fuente de datos actual distingue explícitamente `cost: "free"` de la ausencia de precio. El marcado usa esa distinción sin inferir gratuidad:
+
+- 21 actividades con `cost: "free"`: generan `Offer` con `price: "0"` y `priceCurrency: "NOK"`;
+- 4 actividades sin precio confirmado —KIA Tullins gate, Turgruppa, Fotballgruppa y KulTur Tøyen—: no generan `Offer`;
+- `EventScheduled` se limita a los estados internos `active` y `upcoming`;
+- `availableUntil` permanece únicamente como fin de la recurrencia dentro de `eventSchedule`; no se publica como `endDate` principal del evento;
+- no se añaden `performer` ni `image` al evento.
+
+El build local generó 50 páginas bilingües de actividad: 48 con `EventScheduled`, 42 con `Offer`, cero `endDate` principales, cero `performer`, cero `image`, cero ofertas inválidas y cero JSON-LD inválidos. `npm run lint`, `npm run build` y `git diff --check` pasaron.
+
+El Preview del PR #11 se verificó con una actividad gratuita activa en español, una actividad gratuita próxima en inglés y una actividad sin precio confirmado. El validador oficial de Schema.org devolvió **0 errores y 0 advertencias** en las tres muestras.
+
 ## Acciones inmediatas
 
-1. La administración marca sus navegadores restantes y confirma la lista.
-2. El seguimiento automático continúa hasta el corte del 28 de agosto.
-3. Codex registra el semáforo y publica la evidencia.
-4. Solo con resultado verde se inicia la auditoría de Schema.org.
+1. Publicar un PR aislado con el cierre de Analytics y la corrección de Schema.org.
+2. Validar muestras ES/EN en Preview con Rich Results Test o un validador equivalente.
+3. Fusionar únicamente si la validación externa no muestra errores.
+4. Verificar producción y registrar el seguimiento en Search Console.

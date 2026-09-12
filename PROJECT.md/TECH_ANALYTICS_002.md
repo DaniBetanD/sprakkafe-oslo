@@ -1,6 +1,6 @@
 # TECH-ANALYTICS-002 — Exclusión de tráfico interno y de pruebas
 
-Estado: desplegado y prueba controlada superada; observación de varios días pendiente
+Estado: cerrado; exclusión desplegada y validada con tráfico real
 Fecha de inicio: 24 de agosto de 2026
 
 ## Objetivo
@@ -83,9 +83,23 @@ Prueba realizada después del despliegue:
 
 La prueba positiva confirma que el tráfico normal continúa registrándose. La prueba negativa confirma que la marca local cancela el envío antes de llegar a Vercel. Queda pendiente comparar varios días posteriores con la línea base para detectar una caída anómala no esperada.
 
+## Evidencia de observación posterior
+
+Consulta ejecutada el 10 de septiembre de 2026 mediante Vercel CLI, con granularidad diaria y zona horaria `Europe/Madrid`:
+
+- periodo completo posterior analizado: del 25 de agosto al 9 de septiembre de 2026;
+- páginas vistas: 89;
+- días con tráfico: 14 de 16;
+- días sin tráfico: 27 y 28 de agosto;
+- picos posteriores: 28 páginas vistas el 29 de agosto, 12 el 3 de septiembre y 9 el 4 de septiembre.
+
+La línea base previa, 201 páginas vistas en siete días y un rango de 1 a 70 por día, incluía accesos internos y presentaba una variación demasiado alta para usarla como expectativa directa. La observación posterior confirma que el tráfico legítimo continúa registrándose durante varias semanas y que los dos días iniciales con cero no constituyeron un bloqueo sostenido causado por el filtro.
+
+**Semáforo final: verde.** No existe evidencia de una caída anómala atribuible a la exclusión. El bloque de Schema.org Event puede comenzar.
+
 ## Criterio de cierre
 
-El bloque solo se cerrará cuando la exclusión esté desplegada, la prueba positiva y negativa esté confirmada con datos reales, y la observación posterior no muestre una caída anómala. Hasta entonces no comienza el bloque Schema.org Event.
+Cumplido el 10 de septiembre de 2026: la exclusión está desplegada, las pruebas positiva y negativa están confirmadas con datos reales y la observación posterior no muestra una caída anómala atribuible al filtro.
 
 ## Fuentes técnicas
 
