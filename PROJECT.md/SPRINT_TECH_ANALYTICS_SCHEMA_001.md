@@ -304,6 +304,8 @@ La fuente de datos actual distingue explícitamente `cost: "free"` de la ausenci
 
 El build local generó 50 páginas bilingües de actividad: 48 con `EventScheduled`, 42 con `Offer`, cero `endDate` principales, cero `performer`, cero `image`, cero ofertas inválidas y cero JSON-LD inválidos. `npm run lint`, `npm run build` y `git diff --check` pasaron.
 
+El Preview del PR #11 se verificó con una actividad gratuita activa en español, una actividad gratuita próxima en inglés y una actividad sin precio confirmado. El validador oficial de Schema.org devolvió **0 errores y 0 advertencias** en las tres muestras.
+
 ## Acciones inmediatas
 
 1. Publicar un PR aislado con el cierre de Analytics y la corrección de Schema.org.
