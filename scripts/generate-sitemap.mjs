@@ -29,7 +29,8 @@ const [activities, organizations] = await Promise.all([
 ]);
 
 const sitemapActivities = activities.filter((activity) => (
-  !activity.availableUntil || activity.availableUntil >= today
+  activity.status !== "paused"
+  && (!activity.availableUntil || activity.availableUntil >= today)
 ));
 
 const latestUpdate = [...activities, ...organizations]
