@@ -45,7 +45,7 @@ export default function SeoMetadata({ title, description, locale, pathname, alte
     ensureLink('link[rel="alternate"][hreflang="x-default"]', {
       rel: "alternate",
       hreflang: "x-default",
-      href: `${SITE_URL}${localizePath(pathname, "es")}`,
+      href: `${SITE_URL}${locale === "es" ? pathname : resolvedAlternatePath}`,
     });
 
     const socialMeta = [

@@ -3,6 +3,7 @@ export const guides = [
     slug: "first-sprakkafe",
     publishedAt: "2026-08-07",
     updatedAt: "2026-08-07",
+    responsible: "Daniel",
     content: {
       es: {
         eyebrow: "Guía para tu primera visita",
@@ -118,6 +119,102 @@ export const guides = [
         ],
         ctaTitle: "Find an activity to get started",
         ctaText: "Check the schedule, location and participation instructions before choosing your first visit.",
+        ctaLabel: "View activities",
+      },
+    },
+  },
+  {
+    slug: "norwegian-level-for-sprakkafe",
+    publishedAt: "2026-10-02",
+    updatedAt: "2026-10-02",
+    responsible: "Daniel",
+    content: {
+      es: {
+        eyebrow: "Guía para elegir una actividad",
+        title: "¿Qué nivel de noruego necesito para ir a un Språkkafé?",
+        description: "Aprende a interpretar los niveles A1, A2, B1 y B2 y comprueba qué nivel o público indica cada actividad antes de asistir.",
+        intro: "No existe un nivel único para todos los Språkkafé. Algunas actividades reciben a todos los niveles y otras indican un nivel mínimo o un público concreto. Antes de ir, abre la ficha de la actividad y comprueba el nivel, el público y la información oficial de la organización.",
+        readingTime: "4 min de lectura",
+        sections: [
+          {
+            title: "1. La ficha de cada actividad es la referencia",
+            paragraphs: [
+              "La orientación general de esta guía te ayuda a entender los niveles, pero no sustituye las condiciones publicadas por cada organización.",
+              "En la ficha, revisa el nivel o público, el horario y las instrucciones de participación. Después confirma los detalles en el enlace oficial cuando esté disponible.",
+            ],
+          },
+          {
+            title: "2. Qué significan A1, A2, B1 y B2",
+            paragraphs: [
+              "Estos niveles pertenecen al Marco Común Europeo de Referencia para las Lenguas. A1 corresponde a conversaciones muy sencillas con ayuda; A2, a intercambios simples sobre situaciones conocidas; B1, a conversaciones comprensibles sobre temas familiares; y B2, a una interacción más espontánea y fluida.",
+              "Son descripciones generales de competencia lingüística. No indican por sí solas cómo se organiza una actividad concreta.",
+            ],
+            source: {
+              label: "Fuente oficial: niveles de idioma de HK-dir",
+              href: "https://prove.hkdir.no/en/language-levels",
+            },
+          },
+          {
+            title: "3. Qué significa «todos los niveles»",
+            paragraphs: [
+              "Cuando una organización publica que acepta todos los niveles, puedes asistir aunque estés empezando. Eso no garantiza que todas las conversaciones tengan el mismo ritmo ni que haya apoyo específico para cada nivel.",
+              "Participa con lo que ya sabes, pide que repitan o hablen más despacio y comprueba si la organización ofrece indicaciones adicionales.",
+            ],
+          },
+          {
+            title: "4. Si el nivel no está claro",
+            paragraphs: [
+              "No deduzcas un requisito que la organización no haya publicado. Consulta su enlace oficial o contacta con ella antes de desplazarte.",
+              "También puedes elegir una actividad que indique claramente «todos los niveles» o un nivel que coincida con el tuyo.",
+            ],
+          },
+        ],
+        ctaTitle: "Comprueba el nivel de una actividad",
+        ctaText: "Consulta las actividades disponibles y abre una ficha para revisar el nivel, el público y la información oficial de la organización.",
+        ctaLabel: "Ver actividades",
+      },
+      en: {
+        eyebrow: "Guide to choosing an activity",
+        title: "What level of Norwegian do I need for a language café?",
+        description: "Learn how to interpret A1, A2, B1 and B2 and check the level or audience listed for each activity before attending.",
+        intro: "There is no single level required for every language café. Some activities welcome all levels, while others list a minimum level or a specific audience. Before you go, open the activity page and check the level, audience and official information from the organisation.",
+        readingTime: "4 min read",
+        sections: [
+          {
+            title: "1. The activity page is your reference",
+            paragraphs: [
+              "The general guidance in this article helps you understand language levels, but it does not replace the conditions published by each organisation.",
+              "On the activity page, check the level or audience, schedule and participation instructions. Then confirm the details through the official link when one is available.",
+            ],
+          },
+          {
+            title: "2. What A1, A2, B1 and B2 mean",
+            paragraphs: [
+              "These levels come from the Common European Framework of Reference for Languages. A1 covers very simple conversations with help; A2, simple exchanges about familiar situations; B1, understandable conversations about familiar topics; and B2, more spontaneous and fluent interaction.",
+              "They are general descriptions of language proficiency. On their own, they do not tell you how a particular activity is organised.",
+            ],
+            source: {
+              label: "Official source: HK-dir language levels",
+              href: "https://prove.hkdir.no/en/language-levels",
+            },
+          },
+          {
+            title: "3. What “all levels” means",
+            paragraphs: [
+              "When an organisation states that all levels are welcome, you can attend even if you are a beginner. This does not guarantee that every conversation will move at the same pace or that specific support is available for each level.",
+              "Take part with the Norwegian you already know, ask people to repeat themselves or speak more slowly, and check whether the organisation provides any additional guidance.",
+            ],
+          },
+          {
+            title: "4. If the level is unclear",
+            paragraphs: [
+              "Do not assume a requirement that the organisation has not published. Check its official link or contact the organisation before travelling.",
+              "You can also choose an activity that clearly says “all levels” or lists a level that matches yours.",
+            ],
+          },
+        ],
+        ctaTitle: "Check the level of an activity",
+        ctaText: "Browse the available activities and open a page to review the level, audience and official information from the organisation.",
         ctaLabel: "View activities",
       },
     },

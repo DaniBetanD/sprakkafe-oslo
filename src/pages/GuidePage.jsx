@@ -15,6 +15,14 @@ export default function GuidePage() {
   if (!guide) return <Navigate to={pathFor("/guides")} replace />;
 
   const seo = getGuideSeo(guide, locale);
+  const labels = locale === "en"
+    ? { published: "Published", reviewed: "Reviewed", responsible: "Responsible" }
+    : { published: "Publicada", reviewed: "Revisada", responsible: "Responsable" };
+  const formatDate = (date) => new Intl.DateTimeFormat(locale === "en" ? "en-GB" : "es-ES", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(`${date}T00:00:00`));
 
   return (
     <div className="flex min-h-screen flex-col bg-gray-50">
@@ -28,6 +36,22 @@ export default function GuidePage() {
           <p className="mt-3 text-sm font-semibold text-blue-700">{guide.eyebrow}</p>
           <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-950 md:text-4xl">{guide.title}</h1>
           <p className="mt-3 text-sm text-gray-500">{guide.readingTime}</p>
+          {guide.responsible && (
+            <dl className="mt-5 flex flex-wrap gap-x-6 gap-y-2 border-y border-gray-100 py-4 text-sm text-gray-600">
+              <div className="flex gap-1.5">
+                <dt className="font-semibold text-gray-800">{labels.published}:</dt>
+                <dd>{formatDate(guide.publishedAt)}</dd>
+              </div>
+              <div className="flex gap-1.5">
+                <dt className="font-semibold text-gray-800">{labels.reviewed}:</dt>
+                <dd>{formatDate(guide.updatedAt)}</dd>
+              </div>
+              <div className="flex gap-1.5">
+                <dt className="font-semibold text-gray-800">{labels.responsible}:</dt>
+                <dd>{guide.responsible}</dd>
+              </div>
+            </dl>
+          )}
           <p className="mt-6 text-lg leading-8 text-gray-700">{guide.intro}</p>
 
           <div className="mt-10 space-y-10">
@@ -41,6 +65,18 @@ export default function GuidePage() {
                   <ul className="mt-4 list-disc space-y-2 pl-5 leading-7 text-gray-700">
                     {section.items.map((item) => <li key={item}>{item}</li>)}
                   </ul>
+                )}
+                {section.source && (
+                  <p className="mt-4 text-sm leading-6 text-gray-600">
+                    <a
+                      href={section.source.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-semibold text-blue-700 underline decoration-blue-300 underline-offset-4 hover:text-blue-800 focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+                    >
+                      {section.source.label}
+                    </a>
+                  </p>
                 )}
               </section>
             ))}

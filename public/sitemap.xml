@@ -21,7 +21,7 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/guides" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/guides" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/guides" />
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -30,6 +30,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/guides/first-sprakkafe" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/guides/first-sprakkafe" />
     <lastmod>2026-08-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sprakkafe-oslo.vercel.app/es/guides/norwegian-level-for-sprakkafe</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/guides/norwegian-level-for-sprakkafe" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/guides/norwegian-level-for-sprakkafe" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/guides/norwegian-level-for-sprakkafe" />
+    <lastmod>2026-10-02</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -357,7 +365,7 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/guides" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/guides" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/guides" />
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -366,6 +374,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/guides/first-sprakkafe" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/guides/first-sprakkafe" />
     <lastmod>2026-08-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sprakkafe-oslo.vercel.app/en/guides/norwegian-level-for-sprakkafe</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sprakkafe-oslo.vercel.app/es/guides/norwegian-level-for-sprakkafe" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sprakkafe-oslo.vercel.app/en/guides/norwegian-level-for-sprakkafe" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sprakkafe-oslo.vercel.app/es/guides/norwegian-level-for-sprakkafe" />
+    <lastmod>2026-10-02</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
