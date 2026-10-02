@@ -127,7 +127,9 @@ export function getGuideSeo(guide, locale) {
       inLanguage: locale,
       datePublished: guide.publishedAt,
       dateModified: guide.updatedAt,
-      author: { "@type": "Organization", name: SITE_NAME, url: `${SITE_URL}/${locale}` },
+      author: guide.responsible
+        ? { "@type": "Person", name: guide.responsible }
+        : { "@type": "Organization", name: SITE_NAME, url: `${SITE_URL}/${locale}` },
       publisher: { "@type": "Organization", name: SITE_NAME, url: `${SITE_URL}/${locale}` },
       isPartOf: { "@type": "WebSite", name: SITE_NAME, url: `${SITE_URL}/${locale}` },
     },

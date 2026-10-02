@@ -165,7 +165,7 @@ function guideFallback(guide, locale) {
   return `<main id="main-content" data-seo-fallback><article>
     <h1>${escapeHtml(guide.title)}</h1>
     <p>${escapeHtml(guide.intro)}</p>
-    ${guide.sections.map((section) => `<section><h2>${escapeHtml(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}${section.items ? `<ul>${section.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : ""}</section>`).join("")}
+    ${guide.sections.map((section) => `<section><h2>${escapeHtml(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}${section.items ? `<ul>${section.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : ""}${section.source ? `<p><a href="${escapeHtml(section.source.href)}">${escapeHtml(section.source.label)}</a></p>` : ""}</section>`).join("")}
     <p><a href="/${locale}/activities">${escapeHtml(guide.ctaLabel)}</a></p>
   </article></main>`;
 }

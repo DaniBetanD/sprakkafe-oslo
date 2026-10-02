@@ -38,11 +38,16 @@ const latestUpdate = [...activities, ...organizations]
   .filter(Boolean)
   .sort()
   .at(-1);
+const latestGuideUpdate = guides
+  .map((guide) => guide.updatedAt)
+  .filter(Boolean)
+  .sort()
+  .at(-1);
 
 const urls = ["es", "en"].flatMap((locale) => [
   createUrl(`/${locale}`, "/en", latestUpdate, "1.0"),
   createUrl(`/${locale}/activities`, "/en/activities", latestUpdate, "0.9", "/es/activities"),
-  createUrl(`/${locale}/guides`, "/en/guides", "2026-08-07", "0.7", "/es/guides"),
+  createUrl(`/${locale}/guides`, "/en/guides", latestGuideUpdate, "0.7", "/es/guides"),
   ...guides.map((guide) => createUrl(
     `/${locale}/guides/${encodeURIComponent(guide.slug)}`,
     `/en/guides/${encodeURIComponent(guide.slug)}`,
